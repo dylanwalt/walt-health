@@ -202,10 +202,82 @@
       font-size: 0.78rem;
       letter-spacing: 0.04em;
     }
+
+    /* —— Password gate —— */
+    body.locked:not(.oauth-mode) .portal { display: none; }
+    body:not(.locked) .gate,
+    body.oauth-mode .gate { display: none; }
+
+    .gate {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 1.5rem;
+    }
+    .gate-panel {
+      width: min(420px, 100%);
+      text-align: center;
+      animation: rise 600ms ease both;
+    }
+    .gate-panel .mark {
+      width: 64px;
+      height: auto;
+      margin: 0 auto 1rem;
+      display: block;
+    }
+    .gate-panel h1 {
+      margin: 0 0 0.35rem;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    .gate-panel p {
+      margin: 0 0 1.25rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .gate-form {
+      display: grid;
+      gap: 0.75rem;
+    }
+    .gate-form input[type="password"] {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(18, 19, 22, 0.9);
+      color: var(--white);
+      padding: 0.9rem 1.2rem;
+      font: 1rem/1.2 var(--font-body);
+      outline: none;
+    }
+    .gate-form input[type="password"]:focus {
+      border-color: var(--ice);
+      box-shadow: 0 0 0 3px rgba(149, 200, 226, 0.15);
+    }
+    .gate-error {
+      min-height: 1.25rem;
+      color: #ff8f8f;
+      font-size: 0.9rem;
+      margin: 0;
+    }
   </style>
 </head>
-<body>
+<body class="locked">
   <div class="shell">
+    <section class="gate" id="gate" aria-label="Private access">
+      <div class="gate-panel">
+        <img class="mark" src="assets/logo-mark.svg" alt="" />
+        <h1>WALT HEALTH</h1>
+        <p>Private portal. Enter the access password to continue.</p>
+        <form class="gate-form" id="gateForm">
+          <label class="sr-only" for="gatePassword">Password</label>
+          <input id="gatePassword" type="password" name="password" autocomplete="current-password" required autofocus />
+          <button class="btn" type="submit">Unlock</button>
+        </form>
+        <p class="gate-error" id="gateError" aria-live="polite"></p>
+      </div>
+    </section>
+
     <main class="portal hero" id="portal">
       <div class="brand-lockup">
         <img src="assets/logo-lockup.png" width="420" height="226" alt="" />
@@ -239,14 +311,53 @@
 
   <script>
     (function () {
+      // SHA-256 of the access password only — plaintext is never stored in the page.
+      const PASS_HASH = "1a02f982c9e3e518df34f2e70fc99d6903abf0ac960b7eeb7ae9e811f5cee342";
+      const AUTH_KEY = "walt_health_unlocked";
+
+      async function sha256Hex(text) {
+        const data = new TextEncoder().encode(text);
+        const buf = await crypto.subtle.digest("SHA-256", data);
+        return Array.from(new Uint8Array(buf))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+      }
+
+      function unlock() {
+        document.body.classList.remove("locked");
+        sessionStorage.setItem(AUTH_KEY, PASS_HASH);
+      }
+
       const params = new URLSearchParams(window.location.search);
       const code = params.get("code");
       const state = params.get("state");
       const error = params.get("error");
       const errorDesc = params.get("error_description");
+      const isOauth = Boolean(code || error);
 
-      if (code || error) {
+      if (isOauth) {
         document.body.classList.add("oauth-mode");
+        document.body.classList.remove("locked");
+      } else if (sessionStorage.getItem(AUTH_KEY) === PASS_HASH) {
+        unlock();
+      }
+
+      const form = document.getElementById("gateForm");
+      const input = document.getElementById("gatePassword");
+      const gateError = document.getElementById("gateError");
+      if (form) {
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          gateError.textContent = "";
+          const attempt = await sha256Hex(input.value || "");
+          if (attempt === PASS_HASH) {
+            unlock();
+            input.value = "";
+          } else {
+            gateError.textContent = "Incorrect password.";
+            input.select();
+          }
+        });
       }
 
       const elCode = document.getElementById("code");
