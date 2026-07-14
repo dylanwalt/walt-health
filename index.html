@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WALT HEALTH</title>
-  <meta name="description" content="WALT HEALTH — personal recovery and training operating system." />
+  <meta name="description" content="WALT HEALTH — private recovery and training portal." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
   <style>
     :root {
       --bg: #0b0b0c;
-      --bg-2: #121316;
+      --panel: rgba(18, 19, 22, 0.88);
       --ice: #95c8e2;
       --ice-soft: #b7d9eb;
       --white: #f5f7f8;
@@ -21,7 +21,6 @@
       --font-display: "Syne", sans-serif;
       --font-body: "Manrope", sans-serif;
     }
-
     * { box-sizing: border-box; }
     html, body { margin: 0; min-height: 100%; }
     body {
@@ -31,234 +30,157 @@
         radial-gradient(900px 520px at 78% 12%, rgba(149, 200, 226, 0.14), transparent 60%),
         radial-gradient(700px 480px at 12% 88%, rgba(149, 200, 226, 0.08), transparent 55%),
         linear-gradient(165deg, #0b0b0c 0%, #101114 48%, #0b0b0c 100%);
-      overflow-x: hidden;
     }
-
     body::before {
       content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0.35;
+      position: fixed; inset: 0; pointer-events: none; opacity: 0.32; z-index: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
       mix-blend-mode: soft-light;
-      z-index: 0;
     }
-
     .shell { position: relative; z-index: 1; }
 
-    /* —— Portal hero —— */
-    .hero {
-      min-height: 100svh;
-      display: grid;
-      align-content: center;
-      justify-items: center;
-      text-align: center;
-      padding: clamp(2rem, 6vw, 4.5rem) 1.25rem 3rem;
-      gap: clamp(1.25rem, 3vw, 2rem);
-    }
-
-    .brand-lockup {
-      width: min(420px, 86vw);
-      animation: rise 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    }
-
-    .brand-lockup img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.45));
-    }
-
     .sr-only {
-      position: absolute;
-      width: 1px; height: 1px;
-      padding: 0; margin: -1px;
-      overflow: hidden; clip: rect(0,0,0,0);
-      white-space: nowrap; border: 0;
-    }
-
-    .headline {
-      margin: 0;
-      max-width: 18ch;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: clamp(1.7rem, 4.4vw, 2.75rem);
-      letter-spacing: -0.02em;
-      line-height: 1.12;
-      animation: rise 900ms cubic-bezier(0.2, 0.8, 0.2, 1) 120ms both;
-    }
-
-    .lede {
-      margin: 0;
-      max-width: 36ch;
-      color: var(--muted);
-      font-size: clamp(1rem, 2.1vw, 1.15rem);
-      line-height: 1.55;
-      animation: rise 900ms cubic-bezier(0.2, 0.8, 0.2, 1) 220ms both;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: center;
-      margin-top: 0.35rem;
-      animation: rise 900ms cubic-bezier(0.2, 0.8, 0.2, 1) 320ms both;
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
     }
 
     .btn {
-      appearance: none;
-      border: 1px solid var(--ice);
-      background: var(--ice);
-      color: #0b0b0c;
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-      text-decoration: none;
-      padding: 0.85rem 1.35rem;
-      border-radius: 999px;
-      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+      appearance: none; border: 1px solid var(--ice); background: var(--ice); color: #0b0b0c;
+      font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; padding: 0.85rem 1.35rem; border-radius: 999px; cursor: pointer;
     }
-    .btn:hover { transform: translateY(-1px); background: var(--ice-soft); }
-    .btn.ghost {
-      background: transparent;
-      color: var(--ice-soft);
-    }
-    .btn.ghost:hover { background: rgba(149, 200, 226, 0.08); color: var(--white); }
-
-    .pulse-line {
-      width: min(220px, 50vw);
-      height: 2px;
-      margin-top: 0.5rem;
-      background: linear-gradient(90deg, transparent, var(--ice), transparent);
-      transform-origin: center;
-      animation: pulseLine 2.8s ease-in-out infinite;
-    }
+    .btn.ghost { background: transparent; color: var(--ice-soft); }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
     @keyframes rise {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes pulseLine {
-      0%, 100% { opacity: 0.25; transform: scaleX(0.7); }
-      50% { opacity: 0.9; transform: scaleX(1); }
-    }
 
-    /* —— OAuth callback mode —— */
-    body.oauth-mode .portal { display: none; }
+    /* views */
+    body.locked:not(.oauth-mode) .app { display: none; }
+    body:not(.locked) .gate, body.oauth-mode .gate { display: none; }
+    body.oauth-mode .app { display: none; }
     body:not(.oauth-mode) .oauth { display: none; }
 
-    .oauth {
-      min-height: 100svh;
+    /* gate */
+    .gate { min-height: 100svh; display: grid; place-items: center; padding: 1.5rem; }
+    .gate-panel { width: min(420px, 100%); text-align: center; animation: rise 600ms ease both; }
+    .gate-panel .mark { width: 64px; margin: 0 auto 1rem; display: block; }
+    .gate-panel h1 { margin: 0 0 0.35rem; font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.04em; }
+    .gate-panel p { margin: 0 0 1.25rem; color: var(--muted); line-height: 1.5; }
+    .gate-form { display: grid; gap: 0.75rem; }
+    .gate-form input[type="password"] {
+      width: 100%; border-radius: 999px; border: 1px solid var(--line);
+      background: rgba(18, 19, 22, 0.9); color: var(--white);
+      padding: 0.9rem 1.2rem; font: 1rem/1.2 var(--font-body); outline: none;
+    }
+    .gate-form input:focus { border-color: var(--ice); box-shadow: 0 0 0 3px rgba(149, 200, 226, 0.15); }
+    .gate-error { min-height: 1.25rem; color: #ff8f8f; font-size: 0.9rem; margin: 0; }
+
+    /* app shell */
+    .top {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 1rem clamp(1rem, 4vw, 2rem); border-bottom: 1px solid var(--line);
+    }
+    .brand-mini { display: flex; align-items: center; gap: 0.7rem; }
+    .brand-mini img { width: 34px; height: auto; }
+    .brand-mini strong {
+      font-family: var(--font-display); letter-spacing: 0.06em; font-size: 0.95rem;
+    }
+    .nav {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+    }
+    .nav button {
+      appearance: none; border: 1px solid transparent; background: transparent;
+      color: var(--muted); border-radius: 999px; padding: 0.45rem 0.85rem;
+      font: 500 0.88rem/1 var(--font-body); cursor: pointer;
+    }
+    .nav button.active { color: var(--white); border-color: var(--line); background: rgba(149, 200, 226, 0.08); }
+
+    .view { display: none; padding: clamp(1.25rem, 4vw, 2.25rem); max-width: 1100px; margin: 0 auto; animation: rise 500ms ease both; }
+    .view.active { display: block; }
+
+    .hero-strip h2 {
+      margin: 0 0 0.35rem; font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem); letter-spacing: -0.02em;
+    }
+    .hero-strip p { margin: 0; color: var(--muted); max-width: 48ch; line-height: 1.5; }
+
+    .metrics {
       display: grid;
-      place-items: center;
-      padding: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.85rem;
+      margin: 1.5rem 0;
     }
+    .metric {
+      border-top: 1px solid var(--line);
+      padding: 0.85rem 0.1rem 0.35rem;
+    }
+    .metric .label { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .metric .value { font-family: var(--font-display); font-size: 1.65rem; margin-top: 0.25rem; color: var(--ice-soft); }
+    .metric .sub { color: var(--muted); font-size: 0.82rem; margin-top: 0.2rem; }
+
+    .block { margin: 1.75rem 0; }
+    .block h3 {
+      margin: 0 0 0.55rem; font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.03em;
+    }
+    .block p, .block li { color: var(--muted); line-height: 1.55; }
+    .block ul { margin: 0; padding-left: 1.1rem; }
+
+    .banner {
+      border-left: 3px solid var(--ice);
+      padding: 0.85rem 1rem;
+      background: rgba(149, 200, 226, 0.06);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .banner strong { color: var(--white); }
+
+    .day-rail {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .day-rail .d {
+      text-align: center; padding: 0.7rem 0.2rem; border: 1px solid var(--line); border-radius: 12px;
+      color: var(--muted); font-size: 0.78rem;
+    }
+    .day-rail .d.today { border-color: var(--ice); color: var(--white); background: rgba(149, 200, 226, 0.1); }
+    .day-rail .d.gym { color: var(--ice-soft); }
+
+    .guide {
+      margin-top: 1.25rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .guide h3 { margin-top: 0; }
+    .guide .empty { color: var(--muted); }
+
+    /* oauth */
+    .oauth { min-height: 100svh; display: grid; place-items: center; padding: 1.5rem; }
     .oauth-panel {
-      width: min(560px, 100%);
-      border: 1px solid var(--line);
-      background: rgba(18, 19, 22, 0.85);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 1.75rem;
-      animation: rise 500ms ease both;
+      width: min(560px, 100%); border: 1px solid var(--line); background: var(--panel);
+      backdrop-filter: blur(10px); border-radius: 20px; padding: 1.75rem; animation: rise 500ms ease both;
     }
-    .oauth-panel .mark {
-      width: 56px;
-      height: auto;
-      margin-bottom: 0.85rem;
-    }
-    .oauth-panel h1 {
-      margin: 0 0 0.4rem;
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-    }
+    .oauth-panel .mark { width: 56px; margin-bottom: 0.85rem; }
+    .oauth-panel h1 { margin: 0 0 0.4rem; font-family: var(--font-display); font-size: 1.45rem; }
     .oauth-panel p { color: var(--muted); margin: 0 0 1rem; line-height: 1.5; }
     label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 0.4rem; }
     textarea {
-      width: 100%;
-      min-height: 5.5rem;
-      resize: vertical;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: #0b0b0c;
-      color: var(--white);
-      padding: 0.85rem 1rem;
-      font: 0.92rem/1.4 ui-monospace, Consolas, monospace;
+      width: 100%; min-height: 5.5rem; resize: vertical; border-radius: 12px;
+      border: 1px solid var(--line); background: #0b0b0c; color: var(--white);
+      padding: 0.85rem 1rem; font: 0.92rem/1.4 ui-monospace, Consolas, monospace;
     }
     .oauth-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
     .status { margin-top: 1rem; color: var(--muted); min-height: 1.25rem; }
     .status.ok { color: var(--ice); }
     .status.bad { color: #ff8f8f; }
 
-    .foot {
-      position: absolute;
-      bottom: 1rem;
-      left: 0; right: 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-    }
-
-    /* —— Password gate —— */
-    body.locked:not(.oauth-mode) .portal { display: none; }
-    body:not(.locked) .gate,
-    body.oauth-mode .gate { display: none; }
-
-    .gate {
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      padding: 1.5rem;
-    }
-    .gate-panel {
-      width: min(420px, 100%);
-      text-align: center;
-      animation: rise 600ms ease both;
-    }
-    .gate-panel .mark {
-      width: 64px;
-      height: auto;
-      margin: 0 auto 1rem;
-      display: block;
-    }
-    .gate-panel h1 {
-      margin: 0 0 0.35rem;
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      letter-spacing: 0.04em;
-    }
-    .gate-panel p {
-      margin: 0 0 1.25rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .gate-form {
-      display: grid;
-      gap: 0.75rem;
-    }
-    .gate-form input[type="password"] {
-      width: 100%;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(18, 19, 22, 0.9);
-      color: var(--white);
-      padding: 0.9rem 1.2rem;
-      font: 1rem/1.2 var(--font-body);
-      outline: none;
-    }
-    .gate-form input[type="password"]:focus {
-      border-color: var(--ice);
-      box-shadow: 0 0 0 3px rgba(149, 200, 226, 0.15);
-    }
-    .gate-error {
-      min-height: 1.25rem;
-      color: #ff8f8f;
-      font-size: 0.9rem;
-      margin: 0;
+    @media (max-width: 720px) {
+      .day-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .top { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -268,36 +190,85 @@
       <div class="gate-panel">
         <img class="mark" src="assets/logo-mark.svg" alt="" />
         <h1>WALT HEALTH</h1>
-        <p>Private portal. Enter the access password to continue.</p>
+        <p>Private portal. Unlock stays valid for 24 hours on this device.</p>
         <form class="gate-form" id="gateForm">
           <label class="sr-only" for="gatePassword">Password</label>
-          <input id="gatePassword" type="password" name="password" autocomplete="current-password" required autofocus />
+          <input id="gatePassword" type="password" autocomplete="current-password" required autofocus />
           <button class="btn" type="submit">Unlock</button>
         </form>
         <p class="gate-error" id="gateError" aria-live="polite"></p>
       </div>
     </section>
 
-    <main class="portal hero" id="portal">
-      <div class="brand-lockup">
-        <img src="assets/logo-lockup.png" width="420" height="226" alt="" />
-        <h1 class="sr-only">WALT HEALTH</h1>
-      </div>
-      <p class="headline">Your private recovery &amp; training OS.</p>
-      <p class="lede">WHOOP-grounded context, plans you iterate in Cursor, and a calm front door for the stack behind it.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://github.com/dylanwalt/walt-health">Open project</a>
-        <a class="btn ghost" href="#connect">WHOOP callback ready</a>
-      </div>
-      <div class="pulse-line" aria-hidden="true"></div>
-      <p class="foot">Personal use · dylanwalt.github.io/walt-health</p>
-    </main>
+    <div class="app" id="app">
+      <header class="top">
+        <div class="brand-mini">
+          <img src="assets/logo-mark.svg" alt="" />
+          <strong>WALT HEALTH</strong>
+        </div>
+        <nav class="nav" aria-label="Sections">
+          <button type="button" data-view="overview" class="active">Overview</button>
+          <button type="button" data-view="plan">This week</button>
+          <button type="button" data-view="today">Today</button>
+          <button type="button" data-view="progress">Progress</button>
+        </nav>
+      </header>
+
+      <section class="view active" id="view-overview">
+        <div class="hero-strip">
+          <h2 id="greet">Welcome back</h2>
+          <p id="overviewLede">Loading your latest WHOOP snapshot…</p>
+        </div>
+        <div class="metrics" id="metrics"></div>
+        <div class="block">
+          <h3>Trust barrier</h3>
+          <p id="trustMsg" class="banner"></p>
+        </div>
+        <div class="block">
+          <h3>Signals</h3>
+          <ul id="notesList"></ul>
+        </div>
+      </section>
+
+      <section class="view" id="view-plan">
+        <div class="hero-strip">
+          <h2>This week</h2>
+          <p id="planHeadline">Weekly plan status</p>
+        </div>
+        <p class="banner" id="planBanner"></p>
+        <div class="day-rail" id="weekRail"></div>
+        <div class="block">
+          <h3>Notes</h3>
+          <ul id="planNotes"></ul>
+        </div>
+      </section>
+
+      <section class="view" id="view-today">
+        <div class="hero-strip">
+          <h2 id="todayTitle">Today</h2>
+          <p id="todayLede">Day-aware guided workout view</p>
+        </div>
+        <div class="guide" id="todayGuide"></div>
+      </section>
+
+      <section class="view" id="view-progress">
+        <div class="hero-strip">
+          <h2>Progress</h2>
+          <p>60-day window vs plan stickiness (fills in as weeks complete).</p>
+        </div>
+        <div class="metrics" id="progressMetrics"></div>
+        <div class="block">
+          <h3>Activity mix (60 days)</h3>
+          <ul id="mixList"></ul>
+        </div>
+      </section>
+    </div>
 
     <section class="oauth" id="connect" aria-live="polite">
       <div class="oauth-panel">
         <img class="mark" src="assets/logo-mark.svg" alt="" />
         <h1>WHOOP connected</h1>
-        <p id="subtitle">Copy the authorization code and return to Cursor to finish the link.</p>
+        <p id="subtitle">Copy the authorization code and return to Cursor.</p>
         <label for="code">Authorization code</label>
         <textarea id="code" readonly placeholder="Waiting for redirect…"></textarea>
         <div class="oauth-actions">
@@ -311,21 +282,38 @@
 
   <script>
     (function () {
-      // SHA-256 of the access password only — plaintext is never stored in the page.
       const PASS_HASH = "1a02f982c9e3e518df34f2e70fc99d6903abf0ac960b7eeb7ae9e811f5cee342";
-      const AUTH_KEY = "walt_health_unlocked";
+      const AUTH_KEY = "walt_health_auth_v2";
+      const TTL_MS = 24 * 60 * 60 * 1000;
 
       async function sha256Hex(text) {
-        const data = new TextEncoder().encode(text);
-        const buf = await crypto.subtle.digest("SHA-256", data);
-        return Array.from(new Uint8Array(buf))
-          .map((b) => b.toString(16).padStart(2, "0"))
-          .join("");
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
+      }
+
+      function readAuth() {
+        try {
+          const raw = localStorage.getItem(AUTH_KEY);
+          if (!raw) return null;
+          return JSON.parse(raw);
+        } catch {
+          return null;
+        }
+      }
+
+      function isUnlocked() {
+        const auth = readAuth();
+        if (!auth || auth.hash !== PASS_HASH) return false;
+        if (Date.now() - Number(auth.at || 0) > TTL_MS) {
+          localStorage.removeItem(AUTH_KEY);
+          return false;
+        }
+        return true;
       }
 
       function unlock() {
+        localStorage.setItem(AUTH_KEY, JSON.stringify({ hash: PASS_HASH, at: Date.now() }));
         document.body.classList.remove("locked");
-        sessionStorage.setItem(AUTH_KEY, PASS_HASH);
       }
 
       const params = new URLSearchParams(window.location.search);
@@ -338,7 +326,7 @@
       if (isOauth) {
         document.body.classList.add("oauth-mode");
         document.body.classList.remove("locked");
-      } else if (sessionStorage.getItem(AUTH_KEY) === PASS_HASH) {
+      } else if (isUnlocked()) {
         unlock();
       }
 
@@ -353,6 +341,7 @@
           if (attempt === PASS_HASH) {
             unlock();
             input.value = "";
+            loadDashboard();
           } else {
             gateError.textContent = "Incorrect password.";
             input.select();
@@ -360,31 +349,149 @@
         });
       }
 
+      // nav
+      document.querySelectorAll(".nav button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".nav button").forEach((b) => b.classList.remove("active"));
+          document.querySelectorAll(".view").forEach((v) => v.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById("view-" + btn.dataset.view).classList.add("active");
+        });
+      });
+
+      function fmt(n, digits) {
+        if (n === null || n === undefined || Number.isNaN(n)) return "—";
+        return Number(n).toFixed(digits);
+      }
+
+      function weekdayName(d) {
+        return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getDay()];
+      }
+
+      async function loadDashboard() {
+        let data;
+        try {
+          const res = await fetch("data/dashboard.json?t=" + Date.now(), { cache: "no-store" });
+          if (!res.ok) throw new Error("missing dashboard");
+          data = await res.json();
+        } catch {
+          document.getElementById("overviewLede").textContent =
+            "Dashboard snapshot not published yet. Sync from Cursor, then republish the portal.";
+          return;
+        }
+
+        const name = (data.athlete && data.athlete.first_name) || "Athlete";
+        document.getElementById("greet").textContent = "Hey " + name;
+        const latest = data.today && data.today.latest_recovery;
+        document.getElementById("overviewLede").textContent = latest && latest.recovery_score != null
+          ? ("Latest recovery " + latest.recovery_score + " · 60-day averages below · updated " + (data.generated_at || "").slice(0, 16).replace("T", " ") + " UTC")
+          : ("60-day averages below · updated " + (data.generated_at || "").slice(0, 16));
+
+        const m = (data.window && data.window.metrics) || {};
+        const metricsEl = document.getElementById("metrics");
+        const items = [
+          ["Recovery avg", fmt(m.recovery_score && m.recovery_score.avg, 0), "60 days"],
+          ["HRV avg", fmt(m.hrv_rmssd_milli && m.hrv_rmssd_milli.avg, 0), "ms"],
+          ["Resting HR", fmt(m.resting_heart_rate && m.resting_heart_rate.avg, 0), "bpm"],
+          ["Sleep", fmt(m.sleep_duration_hours && m.sleep_duration_hours.avg, 1), "hours"],
+          ["Sleep perf", fmt(m.sleep_performance_pct && m.sleep_performance_pct.avg, 0), "%"],
+          ["Strain", fmt(m.cycle_strain && m.cycle_strain.avg, 1), "daily cycle"],
+        ];
+        metricsEl.innerHTML = items.map(([label, value, sub]) =>
+          '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + '</div></div>'
+        ).join("");
+
+        document.getElementById("trustMsg").innerHTML =
+          "<strong>Source-gated.</strong> " + ((data.trust && data.trust.message) || "");
+
+        const notes = (data.window && data.window.notes) || [];
+        document.getElementById("notesList").innerHTML = notes.map((n) => "<li>" + n + "</li>").join("") || "<li>No notes yet.</li>";
+
+        // plan
+        const plan = data.plan || {};
+        document.getElementById("planHeadline").textContent = plan.headline || "Weekly plan";
+        document.getElementById("planBanner").innerHTML =
+          "<strong>Status:</strong> " + (plan.status || "unknown") +
+          " · cadence <strong>" + (plan.cadence || "weekly") +
+          "</strong> · target gym days <strong>" + (plan.target_gym_days || "—") + "</strong>";
+        document.getElementById("planNotes").innerHTML = ((plan.notes || []).map((n) => "<li>" + n + "</li>").join("")) || "<li>No plan notes.</li>";
+
+        const today = new Date();
+        const rail = document.getElementById("weekRail");
+        const planned = new Set((plan.days || []).map((d) => String(d.weekday || d.day || "").toLowerCase()));
+        rail.innerHTML = "";
+        // show Mon-Sun week starting Monday
+        const mondayOffset = (today.getDay() + 6) % 7;
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(today);
+          d.setDate(today.getDate() - mondayOffset + i);
+          const nameShort = weekdayName(d);
+          const el = document.createElement("div");
+          el.className = "d";
+          if (d.toDateString() === today.toDateString()) el.classList.add("today");
+          const key = nameShort.toLowerCase();
+          if (planned.has(key) || planned.has(String(d.getDay()))) el.classList.add("gym");
+          el.innerHTML = "<div>" + nameShort + "</div><div>" + d.getDate() + "</div>";
+          rail.appendChild(el);
+        }
+
+        // today guided
+        document.getElementById("todayTitle").textContent = "Today · " + weekdayName(today);
+        const guide = document.getElementById("todayGuide");
+        const workout = data.today && data.today.guided_workout;
+        if (workout) {
+          guide.innerHTML = "<h3>" + (workout.title || "Session") + "</h3><p>" + (workout.summary || "") + "</p>";
+        } else {
+          guide.innerHTML =
+            '<p class="empty">No guided workout yet. After InBody + sourced weekly plan, this view will walk you through today’s session on your phone.</p>' +
+            (latest && latest.recovery_score != null
+              ? '<p class="empty">Latest recovery score on file: <strong style="color:var(--white)">' + latest.recovery_score + "</strong></p>"
+              : "");
+        }
+
+        // progress
+        const counts = (data.window && data.window.counts) || {};
+        document.getElementById("progressMetrics").innerHTML = [
+          ["Workouts / 60d", counts.workouts ?? "—", "~" + (counts.workouts ? (counts.workouts / 8.5).toFixed(1) : "—") + "/week"],
+          ["Recovery days", counts.recovery ?? "—", "logged"],
+          ["Sleep nights", counts.sleep_non_nap ?? "—", "non-nap"],
+        ].map(([label, value, sub]) =>
+          '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + '</div></div>'
+        ).join("");
+
+        const mix = (data.window && data.window.workout_mix) || {};
+        const mixList = document.getElementById("mixList");
+        const mixEntries = Object.entries(mix);
+        mixList.innerHTML = mixEntries.length
+          ? mixEntries.map(([k, v]) => "<li>" + k + ": " + v + "</li>").join("")
+          : "<li>No workouts in window.</li>";
+      }
+
+      if (!document.body.classList.contains("locked") && !isOauth) {
+        loadDashboard();
+      }
+
+      // oauth helpers
       const elCode = document.getElementById("code");
       const elStatus = document.getElementById("status");
       const elSub = document.getElementById("subtitle");
       const btnCode = document.getElementById("copyCode");
       const btnUrl = document.getElementById("copyUrl");
-
       function setStatus(text, cls) {
         elStatus.textContent = text;
         elStatus.className = "status" + (cls ? " " + cls : "");
       }
-
       if (error) {
         elSub.textContent = "WHOOP returned an error.";
         setStatus((error + (errorDesc ? ": " + errorDesc : "")), "bad");
         return;
       }
-
       if (!code) return;
-
       elCode.value = code;
-      elSub.textContent = "Success — copy the code below and paste it into the Cursor connect step.";
+      elSub.textContent = "Success — copy the code and paste it into Cursor.";
       setStatus("State: " + (state || "(none)"), "ok");
       btnCode.disabled = false;
       btnUrl.disabled = false;
-
       btnCode.addEventListener("click", async () => {
         await navigator.clipboard.writeText(code);
         setStatus("Code copied.", "ok");

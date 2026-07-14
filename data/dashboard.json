@@ -1,0 +1,87 @@
+{
+  "generated_at": "2026-07-14T11:02:12.542844+00:00",
+  "athlete": {
+    "first_name": "Dylan"
+  },
+  "body": {
+    "height_m": 1.86,
+    "weight_kg": 71.0,
+    "inbody": null
+  },
+  "window": {
+    "days": 60,
+    "counts": {
+      "recovery": 60,
+      "sleep_non_nap": 60,
+      "cycles": 61,
+      "workouts": 22
+    },
+    "metrics": {
+      "recovery_score": {
+        "avg": 67.72,
+        "min": 14.0,
+        "max": 93.0,
+        "trend": {
+          "days_31_60_avg": 65.83,
+          "days_1_30_avg": 69.6
+        }
+      },
+      "hrv_rmssd_milli": {
+        "avg": 100.59
+      },
+      "resting_heart_rate": {
+        "avg": 56.7
+      },
+      "sleep_performance_pct": {
+        "avg": 81.17
+      },
+      "sleep_duration_hours": {
+        "avg": 8.13
+      },
+      "cycle_strain": {
+        "avg": 8.37
+      },
+      "workout_strain": {
+        "avg": 6.63
+      }
+    },
+    "workout_mix": {
+      "activity": 10,
+      "golf": 9,
+      "jumping-rope": 3
+    },
+    "notes": [
+      "Average recovery over last 60 days is solid (>=67).",
+      "Average sleep duration supports progressive overload.",
+      "Average daily cycle strain ~8.37 over the window.",
+      "22 workouts logged in 60 days (~2.6/week)."
+    ]
+  },
+  "today": {
+    "local_hint": "Portal uses your browser clock to pick the plan day.",
+    "latest_recovery": {
+      "recovery_score": 66.0,
+      "hrv_rmssd_milli": 100.65063,
+      "resting_heart_rate": 59.0,
+      "created_at": "2026-07-14T05:56:52.642Z"
+    },
+    "guided_workout": null
+  },
+  "plan": {
+    "status": "awaiting_inbody_and_sources",
+    "cadence": "weekly",
+    "target_gym_days": 3,
+    "headline": "Week plan unlocks after InBody + sourced preferences",
+    "week_of": null,
+    "days": [],
+    "notes": [
+      "Portal will show today's guided workout once a week plan is agreed.",
+      "Cursor remains the place to ask questions and iterate the plan.",
+      "Default hypothesis: 3 gym days/week for adherence \u2014 final call after sourced options + InBody."
+    ]
+  },
+  "trust": {
+    "mode": "source_gated",
+    "message": "Programming answers must cite files in data/sources/ once populated. Until then, plans stay locked."
+  }
+}
