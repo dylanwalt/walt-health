@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WALT HEALTH — WHOOP Connect</title>
+  <style>
+    :root {
+      --bg: #0b0f0e;
+      --card: #121a18;
+      --text: #e8f0ec;
+      --muted: #8aa398;
+      --accent: #3dff8b;
+      --warn: #ffb454;
+      --err: #ff6b6b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #1a2e26 0%, var(--bg) 55%);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    main {
+      width: min(640px, 100%);
+      background: var(--card);
+      border: 1px solid #24332c;
+      border-radius: 16px;
+      padding: 28px;
+    }
+    h1 { margin: 0 0 8px; font-size: 1.35rem; letter-spacing: 0.04em; }
+    .sub { color: var(--muted); margin: 0 0 20px; line-height: 1.5; }
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid #2a5a3f;
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin-bottom: 14px;
+    }
+    label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 6px; }
+    textarea, input {
+      width: 100%;
+      background: #0b1210;
+      border: 1px solid #2a3b34;
+      border-radius: 10px;
+      color: var(--text);
+      padding: 12px 14px;
+      font: 0.95rem/1.4 ui-monospace, Consolas, monospace;
+      resize: vertical;
+    }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    button {
+      appearance: none;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button.primary { background: var(--accent); color: #062014; }
+    button:disabled { opacity: 0.45; cursor: not-allowed; }
+    .status { margin-top: 16px; padding: 12px 14px; border-radius: 10px; background: #0b1210; }
+    .ok { color: var(--accent); }
+    .wait { color: var(--warn); }
+    .bad { color: var(--err); }
+    .hint { margin-top: 18px; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="badge">WALT HEALTH</div>
+    <h1>WHOOP connection</h1>
+    <p class="sub" id="subtitle">Waiting for OAuth redirect parameters…</p>
+
+    <label for="code">Authorization code</label>
+    <textarea id="code" rows="3" readonly placeholder="Will appear after WHOOP redirects here"></textarea>
+
+    <div class="actions">
+      <button class="primary" id="copyCode" type="button" disabled>Copy code</button>
+      <button id="copyUrl" type="button" disabled>Copy full URL</button>
+    </div>
+
+    <div class="status" id="status"></div>
+    <p class="hint">
+      Paste the code (or full URL) into the local connect script in Cursor.
+      This page never stores secrets — Client Secret stays on your machine only.
+    </p>
+  </main>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+      const error = params.get("error");
+      const errorDesc = params.get("error_description");
+
+      const elCode = document.getElementById("code");
+      const elStatus = document.getElementById("status");
+      const elSub = document.getElementById("subtitle");
+      const btnCode = document.getElementById("copyCode");
+      const btnUrl = document.getElementById("copyUrl");
+
+      function setStatus(text, cls) {
+        elStatus.innerHTML = '<span class="' + cls + '">' + text + "</span>";
+      }
+
+      async function copy(text) {
+        await navigator.clipboard.writeText(text);
+      }
+
+      if (error) {
+        elSub.textContent = "WHOOP returned an error.";
+        setStatus((error + (errorDesc ? ": " + errorDesc : "")), "bad");
+        return;
+      }
+
+      if (!code) {
+        elSub.textContent = "Open this page only via WHOOP redirect after you click Allow.";
+        setStatus("No ?code= in the URL yet. Run the connect script from HEALTH_APP.", "wait");
+        return;
+      }
+
+      elCode.value = code;
+      elSub.textContent = "Success — copy the code below and return to Cursor.";
+      setStatus("Connected. State: " + (state || "(none)"), "ok");
+      btnCode.disabled = false;
+      btnUrl.disabled = false;
+
+      btnCode.addEventListener("click", async () => {
+        await copy(code);
+        setStatus("Code copied to clipboard.", "ok");
+      });
+      btnUrl.addEventListener("click", async () => {
+        await copy(window.location.href);
+        setStatus("Full URL copied to clipboard.", "ok");
+      });
+    })();
+  </script>
+</body>
+</html>
