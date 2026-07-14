@@ -1,0 +1,16 @@
+{
+  "brand": "WALT HEALTH",
+  "colors": {
+    "bg": "#0B0B0C",
+    "bgElevated": "#141416",
+    "ice": "#95C8E2",
+    "iceSoft": "#B7D9EB",
+    "white": "#F5F7F8",
+    "muted": "#9AA3A8",
+    "line": "#2A2E32"
+  },
+  "fonts": {
+    "display": "Syne",
+    "body": "Manrope"
+  }
+}

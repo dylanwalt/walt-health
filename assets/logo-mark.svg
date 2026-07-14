@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" fill="none" role="img" aria-label="WALT HEALTH">
+  <path fill="#95C8E2" d="
+    M18 128
+    L46 128
+    L78 52
+    L102 108
+    L122 108
+    L86 28
+    L70 28
+    Z
+  "/>
+  <path fill="#95C8E2" d="
+    M102 108
+    L130 52
+    L150 52
+    L178 128
+    L150 128
+    L122 68
+    Z
+  "/>
+  <path fill="#95C8E2" d="
+    M130 52
+    L150 52
+    L168 20
+    L188 24
+    L176 44
+    L196 48
+    L160 88
+    L148 68
+    Z
+  "/>
+</svg>

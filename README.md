@@ -1,8 +1,13 @@
-# WALT HEALTH — WHOOP OAuth callback
+# WALT HEALTH — public portal
 
-Public GitHub Pages landing page for WHOOP OAuth redirects.
+Live: https://dylanwalt.github.io/walt-health/
 
-**Live URL:** https://dylanwalt.github.io/walt-health/
+Front-facing brand portal for the personal health OS.
+Also hosts the WHOOP OAuth callback when `?code=` is present (same URL — do not change redirect URI).
 
-This page only displays the authorization `code` from the URL query string.
-It does **not** contain Client Secrets or access tokens.
+## Brand
+
+- Ice blue mark: `#95C8E2`
+- Charcoal ground: `#0B0B0C`
+- Wordmark: white
+- Assets in `assets/`
