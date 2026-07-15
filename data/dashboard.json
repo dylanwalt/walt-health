@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T05:00:21.804610+00:00",
+  "generated_at": "2026-07-15T05:53:52.261119+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -55,7 +55,743 @@
       "Average sleep duration supports progressive overload.",
       "Average daily cycle strain ~8.32 over the window.",
       "22 workouts logged in 60 days (~2.6/week)."
-    ]
+    ],
+    "history_totals_all_time_pulled": {
+      "recovery": 188,
+      "sleep": 189,
+      "cycle": 192,
+      "workout": 74
+    }
+  },
+  "history": {
+    "window_days": 60,
+    "points": [
+      {
+        "date": "2026-05-16",
+        "recovery": 70.0,
+        "hrv": 103.0,
+        "rhr": 52.0,
+        "sleep_hours": 7.87,
+        "sleep_perf": 84.0,
+        "strain": 7.62
+      },
+      {
+        "date": "2026-05-17",
+        "recovery": 77.0,
+        "hrv": 110.7,
+        "rhr": 58.0,
+        "sleep_hours": 8.85,
+        "sleep_perf": 84.0,
+        "strain": 6.79
+      },
+      {
+        "date": "2026-05-18",
+        "recovery": 57.0,
+        "hrv": 97.6,
+        "rhr": 52.0,
+        "sleep_hours": 6.14,
+        "sleep_perf": 78.0,
+        "strain": 7.66
+      },
+      {
+        "date": "2026-05-19",
+        "recovery": 50.0,
+        "hrv": 91.5,
+        "rhr": 56.0,
+        "sleep_hours": 8.68,
+        "sleep_perf": 83.0,
+        "strain": 8.28
+      },
+      {
+        "date": "2026-05-20",
+        "recovery": 41.0,
+        "hrv": 85.1,
+        "rhr": 57.0,
+        "sleep_hours": 6.82,
+        "sleep_perf": 81.0,
+        "strain": 8.82
+      },
+      {
+        "date": "2026-05-21",
+        "recovery": 71.0,
+        "hrv": 100.5,
+        "rhr": 54.0,
+        "sleep_hours": 8.31,
+        "sleep_perf": 88.0,
+        "strain": 7.32
+      },
+      {
+        "date": "2026-05-22",
+        "recovery": 54.0,
+        "hrv": 90.5,
+        "rhr": 54.0,
+        "sleep_hours": 7.85,
+        "sleep_perf": 93.0,
+        "strain": 7.42
+      },
+      {
+        "date": "2026-05-23",
+        "recovery": 80.0,
+        "hrv": 104.4,
+        "rhr": 53.0,
+        "sleep_hours": 7.71,
+        "sleep_perf": 94.0,
+        "strain": 9.48
+      },
+      {
+        "date": "2026-05-24",
+        "recovery": 14.0,
+        "hrv": 73.4,
+        "rhr": 72.0,
+        "sleep_hours": 3.72,
+        "sleep_perf": 28.0,
+        "strain": 6.87
+      },
+      {
+        "date": "2026-05-25",
+        "recovery": 79.0,
+        "hrv": 102.2,
+        "rhr": 55.0,
+        "sleep_hours": 9.69,
+        "sleep_perf": 78.0,
+        "strain": 6.02
+      },
+      {
+        "date": "2026-05-26",
+        "recovery": 79.0,
+        "hrv": 102.3,
+        "rhr": 53.0,
+        "sleep_hours": 8.94,
+        "sleep_perf": 81.0,
+        "strain": 9.97
+      },
+      {
+        "date": "2026-05-27",
+        "recovery": 69.0,
+        "hrv": 102.0,
+        "rhr": 56.0,
+        "sleep_hours": 6.52,
+        "sleep_perf": 78.0,
+        "strain": 9.05
+      },
+      {
+        "date": "2026-05-28",
+        "recovery": 64.0,
+        "hrv": 98.4,
+        "rhr": 56.0,
+        "sleep_hours": 6.97,
+        "sleep_perf": 78.0,
+        "strain": 6.09
+      },
+      {
+        "date": "2026-05-29",
+        "recovery": 55.0,
+        "hrv": 91.3,
+        "rhr": 56.0,
+        "sleep_hours": 6.38,
+        "sleep_perf": 81.0,
+        "strain": 10.93
+      },
+      {
+        "date": "2026-05-30",
+        "recovery": 54.0,
+        "hrv": 89.9,
+        "rhr": 64.0,
+        "sleep_hours": 8.75,
+        "sleep_perf": 81.0,
+        "strain": 6.41
+      },
+      {
+        "date": "2026-05-31",
+        "recovery": 88.0,
+        "hrv": 109.2,
+        "rhr": 55.0,
+        "sleep_hours": 7.67,
+        "sleep_perf": 88.0,
+        "strain": 7.98
+      },
+      {
+        "date": "2026-06-01",
+        "recovery": 57.0,
+        "hrv": 93.7,
+        "rhr": 55.0,
+        "sleep_hours": 6.98,
+        "sleep_perf": 85.0,
+        "strain": 7.77
+      },
+      {
+        "date": "2026-06-02",
+        "recovery": 43.0,
+        "hrv": 81.8,
+        "rhr": 54.0,
+        "sleep_hours": 6.76,
+        "sleep_perf": 85.0,
+        "strain": 9.06
+      },
+      {
+        "date": "2026-06-03",
+        "recovery": 86.0,
+        "hrv": 103.6,
+        "rhr": 54.0,
+        "sleep_hours": 8.0,
+        "sleep_perf": 79.0,
+        "strain": 7.34
+      },
+      {
+        "date": "2026-06-04",
+        "recovery": 76.0,
+        "hrv": 98.4,
+        "rhr": 58.0,
+        "sleep_hours": 8.37,
+        "sleep_perf": 85.0,
+        "strain": 13.85
+      },
+      {
+        "date": "2026-06-05",
+        "recovery": 70.0,
+        "hrv": 97.5,
+        "rhr": 59.0,
+        "sleep_hours": 6.88,
+        "sleep_perf": 83.0,
+        "strain": 8.47
+      },
+      {
+        "date": "2026-06-06",
+        "recovery": 87.0,
+        "hrv": 107.5,
+        "rhr": 55.0,
+        "sleep_hours": 7.3,
+        "sleep_perf": 85.0,
+        "strain": 7.44
+      },
+      {
+        "date": "2026-06-07",
+        "recovery": 83.0,
+        "hrv": 108.3,
+        "rhr": 59.0,
+        "sleep_hours": 7.85,
+        "sleep_perf": 84.0,
+        "strain": 8.01
+      },
+      {
+        "date": "2026-06-08",
+        "recovery": 83.0,
+        "hrv": 104.5,
+        "rhr": 52.0,
+        "sleep_hours": 8.42,
+        "sleep_perf": 93.0,
+        "strain": 10.69
+      },
+      {
+        "date": "2026-06-09",
+        "recovery": 73.0,
+        "hrv": 102.6,
+        "rhr": 52.0,
+        "sleep_hours": 6.97,
+        "sleep_perf": 86.0,
+        "strain": 12.62
+      },
+      {
+        "date": "2026-06-10",
+        "recovery": 59.0,
+        "hrv": 98.6,
+        "rhr": 53.0,
+        "sleep_hours": 6.57,
+        "sleep_perf": 84.0,
+        "strain": 12.35
+      },
+      {
+        "date": "2026-06-11",
+        "recovery": 71.0,
+        "hrv": 101.9,
+        "rhr": 56.0,
+        "sleep_hours": 8.12,
+        "sleep_perf": 80.0,
+        "strain": 8.34
+      },
+      {
+        "date": "2026-06-12",
+        "recovery": 66.0,
+        "hrv": 99.7,
+        "rhr": 53.0,
+        "sleep_hours": 6.93,
+        "sleep_perf": 80.0,
+        "strain": 15.99
+      },
+      {
+        "date": "2026-06-13",
+        "recovery": 45.0,
+        "hrv": 86.7,
+        "rhr": 69.0,
+        "sleep_hours": 7.51,
+        "sleep_perf": 69.0,
+        "strain": 6.35
+      },
+      {
+        "date": "2026-06-14",
+        "recovery": 74.0,
+        "hrv": 101.9,
+        "rhr": 54.0,
+        "sleep_hours": 6.77,
+        "sleep_perf": 82.0,
+        "strain": 9.77
+      },
+      {
+        "date": "2026-06-15",
+        "recovery": 65.0,
+        "hrv": 96.0,
+        "rhr": 52.0,
+        "sleep_hours": 9.04,
+        "sleep_perf": 81.0,
+        "strain": 12.31
+      },
+      {
+        "date": "2026-06-16",
+        "recovery": 59.0,
+        "hrv": 95.4,
+        "rhr": 66.0,
+        "sleep_hours": 6.22,
+        "sleep_perf": 75.0,
+        "strain": 9.88
+      },
+      {
+        "date": "2026-06-17",
+        "recovery": 81.0,
+        "hrv": 108.2,
+        "rhr": 59.0,
+        "sleep_hours": 5.41,
+        "sleep_perf": 69.0,
+        "strain": 8.31
+      },
+      {
+        "date": "2026-06-18",
+        "recovery": 93.0,
+        "hrv": 110.2,
+        "rhr": 50.0,
+        "sleep_hours": 8.14,
+        "sleep_perf": 82.0,
+        "strain": 10.96
+      },
+      {
+        "date": "2026-06-19",
+        "recovery": 64.0,
+        "hrv": 96.8,
+        "rhr": 53.0,
+        "sleep_hours": 6.58,
+        "sleep_perf": 82.0,
+        "strain": 7.12
+      },
+      {
+        "date": "2026-06-20",
+        "recovery": 83.0,
+        "hrv": 104.3,
+        "rhr": 55.0,
+        "sleep_hours": 7.26,
+        "sleep_perf": 82.0
+      },
+      {
+        "date": "2026-06-21",
+        "recovery": 62.0,
+        "hrv": 104.0,
+        "rhr": 57.0,
+        "sleep_hours": 3.57,
+        "sleep_perf": 58.0,
+        "strain": 12.77
+      },
+      {
+        "date": "2026-06-22",
+        "recovery": 43.0,
+        "hrv": 87.5,
+        "rhr": 53.0,
+        "sleep_hours": 5.88,
+        "sleep_perf": 68.0,
+        "strain": 5.84
+      },
+      {
+        "date": "2026-06-23",
+        "recovery": 35.0,
+        "hrv": 76.1,
+        "rhr": 57.0,
+        "sleep_hours": 6.7,
+        "sleep_perf": 74.0,
+        "strain": 5.68
+      },
+      {
+        "date": "2026-06-24",
+        "recovery": 73.0,
+        "hrv": 102.3,
+        "rhr": 55.0,
+        "sleep_hours": 7.15,
+        "sleep_perf": 78.0,
+        "strain": 11.33
+      },
+      {
+        "date": "2026-06-25",
+        "recovery": 78.0,
+        "hrv": 104.4,
+        "rhr": 57.0,
+        "sleep_hours": 7.26,
+        "sleep_perf": 79.0,
+        "strain": 4.49
+      },
+      {
+        "date": "2026-06-26",
+        "recovery": 93.0,
+        "hrv": 123.1,
+        "rhr": 52.0,
+        "sleep_hours": 7.31,
+        "sleep_perf": 83.0,
+        "strain": 6.32
+      },
+      {
+        "date": "2026-06-27",
+        "recovery": 93.0,
+        "hrv": 118.6,
+        "rhr": 52.0,
+        "sleep_hours": 9.87,
+        "sleep_perf": 86.0,
+        "strain": 9.87
+      },
+      {
+        "date": "2026-06-28",
+        "recovery": 88.0,
+        "hrv": 115.6,
+        "rhr": 56.0,
+        "sleep_hours": 8.25,
+        "sleep_perf": 92.0,
+        "strain": 6.19
+      },
+      {
+        "date": "2026-06-29",
+        "recovery": 69.0,
+        "hrv": 102.4,
+        "rhr": 52.0,
+        "sleep_hours": 7.54,
+        "sleep_perf": 94.0,
+        "strain": 7.32
+      },
+      {
+        "date": "2026-06-30",
+        "recovery": 72.0,
+        "hrv": 104.0,
+        "rhr": 53.0,
+        "sleep_hours": 8.14,
+        "sleep_perf": 93.0,
+        "strain": 7.91
+      },
+      {
+        "date": "2026-07-01",
+        "recovery": 75.0,
+        "hrv": 105.2,
+        "rhr": 51.0,
+        "sleep_hours": 7.46,
+        "sleep_perf": 89.0,
+        "strain": 7.34
+      },
+      {
+        "date": "2026-07-02",
+        "recovery": 80.0,
+        "hrv": 108.1,
+        "rhr": 50.0,
+        "sleep_hours": 6.96,
+        "sleep_perf": 88.0,
+        "strain": 5.81
+      },
+      {
+        "date": "2026-07-03",
+        "recovery": 83.0,
+        "hrv": 126.8,
+        "rhr": 55.0,
+        "sleep_hours": 5.93,
+        "sleep_perf": 80.0,
+        "strain": 8.52
+      },
+      {
+        "date": "2026-07-04",
+        "recovery": 49.0,
+        "hrv": 95.0,
+        "rhr": 61.0,
+        "sleep_hours": 7.48,
+        "sleep_perf": 76.0,
+        "strain": 8.94
+      },
+      {
+        "date": "2026-07-05",
+        "recovery": 50.0,
+        "hrv": 93.9,
+        "rhr": 64.0,
+        "sleep_hours": 7.83,
+        "sleep_perf": 76.0,
+        "strain": 9.7
+      },
+      {
+        "date": "2026-07-06",
+        "recovery": 60.0,
+        "hrv": 100.8,
+        "rhr": 63.0,
+        "sleep_hours": 7.81,
+        "sleep_perf": 84.0,
+        "strain": 7.51
+      },
+      {
+        "date": "2026-07-07",
+        "recovery": 33.0,
+        "hrv": 78.4,
+        "rhr": 75.0,
+        "sleep_hours": 7.6,
+        "sleep_perf": 69.0,
+        "strain": 6.64
+      },
+      {
+        "date": "2026-07-08",
+        "recovery": 88.0,
+        "hrv": 114.9,
+        "rhr": 57.0,
+        "sleep_hours": 7.51,
+        "sleep_perf": 93.0,
+        "strain": 4.55
+      },
+      {
+        "date": "2026-07-09",
+        "recovery": 74.0,
+        "hrv": 102.6,
+        "rhr": 61.0,
+        "sleep_hours": 8.23,
+        "sleep_perf": 85.0,
+        "strain": 10.67
+      },
+      {
+        "date": "2026-07-10",
+        "recovery": 81.0,
+        "hrv": 108.2,
+        "rhr": 59.0,
+        "sleep_hours": 8.23,
+        "sleep_perf": 86.0,
+        "strain": 6.1
+      },
+      {
+        "date": "2026-07-11",
+        "recovery": 71.0,
+        "hrv": 111.2,
+        "rhr": 60.0,
+        "sleep_hours": 7.41,
+        "sleep_perf": 82.0,
+        "strain": 5.23
+      },
+      {
+        "date": "2026-07-12",
+        "recovery": 68.0,
+        "hrv": 102.6,
+        "rhr": 63.0,
+        "sleep_hours": 7.39,
+        "sleep_perf": 83.0,
+        "strain": 4.55
+      },
+      {
+        "date": "2026-07-13",
+        "recovery": 59.0,
+        "hrv": 99.7,
+        "rhr": 59.0,
+        "sleep_hours": 6.31,
+        "sleep_perf": 82.0,
+        "strain": 6.61
+      },
+      {
+        "date": "2026-07-14",
+        "recovery": 66.0,
+        "hrv": 100.7,
+        "rhr": 59.0,
+        "sleep_hours": 9.03,
+        "sleep_perf": 83.0,
+        "strain": 5.11
+      },
+      {
+        "date": "2026-07-15",
+        "recovery": 92.0,
+        "hrv": 115.4,
+        "rhr": 53.0,
+        "sleep_hours": 6.48,
+        "sleep_perf": 82.0,
+        "strain": 4.22
+      }
+    ],
+    "summaries": {
+      "recovery": {
+        "avg": 68.11,
+        "min": 14.0,
+        "max": 93.0,
+        "first": 70.0,
+        "last": 92.0,
+        "older_half_avg": 65.83,
+        "newer_half_avg": 70.32
+      },
+      "hrv": {
+        "avg": 100.84,
+        "min": 73.4,
+        "max": 126.8,
+        "first": 103.0,
+        "last": 115.4,
+        "older_half_avg": 97.96,
+        "newer_half_avg": 103.63
+      },
+      "rhr": {
+        "avg": 56.64,
+        "min": 50.0,
+        "max": 75.0,
+        "first": 52.0,
+        "last": 53.0,
+        "older_half_avg": 56.2,
+        "newer_half_avg": 57.06
+      },
+      "sleep_hours": {
+        "avg": 7.38,
+        "min": 3.57,
+        "max": 9.87,
+        "first": 7.87,
+        "last": 6.48,
+        "older_half_avg": 7.48,
+        "newer_half_avg": 7.29
+      },
+      "sleep_perf": {
+        "avg": 81.18,
+        "min": 28.0,
+        "max": 94.0,
+        "first": 84.0,
+        "last": 82.0,
+        "older_half_avg": 81.27,
+        "newer_half_avg": 81.1
+      },
+      "strain": {
+        "avg": 8.21,
+        "min": 4.22,
+        "max": 15.99,
+        "first": 7.62,
+        "last": 4.22,
+        "older_half_avg": 8.83,
+        "newer_half_avg": 7.59
+      }
+    },
+    "totals_pulled": {
+      "recovery": 188,
+      "sleep": 189,
+      "cycle": 192,
+      "workout": 74
+    }
+  },
+  "profile": {
+    "updated_at": "2026-07-14",
+    "name": "Dylan",
+    "body": {
+      "height_m": 1.86,
+      "weight_kg": 71.0,
+      "max_heart_rate": 188,
+      "source": "whoop",
+      "note": "Confirm with InBody when available"
+    },
+    "goals": {
+      "primary": "Look better with a stronger, more defined upper body",
+      "priorities": [
+        "Chest",
+        "Shoulders",
+        "Biceps",
+        "Forearms",
+        "Visible abs / lower belly fat"
+      ],
+      "lower_priority": [
+        "Calves",
+        "Leg muscle size"
+      ],
+      "notes": "Upper-body bias preferred for the next few months; minimum leg volume pending sourced guidance."
+    },
+    "training": {
+      "operating_target": {
+        "sessions_per_week": 3,
+        "minutes_per_session": 60,
+        "label": "3 \u00d7 60 min (~3 h/week)",
+        "status": "provisional_non_sourced"
+      },
+      "floor": {
+        "sessions_per_week": 2,
+        "minutes_per_session": 72,
+        "label": "2 \u00d7 70\u201375 min when life is chaos"
+      },
+      "philosophy": [
+        "Minimum time for maximum result",
+        "Fewer longer gym sessions over many short ones",
+        "Weekly flexible slots \u2014 not fixed clock times",
+        "Weekends often off-plan",
+        "Stable exercise menu; progress via load/reps",
+        "Home fallbacks required when gym is impossible"
+      ],
+      "avoid": [
+        "4\u20135 gym days/week targets (historically demotivating)",
+        "Mandatory squash/paddle scheduling",
+        "Golf as primary training load",
+        "Constantly changing machines/exercises"
+      ]
+    },
+    "gym": {
+      "membership": "Virgin Active Morningside",
+      "equipment": "Full commercial gym (free weights, machines, cables, cardio)",
+      "home_gear": [
+        "Pull-up bar",
+        "Skipping rope",
+        "Bodyweight push-ups/squats"
+      ]
+    },
+    "health_flags": {
+      "injuries": "none",
+      "pain": "none",
+      "limits": "none"
+    },
+    "nutrition": {
+      "self_assessment": "Mostly under control; not asking for a full diet overhaul",
+      "typical_breakfast": "Cottage cheese, avocado, sourdough toast",
+      "suspects": [
+        "Carbs may be low outside breakfast",
+        "Protein may be under target"
+      ],
+      "creatine": "5 g/day when training (paused during gym lapse; resume with restart)",
+      "tracking": "No perpetual food logging \u2014 spot-checks only if needed for calibration"
+    },
+    "lifestyle": {
+      "schedule_pressure": [
+        "University",
+        "Side businesses",
+        "Last-minute meetings",
+        "Nights at girlfriend's"
+      ],
+      "sports_bonus": [
+        "Golf (range, lessons, equipment) \u2014 extracurricular only"
+      ],
+      "sports_optional": [
+        "Squash",
+        "Paddle \u2014 not reliable enough to prescribe"
+      ]
+    },
+    "history_timeline": [
+      {
+        "period": "~Feb 2025",
+        "note": "Gym membership after cleaning up junk-food eating; somewhat consistent"
+      },
+      {
+        "period": "~Feb\u2013May/Jun 2026",
+        "note": "Restart with friend; researched splits; consistency hard under schedule pressure"
+      },
+      {
+        "period": "Since then",
+        "note": "Lapsed gym; occasional home work; stopped creatine with gym pause"
+      },
+      {
+        "period": "Now",
+        "note": "Restart intent; science-backed minimal-effective plan + monthly InBody"
+      }
+    ],
+    "measurement": {
+      "inbody": "About monthly (waiting on first baseline)",
+      "whoop": "Recovery, sleep, strain, HR, workouts (auto-synced)",
+      "home_scale": "TBD usefulness after InBody guidance"
+    }
   },
   "today": {
     "local_hint": "Portal uses your browser clock to pick the plan day.",
