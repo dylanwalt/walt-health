@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T11:00:24.328354+00:00",
+  "generated_at": "2026-07-15T17:49:44.539689+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -39,7 +39,7 @@
         "avg": 8.1
       },
       "cycle_strain": {
-        "avg": 8.33
+        "avg": 8.34
       },
       "workout_strain": {
         "avg": 6.63
@@ -53,7 +53,7 @@
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.33 over the window.",
+      "Average daily cycle strain ~8.34 over the window.",
       "22 workouts logged in 60 days (~2.6/week)."
     ],
     "history_totals_all_time_pulled": {
@@ -607,7 +607,7 @@
         "rhr": 53.0,
         "sleep_hours": 6.48,
         "sleep_perf": 82.0,
-        "strain": 4.58
+        "strain": 5.22
       }
     ],
     "summaries": {
@@ -657,13 +657,13 @@
         "newer_half_avg": 81.1
       },
       "strain": {
-        "avg": 8.22,
+        "avg": 8.23,
         "min": 4.49,
         "max": 15.99,
         "first": 7.62,
-        "last": 4.58,
+        "last": 5.22,
         "older_half_avg": 8.83,
-        "newer_half_avg": 7.61
+        "newer_half_avg": 7.63
       }
     },
     "totals_pulled": {
