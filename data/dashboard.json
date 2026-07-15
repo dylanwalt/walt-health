@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T17:00:23.408828+00:00",
+  "generated_at": "2026-07-15T04:28:48.146429+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -11,35 +11,35 @@
   "window": {
     "days": 60,
     "counts": {
-      "recovery": 60,
-      "sleep_non_nap": 60,
+      "recovery": 61,
+      "sleep_non_nap": 61,
       "cycles": 61,
       "workouts": 22
     },
     "metrics": {
       "recovery_score": {
-        "avg": 67.72,
+        "avg": 68.11,
         "min": 14.0,
         "max": 93.0,
         "trend": {
           "days_31_60_avg": 65.83,
-          "days_1_30_avg": 69.6
+          "days_1_30_avg": 70.32
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 100.59
+        "avg": 100.84
       },
       "resting_heart_rate": {
-        "avg": 56.7
+        "avg": 56.64
       },
       "sleep_performance_pct": {
-        "avg": 81.17
+        "avg": 81.18
       },
       "sleep_duration_hours": {
-        "avg": 8.13
+        "avg": 8.12
       },
       "cycle_strain": {
-        "avg": 8.37
+        "avg": 8.32
       },
       "workout_strain": {
         "avg": 6.63
@@ -53,17 +53,17 @@
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.37 over the window.",
+      "Average daily cycle strain ~8.32 over the window.",
       "22 workouts logged in 60 days (~2.6/week)."
     ]
   },
   "today": {
     "local_hint": "Portal uses your browser clock to pick the plan day.",
     "latest_recovery": {
-      "recovery_score": 66.0,
-      "hrv_rmssd_milli": 100.65063,
-      "resting_heart_rate": 59.0,
-      "created_at": "2026-07-14T05:56:52.642Z"
+      "recovery_score": 92.0,
+      "hrv_rmssd_milli": 115.42958,
+      "resting_heart_rate": 53.0,
+      "created_at": "2026-07-15T04:17:45.458Z"
     },
     "guided_workout": null
   },
