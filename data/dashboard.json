@@ -1,66 +1,108 @@
 {
-  "generated_at": "2026-07-16T05:00:39.485005+00:00",
+  "generated_at": "2026-07-16T17:00:20.929453+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
   "body": {
     "height_m": 1.86,
-    "weight_kg": 71.0,
-    "inbody": null
+    "weight_kg": 71.1,
+    "inbody": {
+      "ingested_at": "2026-07-16T16:40:00+00:00",
+      "source_file": "InBody-20260716.csv",
+      "device": "270",
+      "measured_at": "2026-07-16T08:27:32",
+      "measured_at_raw": "20260716082732",
+      "height_m_assumed": 1.86,
+      "height_note": "Height not in CSV; retained from WHOOP / prior profile (1.86 m).",
+      "metrics": {
+        "weight_kg": 71.1,
+        "skeletal_muscle_mass_kg": 33.1,
+        "body_fat_mass_kg": 12.0,
+        "bmi": 21.2,
+        "percent_body_fat": 16.9,
+        "basal_metabolic_rate_kcal": 1646,
+        "inbody_score": 75,
+        "waist_hip_ratio": 0.86,
+        "visceral_fat_level": 5,
+        "total_body_water_l": 43.1,
+        "protein_kg": 11.6,
+        "mineral_kg": 4.4,
+        "smi_kg_m2": 7.5
+      },
+      "segmental_lean_kg": {
+        "right_arm": 3.16,
+        "left_arm": 3.08,
+        "trunk": 25.7,
+        "right_leg": 9.39,
+        "left_leg": 9.35
+      },
+      "segmental_fat_kg": {
+        "right_arm": 0.6,
+        "left_arm": 0.6,
+        "trunk": 6.1,
+        "right_leg": 1.9,
+        "left_leg": 1.8
+      },
+      "context_notes": [
+        "Dylan reports no structured gym training for ~2\u20133 months prior to this scan.",
+        "Compare to Oct/Nov 2025 scans in history.json \u2014 clear drop in SMM with concurrent fat loss."
+      ]
+    }
   },
   "window": {
     "days": 60,
     "counts": {
-      "recovery": 61,
-      "sleep_non_nap": 61,
+      "recovery": 60,
+      "sleep_non_nap": 60,
       "cycles": 61,
-      "workouts": 22
+      "workouts": 24
     },
     "metrics": {
       "recovery_score": {
-        "avg": 67.93,
+        "avg": 67.78,
         "min": 14.0,
         "max": 93.0,
         "trend": {
-          "days_31_60_avg": 65.45,
+          "days_31_60_avg": 65.07,
           "days_1_30_avg": 70.5
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 100.76
+        "avg": 100.59
       },
       "resting_heart_rate": {
-        "avg": 56.82
+        "avg": 56.8
       },
       "sleep_performance_pct": {
-        "avg": 81.21
+        "avg": 81.17
       },
       "sleep_duration_hours": {
-        "avg": 8.11
+        "avg": 8.08
       },
       "cycle_strain": {
-        "avg": 8.22
+        "avg": 8.43
       },
       "workout_strain": {
-        "avg": 6.63
+        "avg": 6.67
       }
     },
     "workout_mix": {
       "activity": 10,
-      "golf": 9,
-      "jumping-rope": 3
+      "golf": 10,
+      "jumping-rope": 3,
+      "walking": 1
     },
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.22 over the window.",
-      "22 workouts logged in 60 days (~2.6/week)."
+      "Average daily cycle strain ~8.43 over the window.",
+      "24 workouts logged in 60 days (~2.8/week)."
     ],
     "history_totals_all_time_pulled": {
       "recovery": 189,
       "sleep": 190,
       "cycle": 193,
-      "workout": 74
+      "workout": 76
     }
   },
   "history": {
@@ -68,8 +110,6 @@
     "points": [
       {
         "date": "2026-05-17",
-        "sleep_hours": 8.85,
-        "sleep_perf": 84.0,
         "strain": 6.79
       },
       {
@@ -609,7 +649,7 @@
         "rhr": 63.0,
         "sleep_hours": 7.87,
         "sleep_perf": 86.0,
-        "strain": 0.34
+        "strain": 13.39
       }
     ],
     "summaries": {
@@ -641,49 +681,68 @@
         "newer_half_avg": 57.13
       },
       "sleep_hours": {
-        "avg": 7.38,
+        "avg": 7.36,
         "min": 3.57,
         "max": 9.87,
-        "first": 8.85,
+        "first": 6.14,
         "last": 7.87,
-        "older_half_avg": 7.52,
-        "newer_half_avg": 7.25
+        "older_half_avg": 7.43,
+        "newer_half_avg": 7.29
       },
       "sleep_perf": {
-        "avg": 81.21,
+        "avg": 81.17,
         "min": 28.0,
         "max": 94.0,
-        "first": 84.0,
+        "first": 78.0,
         "last": 86.0,
-        "older_half_avg": 81.17,
-        "newer_half_avg": 81.26
+        "older_half_avg": 80.87,
+        "newer_half_avg": 81.47
       },
       "strain": {
-        "avg": 8.1,
-        "min": 0.34,
+        "avg": 8.32,
+        "min": 4.49,
         "max": 15.99,
         "first": 6.79,
-        "last": 0.34,
+        "last": 13.39,
         "older_half_avg": 8.98,
-        "newer_half_avg": 7.23
+        "newer_half_avg": 7.66
       }
     },
     "totals_pulled": {
       "recovery": 189,
       "sleep": 190,
       "cycle": 193,
-      "workout": 74
+      "workout": 76
     }
   },
   "profile": {
-    "updated_at": "2026-07-14",
+    "updated_at": "2026-07-16",
     "name": "Dylan",
     "body": {
       "height_m": 1.86,
-      "weight_kg": 71.0,
+      "weight_kg": 71.1,
       "max_heart_rate": 188,
-      "source": "whoop",
-      "note": "Confirm with InBody when available"
+      "source": "inbody",
+      "measured_at": "2026-07-16T08:27:32",
+      "note": "Height retained from WHOOP (not in InBody CSV). Weight/composition from InBody 2026-07-16."
+    },
+    "composition": {
+      "source": "inbody",
+      "measured_at": "2026-07-16T08:27:32",
+      "skeletal_muscle_mass_kg": 33.1,
+      "body_fat_mass_kg": 12.0,
+      "percent_body_fat": 16.9,
+      "bmi": 21.2,
+      "visceral_fat_level": 5,
+      "waist_hip_ratio": 0.86,
+      "inbody_score": 75,
+      "smi_kg_m2": 7.5,
+      "trend_vs_2025_10_30": {
+        "weight_kg": -7.9,
+        "skeletal_muscle_mass_kg": -3.2,
+        "body_fat_mass_kg": -3.2,
+        "percent_body_fat_pp": -2.4
+      }
     },
     "goals": {
       "primary": "Look better with a stronger, more defined upper body",
@@ -698,9 +757,15 @@
         "Calves",
         "Leg muscle size"
       ],
-      "notes": "Upper-body bias preferred for the next few months; minimum leg volume pending sourced guidance."
+      "notes": "Upper-body bias preferred for the next few months; minimum leg volume pending sourced guidance. InBody suggests muscle regain (not aggressive cut) is the higher-leverage research frame."
     },
     "training": {
+      "status": {
+        "label": "detrained_restart",
+        "serious_gym_gap_months": "2-3",
+        "stated_at": "2026-07-16",
+        "note": "No structured training for ~2\u20133 months; plan design deferred until source packs exist."
+      },
       "operating_target": {
         "sessions_per_week": 3,
         "minutes_per_session": 60,
@@ -772,22 +837,26 @@
         "note": "Gym membership after cleaning up junk-food eating; somewhat consistent"
       },
       {
+        "period": "~Oct\u2013Nov 2025",
+        "note": "InBody denser/heavier (79\u219276 kg; SMM 36.3\u219235.1; BF% ~19%)"
+      },
+      {
         "period": "~Feb\u2013May/Jun 2026",
         "note": "Restart with friend; researched splits; consistency hard under schedule pressure"
       },
       {
-        "period": "Since then",
-        "note": "Lapsed gym; occasional home work; stopped creatine with gym pause"
+        "period": "~May\u2013Jul 2026",
+        "note": "No structured training ~2\u20133 months; occasional home work historically; creatine paused"
       },
       {
-        "period": "Now",
-        "note": "Restart intent; science-backed minimal-effective plan + monthly InBody"
+        "period": "2026-07-16",
+        "note": "InBody baseline ingested; source-pack strategy next \u2014 plan still locked"
       }
     ],
     "measurement": {
-      "inbody": "About monthly (waiting on first baseline)",
+      "inbody": "Baseline on file (2026-07-16); prefer ~monthly \u2014 cadence pending sourced guidance",
       "whoop": "Recovery, sleep, strain, HR, workouts (auto-synced)",
-      "home_scale": "TBD usefulness after InBody guidance"
+      "home_scale": "TBD usefulness after sourced retest guidance"
     }
   },
   "today": {
@@ -801,16 +870,17 @@
     "guided_workout": null
   },
   "plan": {
-    "status": "awaiting_inbody_and_sources",
+    "status": "awaiting_sources",
     "cadence": "weekly",
     "target_gym_days": 3,
-    "headline": "Week plan unlocks after InBody + sourced preferences",
+    "headline": "InBody on file \u2014 week plan still locked until Wave 1 source packs exist",
     "week_of": null,
     "days": [],
     "notes": [
-      "Portal will show today's guided workout once a week plan is agreed.",
-      "Cursor remains the place to ask questions and iterate the plan.",
-      "Default hypothesis: 3 gym days/week for adherence \u2014 final call after sourced options + InBody."
+      "InBody baseline ingested 2026-07-16; see data/integrations/inbody/.",
+      "Dylan requested no plan design until source strategy + Wave 1 packs are done.",
+      "Research agenda: data/sources/SOURCE_STRATEGY.md",
+      "Default time hypothesis remains provisional: 3 gym days/week \u2014 final call after sourced options."
     ]
   },
   "trust": {
