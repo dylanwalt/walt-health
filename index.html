@@ -20,6 +20,9 @@
       --muted: #9aa3a8;
       --line: rgba(149, 200, 226, 0.16);
       --danger: #ff8f8f;
+      --ok: #7dcea0;
+      --amber: #e8b86d;
+      --pulse: #9b8fd9;
       --font-display: "Syne", sans-serif;
       --font-body: "Manrope", sans-serif;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -512,42 +515,76 @@
       border-radius: 14px;
       padding: 0.95rem 1rem;
       background: rgba(18, 19, 22, 0.45);
+      transition: border-color 180ms ease, opacity 180ms ease;
     }
+    .move.is-done {
+      border-color: rgba(125, 206, 160, 0.35);
+      opacity: 0.72;
+    }
+    .move.is-done .n-text { text-decoration: line-through; color: var(--muted); }
+    .move.is-skipped {
+      border-color: rgba(154, 163, 168, 0.35);
+      opacity: 0.55;
+    }
+    .move.is-skipped .n-text { color: var(--muted); }
     .move .top {
-      display: flex; justify-content: space-between; gap: 0.75rem; align-items: baseline;
+      display: flex; justify-content: space-between; gap: 0.75rem; align-items: flex-start;
     }
     .move .n {
+      display: flex; align-items: flex-start; gap: 0.35rem; min-width: 0; flex: 1;
       font-family: var(--font-display);
       font-size: clamp(1.05rem, 2.8vw, 1.2rem);
       letter-spacing: -0.01em;
       line-height: 1.2;
     }
+    .move .n-text { min-width: 0; }
+    .move .expand-btn {
+      appearance: none; border: 0; background: transparent; color: var(--ice);
+      cursor: pointer; padding: 0.1rem 0.2rem; margin: -0.1rem 0 0;
+      font-size: 1.05rem; line-height: 1; flex: none;
+      transition: transform 180ms var(--ease);
+    }
+    .move.is-open .expand-btn { transform: rotate(90deg); }
     .move .dose {
       flex: none;
       color: var(--ice);
       font-weight: 700;
       font-size: 0.95rem;
       white-space: nowrap;
+      padding-top: 0.15rem;
+    }
+    .move .check-row {
+      display: flex; align-items: center; gap: 0.45rem; margin-top: 0.55rem; flex-wrap: wrap;
+    }
+    .move .check-btn {
+      appearance: none; width: 2.35rem; height: 2.35rem; border-radius: 10px;
+      border: 1px solid var(--line); background: rgba(18, 19, 22, 0.7);
+      color: var(--muted); font-size: 1.05rem; font-weight: 700; line-height: 1;
+      cursor: pointer; display: inline-grid; place-items: center;
+      transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+    .move .check-btn[data-act="done"].on {
+      border-color: rgba(125, 206, 160, 0.55);
+      background: rgba(125, 206, 160, 0.18);
+      color: var(--ok);
+    }
+    .move .check-btn[data-act="skipped"].on {
+      border-color: rgba(154, 163, 168, 0.5);
+      background: rgba(154, 163, 168, 0.12);
+      color: var(--muted);
     }
     .move .hint { color: var(--muted); font-size: 0.86rem; line-height: 1.45; margin-top: 0.4rem; }
-    .move details {
+    .move .how-panel {
+      display: none;
       margin-top: 0.55rem;
       border-top: 1px solid var(--line);
-      padding-top: 0.45rem;
+      padding-top: 0.55rem;
     }
-    .move summary {
-      cursor: pointer;
-      color: var(--ice);
-      font-weight: 600;
-      font-size: 0.88rem;
-      list-style: none;
-    }
-    .move summary::-webkit-details-marker { display: none; }
+    .move.is-open .how-panel { display: block; }
     .move .how {
       color: var(--muted);
       font-size: 0.86rem;
       line-height: 1.5;
-      margin-top: 0.45rem;
     }
     .move .how strong { color: var(--white); }
     .move .vid {
@@ -563,6 +600,103 @@
       height: 100%;
       border: 0;
       display: block;
+    }
+    .session-progress {
+      margin: 0.85rem 0 0.25rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      background: rgba(18, 19, 22, 0.4);
+    }
+    .session-progress .sp-top {
+      display: flex; justify-content: space-between; gap: 0.75rem; align-items: baseline;
+      font-size: 0.88rem;
+    }
+    .session-progress .sp-top strong { color: var(--ice-soft); font-family: var(--font-display); }
+    .session-progress .sp-meta { color: var(--muted); font-size: 0.82rem; }
+    .session-progress .sp-bar {
+      margin-top: 0.55rem; height: 6px; border-radius: 999px;
+      background: rgba(149, 200, 226, 0.12); overflow: hidden;
+    }
+    .session-progress .sp-fill {
+      height: 100%; width: 0%; border-radius: 999px;
+      background: linear-gradient(90deg, var(--ice), var(--ok));
+      transition: width 220ms var(--ease);
+    }
+    .session-progress.is-complete .sp-fill {
+      background: var(--ok);
+    }
+    .week-progress {
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1.1rem;
+    }
+    .week-progress h3 { margin: 0 0 0.55rem; }
+    .week-progress .wp-lede {
+      margin: 0 0 0.9rem; color: var(--muted); font-size: 0.9rem; line-height: 1.5;
+    }
+    .week-progress .wp-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;
+    }
+    .week-progress .wp-stat {
+      border-top: 1px solid var(--line); padding-top: 0.5rem;
+    }
+    .week-progress .wp-stat .k {
+      color: var(--muted); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .week-progress .wp-stat .v {
+      font-family: var(--font-display); font-size: 1.65rem; color: var(--ice-soft); margin-top: 0.15rem;
+    }
+    .week-progress .wp-stat .s { color: var(--muted); font-size: 0.8rem; }
+    .week-progress .wp-bar {
+      height: 8px; border-radius: 999px; background: rgba(149, 200, 226, 0.12);
+      overflow: hidden; margin-bottom: 1rem;
+    }
+    .week-progress .wp-fill {
+      height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--ice), var(--ok));
+      transition: width 240ms var(--ease);
+    }
+    .week-checklist { display: grid; gap: 0.5rem; }
+    .week-checklist .wc-row {
+      display: flex; align-items: center; gap: 0.65rem;
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 0.65rem 0.8rem; background: rgba(18, 19, 22, 0.35);
+    }
+    .week-checklist .wc-dot {
+      width: 0.72rem; height: 0.72rem; border-radius: 50%; flex: none;
+      background: rgba(154, 163, 168, 0.45);
+    }
+    .week-checklist .wc-row.st-green .wc-dot { background: var(--ok); box-shadow: 0 0 0 3px rgba(125, 206, 160, 0.18); }
+    .week-checklist .wc-row.st-amber .wc-dot { background: var(--amber); box-shadow: 0 0 0 3px rgba(232, 184, 109, 0.18); }
+    .week-checklist .wc-row.st-purple .wc-dot { background: var(--pulse); box-shadow: 0 0 0 3px rgba(155, 143, 217, 0.2); }
+    .week-checklist .wc-row.st-gray .wc-dot { background: rgba(154, 163, 168, 0.45); }
+    .week-checklist .wc-row.st-dim { opacity: 0.55; }
+    .week-checklist .wc-row.st-dim .wc-dot { background: rgba(154, 163, 168, 0.28); }
+    .week-checklist .wc-main { flex: 1; min-width: 0; }
+    .week-checklist .wc-title { font-weight: 600; font-size: 0.92rem; }
+    .week-checklist .wc-sub { color: var(--muted); font-size: 0.78rem; margin-top: 0.12rem; }
+    .week-checklist .wc-badge {
+      flex: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .week-checklist .wc-row.st-green .wc-badge { color: var(--ok); }
+    .week-checklist .wc-row.st-amber .wc-badge { color: var(--amber); }
+    .week-checklist .wc-row.st-purple .wc-badge { color: var(--pulse); }
+    .week-progress .wp-legend {
+      margin: 0.85rem 0 0; padding: 0; list-style: none;
+      display: grid; gap: 0.35rem; color: var(--muted); font-size: 0.78rem;
+    }
+    .week-progress .wp-legend li { display: flex; align-items: center; gap: 0.45rem; }
+    .week-progress .wp-legend i {
+      width: 0.55rem; height: 0.55rem; border-radius: 50%; display: inline-block; flex: none;
+    }
+    .week-progress .wp-legend i.g { background: var(--ok); }
+    .week-progress .wp-legend i.a { background: var(--amber); }
+    .week-progress .wp-legend i.p { background: var(--pulse); }
+    .week-progress .wp-legend i.y { background: rgba(154, 163, 168, 0.45); }
+    .week-progress .wp-legend i.d { background: rgba(154, 163, 168, 0.28); }
+    .week-progress .wp-coach {
+      margin: 0.9rem 0 0; color: var(--muted); font-size: 0.86rem; line-height: 1.5;
     }
     .priority-box {
       border: 1px solid var(--line);
@@ -797,6 +931,11 @@
         <div class="day-rail" id="weekRail"></div>
         <div class="jump-chips" id="jumpChips"></div>
         <p class="banner" id="dayPickHint" style="margin-top:1rem">Tap a day above to open that session on the Today tab.</p>
+        <div class="week-progress" id="weekProgressBlock">
+          <h3>Week progress</h3>
+          <p class="wp-lede" id="weekProgressLede">Tick moves on Today — this checklist fills in from your phone.</p>
+          <div id="weekProgress"></div>
+        </div>
         <div class="block">
           <h3>Notes</h3>
           <ul id="planNotes"></ul>
@@ -840,7 +979,67 @@
     (function () {
       const PASS_HASH = "1a02f982c9e3e518df34f2e70fc99d6903abf0ac960b7eeb7ae9e811f5cee342";
       const AUTH_KEY = "walt_health_auth_v2";
+      const SESSION_LOG_KEY = "walt_session_log_v1";
       const TTL_MS = 24 * 60 * 60 * 1000;
+
+      function readSessionLog() {
+        try {
+          const raw = localStorage.getItem(SESSION_LOG_KEY);
+          if (!raw) return {};
+          const parsed = JSON.parse(raw);
+          return parsed && typeof parsed === "object" ? parsed : {};
+        } catch {
+          return {};
+        }
+      }
+
+      function writeSessionLog(log) {
+        localStorage.setItem(SESSION_LOG_KEY, JSON.stringify(log));
+      }
+
+      function getDayLog(iso) {
+        const log = readSessionLog();
+        return log[iso] || { mode: "gym", moves: {}, updated_at: null };
+      }
+
+      function upsertDayLog(iso, patch) {
+        const all = readSessionLog();
+        const prev = all[iso] || { mode: "gym", moves: {} };
+        const next = {
+          mode: patch.mode != null ? patch.mode : (prev.mode || "gym"),
+          moves: patch.moves != null ? patch.moves : (prev.moves || {}),
+          updated_at: new Date().toISOString()
+        };
+        all[iso] = next;
+        writeSessionLog(all);
+        return next;
+      }
+
+      function setMoveStatus(iso, mode, moveName, status) {
+        const day = getDayLog(iso);
+        const moves = Object.assign({}, day.moves || {});
+        if (!status) delete moves[moveName];
+        else moves[moveName] = status;
+        return upsertDayLog(iso, { mode: mode || day.mode || "gym", moves: moves });
+      }
+
+      function summarizeMoves(moves, dayLog) {
+        const map = (dayLog && dayLog.moves) || {};
+        let done = 0;
+        let skipped = 0;
+        let unset = 0;
+        (moves || []).forEach((m) => {
+          const st = map[m.name];
+          if (st === "done") done += 1;
+          else if (st === "skipped") skipped += 1;
+          else unset += 1;
+        });
+        const total = (moves || []).length;
+        const complete = total > 0 && unset === 0 && done > 0;
+        const started = done + skipped > 0;
+        const pct = total ? Math.round(((done + skipped) / total) * 100) : 0;
+        return { done: done, skipped: skipped, unset: unset, total: total, complete: complete, started: started, pct: pct };
+      }
 
       async function sha256Hex(text) {
         const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
@@ -1258,6 +1457,14 @@
         return x;
       }
 
+      function viewedWeekStart() {
+        const realNow = new Date();
+        const offset = window.__waltWeekOffset || 0;
+        const weekStart = mondayOf(realNow);
+        weekStart.setDate(weekStart.getDate() + offset * 7);
+        return weekStart;
+      }
+
       function isoDate(d) {
         const y = d.getFullYear();
         const m = String(d.getMonth() + 1).padStart(2, "0");
@@ -1285,9 +1492,7 @@
         const data = window.__waltDashboard;
         if (!data) return;
         const realNow = new Date();
-        const offset = window.__waltWeekOffset || 0;
-        const weekStart = mondayOf(realNow);
-        weekStart.setDate(weekStart.getDate() + offset * 7);
+        const weekStart = viewedWeekStart();
         const weekEnd = new Date(weekStart);
         weekEnd.setDate(weekStart.getDate() + 6);
         const label = weekdayName(weekStart) + " " + weekStart.getDate() + " – " + weekdayName(weekEnd) + " " + weekEnd.getDate() + " " + weekEnd.toLocaleString("en", { month: "short" });
@@ -1298,6 +1503,7 @@
         fillRail("weekRail", data, weekStart, realNow);
         fillRail("weekRailToday", data, weekStart, realNow);
         fillJumpChips(data, realNow);
+        renderWeekProgress(data, weekStart, realNow);
         const selected = window.__waltSelectedDate || getPortalNow();
         data.today = data.today || {};
         data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, selected);
@@ -1305,6 +1511,126 @@
         document.getElementById("todayTitle").textContent =
           (sameDay ? "Today" : "Session") + " · " + weekdayName(selected) + " " + selected.getDate() + " " + selected.toLocaleString("en", { month: "short" });
         renderTodayGuide(data);
+      }
+
+      function dayChecklistStatus(data, iso, realNow) {
+        const workout = resolveWorkoutClient(data.plan, data.exercise_library, new Date(iso + "T12:00:00"));
+        if (!workout || workout.mode !== "session") return null;
+        const dayLog = getDayLog(iso);
+        const mode = dayLog.mode === "home" ? "home" : "gym";
+        const moves = mode === "home" ? (workout.home || []) : (workout.gym || []);
+        const sum = summarizeMoves(moves, dayLog);
+        const planned = ((data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
+        const whoop = !!(planned && planned.whoop_logged);
+        const past = iso < isoDate(realNow);
+        if (sum.complete) return { state: "green", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+        if (sum.started) return { state: "amber", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+        if (whoop) return { state: "purple", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+        if (past) return { state: "dim", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+        return { state: "gray", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+      }
+
+      function renderWeekProgress(data, weekStart, realNow) {
+        const root = document.getElementById("weekProgress");
+        if (!root) return;
+        const plan = data.plan || {};
+        const schedule = plan.schedule || [];
+        if (plan.status !== "active" || !schedule.length) {
+          root.innerHTML = '<p class="empty">No active plan block to track yet.</p>';
+          return;
+        }
+
+        const weekSessions = [];
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(weekStart);
+          d.setDate(weekStart.getDate() + i);
+          const iso = isoDate(d);
+          const entry = schedule.find((s) => String(s.date) === iso);
+          if (!entry) continue;
+          const st = dayChecklistStatus(data, iso, realNow);
+          weekSessions.push({
+            iso: iso,
+            weekday: weekdayName(d),
+            dayNum: d.getDate(),
+            template: entry.template,
+            week: entry.week,
+            status: st
+          });
+        }
+
+        const weekDone = weekSessions.filter((s) => s.status && s.status.state === "green").length;
+        const weekPlanned = weekSessions.length;
+        const weekPct = weekPlanned ? Math.round((weekDone / weekPlanned) * 100) : 0;
+
+        const blockDone = schedule.filter((s) => {
+          const st = dayChecklistStatus(data, String(s.date), realNow);
+          return st && st.state === "green";
+        }).length;
+        const blockPlanned = schedule.length;
+        const blockPct = blockPlanned ? Math.round((blockDone / blockPlanned) * 100) : 0;
+
+        const badge = {
+          green: "Done",
+          amber: "In progress",
+          purple: "WHOOP only",
+          gray: "Up next",
+          dim: "Missed"
+        };
+        const subLine = function (s) {
+          if (!s.status) return "";
+          const modeLabel = s.status.mode === "home" ? "home" : "gym";
+          if (s.status.state === "green") {
+            return "Logged as " + modeLabel + " · " + s.status.sum.done + " done" +
+              (s.status.sum.skipped ? " · " + s.status.sum.skipped + " skipped" : "");
+          }
+          if (s.status.state === "amber") {
+            return modeLabel + " · " + s.status.sum.done + "/" + s.status.sum.total + " moves checked";
+          }
+          if (s.status.state === "purple") {
+            return "WHOOP saw a workout — open Today and tick the list";
+          }
+          if (s.status.state === "dim") {
+            return "No portal checklist for this day";
+          }
+          return "Not started yet";
+        };
+
+        const rows = weekSessions.map((s) => {
+          const st = (s.status && s.status.state) || "gray";
+          return (
+            '<div class="wc-row st-' + st + '">' +
+            '<span class="wc-dot" aria-hidden="true"></span>' +
+            '<div class="wc-main"><div class="wc-title">' +
+            escapeHtml(s.weekday + " " + s.dayNum) + " · " + escapeHtml(String(s.template || "session")) +
+            '</div><div class="wc-sub">' + escapeHtml(subLine(s)) + "</div></div>" +
+            '<div class="wc-badge">' + escapeHtml(badge[st] || "") + "</div></div>"
+          );
+        }).join("");
+
+        let motivate = "First prize: hit Mon / Wed / Fri at the gym. Tick moves as you go — the bar here is your scoreboard.";
+        if (weekPct >= 100) motivate = "Week locked in. Keep the same energy next week.";
+        else if (weekPct >= 67) motivate = "Strong week so far. One more clean gym session seals it.";
+        else if (weekPct > 0) motivate = "You're on the board. Finish the remaining planned days — makeup Tue/Thu is fine.";
+        else if (weekPlanned) motivate = "Empty board. Open Today on your next gym day and tick as you train.";
+
+        root.innerHTML =
+          '<div class="wp-stats">' +
+          '<div class="wp-stat"><div class="k">This week</div><div class="v">' + weekPct + "%</div>" +
+          '<div class="s">' + weekDone + " / " + weekPlanned + " sessions</div></div>" +
+          '<div class="wp-stat"><div class="k">Full block</div><div class="v">' + blockPct + "%</div>" +
+          '<div class="s">' + blockDone + " / " + blockPlanned + " planned</div></div></div>" +
+          '<div class="wp-bar" aria-hidden="true"><div class="wp-fill" style="width:' + weekPct + '%"></div></div>' +
+          (rows
+            ? '<div class="week-checklist">' + rows + "</div>"
+            : '<p class="empty">No planned gym days in this week view.</p>') +
+          '<ul class="wp-legend">' +
+          '<li><i class="g"></i> Done — portal checklist complete (gym or home)</li>' +
+          '<li><i class="a"></i> In progress — some moves ticked</li>' +
+          '<li><i class="p"></i> WHOOP logged activity, checklist not finished</li>' +
+          '<li><i class="y"></i> Planned, not started</li>' +
+          '<li><i class="d"></i> Past day with no checklist</li>' +
+          "</ul>" +
+          '<p class="wp-coach">' + escapeHtml(motivate) + "</p>";
       }
 
       function fillRail(railId, data, weekStart, realNow) {
@@ -1539,14 +1865,18 @@
           return;
         }
 
-        lede.textContent = "Gym first. Expand How for each move. Home only if the gym is impossible.";
+        lede.textContent = "Gym first. Tap the arrow for how-to. Tick moves as you go. Home only if the gym is impossible.";
         const gymMoves = workout.gym || [];
         const homeMoves = workout.home || [];
+        const sessionIso = String(workout.date || isoDate(window.__waltSelectedDate || getPortalNow()));
+        const dayLog = getDayLog(sessionIso);
+        const startMode = dayLog.mode === "home" ? "home" : "gym";
+
         guide.innerHTML =
           priorityHtml +
           '<div class="session-toolbar">' +
           '<div class="mode-toggle" role="group" aria-label="Location">' +
-          '<button type="button" data-mode="gym" class="on">Gym session</button>' +
+          '<button type="button" data-mode="gym">Gym session</button>' +
           '<button type="button" data-mode="home">Home (last resort)</button>' +
           "</div></div>" +
           '<p class="home-warn" id="homeWarn">Home is last resort. Prefer a makeup gym day when you can.</p>' +
@@ -1558,13 +1888,18 @@
           (workout.load_cue ? '<div class="cue-box"><strong>Load cue:</strong> ' + escapeHtml(workout.load_cue) + "</div>" : "") +
           (workout.focus ? '<p style="color:var(--muted);margin:0 0 0.85rem">' + escapeHtml(workout.focus) + "</p>" : "") +
           '<div class="move-list" id="moveList"></div>' +
+          '<div class="session-progress" id="sessionProgress"></div>' +
           '<div class="habits-row">' + formatHabits(workout.habits) + "</div>" +
           tipsHtml;
 
         const list = document.getElementById("moveList");
         const homeWarn = document.getElementById("homeWarn");
+        const progressEl = document.getElementById("sessionProgress");
         const buttons = guide.querySelectorAll(".mode-toggle button");
-        function moveCard(m) {
+        let currentMode = startMode;
+
+        function moveCard(m, status) {
+          const st = status === "done" || status === "skipped" ? status : "";
           const how = m.how_to || m.notes || "";
           const where = m.where ? "<strong>Where in the gym:</strong> " + escapeHtml(m.where) + "<br/>" : "";
           const avoid = m.avoid ? "<br/><strong>Avoid:</strong> " + escapeHtml(m.avoid) : "";
@@ -1576,36 +1911,105 @@
               '?rel=0" title="' + escapeHtml(m.video_label || "Demo") +
               '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>'
             : "";
+          const stateClass = st === "done" ? " is-done" : (st === "skipped" ? " is-skipped" : "");
           return (
-            '<div class="move"><div class="top"><div class="n">' +
-            escapeHtml(String(m.order || "") + ". " + (m.name || "")) +
-            '</div><div class="dose">' + escapeHtml(String(m.sets) + " sets × " + (m.reps || "")) +
-            "</div></div>" +
+            '<div class="move' + stateClass + '" data-name="' + escapeHtml(m.name || "") + '">' +
+            '<div class="top"><div class="n">' +
+            '<button type="button" class="expand-btn" aria-label="Show how to do this" aria-expanded="false">▸</button>' +
+            '<span class="n-text">' + escapeHtml(String(m.order || "") + ". " + (m.name || "")) + "</span></div>" +
+            '<div class="dose">' + escapeHtml(String(m.sets) + " sets × " + (m.reps || "")) + "</div></div>" +
+            '<div class="check-row">' +
+            '<button type="button" class="check-btn' + (st === "done" ? " on" : "") + '" data-act="done" aria-label="Mark done" aria-pressed="' + (st === "done" ? "true" : "false") + '">✓</button>' +
+            '<button type="button" class="check-btn' + (st === "skipped" ? " on" : "") + '" data-act="skipped" aria-label="Mark skipped" aria-pressed="' + (st === "skipped" ? "true" : "false") + '">✕</button>' +
+            "</div>" +
             '<div class="mins">About ' + escapeHtml(String(m.minutes || "?")) + " minutes (including rests)</div>" +
             (m.set_plan ? '<div class="sets-guide"><strong>Kilograms guide:</strong> ' + escapeHtml(m.set_plan) + "</div>" : "") +
             (m.notes ? '<div class="hint">' + escapeHtml(m.notes) + "</div>" : "") +
-            '<details><summary>How to do this + tips</summary><div class="how">' +
+            '<div class="how-panel"><div class="how">' +
             where + escapeHtml(how) + avoid +
             (tips ? "<br/><br/><strong>Remember:</strong><ul style='margin:0.35rem 0 0;padding-left:1.1rem'>" + tips + "</ul>" : "") +
             research +
-            "</div>" + vid + "</details></div>"
+            "</div>" + vid + "</div></div>"
           );
         }
-        function paint(mode) {
+
+        function updateProgress(moves) {
+          if (!progressEl) return;
+          const log = getDayLog(sessionIso);
+          const sum = summarizeMoves(moves, log);
+          progressEl.classList.toggle("is-complete", sum.complete);
+          const label = sum.complete
+            ? "Session complete · logged as " + (currentMode === "home" ? "home" : "gym")
+            : (sum.pct + "% checked");
+          progressEl.innerHTML =
+            '<div class="sp-top"><strong>' + escapeHtml(label) + "</strong>" +
+            '<span class="sp-meta">' + sum.done + "/" + sum.total + " done" +
+            (sum.skipped ? " · " + sum.skipped + " skipped" : "") +
+            (sum.unset ? " · " + sum.unset + " left" : "") +
+            "</span></div>" +
+            '<div class="sp-bar" aria-hidden="true"><div class="sp-fill" style="width:' + sum.pct + '%"></div></div>';
+        }
+
+        function bindMoveCard(card) {
+          const name = card.getAttribute("data-name");
+          const expandBtn = card.querySelector(".expand-btn");
+          if (expandBtn) {
+            expandBtn.addEventListener("click", () => {
+              const open = card.classList.toggle("is-open");
+              expandBtn.setAttribute("aria-expanded", open ? "true" : "false");
+              expandBtn.setAttribute("aria-label", open ? "Hide how to do this" : "Show how to do this");
+            });
+          }
+          card.querySelectorAll(".check-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+              const act = btn.getAttribute("data-act");
+              const log = getDayLog(sessionIso);
+              const cur = (log.moves || {})[name];
+              const next = cur === act ? null : act;
+              setMoveStatus(sessionIso, currentMode, name, next);
+              paint(currentMode, true);
+              renderWeekProgress(window.__waltDashboard, viewedWeekStart(), new Date());
+            });
+          });
+        }
+
+        function paint(mode, keepOpenNames) {
+          currentMode = mode;
           buttons.forEach((b) => b.classList.toggle("on", b.getAttribute("data-mode") === mode));
           if (homeWarn) homeWarn.classList.toggle("show", mode === "home");
+          const openNames = keepOpenNames
+            ? Array.from(list.querySelectorAll(".move.is-open")).map((el) => el.getAttribute("data-name"))
+            : [];
           const moves = mode === "home" ? homeMoves : gymMoves;
-          list.innerHTML = moves.map(moveCard).join("") || '<p class="empty">No movements listed.</p>';
+          const log = getDayLog(sessionIso);
+          upsertDayLog(sessionIso, { mode: mode, moves: log.moves || {} });
+          const fresh = getDayLog(sessionIso);
+          list.innerHTML = moves.map((m) => moveCard(m, (fresh.moves || {})[m.name])).join("") ||
+            '<p class="empty">No movements listed.</p>';
+          list.querySelectorAll(".move").forEach((card) => {
+            if (openNames.indexOf(card.getAttribute("data-name")) !== -1) {
+              card.classList.add("is-open");
+              const eb = card.querySelector(".expand-btn");
+              if (eb) {
+                eb.setAttribute("aria-expanded", "true");
+                eb.setAttribute("aria-label", "Hide how to do this");
+              }
+            }
+            bindMoveCard(card);
+          });
+          updateProgress(moves);
         }
+
         buttons.forEach((b) => b.addEventListener("click", () => {
           const mode = b.getAttribute("data-mode");
           if (mode === "home") {
             const ok = window.confirm("Home is last resort. Can you still make Virgin Active today or tomorrow instead?");
-            if (!ok) { paint("gym"); return; }
+            if (!ok) { paint("gym", true); return; }
           }
-          paint(mode);
+          paint(mode, true);
+          renderWeekProgress(window.__waltDashboard, viewedWeekStart(), new Date());
         }));
-        paint("gym");
+        paint(startMode, false);
       }
 
       function formatHabits(habits) {
