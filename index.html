@@ -62,10 +62,6 @@
       from { opacity: 0; transform: translateY(18px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    @keyframes draw-line {
-      from { stroke-dashoffset: 1; }
-      to { stroke-dashoffset: 0; }
-    }
     @keyframes pulse-soft {
       0%, 100% { opacity: 0.45; }
       50% { opacity: 0.85; }
@@ -254,9 +250,6 @@
       stroke-width: 2.2;
       stroke-linecap: round;
       stroke-linejoin: round;
-      stroke-dasharray: 1;
-      stroke-dashoffset: 1;
-      animation: draw-line 1.25s var(--ease) both;
       vector-effect: non-scaling-stroke;
     }
     .spark path.area {
@@ -398,14 +391,83 @@
       display: grid;
       grid-template-columns: repeat(7, minmax(0, 1fr));
       gap: 0.4rem;
-      margin-top: 1rem;
+      margin-top: 0.75rem;
     }
     .day-rail .d {
       text-align: center; padding: 0.7rem 0.2rem; border: 1px solid var(--line); border-radius: 12px;
-      color: var(--muted); font-size: 0.78rem;
+      color: var(--muted); font-size: 0.78rem; cursor: pointer;
+      background: transparent;
+      font-family: inherit;
+      width: 100%;
     }
+    .day-rail .d:hover { border-color: var(--ice); color: var(--white); }
     .day-rail .d.today { border-color: var(--ice); color: var(--white); background: rgba(149, 200, 226, 0.1); }
     .day-rail .d.gym { color: var(--ice-soft); }
+    .day-rail .d.selected {
+      background: var(--ice); color: #0b0b0c; border-color: var(--ice);
+    }
+    .week-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+    .week-nav .label {
+      font-family: var(--font-display);
+      color: var(--ice-soft);
+      font-size: 1rem;
+      text-align: center;
+      flex: 1;
+    }
+    .week-nav button {
+      appearance: none; border: 1px solid var(--line); background: rgba(149,200,226,0.06);
+      color: var(--ice-soft); border-radius: 999px; width: 2.4rem; height: 2.4rem;
+      font-size: 1.1rem; cursor: pointer;
+    }
+    .week-nav button:hover { border-color: var(--ice); }
+    .jump-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.75rem 0 0.25rem; }
+    .jump-chips button {
+      appearance: none; border: 1px solid var(--line); background: transparent;
+      color: var(--ice); border-radius: 999px; padding: 0.45rem 0.85rem;
+      font: 600 0.82rem/1 var(--font-body); cursor: pointer;
+    }
+    .priority-box ul {
+      margin: 0.35rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.9rem;
+      list-style: disc;
+    }
+    .move .mins {
+      color: var(--ice-soft);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 0.35rem;
+    }
+    .move .sets-guide {
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      border-left: 2px solid var(--line);
+      padding-left: 0.65rem;
+    }
+    .tips-block {
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.9rem;
+    }
+    .tips-block h4 {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+    .tips-block details {
+      margin: 0.45rem 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .tips-block summary { cursor: pointer; color: var(--ice); font-weight: 600; }
 
     .guide {
       margin-top: 1rem;
@@ -508,13 +570,6 @@
       padding: 0.85rem 1rem;
       margin: 0 0 1rem;
       background: rgba(149, 200, 226, 0.05);
-    }
-    .priority-box ol {
-      margin: 0.35rem 0 0;
-      padding-left: 1.15rem;
-      color: var(--muted);
-      line-height: 1.45;
-      font-size: 0.9rem;
     }
     .priority-box li { margin: 0.2rem 0; }
     .priority-box .prize { color: var(--ice-soft); font-weight: 600; }
@@ -734,7 +789,14 @@
           <p id="planHeadline">Weekly plan status</p>
         </div>
         <p class="banner" id="planBanner"></p>
+        <div class="week-nav">
+          <button type="button" id="weekPrev" aria-label="Previous week">‹</button>
+          <div class="label" id="weekLabel">This week</div>
+          <button type="button" id="weekNext" aria-label="Next week">›</button>
+        </div>
         <div class="day-rail" id="weekRail"></div>
+        <div class="jump-chips" id="jumpChips"></div>
+        <p class="banner" id="dayPickHint" style="margin-top:1rem">Tap a day above to open that session on the Today tab.</p>
         <div class="block">
           <h3>Notes</h3>
           <ul id="planNotes"></ul>
@@ -745,8 +807,15 @@
         <div class="hero-strip">
           <div class="kicker">Session guide</div>
           <h2 id="todayTitle">Today</h2>
-          <p id="todayLede">Open this on your phone in the gym. Big type · Gym or Home.</p>
+          <p id="todayLede">Open this on your phone in the gym. Tap a calendar day to preview any session.</p>
         </div>
+        <div class="week-nav">
+          <button type="button" id="weekPrevToday" aria-label="Previous week">‹</button>
+          <div class="label" id="weekLabelToday">This week</div>
+          <button type="button" id="weekNextToday" aria-label="Next week">›</button>
+        </div>
+        <div class="day-rail" id="weekRailToday"></div>
+        <div class="jump-chips" id="jumpChipsToday"></div>
         <div class="guide" id="todayGuide"></div>
       </section>
     </div>
@@ -907,9 +976,31 @@
           "</linearGradient></defs>" +
           '<line class="gridline" x1="0" y1="' + midY + '" x2="' + width + '" y2="' + midY + '" />' +
           '<path class="area" d="' + area + '" />' +
-          '<path class="line" pathLength="1" d="' + line + '" />' +
+          '<path class="line spark-line" d="' + line + '" />' +
           "</svg>"
         );
+      }
+
+      function animateSparklines(root) {
+        const paths = (root || document).querySelectorAll("path.spark-line");
+        paths.forEach((path) => {
+          try {
+            const len = path.getTotalLength();
+            if (!len || !isFinite(len)) return;
+            path.style.transition = "none";
+            path.style.strokeDasharray = String(len);
+            path.style.strokeDashoffset = String(len);
+          } catch (_) { /* ignore */ }
+        });
+        // Second frame: draw the full path to the last data point (no early stop).
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            paths.forEach((path) => {
+              path.style.transition = "stroke-dashoffset 1.25s cubic-bezier(0.22, 1, 0.36, 1)";
+              path.style.strokeDashoffset = "0";
+            });
+          });
+        });
       }
 
       function deltaLabel(summary) {
@@ -996,6 +1087,13 @@
         ].map(([label, value, sub]) =>
           '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + "</div></div>"
         ).join("");
+
+        requestAnimationFrame(() => animateSparklines(stack));
+        requestAnimationFrame(() => {
+          bars.querySelectorAll(".fill").forEach((el) => {
+            el.style.width = el.getAttribute("data-w") || "0%";
+          });
+        });
       }
 
       function renderYou(data) {
@@ -1112,12 +1210,13 @@
         renderYou(data);
 
         const plan = data.plan || {};
+        window.__waltDashboard = data;
         document.getElementById("planHeadline").textContent = plan.headline || "Weekly plan";
         document.getElementById("planBanner").innerHTML =
           "<strong>Status:</strong> " + escapeHtml(plan.status || "unknown") +
           " · option <strong>" + escapeHtml(String(plan.option || "—")) +
-          "</strong> · <strong>" + escapeHtml(String(plan.minutes_per_session || plan.target_gym_days || "—")) +
-          "</strong> min × " + escapeHtml(String(plan.target_gym_days || 3)) + " days · week of <strong>" +
+          "</strong> · about <strong>" + escapeHtml(String(plan.minutes_per_session || 75)) +
+          "</strong> minutes × " + escapeHtml(String(plan.target_gym_days || 3)) + " days · block starts <strong>" +
           escapeHtml(String(plan.week_of || "—")) + "</strong>";
         const goalBits = [];
         const g3 = plan.goals_3_weeks || {};
@@ -1127,40 +1226,164 @@
         if (g3.conservative) {
           goalBits.push("<li><strong style='color:var(--white)'>Conservative:</strong> " + escapeHtml(g3.conservative.note || "") +
             " · sessions " + escapeHtml(String(g3.conservative.sessions_completed || "")) +
-            " · BF% " + escapeHtml(String(g3.conservative.percent_body_fat || "")) + "</li>");
+            " · body fat % " + escapeHtml(String(g3.conservative.percent_body_fat || "")) + "</li>");
         }
         if (g3.optimistic) {
           goalBits.push("<li><strong style='color:var(--white)'>Optimistic:</strong> " + escapeHtml(g3.optimistic.note || "") +
-            " · SMM " + escapeHtml(String(g3.optimistic.smm_kg || "")) + "</li>");
+            " · muscle mass " + escapeHtml(String(g3.optimistic.smm_kg || "")) + "</li>");
         }
         (plan.notes || []).forEach((n) => goalBits.push("<li>" + escapeHtml(n) + "</li>"));
         document.getElementById("planNotes").innerHTML = goalBits.join("") || "<li>No plan notes.</li>";
 
-        const today = getPortalNow();
-        const rail = document.getElementById("weekRail");
-        const planned = new Set((plan.days || []).map((d) => String(d.weekday || d.day || "").toLowerCase()));
-        rail.innerHTML = "";
-        const mondayOffset = (today.getDay() + 6) % 7;
-        for (let i = 0; i < 7; i++) {
-          const d = new Date(today);
-          d.setDate(today.getDate() - mondayOffset + i);
-          const nameShort = weekdayName(d);
-          const el = document.createElement("div");
-          el.className = "d";
-          if (d.toDateString() === today.toDateString()) el.classList.add("today");
-          const key = nameShort.toLowerCase();
-          if (planned.has(key) || planned.has(String(d.getDay()))) el.classList.add("gym");
-          const dayPlan = (plan.days || []).find((x) => String(x.weekday || "").toLowerCase() === key);
-          el.innerHTML = "<div>" + nameShort + "</div><div>" + d.getDate() + "</div>" +
-            (dayPlan && dayPlan.label ? "<div style='font-size:0.65rem;margin-top:0.2rem;color:var(--ice)'>" + escapeHtml(dayPlan.label) + "</div>" : "");
-          rail.appendChild(el);
+        const realNow = new Date();
+        let selected = getPortalNow();
+        const dateParam = new URLSearchParams(window.location.search).get("date");
+        if (dateParam && /^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
+          selected = new Date(dateParam + "T12:00:00");
         }
+        window.__waltSelectedDate = selected;
+        const selMon = mondayOf(selected);
+        const nowMon = mondayOf(realNow);
+        window.__waltWeekOffset = Math.round((selMon - nowMon) / (7 * 24 * 3600 * 1000));
 
-        document.getElementById("todayTitle").textContent = "Today · " + weekdayName(today);
-        // Resolve session from local date so Dylan always sees the right day without waiting for sync
+        wireWeekNav();
+        refreshCalendarAndSession();
+      }
+
+      function mondayOf(d) {
+        const x = new Date(d);
+        const off = (x.getDay() + 6) % 7;
+        x.setHours(12, 0, 0, 0);
+        x.setDate(x.getDate() - off);
+        return x;
+      }
+
+      function isoDate(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, "0");
+        const day = String(d.getDate()).padStart(2, "0");
+        return y + "-" + m + "-" + day;
+      }
+
+      function wireWeekNav() {
+        const bind = (id, delta) => {
+          const el = document.getElementById(id);
+          if (!el || el.__waltBound) return;
+          el.__waltBound = true;
+          el.addEventListener("click", () => {
+            window.__waltWeekOffset = (window.__waltWeekOffset || 0) + delta;
+            refreshCalendarAndSession();
+          });
+        };
+        bind("weekPrev", -1);
+        bind("weekNext", 1);
+        bind("weekPrevToday", -1);
+        bind("weekNextToday", 1);
+      }
+
+      function refreshCalendarAndSession() {
+        const data = window.__waltDashboard;
+        if (!data) return;
+        const realNow = new Date();
+        const offset = window.__waltWeekOffset || 0;
+        const weekStart = mondayOf(realNow);
+        weekStart.setDate(weekStart.getDate() + offset * 7);
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekStart.getDate() + 6);
+        const label = weekdayName(weekStart) + " " + weekStart.getDate() + " – " + weekdayName(weekEnd) + " " + weekEnd.getDate() + " " + weekEnd.toLocaleString("en", { month: "short" });
+        ["weekLabel", "weekLabelToday"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = label;
+        });
+        fillRail("weekRail", data, weekStart, realNow);
+        fillRail("weekRailToday", data, weekStart, realNow);
+        fillJumpChips(data, realNow);
+        const selected = window.__waltSelectedDate || getPortalNow();
         data.today = data.today || {};
-        data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, today) || data.today.guided_workout;
+        data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, selected);
+        const sameDay = isoDate(selected) === isoDate(realNow);
+        document.getElementById("todayTitle").textContent =
+          (sameDay ? "Today" : "Session") + " · " + weekdayName(selected) + " " + selected.getDate() + " " + selected.toLocaleString("en", { month: "short" });
         renderTodayGuide(data);
+      }
+
+      function fillRail(railId, data, weekStart, realNow) {
+        const rail = document.getElementById(railId);
+        if (!rail) return;
+        const plan = data.plan || {};
+        const selectedIso = isoDate(window.__waltSelectedDate || realNow);
+        rail.innerHTML = "";
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(weekStart);
+          d.setDate(weekStart.getDate() + i);
+          const iso = isoDate(d);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "d";
+          if (iso === isoDate(realNow)) btn.classList.add("today");
+          if (iso === selectedIso) btn.classList.add("selected");
+          const entry = (plan.schedule || []).find((s) => String(s.date) === iso);
+          if (entry) btn.classList.add("gym");
+          const label = entry ? String(entry.template || "Gym") : "Rest";
+          btn.innerHTML = "<div>" + weekdayName(d) + "</div><div>" + d.getDate() + "</div>" +
+            "<div style='font-size:0.62rem;margin-top:0.15rem;opacity:0.9'>" + escapeHtml(label) + "</div>";
+          btn.addEventListener("click", () => {
+            window.__waltSelectedDate = d;
+            const url = new URL(window.location.href);
+            url.searchParams.set("date", iso);
+            url.searchParams.delete("preview_date");
+            history.replaceState({}, "", url.toString());
+            const nowMon = mondayOf(realNow);
+            const selMon = mondayOf(d);
+            window.__waltWeekOffset = Math.round((selMon - nowMon) / (7 * 24 * 3600 * 1000));
+            document.querySelectorAll(".nav button").forEach((b) => b.classList.toggle("active", b.getAttribute("data-view") === "today"));
+            document.querySelectorAll(".view").forEach((v) => v.classList.toggle("active", v.id === "view-today"));
+            refreshCalendarAndSession();
+          });
+          rail.appendChild(btn);
+        }
+      }
+
+      function fillJumpChips(data, realNow) {
+        const plan = data.plan || {};
+        const tomorrow = new Date(realNow);
+        tomorrow.setDate(realNow.getDate() + 1);
+        const tIso = isoDate(tomorrow);
+        const entry = (plan.schedule || []).find((s) => String(s.date) === tIso);
+        const html = [];
+        html.push('<button type="button" data-jump="today">Jump to today</button>');
+        if (entry) {
+          html.push('<button type="button" data-jump="tomorrow">See tomorrow · ' + escapeHtml(String(entry.template)) + "</button>");
+        } else {
+          html.push('<button type="button" data-jump="tomorrow">See tomorrow · rest day</button>');
+        }
+        const upcoming = (plan.schedule || []).find((s) => String(s.date) > isoDate(realNow));
+        if (upcoming && upcoming.date !== tIso) {
+          html.push('<button type="button" data-jump="' + escapeHtml(upcoming.date) + '">Next gym · ' + escapeHtml(upcoming.date) + "</button>");
+        }
+        ["jumpChips", "jumpChipsToday"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.innerHTML = html.join("");
+          el.querySelectorAll("button").forEach((b) => {
+            b.addEventListener("click", () => {
+              const j = b.getAttribute("data-jump");
+              let target = realNow;
+              if (j === "tomorrow") target = tomorrow;
+              else if (j !== "today") target = new Date(j + "T12:00:00");
+              window.__waltSelectedDate = target;
+              const url = new URL(window.location.href);
+              url.searchParams.set("date", isoDate(target));
+              history.replaceState({}, "", url.toString());
+              const nowMon = mondayOf(realNow);
+              const selMon = mondayOf(target);
+              window.__waltWeekOffset = Math.round((selMon - nowMon) / (7 * 24 * 3600 * 1000));
+              document.querySelectorAll(".nav button").forEach((x) => x.classList.toggle("active", x.getAttribute("data-view") === "today"));
+              document.querySelectorAll(".view").forEach((v) => v.classList.toggle("active", v.id === "view-today"));
+              refreshCalendarAndSession();
+            });
+          });
+        });
       }
 
       function scaleSets(base, scale) {
@@ -1173,6 +1396,7 @@
         for (const meta of Object.values(exercises)) {
           const aliases = (meta.aliases || []).map((a) => String(a).trim().toLowerCase());
           if (aliases.includes(needle)) return meta;
+          if (String(meta.display_name || "").toLowerCase() === needle) return meta;
           for (const a of aliases) {
             if (a && (needle.indexOf(a) !== -1 || a.indexOf(needle) !== -1)) return meta;
           }
@@ -1182,28 +1406,27 @@
 
       function resolveWorkoutClient(plan, library, now) {
         if (!plan || plan.status !== "active") return null;
-        const y = now.getFullYear();
-        const m = String(now.getMonth() + 1).padStart(2, "0");
-        const d = String(now.getDate()).padStart(2, "0");
-        const today = y + "-" + m + "-" + d;
+        const today = isoDate(now);
         const schedule = plan.schedule || [];
         const entry = schedule.find((s) => String(s.date) === today);
         const priority = plan.attendance_priority || [
-          "1) FIRST PRIZE: Gym on Mon / Wed / Fri",
-          "2) SECOND: Still hit 3 gym days — makeup Tue/Thu if you miss a plan day",
-          "3) LAST RESORT: Home only if gym is impossible"
+          "First prize: Gym on Monday, Wednesday, and Friday",
+          "Second: Still three gym days — makeup Tuesday or Thursday if you miss a plan day",
+          "Last resort: Home only if getting to Virgin Active is truly impossible for that session"
         ];
+        const tips = plan.session_tips || (library && library.overall_tips) || [];
         if (!entry) {
           const upcoming = schedule.filter((s) => String(s.date) > today);
           return {
             mode: "rest",
-            title: "Recovery / off day",
-            summary: "No lifting prescribed today (MWF plan). Walk, sleep, hit protein + creatine.",
+            title: "No lifting planned this day",
+            summary: "Rest, walk, sleep, creatine 5 g, and hit your protein target. Tap a gym day on the calendar to preview that session.",
             date: today,
             next_session: upcoming[0] || null,
             habits: plan.daily_habits,
             missed_day_rule: plan.missed_day_rule,
-            attendance_priority: priority
+            attendance_priority: priority,
+            session_tips: tips
           };
         }
         const weekN = Number(entry.week || 1);
@@ -1216,39 +1439,49 @@
             const name = mv.name || "Movement";
             let notes = mv.notes || "";
             const isCond = String(mv.reps) === "time" || /conditioning|finisher/i.test(name);
-            if (isCond) notes = condMin + " min · " + notes;
+            if (isCond) notes = condMin + " minutes · " + notes;
             const meta = lookupExercise(name, library);
+            let minutes = Number(mv.minutes || meta.minutes || 8);
+            if (isCond) minutes = condMin;
+            if (!isCond && scale < 1) minutes = Math.max(4, Math.round(minutes * (0.75 + 0.25 * scale)));
             return {
               order: i + 1,
-              name: name,
+              name: meta.display_name || name,
               sets: scaleSets(mv.sets_base, scale),
               reps: mv.reps || "8–12",
               notes: notes,
+              minutes: minutes,
               where: meta.where || "",
               how_to: meta.how_to || notes,
               avoid: meta.avoid || "",
+              set_plan: meta.set_plan || "",
+              tips: meta.tips || [],
+              research_note: meta.research_note || "",
               video_id: meta.video_id || "",
               video_label: meta.video_label || "Demo"
             };
           });
         }
+        const gym = buildMoves(tmpl.gym);
+        const home = buildMoves(tmpl.home);
         return {
           mode: "session",
           date: today,
           weekday: entry.weekday,
           week: weekN,
           week_label: modifiers.label || ("Week " + weekN),
-          rir: modifiers.rir,
+          reps_in_reserve: modifiers.reps_in_reserve || modifiers.rir,
           load_cue: modifiers.load_cue,
           title: tmpl.title || "Session",
           focus: tmpl.focus || "",
-          summary: "Week " + weekN + " · " + (modifiers.label || "") + " · ~" + (plan.minutes_per_session || 75) + " min · RIR " + (modifiers.rir || "—"),
+          summary: "Week " + weekN + " · " + (modifiers.label || "") + " · about " + (plan.minutes_per_session || 75) + " minutes total",
           minutes: plan.minutes_per_session || 75,
-          gym: buildMoves(tmpl.gym),
-          home: buildMoves(tmpl.home),
+          gym: gym,
+          home: home,
           habits: plan.daily_habits,
           missed_day_rule: plan.missed_day_rule,
           attendance_priority: priority,
+          session_tips: tips,
           template_id: entry.template
         };
       }
@@ -1257,90 +1490,105 @@
         const guide = document.getElementById("todayGuide");
         const lede = document.getElementById("todayLede");
         const workout = data.today && data.today.guided_workout;
-        const latest = data.today && data.today.latest_recovery;
         if (!workout) {
           lede.textContent = "No active session on file — sync after unlocking a plan.";
-          guide.innerHTML =
-            '<p class="empty">No guided workout yet.</p>' +
-            (latest && latest.recovery_score != null
-              ? '<p class="empty">Latest recovery: <strong style="color:var(--white)">' + latest.recovery_score + "</strong></p>"
-              : "");
+          guide.innerHTML = '<p class="empty">No guided workout yet.</p>';
           return;
         }
+
+        const priorityHtml =
+          '<div class="priority-box"><div class="prize">Show-up order (read once)</div><ul>' +
+          (workout.attendance_priority || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
+          "</ul></div>";
+
+        const tipsHtml = (workout.session_tips || []).length
+          ? '<div class="tips-block"><h4>Overall tips (research-honest)</h4>' +
+            (workout.session_tips || []).map((t) =>
+              "<details><summary>" + escapeHtml(t.title || "Tip") + "</summary><div style='margin-top:0.35rem'>" +
+              escapeHtml(t.body || "") + "</div></details>"
+            ).join("") +
+            "</div>"
+          : "";
 
         if (workout.mode === "rest") {
           lede.textContent = workout.summary || "Off day";
           const next = workout.next_session;
           guide.innerHTML =
-            '<div class="priority-box"><div class="prize">Show-up priority</div><ol>' +
-            (workout.attendance_priority || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
-            "</ol></div>" +
+            priorityHtml +
             '<div class="rest-card">' +
             '<div class="big">' + escapeHtml(workout.title || "Rest") + "</div>" +
             "<p style='color:var(--muted);line-height:1.55'>" + escapeHtml(workout.summary || "") + "</p>" +
             (next
               ? "<p style='color:var(--ice-soft);margin-top:0.75rem'>Next gym target: <strong>" +
-                escapeHtml(String(next.date)) + "</strong> · " + escapeHtml(String(next.template || "")) + "</p>"
+                escapeHtml(String(next.date)) + "</strong> · " + escapeHtml(String(next.template || "")) +
+                ' · <button type="button" class="btn ghost" id="openNextGym" style="margin-top:0.5rem;padding:0.5rem 0.9rem;font-size:0.85rem">Open that session</button></p>'
               : "") +
-            '<div class="habits-row">' + formatHabits(workout.habits) +
-            (workout.missed_day_rule ? "<br/><br/><strong style='color:var(--white)'>If life breaks a day:</strong> " + escapeHtml(workout.missed_day_rule) : "") +
-            "</div></div>";
+            '<div class="habits-row">' + formatHabits(workout.habits) + "</div></div>" + tipsHtml;
+          const btn = document.getElementById("openNextGym");
+          if (btn && next) {
+            btn.addEventListener("click", () => {
+              window.__waltSelectedDate = new Date(String(next.date) + "T12:00:00");
+              const url = new URL(window.location.href);
+              url.searchParams.set("date", String(next.date));
+              history.replaceState({}, "", url.toString());
+              const realNow = new Date();
+              window.__waltWeekOffset = Math.round((mondayOf(window.__waltSelectedDate) - mondayOf(realNow)) / (7 * 24 * 3600 * 1000));
+              refreshCalendarAndSession();
+            });
+          }
           return;
         }
 
-        lede.textContent = "Gym first. Open How on any lift if unsure. Home only if gym is impossible.";
+        lede.textContent = "Gym first. Expand How for each move. Home only if the gym is impossible.";
         const gymMoves = workout.gym || [];
         const homeMoves = workout.home || [];
         guide.innerHTML =
-          '<div class="priority-box"><div class="prize">Keep it simple</div><ol>' +
-          (workout.attendance_priority || [
-            "1) Gym Mon/Wed/Fri",
-            "2) Makeup gym day if needed",
-            "3) Home last resort"
-          ]).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
-          "</ol></div>" +
+          priorityHtml +
           '<div class="session-toolbar">' +
           '<div class="mode-toggle" role="group" aria-label="Location">' +
           '<button type="button" data-mode="gym" class="on">Gym session</button>' +
           '<button type="button" data-mode="home">Home (last resort)</button>' +
           "</div></div>" +
-          '<p class="home-warn" id="homeWarn">Home mode is only if you truly cannot reach Virgin Active. Prefer a makeup gym day (Tue/Thu) when possible.</p>' +
+          '<p class="home-warn" id="homeWarn">Home is last resort. Prefer a makeup gym day when you can.</p>' +
           '<div class="session-meta">' +
-          '<div class="chip"><div class="k">Week</div><div class="v">' + escapeHtml(String(workout.week_label || workout.week || "—")) + "</div></div>" +
-          '<div class="chip"><div class="k">Time</div><div class="v">~' + escapeHtml(String(workout.minutes || 75)) + " min</div></div>" +
-          '<div class="chip"><div class="k">RIR</div><div class="v">' + escapeHtml(String(workout.rir || "—")) + "</div></div>" +
+          '<div class="chip"><div class="k">Phase</div><div class="v">' + escapeHtml(String(workout.week_label || workout.week || "—")) + "</div></div>" +
+          '<div class="chip"><div class="k">Session time</div><div class="v">about ' + escapeHtml(String(workout.minutes || 75)) + " minutes</div></div>" +
+          '<div class="chip"><div class="k">Effort</div><div class="v" style="font-size:0.82rem;line-height:1.25">' + escapeHtml(String(workout.reps_in_reserve || workout.rir || "—")) + "</div></div>" +
           "</div>" +
-          (workout.load_cue
-            ? '<div class="cue-box"><strong>Ease / load cue:</strong> ' + escapeHtml(workout.load_cue) + "</div>"
-            : "") +
+          (workout.load_cue ? '<div class="cue-box"><strong>Load cue:</strong> ' + escapeHtml(workout.load_cue) + "</div>" : "") +
           (workout.focus ? '<p style="color:var(--muted);margin:0 0 0.85rem">' + escapeHtml(workout.focus) + "</p>" : "") +
           '<div class="move-list" id="moveList"></div>' +
-          '<div class="habits-row">' + formatHabits(workout.habits) + "</div>";
+          '<div class="habits-row">' + formatHabits(workout.habits) + "</div>" +
+          tipsHtml;
 
         const list = document.getElementById("moveList");
         const homeWarn = document.getElementById("homeWarn");
         const buttons = guide.querySelectorAll(".mode-toggle button");
         function moveCard(m) {
           const how = m.how_to || m.notes || "";
-          const where = m.where ? "<strong>Where:</strong> " + escapeHtml(m.where) + "<br/>" : "";
+          const where = m.where ? "<strong>Where in the gym:</strong> " + escapeHtml(m.where) + "<br/>" : "";
           const avoid = m.avoid ? "<br/><strong>Avoid:</strong> " + escapeHtml(m.avoid) : "";
+          const tips = (m.tips || []).map((t) => "<li>" + escapeHtml(t) + "</li>").join("");
+          const research = m.research_note ? "<br/><strong>Why / research:</strong> " + escapeHtml(m.research_note) : "";
           const vid = m.video_id
             ? '<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/' +
               encodeURIComponent(m.video_id) +
               '?rel=0" title="' + escapeHtml(m.video_label || "Demo") +
-              '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>' +
-              '<div class="how" style="margin-top:0.35rem"><a href="https://www.youtube.com/watch?v=' +
-              encodeURIComponent(m.video_id) + '" target="_blank" rel="noopener" style="color:var(--ice)">' +
-              escapeHtml(m.video_label || "Open demo") + "</a></div>"
+              '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>'
             : "";
           return (
             '<div class="move"><div class="top"><div class="n">' +
             escapeHtml(String(m.order || "") + ". " + (m.name || "")) +
-            '</div><div class="dose">' + escapeHtml(String(m.sets) + " × " + (m.reps || "")) +
+            '</div><div class="dose">' + escapeHtml(String(m.sets) + " sets × " + (m.reps || "")) +
             "</div></div>" +
+            '<div class="mins">About ' + escapeHtml(String(m.minutes || "?")) + " minutes (including rests)</div>" +
+            (m.set_plan ? '<div class="sets-guide"><strong>Kilograms guide:</strong> ' + escapeHtml(m.set_plan) + "</div>" : "") +
             (m.notes ? '<div class="hint">' + escapeHtml(m.notes) + "</div>" : "") +
-            '<details><summary>How to do this</summary><div class="how">' +
-            where + escapeHtml(how) + avoid + "</div>" + vid + "</details></div>"
+            '<details><summary>How to do this + tips</summary><div class="how">' +
+            where + escapeHtml(how) + avoid +
+            (tips ? "<br/><br/><strong>Remember:</strong><ul style='margin:0.35rem 0 0;padding-left:1.1rem'>" + tips + "</ul>" : "") +
+            research +
+            "</div>" + vid + "</details></div>"
           );
         }
         function paint(mode) {
@@ -1353,10 +1601,7 @@
           const mode = b.getAttribute("data-mode");
           if (mode === "home") {
             const ok = window.confirm("Home is last resort. Can you still make Virgin Active today or tomorrow instead?");
-            if (!ok) {
-              paint("gym");
-              return;
-            }
+            if (!ok) { paint("gym"); return; }
           }
           paint(mode);
         }));
