@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T13:59:36.260262+00:00",
+  "generated_at": "2026-07-19T14:05:30.068040+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -1360,6 +1360,201 @@
       "2) SECOND: Still hit 3 gym days \u2014 makeup Tue/Thu (or another weekday) if you miss a plan day",
       "3) LAST RESORT: Home only if getting to Virgin Active is truly impossible for that session"
     ]
+  },
+  "exercise_library": {
+    "version": 1,
+    "note": "Short how-tos for gym glance + optional YouTube demo embeds (open demos, not medical advice).",
+    "exercises": {
+      "incline_press": {
+        "aliases": [
+          "Incline DB or BB press",
+          "Incline DB press (lighter)"
+        ],
+        "where": "Adjustable bench + dumbbells (or smith/BB incline). Bench ~30\u201345\u00b0.",
+        "how_to": "Set bench 30\u201345\u00b0. Plant feet. Retract shoulder blades into the pad. Start with dumbbells at upper-chest height, elbows ~45\u00b0 from torso (not flared flat). Press up until arms nearly straight without slamming. Lower under control for about 2 seconds until you feel a stretch. Week 1: easy weight.",
+        "avoid": "Bench too upright (becomes a shoulder press). Bouncing off the chest. Huge arch / lifting hips.",
+        "video_id": "oZVCBM9f8Eo",
+        "video_label": "15s incline DB press demo (PureGym)"
+      },
+      "shoulder_press": {
+        "aliases": [
+          "Seated DB shoulder press",
+          "Overhead press (DB or machine)"
+        ],
+        "where": "Seated bench with back support + DBs, or shoulder-press machine.",
+        "how_to": "Sit tall, back against pad. Start DBs at ear height, palms forward or slight neutral. Press overhead until arms lock softly. Lower to ear height. Do not shrug shoulders into your ears. If using a machine: same path, controlled tempo.",
+        "avoid": "Excessive lower-back arch. Pressing way out in front of the face.",
+        "video_id": "qEwKCR5JCog",
+        "video_label": "Seated DB shoulder press demo"
+      },
+      "lateral_raise": {
+        "aliases": [
+          "DB lateral raise",
+          "Cable lateral OR machine lateral",
+          "Lateral raise with bottles/bag"
+        ],
+        "where": "Dumbbells standing, or cable with handle at side, or lateral-raise machine.",
+        "how_to": "Soft elbows. Lead with elbows, raise arms out to just below shoulder height (stop if traps take over). Brief pause. Lower slow. This is your #1 visual shoulder builder \u2014 prefer clean reps over heavy weight.",
+        "avoid": "Swinging. Shrugging. Going way above shoulder height with momentum.",
+        "video_id": "3VcKaXpzqRo",
+        "video_label": "Lateral raise form demo"
+      },
+      "chest_fly": {
+        "aliases": [
+          "Cable or machine chest fly"
+        ],
+        "where": "Pec-deck / fly machine, or dual cables at chest height.",
+        "how_to": "Slight bend in elbows that stays fixed. Open until you feel a chest stretch, then hug the arms together as if wrapping a barrel. Squeeze 1 second at the inside. Light load \u2014 this is a pump/control move.",
+        "avoid": "Straight-arm swings. Jerky lengthening.",
+        "video_id": "eozdVDA78K0",
+        "video_label": "Cable fly demo"
+      },
+      "triceps_pushdown": {
+        "aliases": [
+          "Rope or bar triceps pushdown",
+          "Barbell or DB curl + pushdown supersets optional"
+        ],
+        "where": "Cable stack with rope or straight/angled bar.",
+        "how_to": "Elbows pinned to your sides. Push the rope/bar down until arms straighten, spread rope ends apart at the bottom if using rope. Let the forearms come up only as far as elbows stay still.",
+        "avoid": "Leaning hard and turning it into a chest press. Elbows flaring wide.",
+        "video_id": "2-g6w_cwGRw",
+        "video_label": "Rope pushdown demo"
+      },
+      "leg_press_or_goblet": {
+        "aliases": [
+          "Leg press OR goblet squat",
+          "Walking lunges OR leg press light"
+        ],
+        "where": "Leg-press sled, or dumbbell goblet squat, or walking lunges in open floor.",
+        "how_to": "Leg press: feet mid-platform, knees track over toes, lower until thighs ~90\u00b0, press without locking violently. Goblet: hold one DB at chest, sit between heels, stand tall. Lunges: short steps, torso upright. Maintenance only \u2014 leave 2\u20133 reps in reserve.",
+        "avoid": "Butt lifting off the pad on leg press. Knees collapsing inward.",
+        "video_id": "IZxyjW7MPJQ",
+        "video_label": "Leg press demo"
+      },
+      "conditioning": {
+        "aliases": [
+          "Conditioning finisher",
+          "Jump rope OR marching in place",
+          "Jump rope OR brisk walk outdoors",
+          "Jump rope intervals"
+        ],
+        "where": "StairMaster, incline treadmill, or jump rope area.",
+        "how_to": "Easy-moderate pace where you can still talk in short sentences (zone-2 feel). StairMaster: hands light on rails, full steps. Incline walk: 5\u20138% incline, brisk walk not sprint. Rope: steady or easy intervals. Use the minutes shown on the card.",
+        "avoid": "All-out HIIT that trashes tomorrow\u2019s lift. Holding StairMaster rails and leaning hard.",
+        "video_id": "aq8qG0s1i_U",
+        "video_label": "Steady StairMaster / step-mill idea"
+      },
+      "lat_pulldown": {
+        "aliases": [
+          "Lat pulldown OR assisted pull-up",
+          "Pull-ups or negatives",
+          "Pull-up bar hanging knee raises"
+        ],
+        "where": "Lat-pulldown station, assisted pull-up machine, or pull-up bar.",
+        "how_to": "Pulldown: long reach at top, pull elbows toward hips, bar to upper chest, control the return. Assisted pull-up: same idea with knee pad help. Negatives (home/gym): jump or step to chin-over-bar, lower 3\u20135 seconds.",
+        "avoid": "Yank behind the neck. Half-reps with huge swing.",
+        "video_id": "CAwf7n6Luuc",
+        "video_label": "Lat pulldown demo"
+      },
+      "seated_row": {
+        "aliases": [
+          "Seated cable row",
+          "Table / desk inverted rows"
+        ],
+        "where": "Seated cable row with V-handle or straight bar.",
+        "how_to": "Sit tall, slight knee bend. Start arms long. Pull handle to torso, squeeze shoulder blades, don\u2019t shrug. Return to full stretch. Keep torso mostly still (tiny lean OK).",
+        "avoid": "Rocky lower-back swinging. Shrugging traps every rep.",
+        "video_id": "GZbfZ0338Zo",
+        "video_label": "Seated cable row demo"
+      },
+      "rear_delt": {
+        "aliases": [
+          "Rear delt fly (DB or cable)",
+          "Prone Y / T raises"
+        ],
+        "where": "Bent-over DBs, reverse pec-deck, or cables high-to-low.",
+        "how_to": "Hinge or sit on reverse pec-deck. Soft elbows. Sweep arms out and slightly back \u2014 think \u2018show your rear delts to the wall behind you.\u2019 Light weight, feel the burn.",
+        "avoid": "Turning it into a heavy shrug or row with momentum.",
+        "video_id": "EAPx_YF8L5c",
+        "video_label": "Rear delt fly demo"
+      },
+      "face_pull": {
+        "aliases": [
+          "Face pulls"
+        ],
+        "where": "Cable at upper-chest/face height with rope.",
+        "how_to": "Pull rope toward face/forehead. Externally rotate at the end so knuckles point slightly back / thumbs toward ears. Squeeze rear delts and upper back. This protects shoulders and helps the \u20183D\u2019 look.",
+        "avoid": "Pulling to the belly (becomes a row).",
+        "video_id": "repWdMEEgR4",
+        "video_label": "Face pull demo"
+      },
+      "curl": {
+        "aliases": [
+          "DB or EZ bar curl",
+          "Backpack curls"
+        ],
+        "where": "Dumbbells or EZ bar upright.",
+        "how_to": "Elbows near sides. Curl up without swinging hips. Lower fully. Squeeze at the top briefly.",
+        "avoid": "Cheat curls with big body English (save that for advanced intensifiers later).",
+        "video_id": "ykJmrjLTFKw",
+        "video_label": "DB curl demo"
+      },
+      "rdl_or_leg_curl": {
+        "aliases": [
+          "Romanian deadlift OR lying leg curl",
+          "Hip hinge good mornings (bodyweight)"
+        ],
+        "where": "Barbell/DB RDL on platform, or lying/seated leg-curl machine.",
+        "how_to": "RDL: soft knees, push hips back, bar/DBs close to legs, feel hamstrings stretch, stand by driving hips forward. Leg curl: pad on Achilles, curl heels toward glutes, control down. Light-moderate \u2014 hinge maintenance.",
+        "avoid": "Rounding the upper back hard. Yanking the leg curl.",
+        "video_id": "JCXUYuzwNrM",
+        "video_label": "RDL demo"
+      },
+      "core_crunch": {
+        "aliases": [
+          "Cable crunch OR hanging knee raise"
+        ],
+        "where": "Cable rope crunch kneeling, or pull-up bar for hanging knee raise.",
+        "how_to": "Cable crunch: kneel, rope behind head or at shoulders, crunch ribs toward pelvis \u2014 don\u2019t yank with arms. Hanging knee raise: dead hang, tilt pelvis, raise knees toward chest under control.",
+        "avoid": "Swinging like a kip. Pulling the rope with arms only.",
+        "video_id": "X1FqMz5YmX4",
+        "video_label": "Cable crunch demo"
+      },
+      "elevated_pushup": {
+        "aliases": [
+          "Elevated push-ups (hands on chair/couch)",
+          "Push-ups (standard or elevated feet)",
+          "Diamond or close push-ups"
+        ],
+        "where": "Floor / sturdy chair.",
+        "how_to": "Hands under shoulders (or closer for diamond). Body straight. Lower chest toward hands, press up. Elevate hands to make easier; elevate feet to make harder.",
+        "avoid": "Hips sagging. Half-range shrugs.",
+        "video_id": "IODxDxX7oi4",
+        "video_label": "Push-up form demo"
+      },
+      "pike_pushup": {
+        "aliases": [
+          "Pike push-ups (shoulder focus)",
+          "Pike push-ups"
+        ],
+        "where": "Floor.",
+        "how_to": "Hips high in an inverted-V. Bend elbows to lower head toward the floor between hands, then press back up. This is your home shoulder-press pattern.",
+        "avoid": "Turning into a regular push-up (hips too low).",
+        "video_id": "XckEEwa1iQQ",
+        "video_label": "Pike push-up demo"
+      },
+      "bw_squat": {
+        "aliases": [
+          "Bodyweight squats",
+          "Split squats bodyweight"
+        ],
+        "where": "Floor space.",
+        "how_to": "Feet about shoulder width. Sit down and slightly back, knees track over toes, stand tall. Split squat: one foot forward, drop back knee toward floor.",
+        "avoid": "Heels lifting. Knees caving hard inward.",
+        "video_id": "aclHkVaku9U",
+        "video_label": "Bodyweight squat demo"
+      }
+    }
   },
   "plan_adherence": {
     "status": "active",

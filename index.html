@@ -1149,7 +1149,100 @@
         }
 
         document.getElementById("todayTitle").textContent = "Today · " + weekdayName(today);
+        // Resolve session from local date so Dylan always sees the right day without waiting for sync
+        data.today = data.today || {};
+        data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, today) || data.today.guided_workout;
         renderTodayGuide(data);
+      }
+
+      function scaleSets(base, scale) {
+        return Math.max(1, Math.round(Number(base || 2) * Number(scale || 1)));
+      }
+
+      function lookupExercise(name, library) {
+        const exercises = (library && library.exercises) || {};
+        const needle = String(name || "").trim().toLowerCase();
+        for (const meta of Object.values(exercises)) {
+          const aliases = (meta.aliases || []).map((a) => String(a).trim().toLowerCase());
+          if (aliases.includes(needle)) return meta;
+          for (const a of aliases) {
+            if (a && (needle.indexOf(a) !== -1 || a.indexOf(needle) !== -1)) return meta;
+          }
+        }
+        return {};
+      }
+
+      function resolveWorkoutClient(plan, library, now) {
+        if (!plan || plan.status !== "active") return null;
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, "0");
+        const d = String(now.getDate()).padStart(2, "0");
+        const today = y + "-" + m + "-" + d;
+        const schedule = plan.schedule || [];
+        const entry = schedule.find((s) => String(s.date) === today);
+        const priority = plan.attendance_priority || [
+          "1) FIRST PRIZE: Gym on Mon / Wed / Fri",
+          "2) SECOND: Still hit 3 gym days — makeup Tue/Thu if you miss a plan day",
+          "3) LAST RESORT: Home only if gym is impossible"
+        ];
+        if (!entry) {
+          const upcoming = schedule.filter((s) => String(s.date) > today);
+          return {
+            mode: "rest",
+            title: "Recovery / off day",
+            summary: "No lifting prescribed today (MWF plan). Walk, sleep, hit protein + creatine.",
+            date: today,
+            next_session: upcoming[0] || null,
+            habits: plan.daily_habits,
+            missed_day_rule: plan.missed_day_rule,
+            attendance_priority: priority
+          };
+        }
+        const weekN = Number(entry.week || 1);
+        const modifiers = ((plan.week_modifiers || {})[String(weekN)]) || {};
+        const scale = Number(modifiers.set_scale || 1);
+        const condMin = Number(modifiers.conditioning_min || 10);
+        const tmpl = ((plan.templates || {})[entry.template]) || {};
+        function buildMoves(raw) {
+          return (raw || []).map((mv, i) => {
+            const name = mv.name || "Movement";
+            let notes = mv.notes || "";
+            const isCond = String(mv.reps) === "time" || /conditioning|finisher/i.test(name);
+            if (isCond) notes = condMin + " min · " + notes;
+            const meta = lookupExercise(name, library);
+            return {
+              order: i + 1,
+              name: name,
+              sets: scaleSets(mv.sets_base, scale),
+              reps: mv.reps || "8–12",
+              notes: notes,
+              where: meta.where || "",
+              how_to: meta.how_to || notes,
+              avoid: meta.avoid || "",
+              video_id: meta.video_id || "",
+              video_label: meta.video_label || "Demo"
+            };
+          });
+        }
+        return {
+          mode: "session",
+          date: today,
+          weekday: entry.weekday,
+          week: weekN,
+          week_label: modifiers.label || ("Week " + weekN),
+          rir: modifiers.rir,
+          load_cue: modifiers.load_cue,
+          title: tmpl.title || "Session",
+          focus: tmpl.focus || "",
+          summary: "Week " + weekN + " · " + (modifiers.label || "") + " · ~" + (plan.minutes_per_session || 75) + " min · RIR " + (modifiers.rir || "—"),
+          minutes: plan.minutes_per_session || 75,
+          gym: buildMoves(tmpl.gym),
+          home: buildMoves(tmpl.home),
+          habits: plan.daily_habits,
+          missed_day_rule: plan.missed_day_rule,
+          attendance_priority: priority,
+          template_id: entry.template
+        };
       }
 
       function renderTodayGuide(data) {
