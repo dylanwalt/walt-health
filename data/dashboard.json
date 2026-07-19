@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T11:00:25.295063+00:00",
+  "generated_at": "2026-07-19T13:59:36.260262+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -716,7 +716,7 @@
     }
   },
   "profile": {
-    "updated_at": "2026-07-16",
+    "updated_at": "2026-07-19",
     "name": "Dylan",
     "body": {
       "height_m": 1.86,
@@ -757,7 +757,14 @@
         "Calves",
         "Leg muscle size"
       ],
-      "notes": "Upper-body bias preferred for the next few months; minimum leg volume pending sourced guidance. InBody suggests muscle regain (not aggressive cut) is the higher-leverage research frame."
+      "notes": "Upper-body bias locked for Plan C block. Visual: bigger shoulders, more definition, less belly. Legs maintenance only."
+    },
+    "trial_block": {
+      "plan": "C",
+      "file": "data/plans/trial_block_2026-07-20.json",
+      "start": "2026-07-20",
+      "inbody_reeval": "2026-08-08",
+      "ease_in": true
     },
     "training": {
       "status": {
@@ -768,9 +775,16 @@
       },
       "operating_target": {
         "sessions_per_week": 3,
-        "minutes_per_session": 60,
-        "label": "3 \u00d7 60 min (~3 h/week)",
-        "status": "provisional_non_sourced"
+        "minutes_per_session": 75,
+        "label": "Plan C \u00b7 3 \u00d7 75 min (~3.75 h/week)",
+        "status": "active_sourced",
+        "option": "C",
+        "block": "2026-07-20 \u2192 2026-08-07",
+        "weekdays": [
+          "monday",
+          "wednesday",
+          "friday"
+        ]
       },
       "floor": {
         "sessions_per_week": 2,
@@ -798,7 +812,7 @@
       "home_gear": [
         "Pull-up bar",
         "Skipping rope",
-        "Bodyweight push-ups/squats"
+        "Bodyweight only (no DBs/bands confirmed 2026-07-19)"
       ]
     },
     "health_flags": {
@@ -860,31 +874,579 @@
     }
   },
   "today": {
-    "local_hint": "Portal uses your browser clock to pick the plan day.",
+    "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
       "recovery_score": 43.0,
       "hrv_rmssd_milli": 87.09888,
       "resting_heart_rate": 73.0,
       "created_at": "2026-07-19T06:31:55.111Z"
     },
-    "guided_workout": null
+    "guided_workout": {
+      "mode": "rest",
+      "title": "Recovery / off day",
+      "summary": "No lifting prescribed today (MWF plan). Walk, sleep, hit protein + creatine.",
+      "date": "2026-07-19",
+      "next_session": {
+        "date": "2026-07-20",
+        "weekday": "monday",
+        "week": 1,
+        "template": "push"
+      },
+      "habits": {
+        "creatine_monohydrate_g": 5,
+        "protein_g_day": "115\u2013130",
+        "protein_g_per_kg": "1.6\u20131.8",
+        "hydration": "Drink consistently; pale urine \u2014 more on training days / heat",
+        "eating_frame": "Maintenance or tiny surplus on training days; do NOT hard-cut (BF% already ~17%). Soft midsection improves more from muscle + consistency than aggressive deficit in 3 weeks."
+      },
+      "missed_day_rule": "Priority: (1) Gym on the planned Mon/Wed/Fri. (2) If you miss one, still aim for 3 gym days that week on other weekdays. (3) Home fallback only if gym is impossible. Weekends only if that is the only way to keep a gym session.",
+      "attendance_priority": [
+        "1) FIRST PRIZE: Gym on Mon / Wed / Fri",
+        "2) SECOND: Still hit 3 gym days \u2014 makeup Tue/Thu (or another weekday) if you miss a plan day",
+        "3) LAST RESORT: Home only if getting to Virgin Active is truly impossible for that session"
+      ]
+    }
   },
   "plan": {
-    "status": "awaiting_sources",
+    "status": "active",
+    "option": "C",
     "cadence": "weekly",
     "target_gym_days": 3,
-    "headline": "InBody on file \u2014 week plan still locked until Wave 1 source packs exist",
-    "week_of": null,
-    "days": [],
+    "minutes_per_session": 75,
+    "headline": "Plan C \u00b7 3\u00d775 min \u00b7 Mon/Wed/Fri \u00b7 ease-in restart",
+    "week_of": "2026-07-20",
+    "block": {
+      "label": "Plan C \u2014 3-week ease-in restart",
+      "start": "2026-07-20",
+      "end": "2026-08-07",
+      "inbody_reeval_target": "2026-08-08",
+      "weekdays": [
+        "monday",
+        "wednesday",
+        "friday"
+      ],
+      "preference_notes": [
+        "Weekdays only (MWF)",
+        "Upper-body visual priority: shoulders, definition, less belly",
+        "Legs maintenance only",
+        "Home fallbacks: pull-up bar, rope, bodyweight",
+        "Cardio: mix (coach picks efficient modality)",
+        "First gym return in months \u2014 week 1 is deliberately easier"
+      ],
+      "citations": [
+        "data/sources/01_return_from_detraining.md",
+        "data/sources/02_frequency_mev_2to3x.md",
+        "data/sources/03_upper_bias_min_legs.md",
+        "data/sources/04_overload_stable_menu.md",
+        "data/sources/05_protein_regain_recomp.md",
+        "data/sources/06_creatine_hydration.md",
+        "data/sources/07_retest_cadence_scale.md"
+      ]
+    },
+    "goals_3_weeks": {
+      "visual_primary": [
+        "Bigger / rounder shoulders (side delts especially)",
+        "More overall upper-body definition",
+        "Less belly / softer midsection (recomp, not crash cut)"
+      ],
+      "conservative": {
+        "sessions_completed": "8 of 9 gym (or home-swap) sessions",
+        "creatine_days": "18 of 21 days at 5 g",
+        "protein_target_g": "115\u2013130 most days (spot-check OK)",
+        "weight_kg": "70.0\u201372.0 (hold \u00b11 kg from 71.1)",
+        "percent_body_fat": "hold or \u22120.3 to \u22120.8 pp (may be within BIA noise)",
+        "smm_kg": "hold or +0.2 to +0.5 (small; 3 weeks is short)",
+        "note": "Conservative = process + small composition drift in the right direction"
+      },
+      "optimistic": {
+        "sessions_completed": "9 of 9",
+        "shoulders_subjective": "Visible rounder delts in mirror / shirts",
+        "weight_kg": "70.5\u201371.5 with tighter waist feel",
+        "percent_body_fat": "\u22120.8 to \u22121.5 pp vs 16.9%",
+        "smm_kg": "+0.5 to +0.8",
+        "waist_hip_ratio": "\u22640.86 (hold or slight drop)",
+        "note": "Optimistic = best-case if adherence + protein + sleep hold; InBody noise still applies (pack 07)"
+      },
+      "process_non_negotiable": [
+        "Do Mon/Wed/Fri (home swap counts if gym impossible)",
+        "Creatine 5 g daily",
+        "Hit protein band most days",
+        "Week 1 leave reps in reserve \u2014 do not ego-load"
+      ]
+    },
+    "daily_habits": {
+      "creatine_monohydrate_g": 5,
+      "protein_g_day": "115\u2013130",
+      "protein_g_per_kg": "1.6\u20131.8",
+      "hydration": "Drink consistently; pale urine \u2014 more on training days / heat",
+      "eating_frame": "Maintenance or tiny surplus on training days; do NOT hard-cut (BF% already ~17%). Soft midsection improves more from muscle + consistency than aggressive deficit in 3 weeks."
+    },
+    "week_modifiers": {
+      "1": {
+        "label": "Ease-in",
+        "rir": "2\u20133 (last set can be 2)",
+        "set_scale": 0.7,
+        "load_cue": "Start ~60\u201370% of what you remember. Smooth reps. Stop if form breaks.",
+        "conditioning_min": 8
+      },
+      "2": {
+        "label": "Build",
+        "rir": "1\u20133",
+        "set_scale": 0.85,
+        "load_cue": "Add load or reps vs week 1 when top of range feels solid.",
+        "conditioning_min": 10
+      },
+      "3": {
+        "label": "Push (still controlled)",
+        "rir": "1\u20132 on isolation; 2 on big compounds",
+        "set_scale": 1.0,
+        "load_cue": "Full Plan C volume. Progress load if week 2 was clean.",
+        "conditioning_min": 12
+      }
+    },
+    "templates": {
+      "push": {
+        "id": "push",
+        "title": "Push \u00b7 chest + shoulders",
+        "focus": "Chest, front/side delts, triceps \u00b7 small leg maintenance",
+        "gym": [
+          {
+            "name": "Incline DB or BB press",
+            "sets_base": 3,
+            "reps": "8\u201310",
+            "notes": "45\u00b0 incline. Control the eccentric."
+          },
+          {
+            "name": "Seated DB shoulder press",
+            "sets_base": 3,
+            "reps": "8\u201310",
+            "notes": "Don't shrug. Full lockout without slamming."
+          },
+          {
+            "name": "DB lateral raise",
+            "sets_base": 3,
+            "reps": "12\u201315",
+            "notes": "Visual priority \u2014 soft elbows, lead with elbows."
+          },
+          {
+            "name": "Cable or machine chest fly",
+            "sets_base": 2,
+            "reps": "12\u201315",
+            "notes": "Squeeze at the inside; no ego weight."
+          },
+          {
+            "name": "Rope or bar triceps pushdown",
+            "sets_base": 2,
+            "reps": "10\u201315",
+            "notes": "Elbows pinned."
+          },
+          {
+            "name": "Leg press OR goblet squat",
+            "sets_base": 2,
+            "reps": "10\u201312",
+            "notes": "Maintenance only \u2014 stop ~2\u20133 RIR."
+          },
+          {
+            "name": "Conditioning finisher",
+            "sets_base": 1,
+            "reps": "time",
+            "notes": "MIX: StairMaster OR incline walk OR jump rope \u00b7 easy-moderate zone 2 feel."
+          }
+        ],
+        "home": [
+          {
+            "name": "Elevated push-ups (hands on chair/couch)",
+            "sets_base": 3,
+            "reps": "8\u201315",
+            "notes": "Feet on floor; elevate hands to make harder as needed."
+          },
+          {
+            "name": "Pike push-ups (shoulder focus)",
+            "sets_base": 3,
+            "reps": "6\u201312",
+            "notes": "Hips high; head toward floor between hands."
+          },
+          {
+            "name": "Side-lying or standing arm-raise holds",
+            "sets_base": 3,
+            "reps": "12\u201320",
+            "notes": "Slow laterals with water bottles / backpack if no DBs."
+          },
+          {
+            "name": "Diamond or close push-ups",
+            "sets_base": 2,
+            "reps": "8\u201315",
+            "notes": "Triceps."
+          },
+          {
+            "name": "Bodyweight squats",
+            "sets_base": 2,
+            "reps": "12\u201320",
+            "notes": "Leg maintenance."
+          },
+          {
+            "name": "Jump rope OR marching in place",
+            "sets_base": 1,
+            "reps": "time",
+            "notes": "Same minutes as gym finisher for this week."
+          }
+        ]
+      },
+      "pull": {
+        "id": "pull",
+        "title": "Pull \u00b7 back + rear delts + arms",
+        "focus": "Lats, upper back, rear delts, biceps \u00b7 hinge maintenance",
+        "gym": [
+          {
+            "name": "Lat pulldown OR assisted pull-up",
+            "sets_base": 3,
+            "reps": "8\u201310",
+            "notes": "Full stretch at top; pull elbows down."
+          },
+          {
+            "name": "Seated cable row",
+            "sets_base": 3,
+            "reps": "8\u201310",
+            "notes": "Chest proud; squeeze shoulder blades."
+          },
+          {
+            "name": "Rear delt fly (DB or cable)",
+            "sets_base": 3,
+            "reps": "12\u201315",
+            "notes": "Definition + shoulder health."
+          },
+          {
+            "name": "Face pulls",
+            "sets_base": 2,
+            "reps": "12\u201315",
+            "notes": "External rotation at the end."
+          },
+          {
+            "name": "DB or EZ bar curl",
+            "sets_base": 3,
+            "reps": "10\u201312",
+            "notes": "No swing."
+          },
+          {
+            "name": "Romanian deadlift OR lying leg curl",
+            "sets_base": 2,
+            "reps": "8\u201312",
+            "notes": "Hinge maintenance \u2014 light-moderate."
+          },
+          {
+            "name": "Conditioning finisher",
+            "sets_base": 1,
+            "reps": "time",
+            "notes": "MIX: incline walk preferred on pull day (less grip fatigue) OR easy StairMaster."
+          }
+        ],
+        "home": [
+          {
+            "name": "Pull-ups or negatives",
+            "sets_base": 3,
+            "reps": "Max / 5\u20138 slow negatives",
+            "notes": "If you can't do full reps, 3\u20135 sec lowers from chin-over-bar."
+          },
+          {
+            "name": "Table / desk inverted rows",
+            "sets_base": 3,
+            "reps": "8\u201315",
+            "notes": "Or backpack bent-over rows."
+          },
+          {
+            "name": "Prone Y / T raises",
+            "sets_base": 3,
+            "reps": "12\u201315",
+            "notes": "Rear delt / upper back on floor."
+          },
+          {
+            "name": "Backpack curls",
+            "sets_base": 3,
+            "reps": "10\u201315",
+            "notes": "Slow."
+          },
+          {
+            "name": "Hip hinge good mornings (bodyweight)",
+            "sets_base": 2,
+            "reps": "10\u201315",
+            "notes": "Soft knees, flat back."
+          },
+          {
+            "name": "Jump rope OR brisk walk outdoors",
+            "sets_base": 1,
+            "reps": "time",
+            "notes": "Finisher minutes per week modifier."
+          }
+        ]
+      },
+      "shoulders": {
+        "id": "shoulders",
+        "title": "Shoulders emphasis + arms + abs",
+        "focus": "Side delts volume \u00b7 visual priority day \u00b7 light legs + core",
+        "gym": [
+          {
+            "name": "Overhead press (DB or machine)",
+            "sets_base": 3,
+            "reps": "6\u201310",
+            "notes": "Quality over load."
+          },
+          {
+            "name": "DB lateral raise",
+            "sets_base": 4,
+            "reps": "12\u201315",
+            "notes": "MAIN visual builder \u2014 rest 60\u201390s."
+          },
+          {
+            "name": "Incline DB press (lighter)",
+            "sets_base": 2,
+            "reps": "10\u201312",
+            "notes": "Upper chest carryover to shoulder look."
+          },
+          {
+            "name": "Cable lateral OR machine lateral",
+            "sets_base": 2,
+            "reps": "12\u201320",
+            "notes": "Constant tension; pump set."
+          },
+          {
+            "name": "Barbell or DB curl + pushdown supersets optional",
+            "sets_base": 2,
+            "reps": "10\u201312 each",
+            "notes": "Arms finish."
+          },
+          {
+            "name": "Walking lunges OR leg press light",
+            "sets_base": 2,
+            "reps": "10/leg or 10\u201312",
+            "notes": "WHO major-muscle floor."
+          },
+          {
+            "name": "Cable crunch OR hanging knee raise",
+            "sets_base": 2,
+            "reps": "10\u201315",
+            "notes": "Controlled; no yanking."
+          },
+          {
+            "name": "Conditioning finisher",
+            "sets_base": 1,
+            "reps": "time",
+            "notes": "MIX: StairMaster  for midsection feel OR jump rope if time-crushed."
+          }
+        ],
+        "home": [
+          {
+            "name": "Pike push-ups",
+            "sets_base": 3,
+            "reps": "6\u201312",
+            "notes": "Shoulder press pattern."
+          },
+          {
+            "name": "Lateral raise with bottles/bag",
+            "sets_base": 4,
+            "reps": "12\u201320",
+            "notes": "Priority volume \u2014 slow."
+          },
+          {
+            "name": "Push-ups (standard or elevated feet)",
+            "sets_base": 2,
+            "reps": "8\u201315",
+            "notes": "Chest."
+          },
+          {
+            "name": "Pull-up bar hanging knee raises",
+            "sets_base": 2,
+            "reps": "8\u201315",
+            "notes": "Core."
+          },
+          {
+            "name": "Split squats bodyweight",
+            "sets_base": 2,
+            "reps": "10/leg",
+            "notes": "Legs."
+          },
+          {
+            "name": "Jump rope intervals",
+            "sets_base": 1,
+            "reps": "time",
+            "notes": "Finisher."
+          }
+        ]
+      }
+    },
+    "schedule": [
+      {
+        "date": "2026-07-20",
+        "weekday": "monday",
+        "week": 1,
+        "template": "push"
+      },
+      {
+        "date": "2026-07-22",
+        "weekday": "wednesday",
+        "week": 1,
+        "template": "pull"
+      },
+      {
+        "date": "2026-07-24",
+        "weekday": "friday",
+        "week": 1,
+        "template": "shoulders"
+      },
+      {
+        "date": "2026-07-27",
+        "weekday": "monday",
+        "week": 2,
+        "template": "push"
+      },
+      {
+        "date": "2026-07-29",
+        "weekday": "wednesday",
+        "week": 2,
+        "template": "pull"
+      },
+      {
+        "date": "2026-07-31",
+        "weekday": "friday",
+        "week": 2,
+        "template": "shoulders"
+      },
+      {
+        "date": "2026-08-03",
+        "weekday": "monday",
+        "week": 3,
+        "template": "push"
+      },
+      {
+        "date": "2026-08-05",
+        "weekday": "wednesday",
+        "week": 3,
+        "template": "pull"
+      },
+      {
+        "date": "2026-08-07",
+        "weekday": "friday",
+        "week": 3,
+        "template": "shoulders"
+      }
+    ],
+    "days": [
+      {
+        "weekday": "monday",
+        "template": "push",
+        "label": "Push"
+      },
+      {
+        "weekday": "wednesday",
+        "template": "pull",
+        "label": "Pull"
+      },
+      {
+        "weekday": "friday",
+        "template": "shoulders",
+        "label": "Shoulders"
+      }
+    ],
+    "missed_day_rule": "Priority: (1) Gym on the planned Mon/Wed/Fri. (2) If you miss one, still aim for 3 gym days that week on other weekdays. (3) Home fallback only if gym is impossible. Weekends only if that is the only way to keep a gym session.",
     "notes": [
-      "InBody baseline ingested 2026-07-16; see data/integrations/inbody/.",
-      "Dylan requested no plan design until source strategy + Wave 1 packs are done.",
-      "Research agenda: data/sources/SOURCE_STRATEGY.md",
-      "Default time hypothesis remains provisional: 3 gym days/week \u2014 final call after sourced options."
+      "Plan C locked: 3\u00d775 min, Mon/Wed/Fri, 2026-07-20 \u2192 2026-08-07.",
+      "Week 1 = ease-in (fewer sets, more RIR). Do not chase old PRs.",
+      "Open portal Today tab in the gym \u2014 toggle Gym vs Home.",
+      "Creatine 5 g daily \u00b7 protein ~115\u2013130 g \u00b7 no hard cut.",
+      "InBody re-test target: Sat 2026-08-08 (or next weekday if easier). Matched conditions (pack 07).",
+      "Golf stays bonus only \u2014 not a planned session."
+    ],
+    "attendance_priority": [
+      "1) FIRST PRIZE: Gym on Mon / Wed / Fri",
+      "2) SECOND: Still hit 3 gym days \u2014 makeup Tue/Thu (or another weekday) if you miss a plan day",
+      "3) LAST RESORT: Home only if getting to Virgin Active is truly impossible for that session"
     ]
+  },
+  "plan_adherence": {
+    "status": "active",
+    "block_start": "2026-07-20",
+    "block_end": "2026-08-07",
+    "scheduled_sessions": 9,
+    "sessions_with_whoop_log": 0,
+    "adherence_pct_logged": 0.0,
+    "planned": [
+      {
+        "date": "2026-07-20",
+        "template": "push",
+        "week": 1,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      },
+      {
+        "date": "2026-07-22",
+        "template": "pull",
+        "week": 1,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      },
+      {
+        "date": "2026-07-24",
+        "template": "shoulders",
+        "week": 1,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      },
+      {
+        "date": "2026-07-27",
+        "template": "push",
+        "week": 2,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      },
+      {
+        "date": "2026-07-29",
+        "template": "pull",
+        "week": 2,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      },
+      {
+        "date": "2026-07-31",
+        "template": "shoulders",
+        "week": 2,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      },
+      {
+        "date": "2026-08-03",
+        "template": "push",
+        "week": 3,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      },
+      {
+        "date": "2026-08-05",
+        "template": "pull",
+        "week": 3,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      },
+      {
+        "date": "2026-08-07",
+        "template": "shoulders",
+        "week": 3,
+        "planned": true,
+        "whoop_logged": false,
+        "whoop_activities": []
+      }
+    ],
+    "extra_whoop_days": [],
+    "interpretation": "whoop_logged=true means some WHOOP workout exists that calendar day \u2014 not proof the exact lifts were done. Use with Dylan's report / portal."
   },
   "trust": {
     "mode": "source_gated",
-    "message": "Programming answers must cite files in data/sources/ once populated. Until then, plans stay locked."
+    "message": "Plan C cites data/sources/01\u201307. Follow the portal session; ask Cursor for adjustments."
   }
 }

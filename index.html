@@ -408,14 +408,169 @@
     .day-rail .d.gym { color: var(--ice-soft); }
 
     .guide {
-      margin-top: 1.25rem;
-      padding: 1.25rem 0;
-      border-top: 1px solid var(--line);
+      margin-top: 1rem;
+      padding: 0;
+      border-top: none;
     }
-    .guide h3 { margin-top: 0; }
     .guide .empty { color: var(--muted); }
 
-    /* oauth */
+    .session-toolbar {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+      margin: 0.85rem 0 1.1rem;
+    }
+    .mode-toggle {
+      display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden;
+    }
+    .mode-toggle button {
+      appearance: none; border: 0; background: transparent; color: var(--muted);
+      font: 600 0.88rem/1 var(--font-body); padding: 0.65rem 1.1rem; cursor: pointer;
+    }
+    .mode-toggle button.on {
+      background: var(--ice); color: #0b0b0c;
+    }
+    .session-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1.1rem;
+    }
+    .session-meta .chip {
+      border-top: 1px solid var(--line);
+      padding-top: 0.55rem;
+    }
+    .session-meta .chip .k {
+      color: var(--muted); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .session-meta .chip .v {
+      font-family: var(--font-display); color: var(--ice-soft); font-size: 1.05rem; margin-top: 0.2rem;
+    }
+    .move-list { display: grid; gap: 0.65rem; }
+    .move {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      background: rgba(18, 19, 22, 0.45);
+    }
+    .move .top {
+      display: flex; justify-content: space-between; gap: 0.75rem; align-items: baseline;
+    }
+    .move .n {
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .move .dose {
+      flex: none;
+      color: var(--ice);
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+    .move .hint { color: var(--muted); font-size: 0.86rem; line-height: 1.45; margin-top: 0.4rem; }
+    .move details {
+      margin-top: 0.55rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.45rem;
+    }
+    .move summary {
+      cursor: pointer;
+      color: var(--ice);
+      font-weight: 600;
+      font-size: 0.88rem;
+      list-style: none;
+    }
+    .move summary::-webkit-details-marker { display: none; }
+    .move .how {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+      margin-top: 0.45rem;
+    }
+    .move .how strong { color: var(--white); }
+    .move .vid {
+      margin-top: 0.55rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+    .move .vid iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .priority-box {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      margin: 0 0 1rem;
+      background: rgba(149, 200, 226, 0.05);
+    }
+    .priority-box ol {
+      margin: 0.35rem 0 0;
+      padding-left: 1.15rem;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.9rem;
+    }
+    .priority-box li { margin: 0.2rem 0; }
+    .priority-box .prize { color: var(--ice-soft); font-weight: 600; }
+    .home-warn {
+      display: none;
+      margin: 0.5rem 0 0.85rem;
+      color: #ffb0a8;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .home-warn.show { display: block; }
+    .mode-toggle button[data-mode="home"] {
+      opacity: 0.85;
+    }
+    .cue-box {
+      border-left: 3px solid var(--ice);
+      padding: 0.75rem 0.95rem;
+      background: rgba(149, 200, 226, 0.06);
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+    .cue-box strong { color: var(--white); }
+    .habits-row {
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.9rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .rest-card {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+    .rest-card .big {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      color: var(--ice-soft);
+      margin: 0.2rem 0 0.6rem;
+    }
+
+    @media (max-width: 720px) {
+      .hero-grid, .you-layout, .chart-row, .info-grid, .history-foot, .session-meta {
+        grid-template-columns: 1fr;
+      }
+      .timeline li { grid-template-columns: 1fr; gap: 0.25rem; }
+      .day-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .top { flex-wrap: wrap; }
+      .move { padding: 1.05rem 1rem; }
+      .move .n { font-size: 1.15rem; }
+      .move .dose { font-size: 1.05rem; }
+      .nav button { padding: 0.55rem 0.75rem; font-size: 0.82rem; }
+    }
     .oauth { min-height: 100svh; display: grid; place-items: center; padding: 1.5rem; }
     .oauth-panel {
       width: min(560px, 100%); border: 1px solid var(--line); background: var(--panel);
@@ -484,15 +639,15 @@
           <strong>WALT HEALTH</strong>
         </div>
         <nav class="nav" aria-label="Sections">
-          <button type="button" data-view="overview" class="active">Overview</button>
+          <button type="button" data-view="today" class="active">Today</button>
+          <button type="button" data-view="plan">This week</button>
+          <button type="button" data-view="overview">Overview</button>
           <button type="button" data-view="history">History</button>
           <button type="button" data-view="you">You</button>
-          <button type="button" data-view="plan">This week</button>
-          <button type="button" data-view="today">Today</button>
         </nav>
       </header>
 
-      <section class="view active" id="view-overview">
+      <section class="view" id="view-overview">
         <div class="hero-strip">
           <div class="kicker">Private coaching portal</div>
           <h2 id="greet">Welcome back</h2>
@@ -586,11 +741,11 @@
         </div>
       </section>
 
-      <section class="view" id="view-today">
+      <section class="view active" id="view-today">
         <div class="hero-strip">
           <div class="kicker">Session guide</div>
           <h2 id="todayTitle">Today</h2>
-          <p id="todayLede">Day-aware guided workout view</p>
+          <p id="todayLede">Open this on your phone in the gym. Big type · Gym or Home.</p>
         </div>
         <div class="guide" id="todayGuide"></div>
       </section>
@@ -952,9 +1107,26 @@
         document.getElementById("planHeadline").textContent = plan.headline || "Weekly plan";
         document.getElementById("planBanner").innerHTML =
           "<strong>Status:</strong> " + escapeHtml(plan.status || "unknown") +
-          " · cadence <strong>" + escapeHtml(plan.cadence || "weekly") +
-          "</strong> · target gym days <strong>" + escapeHtml(String(plan.target_gym_days || "—")) + "</strong>";
-        document.getElementById("planNotes").innerHTML = ((plan.notes || []).map((n) => "<li>" + escapeHtml(n) + "</li>").join("")) || "<li>No plan notes.</li>";
+          " · option <strong>" + escapeHtml(String(plan.option || "—")) +
+          "</strong> · <strong>" + escapeHtml(String(plan.minutes_per_session || plan.target_gym_days || "—")) +
+          "</strong> min × " + escapeHtml(String(plan.target_gym_days || 3)) + " days · week of <strong>" +
+          escapeHtml(String(plan.week_of || "—")) + "</strong>";
+        const goalBits = [];
+        const g3 = plan.goals_3_weeks || {};
+        if (g3.visual_primary) {
+          goalBits.push("<li><strong style='color:var(--white)'>Visual:</strong> " + escapeHtml((g3.visual_primary || []).join(" · ")) + "</li>");
+        }
+        if (g3.conservative) {
+          goalBits.push("<li><strong style='color:var(--white)'>Conservative:</strong> " + escapeHtml(g3.conservative.note || "") +
+            " · sessions " + escapeHtml(String(g3.conservative.sessions_completed || "")) +
+            " · BF% " + escapeHtml(String(g3.conservative.percent_body_fat || "")) + "</li>");
+        }
+        if (g3.optimistic) {
+          goalBits.push("<li><strong style='color:var(--white)'>Optimistic:</strong> " + escapeHtml(g3.optimistic.note || "") +
+            " · SMM " + escapeHtml(String(g3.optimistic.smm_kg || "")) + "</li>");
+        }
+        (plan.notes || []).forEach((n) => goalBits.push("<li>" + escapeHtml(n) + "</li>"));
+        document.getElementById("planNotes").innerHTML = goalBits.join("") || "<li>No plan notes.</li>";
 
         const today = new Date();
         const rail = document.getElementById("weekRail");
@@ -970,22 +1142,134 @@
           if (d.toDateString() === today.toDateString()) el.classList.add("today");
           const key = nameShort.toLowerCase();
           if (planned.has(key) || planned.has(String(d.getDay()))) el.classList.add("gym");
-          el.innerHTML = "<div>" + nameShort + "</div><div>" + d.getDate() + "</div>";
+          const dayPlan = (plan.days || []).find((x) => String(x.weekday || "").toLowerCase() === key);
+          el.innerHTML = "<div>" + nameShort + "</div><div>" + d.getDate() + "</div>" +
+            (dayPlan && dayPlan.label ? "<div style='font-size:0.65rem;margin-top:0.2rem;color:var(--ice)'>" + escapeHtml(dayPlan.label) + "</div>" : "");
           rail.appendChild(el);
         }
 
         document.getElementById("todayTitle").textContent = "Today · " + weekdayName(today);
+        renderTodayGuide(data);
+      }
+
+      function renderTodayGuide(data) {
         const guide = document.getElementById("todayGuide");
+        const lede = document.getElementById("todayLede");
         const workout = data.today && data.today.guided_workout;
-        if (workout) {
-          guide.innerHTML = "<h3>" + escapeHtml(workout.title || "Session") + "</h3><p>" + escapeHtml(workout.summary || "") + "</p>";
-        } else {
+        const latest = data.today && data.today.latest_recovery;
+        if (!workout) {
+          lede.textContent = "No active session on file — sync after unlocking a plan.";
           guide.innerHTML =
-            '<p class="empty">No guided workout yet. After InBody + sourced weekly plan, this view will walk you through today’s session on your phone.</p>' +
+            '<p class="empty">No guided workout yet.</p>' +
             (latest && latest.recovery_score != null
-              ? '<p class="empty">Latest recovery score on file: <strong style="color:var(--white)">' + latest.recovery_score + "</strong></p>"
+              ? '<p class="empty">Latest recovery: <strong style="color:var(--white)">' + latest.recovery_score + "</strong></p>"
               : "");
+          return;
         }
+
+        if (workout.mode === "rest") {
+          lede.textContent = workout.summary || "Off day";
+          const next = workout.next_session;
+          guide.innerHTML =
+            '<div class="priority-box"><div class="prize">Show-up priority</div><ol>' +
+            (workout.attendance_priority || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
+            "</ol></div>" +
+            '<div class="rest-card">' +
+            '<div class="big">' + escapeHtml(workout.title || "Rest") + "</div>" +
+            "<p style='color:var(--muted);line-height:1.55'>" + escapeHtml(workout.summary || "") + "</p>" +
+            (next
+              ? "<p style='color:var(--ice-soft);margin-top:0.75rem'>Next gym target: <strong>" +
+                escapeHtml(String(next.date)) + "</strong> · " + escapeHtml(String(next.template || "")) + "</p>"
+              : "") +
+            '<div class="habits-row">' + formatHabits(workout.habits) +
+            (workout.missed_day_rule ? "<br/><br/><strong style='color:var(--white)'>If life breaks a day:</strong> " + escapeHtml(workout.missed_day_rule) : "") +
+            "</div></div>";
+          return;
+        }
+
+        lede.textContent = "Gym first. Open How on any lift if unsure. Home only if gym is impossible.";
+        const gymMoves = workout.gym || [];
+        const homeMoves = workout.home || [];
+        guide.innerHTML =
+          '<div class="priority-box"><div class="prize">Keep it simple</div><ol>' +
+          (workout.attendance_priority || [
+            "1) Gym Mon/Wed/Fri",
+            "2) Makeup gym day if needed",
+            "3) Home last resort"
+          ]).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
+          "</ol></div>" +
+          '<div class="session-toolbar">' +
+          '<div class="mode-toggle" role="group" aria-label="Location">' +
+          '<button type="button" data-mode="gym" class="on">Gym session</button>' +
+          '<button type="button" data-mode="home">Home (last resort)</button>' +
+          "</div></div>" +
+          '<p class="home-warn" id="homeWarn">Home mode is only if you truly cannot reach Virgin Active. Prefer a makeup gym day (Tue/Thu) when possible.</p>' +
+          '<div class="session-meta">' +
+          '<div class="chip"><div class="k">Week</div><div class="v">' + escapeHtml(String(workout.week_label || workout.week || "—")) + "</div></div>" +
+          '<div class="chip"><div class="k">Time</div><div class="v">~' + escapeHtml(String(workout.minutes || 75)) + " min</div></div>" +
+          '<div class="chip"><div class="k">RIR</div><div class="v">' + escapeHtml(String(workout.rir || "—")) + "</div></div>" +
+          "</div>" +
+          (workout.load_cue
+            ? '<div class="cue-box"><strong>Ease / load cue:</strong> ' + escapeHtml(workout.load_cue) + "</div>"
+            : "") +
+          (workout.focus ? '<p style="color:var(--muted);margin:0 0 0.85rem">' + escapeHtml(workout.focus) + "</p>" : "") +
+          '<div class="move-list" id="moveList"></div>' +
+          '<div class="habits-row">' + formatHabits(workout.habits) + "</div>";
+
+        const list = document.getElementById("moveList");
+        const homeWarn = document.getElementById("homeWarn");
+        const buttons = guide.querySelectorAll(".mode-toggle button");
+        function moveCard(m) {
+          const how = m.how_to || m.notes || "";
+          const where = m.where ? "<strong>Where:</strong> " + escapeHtml(m.where) + "<br/>" : "";
+          const avoid = m.avoid ? "<br/><strong>Avoid:</strong> " + escapeHtml(m.avoid) : "";
+          const vid = m.video_id
+            ? '<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/' +
+              encodeURIComponent(m.video_id) +
+              '?rel=0" title="' + escapeHtml(m.video_label || "Demo") +
+              '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>' +
+              '<div class="how" style="margin-top:0.35rem"><a href="https://www.youtube.com/watch?v=' +
+              encodeURIComponent(m.video_id) + '" target="_blank" rel="noopener" style="color:var(--ice)">' +
+              escapeHtml(m.video_label || "Open demo") + "</a></div>"
+            : "";
+          return (
+            '<div class="move"><div class="top"><div class="n">' +
+            escapeHtml(String(m.order || "") + ". " + (m.name || "")) +
+            '</div><div class="dose">' + escapeHtml(String(m.sets) + " × " + (m.reps || "")) +
+            "</div></div>" +
+            (m.notes ? '<div class="hint">' + escapeHtml(m.notes) + "</div>" : "") +
+            '<details><summary>How to do this</summary><div class="how">' +
+            where + escapeHtml(how) + avoid + "</div>" + vid + "</details></div>"
+          );
+        }
+        function paint(mode) {
+          buttons.forEach((b) => b.classList.toggle("on", b.getAttribute("data-mode") === mode));
+          if (homeWarn) homeWarn.classList.toggle("show", mode === "home");
+          const moves = mode === "home" ? homeMoves : gymMoves;
+          list.innerHTML = moves.map(moveCard).join("") || '<p class="empty">No movements listed.</p>';
+        }
+        buttons.forEach((b) => b.addEventListener("click", () => {
+          const mode = b.getAttribute("data-mode");
+          if (mode === "home") {
+            const ok = window.confirm("Home is last resort. Can you still make Virgin Active today or tomorrow instead?");
+            if (!ok) {
+              paint("gym");
+              return;
+            }
+          }
+          paint(mode);
+        }));
+        paint("gym");
+      }
+
+      function formatHabits(habits) {
+        if (!habits) return "";
+        return (
+          "<strong style='color:var(--white)'>Today's habits:</strong> creatine " +
+          escapeHtml(String(habits.creatine_monohydrate_g || 5)) + " g · protein " +
+          escapeHtml(String(habits.protein_g_day || "115–130")) + " g · " +
+          escapeHtml(String(habits.eating_frame || ""))
+        );
       }
 
       if (!document.body.classList.contains("locked") && !isOauth) {
