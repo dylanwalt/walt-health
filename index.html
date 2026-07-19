@@ -870,6 +870,14 @@
           .replace(/"/g, "&quot;");
       }
 
+      function getPortalNow() {
+        const preview = new URLSearchParams(window.location.search).get("preview_date");
+        if (preview && /^\d{4}-\d{2}-\d{2}$/.test(preview)) {
+          return new Date(preview + "T12:00:00");
+        }
+        return new Date();
+      }
+
       function weekdayName(d) {
         return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getDay()];
       }
@@ -1128,7 +1136,7 @@
         (plan.notes || []).forEach((n) => goalBits.push("<li>" + escapeHtml(n) + "</li>"));
         document.getElementById("planNotes").innerHTML = goalBits.join("") || "<li>No plan notes.</li>";
 
-        const today = new Date();
+        const today = getPortalNow();
         const rail = document.getElementById("weekRail");
         const planned = new Set((plan.days || []).map((d) => String(d.weekday || d.day || "").toLowerCase()));
         rail.innerHTML = "";
