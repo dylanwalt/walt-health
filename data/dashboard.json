@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T13:29:16.457516+00:00",
+  "generated_at": "2026-07-20T18:39:16.102214+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -974,6 +974,8 @@
           ],
           "diagram_id": "press_chest",
           "pin_guidance": [],
+          "video_id": "oZVCBM9f8Eo",
+          "video_label": "Short incline dumbbell press demo",
           "session_importance_pct": 17,
           "goal_ring_pct": {
             "shoulders": 12,
@@ -1051,6 +1053,8 @@
           ],
           "diagram_id": "press_shoulder",
           "pin_guidance": [],
+          "video_id": "qEwKCR5JCog",
+          "video_label": "Seated dumbbell shoulder press demo",
           "session_importance_pct": 17,
           "goal_ring_pct": {
             "shoulders": 34,
@@ -1126,6 +1130,8 @@
           ],
           "diagram_id": "lateral",
           "pin_guidance": [],
+          "video_id": "3VcKaXpzqRo",
+          "video_label": "Lateral raise form demo",
           "session_importance_pct": 17,
           "goal_ring_pct": {
             "shoulders": 41,
@@ -1205,6 +1211,8 @@
             "Next set: +1 pin only if set 1 was easy",
             "Log the pin number on your phone (provisional until we calibrate your stack)"
           ],
+          "video_id": "eozdVDA78K0",
+          "video_label": "Cable fly demo",
           "session_importance_pct": 17,
           "goal_ring_pct": {
             "shoulders": 5,
@@ -1283,6 +1291,8 @@
             "+1 pin next set only if easy",
             "Prefer rope or angled bar \u2014 log pin #"
           ],
+          "video_id": "2-g6w_cwGRw",
+          "video_label": "Rope pushdown demo",
           "session_importance_pct": 11,
           "goal_ring_pct": {
             "shoulders": 7,
@@ -1362,6 +1372,8 @@
             "Next set: +1 pin only if set 1 was easy",
             "Log the pin number on your phone"
           ],
+          "video_id": "IZxyjW7MPJQ",
+          "video_label": "Leg press demo",
           "session_importance_pct": 7,
           "goal_ring_pct": {
             "shoulders": 0,
@@ -1443,6 +1455,8 @@
           ],
           "diagram_id": "cardio",
           "pin_guidance": [],
+          "video_id": "aq8qG0s1i_U",
+          "video_label": "Steady stair-climber idea",
           "stairmaster_level": "4\u20136",
           "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
           "target_hr": {
@@ -1531,6 +1545,8 @@
           ],
           "diagram_id": "pushup",
           "pin_guidance": [],
+          "video_id": "IODxDxX7oi4",
+          "video_label": "Push-up form demo",
           "session_importance_pct": 23,
           "goal_ring_pct": {
             "shoulders": 17,
@@ -1607,6 +1623,8 @@
           ],
           "diagram_id": "pike",
           "pin_guidance": [],
+          "video_id": "XckEEwa1iQQ",
+          "video_label": "Pike push-up demo",
           "session_importance_pct": 25,
           "goal_ring_pct": {
             "shoulders": 65,
@@ -1647,6 +1665,8 @@
           "feel_zones": [],
           "diagram_id": "press_chest",
           "pin_guidance": [],
+          "video_id": "",
+          "video_label": "Demo video",
           "session_importance_pct": 0,
           "goal_ring_pct": {
             "shoulders": 0,
@@ -1723,6 +1743,8 @@
           ],
           "diagram_id": "pushup",
           "pin_guidance": [],
+          "video_id": "IODxDxX7oi4",
+          "video_label": "Push-up form demo",
           "session_importance_pct": 23,
           "goal_ring_pct": {
             "shoulders": 17,
@@ -1798,6 +1820,8 @@
           ],
           "diagram_id": "squat",
           "pin_guidance": [],
+          "video_id": "aclHkVaku9U",
+          "video_label": "Bodyweight squat demo",
           "session_importance_pct": 9,
           "goal_ring_pct": {
             "shoulders": 0,
@@ -1879,6 +1903,8 @@
           ],
           "diagram_id": "cardio",
           "pin_guidance": [],
+          "video_id": "aq8qG0s1i_U",
+          "video_label": "Steady stair-climber idea",
           "stairmaster_level": "4\u20136",
           "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
           "target_hr": {

@@ -930,6 +930,80 @@
     .sm-dock button.danger {
       border-color: rgba(255,107,74,0.45); color: #ffb3a1;
     }
+    .sm-dock button.howto {
+      border-color: rgba(94,177,255,0.45); color: var(--sky);
+      grid-column: 1 / -1;
+    }
+    .sm-dock.with-howto {
+      grid-template-columns: 1fr 1fr 1fr 1.2fr;
+      grid-template-rows: auto auto;
+    }
+    .sm-howto-screen {
+      display: none; flex-direction: column; gap: 0.65rem;
+      min-height: calc(100svh - 4.5rem);
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+    .session-mode.is-howto .sm-workout { display: none; }
+    .session-mode.is-howto .sm-howto-screen { display: flex; }
+    .session-mode.is-howto .sm-dock { display: none; }
+    .sm-howto-top {
+      display: flex; align-items: center; gap: 0.55rem;
+      position: sticky; top: 0; z-index: 5;
+      padding: 0.35rem 0 0.55rem;
+      background: linear-gradient(180deg, rgba(11,11,12,0.96), rgba(11,11,12,0.88) 70%, transparent);
+    }
+    .sm-howto-top button {
+      appearance: none; border: 1px solid var(--ice); background: transparent;
+      color: var(--ice); font: 600 0.88rem var(--font-body);
+      border-radius: 999px; padding: 0.55rem 0.95rem; cursor: pointer;
+    }
+    .sm-howto-top h3 {
+      margin: 0; font-family: var(--font-display); font-size: 1.05rem; line-height: 1.2;
+    }
+    .sm-howto-body {
+      border: 1px solid var(--line); border-radius: 16px; padding: 0.85rem;
+      background: rgba(18,19,22,0.55); font-size: 0.88rem; line-height: 1.5; color: var(--ice-soft);
+    }
+    .sm-howto-body h4 {
+      margin: 0.85rem 0 0.35rem; color: var(--white); font-size: 0.82rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .sm-howto-body h4:first-child { margin-top: 0; }
+    .sm-howto-body .vid {
+      margin: 0.5rem 0 0; border-radius: 12px; overflow: hidden; background: #000;
+      aspect-ratio: 16 / 9;
+    }
+    .sm-howto-body .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .sm-howto-body ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+    .demo-banner {
+      background: linear-gradient(90deg, rgba(255,107,74,0.22), rgba(232,184,109,0.18));
+      border-bottom: 1px solid rgba(255,107,74,0.35);
+      color: #ffd0c4; font-size: 0.82rem; line-height: 1.35;
+      padding: 0.55rem 0.9rem; display: flex; gap: 0.65rem; align-items: center;
+      justify-content: space-between; flex-wrap: wrap;
+    }
+    .demo-banner[hidden] { display: none !important; }
+    .demo-banner button {
+      appearance: none; border: 1px solid rgba(255,107,74,0.55); background: transparent;
+      color: #ffb3a1; border-radius: 999px; padding: 0.35rem 0.7rem;
+      font: 600 0.78rem var(--font-body); cursor: pointer;
+    }
+    .nav .demo-btn {
+      border: 1px solid rgba(232,184,109,0.45) !important;
+      color: var(--amber) !important;
+    }
+    .nav .demo-btn.on {
+      background: rgba(232,184,109,0.2) !important;
+      color: #0b0b0c !important;
+      border-color: var(--amber) !important;
+      background: var(--amber) !important;
+    }
+    body.demo-mode .top { border-bottom-color: rgba(255,107,74,0.35); }
+    .sm-sources-pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      border-radius: 999px; padding: 0.28rem 0.65rem; font-size: 0.72rem; font-weight: 600;
+      background: rgba(61,220,151,0.12); color: var(--mint); border: 1px solid rgba(61,220,151,0.35);
+    }
     .sm-sheet {
       position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.55);
       display: none; place-items: end center;
@@ -1042,8 +1116,13 @@
           <button type="button" data-view="overview">Overview</button>
           <button type="button" data-view="history">History</button>
           <button type="button" data-view="you">You</button>
+          <button type="button" id="demoToggle" class="demo-btn" aria-pressed="false" title="Show friends without touching your real plan">Demo</button>
         </nav>
       </header>
+      <div id="demoBanner" class="demo-banner" hidden role="status">
+        DEMO MODE — ticks, skips, and progress stay in a sandbox. Your real plan is untouched.
+        <button type="button" id="demoExit">Exit demo</button>
+      </div>
 
       <section class="view" id="view-overview">
         <div class="hero-strip">
@@ -1221,11 +1300,37 @@
       const PASS_HASH = "1a02f982c9e3e518df34f2e70fc99d6903abf0ac960b7eeb7ae9e811f5cee342";
       const AUTH_KEY = "walt_health_auth_v2";
       const SESSION_LOG_KEY = "walt_session_log_v1";
+      const SESSION_LOG_DEMO_KEY = "walt_session_log_demo_v1";
+      const DEMO_FLAG_KEY = "walt_demo_mode_v1";
       const TTL_MS = 24 * 60 * 60 * 1000;
+
+      function isDemoMode() {
+        try { return sessionStorage.getItem(DEMO_FLAG_KEY) === "1"; } catch { return false; }
+      }
+
+      function setDemoMode(on) {
+        try {
+          if (on) sessionStorage.setItem(DEMO_FLAG_KEY, "1");
+          else sessionStorage.removeItem(DEMO_FLAG_KEY);
+        } catch { /* ignore */ }
+        document.body.classList.toggle("demo-mode", !!on);
+        const banner = document.getElementById("demoBanner");
+        if (banner) banner.hidden = !on;
+        const btn = document.getElementById("demoToggle");
+        if (btn) {
+          btn.textContent = on ? "Exit demo" : "Demo";
+          btn.classList.toggle("on", !!on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        }
+      }
+
+      function activeLogKey() {
+        return isDemoMode() ? SESSION_LOG_DEMO_KEY : SESSION_LOG_KEY;
+      }
 
       function readSessionLog() {
         try {
-          const raw = localStorage.getItem(SESSION_LOG_KEY);
+          const raw = localStorage.getItem(activeLogKey());
           if (!raw) return {};
           const parsed = JSON.parse(raw);
           return parsed && typeof parsed === "object" ? parsed : {};
@@ -1235,7 +1340,7 @@
       }
 
       function writeSessionLog(log) {
-        localStorage.setItem(SESSION_LOG_KEY, JSON.stringify(log));
+        localStorage.setItem(activeLogKey(), JSON.stringify(log));
       }
 
       function getDayLog(iso) {
@@ -1360,9 +1465,9 @@
         });
       }
 
-      document.querySelectorAll(".nav button").forEach((btn) => {
+      document.querySelectorAll(".nav button[data-view]").forEach((btn) => {
         btn.addEventListener("click", () => {
-          document.querySelectorAll(".nav button").forEach((b) => b.classList.remove("active"));
+          document.querySelectorAll(".nav button[data-view]").forEach((b) => b.classList.remove("active"));
           document.querySelectorAll(".view").forEach((v) => v.classList.remove("active"));
           btn.classList.add("active");
           document.getElementById("view-" + btn.dataset.view).classList.add("active");
@@ -1375,6 +1480,36 @@
           }
         });
       });
+
+      function refreshAfterDemoToggle() {
+        const data = window.__waltDashboard;
+        if (!data) return;
+        renderWeekProgress(data, viewedWeekStart(), new Date());
+        renderTodayGuide(data);
+        const start = document.getElementById("voiceStart");
+        const status = document.getElementById("voiceStatus");
+        if (start) start.disabled = isDemoMode();
+        if (status && isDemoMode()) status.textContent = "Voice memos disabled in demo — your real food log stays clean.";
+        else if (status && status.textContent.indexOf("disabled in demo") !== -1) status.textContent = "";
+      }
+
+      (function wireDemoMode() {
+        const toggle = document.getElementById("demoToggle");
+        const exitBtn = document.getElementById("demoExit");
+        setDemoMode(isDemoMode());
+        function flipClean() {
+          if (!isDemoMode()) {
+            const ok = window.confirm("Demo mode sandboxes ticks for friends. Your real week checklist will not change. Continue?");
+            if (!ok) return;
+            setDemoMode(true);
+          } else {
+            setDemoMode(false);
+          }
+          refreshAfterDemoToggle();
+        }
+        if (toggle) toggle.addEventListener("click", flipClean);
+        if (exitBtn) exitBtn.addEventListener("click", () => { setDemoMode(false); refreshAfterDemoToggle(); });
+      })();
 
       function fmt(n, digits) {
         if (n === null || n === undefined || Number.isNaN(n)) return "—";
@@ -1650,6 +1785,10 @@
         start.dataset.bound = "1";
         refreshVoiceList();
         start.addEventListener("click", async () => {
+          if (isDemoMode()) {
+            if (status) status.textContent = "Voice memos disabled in demo — your real food log stays clean.";
+            return;
+          }
           try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
             voiceChunks = [];
@@ -1994,6 +2133,10 @@
 
         let toneClass = "meh";
         let motivate = "Neutral. First prize is still Mon / Wed / Fri. Tick moves as you train.";
+        if (isDemoMode()) {
+          toneClass = "meh";
+          motivate = "DEMO sandbox — these ticks are for showing friends only. Exit demo to see your real week.";
+        } else {
         const missedPast = weekSessions.filter((s) => s.status && s.status.state === "dim").length;
         const whoopOnly = weekSessions.filter((s) => s.status && s.status.state === "purple").length;
         if (weekPct >= 100) {
@@ -2014,6 +2157,7 @@
         } else if (weekPlanned) {
           toneClass = "meh";
           motivate = "Empty board. Open Today on your next gym day. Showing up beats perfect.";
+        }
         }
 
         root.innerHTML =
@@ -2248,7 +2392,9 @@
               alternatives: meta.alternatives || [],
               feel_zones: meta.feel_zones || [],
               diagram_id: meta.diagram_id || "press_chest",
-              pin_guidance: meta.pin_guidance || []
+              pin_guidance: meta.pin_guidance || [],
+              video_id: meta.video_id || "",
+              video_label: meta.video_label || "Demo video"
             };
             if (loadType === "cardio") {
               row.stairmaster_level = meta.stairmaster_level || "4–6";
@@ -2375,7 +2521,7 @@
           '<div class="chip"><div class="k">Phase</div><div class="v">' + escapeHtml(String(workout.week_label || workout.week || "—")) + "</div></div>" +
           '<div class="chip"><div class="k">Est. time</div><div class="v">about ' + escapeHtml(String(workout.minutes || 75)) + " min</div></div>" +
           '<div class="chip"><div class="k">Budget</div><div class="v">' + escapeHtml(String(workout.budget_minutes || 75)) + " min plan</div></div>" +
-          '<div class="chip"><div class="k">Sources</div><div class="v">' + escapeHtml(String(workout.sources_count || 7)) + " packs</div></div>" +
+          '<div class="chip"><div class="k">Sources suggest</div><div class="v">' + escapeHtml(String(workout.sources_count || 7)) + " packs</div></div>" +
           "</div>" +
           (workout.load_cue ? '<div class="cue-box"><strong>Load cue:</strong> ' + escapeHtml(workout.load_cue) + "</div>" : "") +
           '<div class="session-mode" id="sessionMode"></div>' +
@@ -2471,7 +2617,7 @@
               (rom.why ? '<br/><span style="color:var(--muted)">' + escapeHtml(rom.why) + "</span>" : "") +
               "</div>"
             : "";
-          const tips = (m.tips_ranked || []).slice(0, 3);
+          const tips = (m.tips_ranked || []).slice(0, 2);
           const tipsHtml2 = tips.length
             ? "<ul class='sm-tips'>" + tips.map((t) =>
                 "<li><span class='w'>" + escapeHtml(String(t.weight || "")) + "</span> " + escapeHtml(t.text || "") + "</li>"
@@ -2483,10 +2629,37 @@
               '<div class="rv" style="color:' + r.color + '">' + escapeHtml(r.label) + "</div>" +
               '<div class="rl">of this ring</div></div>';
           }).join("") + "</div>";
+          const srcPacks = (m.sources_cited || []).map((s) => String(s)).join(", ");
+          const sourcesLine =
+            '<div class="sm-sources">' +
+            '<span class="sm-sources-pill">' + escapeHtml(String(workout.sources_count || 7)) +
+            " sources suggest this plan</span> · this move: packs " +
+            escapeHtml(srcPacks || "—") + "</div>";
 
+          const howtoBody =
+            (m.where ? "<h4>Where</h4><p style='margin:0'>" + escapeHtml(m.where) + "</p>" : "") +
+            "<h4>How to</h4><p style='margin:0'>" + escapeHtml(m.how_to || m.notes || "—") + "</p>" +
+            (m.avoid ? "<h4>Don’t</h4><p style='margin:0'>" + escapeHtml(m.avoid) + "</p>" : "") +
+            ((m.tips_ranked || m.tips || []).length
+              ? "<h4>Do / remember</h4><ul>" +
+                (m.tips_ranked || (m.tips || []).map((t) => ({ text: t }))).map((t) =>
+                  "<li>" + escapeHtml(t.text || t) + "</li>"
+                ).join("") + "</ul>"
+              : "") +
+            (m.research_note ? "<h4>Why / research</h4><p style='margin:0'>" + escapeHtml(m.research_note) + "</p>" : "") +
+            (m.video_id
+              ? "<h4>Video demo</h4><div class='vid'><iframe src='https://www.youtube-nocookie.com/embed/" +
+                encodeURIComponent(m.video_id) +
+                "?rel=0' title='" + escapeHtml(m.video_label || "Demo") +
+                "' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen loading='lazy'></iframe></div>"
+              : "<h4>Video demo</h4><p style='margin:0;color:var(--muted)'>No video linked for this move.</p>");
+
+          modeRoot.classList.remove("is-howto");
           modeRoot.innerHTML =
+            '<div class="sm-workout">' +
             '<div class="sm-meta">' +
             '<span class="sm-chip"><strong>' + escapeHtml(String(workout.title || "Session")) + "</strong></span>" +
+            (isDemoMode() ? '<span class="sm-chip" style="border-color:var(--amber);color:var(--amber)">DEMO</span>' : "") +
             '<span class="sm-chip">Work <strong>' + escapeHtml(String(isCardio ? (m.reps || "") : ((timing.work_sec_per_set || 45) + "s"))) +
             "</strong></span>" +
             '<span class="sm-chip">Rest <strong>' + escapeHtml(String(isCardio ? "—" : ((timing.rest_sec_between_sets || 75) + "s"))) +
@@ -2508,13 +2681,17 @@
             loadHtml +
             romHtml +
             tipsHtml2 +
-            '<div class="sm-sources">' + escapeHtml(workout.session_sources_note || "") +
-            " · this move cites " + escapeHtml(String((m.sources_cited || []).length)) + " pack(s)</div>" +
+            sourcesLine +
             '<div class="sm-progress"><div class="sp-label"><strong>Session after this move</strong> — ' +
             completedBefore + "/" + moves.length + " checked (" + pct + "%)</div>" +
             '<div class="sp-bar"><div class="sp-fill" style="width:' + pct + '%"></div></div></div>' +
-            "</div>" +
-            '<div class="sm-dock">' +
+            "</div></div>" +
+            '<div class="sm-howto-screen" id="smHowToScreen">' +
+            '<div class="sm-howto-top"><button type="button" id="smHowToBack">← Back</button>' +
+            "<h3>" + escapeHtml(m.name || "How to") + "</h3></div>" +
+            '<div class="sm-howto-body">' + howtoBody + "</div></div>" +
+            '<div class="sm-dock with-howto">' +
+            '<button type="button" class="howto" id="smHowTo">How to · tips · video</button>' +
             '<button type="button" class="danger" id="smCant">Can’t do</button>' +
             '<button type="button" id="smAlt">Alternative</button>' +
             '<button type="button" id="smDone">' + (st === "done" ? "Undo ✓" : "Done ✓") + "</button>" +
@@ -2522,6 +2699,14 @@
             "</div>";
 
           highlightZones(document.getElementById("smDiagram"), m.feel_zones || []);
+
+          document.getElementById("smHowTo").addEventListener("click", () => {
+            modeRoot.classList.add("is-howto");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          document.getElementById("smHowToBack").addEventListener("click", () => {
+            modeRoot.classList.remove("is-howto");
+          });
 
           document.getElementById("smNext").addEventListener("click", () => {
             if (moveIndex >= moves.length - 1) {
