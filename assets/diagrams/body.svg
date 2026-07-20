@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 360" role="img" aria-label="Muscle feel map">
+  <defs>
+    <style>
+      .body { fill: #2a2d33; stroke: #95c8e2; stroke-width: 1.5; }
+      .zone { fill: #ff3b30; opacity: 0; transition: opacity 0.2s; }
+      .zone.on { opacity: 0.88; }
+      .label { fill: #f5f7f8; font: 600 11px Manrope, sans-serif; }
+    </style>
+  </defs>
+  <!-- silhouette -->
+  <ellipse class="body" cx="100" cy="28" rx="22" ry="26"/>
+  <path class="body" d="M70 55 h60 v70 c0 20-10 36-30 36s-30-16-30-36z"/>
+  <path class="body" d="M55 70 c-18 8-28 28-26 48 l18 8 c2-16 10-28 22-34z"/>
+  <path class="body" d="M145 70 c18 8 28 28 26 48 l-18 8 c-2-16-10-28-22-34z"/>
+  <path class="body" d="M78 160 h44 v90 c0 8-6 14-14 14h-16c-8 0-14-6-14-14z"/>
+  <path class="body" d="M78 250 h18 v85 c0 8-5 14-12 14s-12-6-12-14z"/>
+  <path class="body" d="M104 250 h18 v85 c0 8-5 14-12 14s-12-6-12-14z"/>
+  <!-- feel zones -->
+  <ellipse class="zone" data-zone="upper_chest" cx="100" cy="78" rx="28" ry="12"/>
+  <ellipse class="zone" data-zone="chest" cx="100" cy="95" rx="30" ry="16"/>
+  <ellipse class="zone" data-zone="front_delt" cx="62" cy="72" rx="14" ry="12"/>
+  <ellipse class="zone" data-zone="front_delt" cx="138" cy="72" rx="14" ry="12"/>
+  <ellipse class="zone" data-zone="side_delt" cx="48" cy="78" rx="10" ry="14"/>
+  <ellipse class="zone" data-zone="side_delt" cx="152" cy="78" rx="10" ry="14"/>
+  <ellipse class="zone" data-zone="rear_delt" cx="55" cy="68" rx="11" ry="10"/>
+  <ellipse class="zone" data-zone="rear_delt" cx="145" cy="68" rx="11" ry="10"/>
+  <ellipse class="zone" data-zone="triceps" cx="48" cy="105" rx="9" ry="18"/>
+  <ellipse class="zone" data-zone="triceps" cx="152" cy="105" rx="9" ry="18"/>
+  <ellipse class="zone" data-zone="biceps" cx="58" cy="100" rx="8" ry="16"/>
+  <ellipse class="zone" data-zone="biceps" cx="142" cy="100" rx="8" ry="16"/>
+  <ellipse class="zone" data-zone="lats" cx="78" cy="110" rx="12" ry="22"/>
+  <ellipse class="zone" data-zone="lats" cx="122" cy="110" rx="12" ry="22"/>
+  <ellipse class="zone" data-zone="upper_back" cx="100" cy="88" rx="26" ry="14"/>
+  <ellipse class="zone" data-zone="abs" cx="100" cy="130" rx="18" ry="28"/>
+  <ellipse class="zone" data-zone="quads" cx="88" cy="210" rx="14" ry="36"/>
+  <ellipse class="zone" data-zone="quads" cx="112" cy="210" rx="14" ry="36"/>
+  <ellipse class="zone" data-zone="hamstrings" cx="88" cy="230" rx="12" ry="30"/>
+  <ellipse class="zone" data-zone="hamstrings" cx="112" cy="230" rx="12" ry="30"/>
+  <ellipse class="zone" data-zone="glutes" cx="100" cy="168" rx="22" ry="14"/>
+  <ellipse class="zone" data-zone="cardio" cx="100" cy="95" rx="40" ry="50"/>
+</svg>

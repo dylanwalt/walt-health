@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T13:09:46.720390+00:00",
+  "generated_at": "2026-07-20T13:29:16.457516+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -893,8 +893,9 @@
       "load_cue": "Start ~60\u201370% of what you remember. Smooth reps. Stop if form breaks.",
       "title": "Push \u00b7 chest + shoulders",
       "focus": "Chest, front/side delts, triceps \u00b7 small leg maintenance",
-      "summary": "Week 1 \u00b7 Ease-in \u00b7 about 75 minutes \u00b7 Leave about 2 to 3 reps in reserve (you could still do 2\u20133 more clean reps). Last set can finish closer to 2 left.",
-      "minutes": 75,
+      "summary": "Week 1 \u00b7 Ease-in \u00b7 about 50 minutes \u00b7 Leave about 2 to 3 reps in reserve (you could still do 2\u20133 more clean reps). Last set can finish closer to 2 left.",
+      "minutes": 50,
+      "budget_minutes": 75,
       "gym": [
         {
           "order": 1,
@@ -902,19 +903,83 @@
           "sets": 2,
           "reps": "8\u201310",
           "notes": "45\u00b0 incline. Control the eccentric.",
-          "minutes": 12,
-          "where": "Adjustable bench + dumbbells (or barbell / Smith incline). Bench about 30\u201345 degrees.",
-          "how_to": "Set the bench to about 30\u201345 degrees. Plant your feet flat. Pull your shoulder blades back into the pad. Start with the weights at upper-chest height, elbows about 45 degrees from your torso (not flared flat out). Press up until arms are almost straight without slamming. Lower for about 2 seconds until you feel a stretch across the upper chest.",
+          "minutes": 9,
+          "where": "Adjustable bench + dumbbells (or barbell / Smith incline). Bench about 30-45 degrees.",
+          "how_to": "Set the bench to about 30-45 degrees. Plant your feet flat. Pull your shoulder blades back into the pad. Start with the weights at upper-chest height, elbows about 45 degrees from your torso (not flared flat out). Press up until arms are almost straight without slamming. Lower for about 2 seconds until you feel a stretch across the upper chest.",
           "avoid": "Bench too upright (turns into a shoulder press). Bouncing the bar/dumbbells off the chest. Huge arch and lifting the hips.",
-          "set_plan": "Set 1: pick a weight (X kilograms) you can do for 8\u201310 reps with about 2\u20133 reps still left. Set 2: same X kg, or X + 2.5 kg if set 1 felt easy. Set 3 (when you have 3 sets): try X + 2.5 kg only if form stayed smooth \u2014 otherwise stay at X.",
-          "tips": [
-            "Remember: control the lowering \u2014 that stretch is where a lot of the chest work happens.",
-            "Remember: keep shoulder blades pinned; do not shrug into your ears.",
-            "If you only find a barbell incline machine, use that \u2014 same idea."
+          "load_type": "kg",
+          "set_plan_lines": [
+            "Set 1: pick X kg for 8\u201310 reps with 2\u20133 left",
+            "Set 2: same X kg, or X + 2.5 kg if set 1 felt easy"
           ],
-          "research_note": "Weekly hard sets on a muscle drive growth more than which machine you pick (Schoenfeld volume dose-response). Upper-chest emphasis from incline is a programming choice for your visual goals \u2014 not a magic percentage over flat press.",
-          "video_id": "oZVCBM9f8Eo",
-          "video_label": "Short incline dumbbell press demo"
+          "set_plan": "Set 1: pick X kg for 8\u201310 reps with 2\u20133 left | Set 2: same X kg, or X + 2.5 kg if set 1 felt easy",
+          "timing": {
+            "work_sec_per_set": 50,
+            "rest_sec_between_sets": 105,
+            "rest_sec_before_next": 90
+          },
+          "rom_cues": {
+            "question": "Full stretch at the bottom?",
+            "answer": "Yes \u2014 lower until you feel an upper-chest stretch (~2 sec). Do not bounce.",
+            "why": "Controlled stretch under load is useful for chest growth; slamming or tiny half-reps waste the set."
+          },
+          "tips": [
+            "control the lowering - that stretch is where a lot of the chest work happens.",
+            "keep shoulder blades pinned; do not shrug into your ears.",
+            "If you only find a barbell incline machine, use that - same idea."
+          ],
+          "tips_ranked": [
+            {
+              "text": "control the lowering - that stretch is where a lot of the chest work happens.",
+              "weight": 95
+            },
+            {
+              "text": "keep shoulder blades pinned; do not shrug into your ears.",
+              "weight": 80
+            },
+            {
+              "text": "If you only find a barbell incline machine, use that - same idea.",
+              "weight": 65
+            }
+          ],
+          "research_note": "Weekly hard sets on a muscle drive growth more than which machine you pick (Schoenfeld volume dose-response). Upper-chest emphasis from incline is a programming choice for your visual goals - not a magic percentage over flat press.",
+          "sources_cited": [
+            "01",
+            "03",
+            "04"
+          ],
+          "goal_weights": {
+            "shoulders": 25,
+            "chest_upper": 65,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 90,
+          "alternatives": [
+            {
+              "name": "Flat dumbbell press",
+              "when": "Incline bench taken",
+              "keep_original_pct": 85
+            },
+            {
+              "name": "Smith incline press",
+              "when": "Only Smith free",
+              "keep_original_pct": 80
+            }
+          ],
+          "feel_zones": [
+            "upper_chest",
+            "chest",
+            "front_delt",
+            "triceps"
+          ],
+          "diagram_id": "press_chest",
+          "pin_guidance": [],
+          "session_importance_pct": 17,
+          "goal_ring_pct": {
+            "shoulders": 12,
+            "chest_upper": 32,
+            "recomp": 6
+          }
         },
         {
           "order": 2,
@@ -922,18 +987,76 @@
           "sets": 2,
           "reps": "8\u201310",
           "notes": "Don't shrug. Full lockout without slamming.",
-          "minutes": 10,
+          "minutes": 8,
           "where": "Seated bench with back support + dumbbells, or a shoulder-press machine.",
-          "how_to": "Sit tall with your back against the pad. Start with dumbbells at about ear height. Press overhead until arms lock softly. Lower back to ear height. Do not shrug. On a machine: same path, slow and controlled.",
-          "avoid": "Big lower-back arch. Pressing the weights far out in front of your face.",
-          "set_plan": "Set 1: X kilograms for 8\u201310 reps with 2\u20133 reps left. Set 2: X or X + 2.5 kg. Set 3 (if scheduled): same rule \u2014 only add 2.5 kg if set 2 was clean.",
+          "how_to": "Sit tall with your back against the pad. Start with dumbbells at about ear height. Press overhead until arms lock softly. Lower only to ear height or the machine start position; do not drop into a relaxed dead hang at the bottom. Do not shrug. On a machine: same path, slow and controlled.",
+          "avoid": "Big lower-back arch. Pressing the weights far out in front of your face. Dropping into a loose hang between reps.",
+          "load_type": "kg",
+          "set_plan_lines": [
+            "Set 1: X kg for 8\u201310 reps with 2\u20133 left",
+            "Set 2: same X kg, or X + 2.5 kg if clean"
+          ],
+          "set_plan": "Set 1: X kg for 8\u201310 reps with 2\u20133 left | Set 2: same X kg, or X + 2.5 kg if clean",
+          "timing": {
+            "work_sec_per_set": 45,
+            "rest_sec_between_sets": 100,
+            "rest_sec_before_next": 75
+          },
+          "rom_cues": {
+            "question": "Lower to a fully relaxed hang?",
+            "answer": "No. Stop around ear height (or the machine\u2019s start). Soft lockout at the top \u2014 no slam.",
+            "why": "A dead hang dumps tension, stresses the shoulder joint, and turns the next rep into a risky heave. Controlled end-range keeps delts working."
+          },
           "tips": [
-            "Remember: this builds the front and middle of the shoulder \u2014 key for that round look.",
-            "Remember: stop the set when form shakes; do not fight ugly reps in week 1."
+            "this builds the front and middle of the shoulder - key for that round look.",
+            "stop the set when form shakes; do not fight ugly reps in week 1."
+          ],
+          "tips_ranked": [
+            {
+              "text": "this builds the front and middle of the shoulder - key for that round look.",
+              "weight": 95
+            },
+            {
+              "text": "stop the set when form shakes; do not fight ugly reps in week 1.",
+              "weight": 80
+            }
           ],
           "research_note": "Shoulders respond to local weekly volume. Extra hard sets here support your visual shoulder goal without needing a fourth gym day.",
-          "video_id": "qEwKCR5JCog",
-          "video_label": "Seated dumbbell shoulder press demo"
+          "sources_cited": [
+            "03",
+            "04"
+          ],
+          "goal_weights": {
+            "shoulders": 70,
+            "chest_upper": 20,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 92,
+          "alternatives": [
+            {
+              "name": "Machine shoulder press",
+              "when": "Dumbbells awkward / busy",
+              "keep_original_pct": 88
+            },
+            {
+              "name": "Landmine press",
+              "when": "Shoulder discomfort on strict OH",
+              "keep_original_pct": 70
+            }
+          ],
+          "feel_zones": [
+            "front_delt",
+            "side_delt",
+            "triceps"
+          ],
+          "diagram_id": "press_shoulder",
+          "pin_guidance": [],
+          "session_importance_pct": 17,
+          "goal_ring_pct": {
+            "shoulders": 34,
+            "chest_upper": 10,
+            "recomp": 6
+          }
         },
         {
           "order": 3,
@@ -941,18 +1064,74 @@
           "sets": 2,
           "reps": "12\u201315",
           "notes": "Visual priority \u2014 soft elbows, lead with elbows.",
-          "minutes": 8,
+          "minutes": 7,
           "where": "Dumbbells standing, cable with a handle at your side, or a lateral-raise machine.",
-          "how_to": "Soft bend in the elbows. Lead with the elbows and raise arms out to just below shoulder height. Pause briefly. Lower slowly. Prefer clean reps over heavy weight \u2014 this is your main \u201cwider shoulders\u201d move.",
+          "how_to": "Soft bend in the elbows. Lead with the elbows and raise arms out to just below shoulder height. Pause briefly. Lower slowly. Prefer clean reps over heavy weight - this is your main \"wider shoulders\" move.",
           "avoid": "Swinging the body. Shrugging traps. Flinging weights above the head.",
-          "set_plan": "Set 1: light X kilograms (often 4\u20138 kg to start) for 12\u201315 reps with 2 reps left. Set 2: same X, or +2 kg / +2.5 kg if easy. Later sets: stay strict \u2014 if you need swing, the weight is too heavy.",
+          "load_type": "kg",
+          "set_plan_lines": [
+            "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left",
+            "Set 2: same X, or +2 / +2.5 kg if easy and strict"
+          ],
+          "set_plan": "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left | Set 2: same X, or +2 / +2.5 kg if easy and strict",
+          "timing": {
+            "work_sec_per_set": 40,
+            "rest_sec_between_sets": 65,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Raise above shoulder height?",
+            "answer": "Stop just below shoulder height if traps take over. Soft elbows the whole time.",
+            "why": "Side delts build the wide look; shrugging shifts work to traps and steals the point of the move."
+          },
           "tips": [
-            "Remember: stop just below shoulder height if traps take over.",
-            "Remember: side delts are a priority for looking broader in shirts \u2014 quality beats ego weight."
+            "stop just below shoulder height if traps take over.",
+            "side delts are a priority for looking broader in shirts - quality beats ego weight."
+          ],
+          "tips_ranked": [
+            {
+              "text": "stop just below shoulder height if traps take over.",
+              "weight": 95
+            },
+            {
+              "text": "side delts are a priority for looking broader in shirts - quality beats ego weight.",
+              "weight": 80
+            }
           ],
           "research_note": "Specialty volume on a region works because hypertrophy is largely local (sets per muscle). Raising week-to-week volume here is a standard specialization approach.",
-          "video_id": "3VcKaXpzqRo",
-          "video_label": "Lateral raise form demo"
+          "sources_cited": [
+            "03",
+            "04"
+          ],
+          "goal_weights": {
+            "shoulders": 85,
+            "chest_upper": 5,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 95,
+          "alternatives": [
+            {
+              "name": "Cable lateral raise",
+              "when": "Dumbbells feel jerky",
+              "keep_original_pct": 90
+            },
+            {
+              "name": "Machine lateral",
+              "when": "Cables/DBs taken",
+              "keep_original_pct": 85
+            }
+          ],
+          "feel_zones": [
+            "side_delt"
+          ],
+          "diagram_id": "lateral",
+          "pin_guidance": [],
+          "session_importance_pct": 17,
+          "goal_ring_pct": {
+            "shoulders": 41,
+            "chest_upper": 2,
+            "recomp": 6
+          }
         },
         {
           "order": 4,
@@ -964,14 +1143,74 @@
           "where": "Pec-deck / fly machine, or dual cables at chest height.",
           "how_to": "Keep a slight bend in the elbows and keep that bend fixed. Open until you feel a chest stretch, then bring the arms together as if hugging a tree. Squeeze one second at the inside.",
           "avoid": "Straight-arm swings. Jerky lowering.",
-          "set_plan": "Set 1: X kilograms (or machine pin) for 12\u201315 smooth reps. Set 2: same or + one pin / +2.5 kg if easy.",
-          "tips": [
-            "Remember: this is a control / pump move \u2014 light is correct.",
-            "Remember: feel the stretch; do not bounce."
+          "load_type": "machine_pin",
+          "set_plan_lines": [
+            "Set 1: pin / load for 12\u201315 smooth reps with ~2 left"
           ],
-          "research_note": "Isolation work adds local volume. It does not replace your main presses \u2014 it tops up chest work inside the time budget.",
-          "video_id": "eozdVDA78K0",
-          "video_label": "Cable fly demo"
+          "set_plan": "Set 1: pin / load for 12\u201315 smooth reps with ~2 left",
+          "timing": {
+            "work_sec_per_set": 40,
+            "rest_sec_between_sets": 60,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Open until you feel a chest stretch?",
+            "answer": "Yes \u2014 fixed elbow bend, open to stretch, hug together, squeeze 1 sec inside.",
+            "why": "Flys top up chest volume; ego weight turns them into a front-delt swing."
+          },
+          "tips": [
+            "this is a control / pump move - light is correct.",
+            "feel the stretch; do not bounce."
+          ],
+          "tips_ranked": [
+            {
+              "text": "this is a control / pump move - light is correct.",
+              "weight": 95
+            },
+            {
+              "text": "feel the stretch; do not bounce.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Isolation work adds local volume. It does not replace your main presses - it tops up chest work inside the time budget.",
+          "sources_cited": [
+            "03",
+            "04"
+          ],
+          "goal_weights": {
+            "shoulders": 10,
+            "chest_upper": 75,
+            "recomp": 15
+          },
+          "keep_recommended_pct": 75,
+          "alternatives": [
+            {
+              "name": "Dumbbell floor fly",
+              "when": "Pec-deck / cables busy",
+              "keep_original_pct": 70
+            },
+            {
+              "name": "Skip if short on time",
+              "when": "Pressed for time \u2014 keep presses + laterals",
+              "keep_original_pct": 55
+            }
+          ],
+          "feel_zones": [
+            "chest",
+            "upper_chest"
+          ],
+          "diagram_id": "fly",
+          "pin_guidance": [
+            "Technogym pec-deck / cable: start mid-stack where 12\u201315 leave ~2 reps",
+            "Next set: +1 pin only if set 1 was easy",
+            "Log the pin number on your phone (provisional until we calibrate your stack)"
+          ],
+          "session_importance_pct": 17,
+          "goal_ring_pct": {
+            "shoulders": 5,
+            "chest_upper": 37,
+            "recomp": 9
+          }
         },
         {
           "order": 5,
@@ -979,18 +1218,77 @@
           "sets": 1,
           "reps": "10\u201315",
           "notes": "Elbows pinned.",
-          "minutes": 5,
+          "minutes": 6,
           "where": "Cable stack with a rope or straight / angled bar.",
           "how_to": "Pin elbows to your sides. Push down until arms straighten. If using a rope, spread the ends apart at the bottom. Let the forearms come up only as far as the elbows stay still.",
           "avoid": "Leaning and turning it into a chest press. Elbows flaring wide.",
-          "set_plan": "Set 1: X kilograms for 10\u201315 reps with 2 reps left. Set 2: X or X + 2.5 kg.",
+          "load_type": "machine_pin",
+          "set_plan_lines": [
+            "Set 1: pin / load for 10\u201315 with ~2 left"
+          ],
+          "set_plan": "Set 1: pin / load for 10\u201315 with ~2 left",
+          "timing": {
+            "work_sec_per_set": 35,
+            "rest_sec_between_sets": 55,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Full straighten at the bottom?",
+            "answer": "Yes \u2014 soft lockout and squeeze. Up only as far as elbows stay still.",
+            "why": "Triceps finish presses; half-reps leave stimulus on the table."
+          },
           "tips": [
-            "Remember: only the forearms should move \u2014 elbows stay glued.",
-            "Remember: full straighten at the bottom for the triceps squeeze."
+            "only the forearms should move - elbows stay glued.",
+            "full straighten at the bottom for the triceps squeeze."
+          ],
+          "tips_ranked": [
+            {
+              "text": "only the forearms should move - elbows stay glued.",
+              "weight": 95
+            },
+            {
+              "text": "full straighten at the bottom for the triceps squeeze.",
+              "weight": 80
+            }
           ],
           "research_note": "Arms get work from presses too; this finishes triceps without long sessions.",
-          "video_id": "2-g6w_cwGRw",
-          "video_label": "Rope pushdown demo"
+          "sources_cited": [
+            "03",
+            "04"
+          ],
+          "goal_weights": {
+            "shoulders": 15,
+            "chest_upper": 40,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 70,
+          "alternatives": [
+            {
+              "name": "Overhead cable extension",
+              "when": "Pushdown station busy",
+              "keep_original_pct": 65
+            },
+            {
+              "name": "Diamond push-ups",
+              "when": "No cable",
+              "keep_original_pct": 55
+            }
+          ],
+          "feel_zones": [
+            "triceps"
+          ],
+          "diagram_id": "pushdown",
+          "pin_guidance": [
+            "Cable stack: pick a pin for smooth 10\u201315 with elbows pinned",
+            "+1 pin next set only if easy",
+            "Prefer rope or angled bar \u2014 log pin #"
+          ],
+          "session_importance_pct": 11,
+          "goal_ring_pct": {
+            "shoulders": 7,
+            "chest_upper": 20,
+            "recomp": 6
+          }
         },
         {
           "order": 6,
@@ -998,37 +1296,168 @@
           "sets": 1,
           "reps": "10\u201312",
           "notes": "Maintenance only \u2014 stop with about 2\u20133 clean reps still left.",
-          "minutes": 7,
+          "minutes": 6,
           "where": "Leg-press sled, or one dumbbell for goblet squat, or open floor for walking lunges.",
-          "how_to": "Leg press: feet mid-platform, lower until thighs are about 90 degrees, press without slamming the locks. Goblet squat: hold one dumbbell at your chest, sit between your heels, stand tall. Lunges: short steps, torso upright. These are maintenance only \u2014 leave 2\u20133 reps in reserve.",
+          "how_to": "Leg press: feet mid-platform, lower until thighs are about 90 degrees, press without slamming the locks. Goblet squat: hold one dumbbell at your chest, sit between your heels, stand tall. Lunges: short steps, torso upright. These are maintenance only - leave 2-3 reps in reserve.",
           "avoid": "Butt peeling off the leg-press pad. Knees collapsing inward.",
-          "set_plan": "Set 1: X kilograms for 10\u201312 controlled reps. Set 2: same X (do not chase a leg personal record this block).",
+          "load_type": "kg",
+          "set_plan_lines": [
+            "Set 1: load for 10\u201312 controlled reps (leave 2\u20133)"
+          ],
+          "set_plan": "Set 1: load for 10\u201312 controlled reps (leave 2\u20133)",
+          "timing": {
+            "work_sec_per_set": 45,
+            "rest_sec_between_sets": 90,
+            "rest_sec_before_next": 75
+          },
+          "rom_cues": {
+            "question": "Full depth?",
+            "answer": "Leg press to ~90\u00b0 thighs; goblet sit between heels. No butt peel / knee cave.",
+            "why": "Maintenance volume only \u2014 health floor, not a leg specialty day."
+          },
           "tips": [
-            "Remember: legs stay in the plan for health balance (WHO major-muscle guidance) \u2014 not to become a leg specialty.",
-            "Remember: stop early if knees hurt; choose the machine that feels best."
+            "legs stay in the plan for health balance (WHO major-muscle guidance) - not to become a leg specialty.",
+            "stop early if knees hurt; choose the machine that feels best."
+          ],
+          "tips_ranked": [
+            {
+              "text": "legs stay in the plan for health balance (WHO major-muscle guidance) - not to become a leg specialty.",
+              "weight": 95
+            },
+            {
+              "text": "stop early if knees hurt; choose the machine that feels best.",
+              "weight": 80
+            }
           ],
           "research_note": "Young adults can maintain muscle with much lower volume than they used to build it (Bickel et al., 2011). A few hard sets keep the floor without stealing time from upper body.",
-          "video_id": "IZxyjW7MPJQ",
-          "video_label": "Leg press demo"
+          "sources_cited": [
+            "02",
+            "03"
+          ],
+          "goal_weights": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 40
+          },
+          "keep_recommended_pct": 60,
+          "alternatives": [
+            {
+              "name": "Goblet squat",
+              "when": "Leg press taken",
+              "keep_original_pct": 60
+            },
+            {
+              "name": "Walking lunges",
+              "when": "Prefer free space",
+              "keep_original_pct": 55
+            }
+          ],
+          "feel_zones": [
+            "quads",
+            "glutes"
+          ],
+          "diagram_id": "legs",
+          "pin_guidance": [
+            "Start mid-stack where 12-15 smooth reps leave 2 in reserve",
+            "Next set: +1 pin only if set 1 was easy",
+            "Log the pin number on your phone"
+          ],
+          "session_importance_pct": 7,
+          "goal_ring_pct": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 23
+          }
         },
         {
           "order": 7,
           "name": "Easy conditioning finisher",
           "sets": 1,
-          "reps": "time",
+          "reps": "8 min",
           "notes": "8 min \u00b7 MIX: StairMaster OR incline walk OR jump rope \u00b7 easy-moderate zone 2 feel.",
-          "minutes": 10,
+          "minutes": 8,
           "where": "Stair climber, incline treadmill, or jump-rope space.",
-          "how_to": "Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5\u20138% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
-          "avoid": "All-out intervals that trash tomorrow\u2019s lift. Hanging on the stair climber rails and cheating the steps.",
-          "set_plan": "One block of easy cardio for the minutes listed. No \u201cX kilograms\u201d \u2014 just steady effort.",
+          "how_to": "Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5-8% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
+          "avoid": "All-out intervals that trash tomorrow's lift. Hanging on the stair climber rails and cheating the steps.",
+          "load_type": "cardio",
+          "set_plan_lines": [
+            "One easy block for the minutes listed \u2014 no kilograms",
+            "StairMaster Technogym level ~4\u20136 (provisional week 1)",
+            "Or incline walk 5\u20138% \u00b7 talk-test OK"
+          ],
+          "set_plan": "One easy block for the minutes listed \u2014 no kilograms | StairMaster Technogym level ~4\u20136 (provisional week 1) | Or incline walk 5\u20138% \u00b7 talk-test OK",
+          "timing": {
+            "work_sec_per_set": 0,
+            "rest_sec_between_sets": 0,
+            "rest_sec_before_next": 0
+          },
+          "rom_cues": {
+            "question": "All-out intervals?",
+            "answer": "No. Easy\u2013moderate zone 2. Short sentences while moving.",
+            "why": "Protect tomorrow\u2019s lift; recomp support comes from consistency + protein, not punishing cardio."
+          },
           "tips": [
-            "Remember: this supports conditioning and midsection goals; lifting still builds the shoulders.",
-            "Remember: if you are exhausted from lifting, shorten this, do not skip the whole gym day."
+            "this supports conditioning and midsection goals; lifting still builds the shoulders.",
+            "if you are exhausted from lifting, shorten this, do not skip the whole gym day."
+          ],
+          "tips_ranked": [
+            {
+              "text": "this supports conditioning and midsection goals; lifting still builds the shoulders.",
+              "weight": 95
+            },
+            {
+              "text": "if you are exhausted from lifting, shorten this, do not skip the whole gym day.",
+              "weight": 80
+            }
           ],
           "research_note": "Extra easy cardio is optional support. Your main belly/definition lever in this 3-week restart is lifting + protein + not hard-cutting, not punishing cardio.",
-          "video_id": "aq8qG0s1i_U",
-          "video_label": "Steady stair-climber idea"
+          "sources_cited": [
+            "05",
+            "07"
+          ],
+          "goal_weights": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 80
+          },
+          "keep_recommended_pct": 65,
+          "alternatives": [
+            {
+              "name": "Incline treadmill walk",
+              "when": "StairMaster busy",
+              "keep_original_pct": 70
+            },
+            {
+              "name": "Jump rope easy",
+              "when": "Prefer rope",
+              "keep_original_pct": 60
+            },
+            {
+              "name": "Shorten to 5 min",
+              "when": "Exhausted after lifts",
+              "keep_original_pct": 50
+            }
+          ],
+          "feel_zones": [
+            "cardio"
+          ],
+          "diagram_id": "cardio",
+          "pin_guidance": [],
+          "stairmaster_level": "4\u20136",
+          "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
+          "target_hr": {
+            "bpm_low": 134,
+            "bpm_high": 148,
+            "label": "134\u2013148 bpm",
+            "note": "Provisional zone-2 from your WHOOP resting HR \u2014 use talk-test if the watch disagrees.",
+            "rhr_used": 54.0
+          },
+          "session_importance_pct": 14,
+          "goal_ring_pct": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 46
+          }
         }
       ],
       "home": [
@@ -1038,18 +1467,76 @@
           "sets": 2,
           "reps": "8\u201315",
           "notes": "Feet on floor; elevate hands to make harder as needed.",
-          "minutes": 8,
+          "minutes": 7,
           "where": "Floor or sturdy chair/couch.",
           "how_to": "Hands under shoulders (closer together for a diamond push-up). Body straight. Lower the chest toward the hands, press up. Hands elevated = easier. Feet elevated = harder.",
           "avoid": "Hips sagging. Tiny half-reps.",
-          "set_plan": "Home sets: match the set count on the card. Soften difficulty with a higher hand elevation rather than ugly form.",
-          "tips": [
-            "Remember: body in one line from head to heels.",
-            "Remember: this is the home stand-in for pressing."
+          "load_type": "bodyweight",
+          "set_plan_lines": [
+            "Set 1: match card reps \u2014 elevate hands if needed",
+            "Set 2: body in one line head to heels"
           ],
-          "research_note": "Home volume counts when gym is impossible \u2014 still second-best to the gym priority ladder.",
-          "video_id": "IODxDxX7oi4",
-          "video_label": "Push-up form demo"
+          "set_plan": "Set 1: match card reps \u2014 elevate hands if needed | Set 2: body in one line head to heels",
+          "timing": {
+            "work_sec_per_set": 40,
+            "rest_sec_between_sets": 60,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Tiny half-reps OK?",
+            "answer": "No. Chest toward hands, full press. Raise hands to make easier \u2014 not uglier form.",
+            "why": "Home stand-in for pressing when gym is impossible."
+          },
+          "tips": [
+            "body in one line from head to heels.",
+            "this is the home stand-in for pressing."
+          ],
+          "tips_ranked": [
+            {
+              "text": "body in one line from head to heels.",
+              "weight": 95
+            },
+            {
+              "text": "this is the home stand-in for pressing.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Home volume counts when gym is impossible - still second-best to the gym priority ladder.",
+          "sources_cited": [
+            "01",
+            "02"
+          ],
+          "goal_weights": {
+            "shoulders": 20,
+            "chest_upper": 60,
+            "recomp": 15
+          },
+          "keep_recommended_pct": 80,
+          "alternatives": [
+            {
+              "name": "Knee push-ups",
+              "when": "Standard too hard",
+              "keep_original_pct": 70
+            },
+            {
+              "name": "Feet-elevated push-ups",
+              "when": "Too easy",
+              "keep_original_pct": 75
+            }
+          ],
+          "feel_zones": [
+            "chest",
+            "front_delt",
+            "triceps"
+          ],
+          "diagram_id": "pushup",
+          "pin_guidance": [],
+          "session_importance_pct": 23,
+          "goal_ring_pct": {
+            "shoulders": 17,
+            "chest_upper": 44,
+            "recomp": 10
+          }
         },
         {
           "order": 2,
@@ -1061,14 +1548,71 @@
           "where": "Floor.",
           "how_to": "Hips high in an inverted V. Bend elbows and lower the head toward the floor between the hands, then press back up. This copies a shoulder-press pattern at home.",
           "avoid": "Letting the hips drop into a normal push-up.",
-          "set_plan": "Strict reps; elevate feet later only if easy.",
+          "load_type": "bodyweight",
+          "set_plan_lines": [
+            "Set 1: strict pike reps for the card range",
+            "Set 2: hips stay high \u2014 inverted V"
+          ],
+          "set_plan": "Set 1: strict pike reps for the card range | Set 2: hips stay high \u2014 inverted V",
+          "timing": {
+            "work_sec_per_set": 40,
+            "rest_sec_between_sets": 70,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Let hips drop into a normal push-up?",
+            "answer": "No. Keep hips high; head toward floor between hands.",
+            "why": "This is the home shoulder-press pattern."
+          },
           "tips": [
-            "Remember: hips stay high.",
-            "Remember: this is your home shoulder builder."
+            "hips stay high.",
+            "this is your home shoulder builder."
+          ],
+          "tips_ranked": [
+            {
+              "text": "hips stay high.",
+              "weight": 95
+            },
+            {
+              "text": "this is your home shoulder builder.",
+              "weight": 80
+            }
           ],
           "research_note": "Home shoulder pattern when dumbbells are not available.",
-          "video_id": "XckEEwa1iQQ",
-          "video_label": "Pike push-up demo"
+          "sources_cited": [
+            "03"
+          ],
+          "goal_weights": {
+            "shoulders": 75,
+            "chest_upper": 15,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 85,
+          "alternatives": [
+            {
+              "name": "Wall pike / feet elevated",
+              "when": "Need harder",
+              "keep_original_pct": 80
+            },
+            {
+              "name": "Seated DB press if DBs appear",
+              "when": "You got dumbbells",
+              "keep_original_pct": 60
+            }
+          ],
+          "feel_zones": [
+            "front_delt",
+            "side_delt",
+            "triceps"
+          ],
+          "diagram_id": "pike",
+          "pin_guidance": [],
+          "session_importance_pct": 25,
+          "goal_ring_pct": {
+            "shoulders": 65,
+            "chest_upper": 11,
+            "recomp": 6
+          }
         },
         {
           "order": 3,
@@ -1080,11 +1624,35 @@
           "where": "",
           "how_to": "Slow laterals with water bottles / backpack if you have no dumbbells.",
           "avoid": "",
+          "load_type": "kg",
+          "set_plan_lines": [],
           "set_plan": "",
+          "timing": {
+            "work_sec_per_set": 45,
+            "rest_sec_between_sets": 75,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {},
           "tips": [],
+          "tips_ranked": [],
           "research_note": "",
-          "video_id": "",
-          "video_label": "Demo"
+          "sources_cited": [],
+          "goal_weights": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 0
+          },
+          "keep_recommended_pct": 70,
+          "alternatives": [],
+          "feel_zones": [],
+          "diagram_id": "press_chest",
+          "pin_guidance": [],
+          "session_importance_pct": 0,
+          "goal_ring_pct": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 0
+          }
         },
         {
           "order": 4,
@@ -1092,18 +1660,75 @@
           "sets": 1,
           "reps": "8\u201315",
           "notes": "Triceps.",
-          "minutes": 8,
+          "minutes": 6,
           "where": "Floor or sturdy chair/couch.",
           "how_to": "Hands under shoulders (closer together for a diamond push-up). Body straight. Lower the chest toward the hands, press up. Hands elevated = easier. Feet elevated = harder.",
           "avoid": "Hips sagging. Tiny half-reps.",
-          "set_plan": "Home sets: match the set count on the card. Soften difficulty with a higher hand elevation rather than ugly form.",
-          "tips": [
-            "Remember: body in one line from head to heels.",
-            "Remember: this is the home stand-in for pressing."
+          "load_type": "bodyweight",
+          "set_plan_lines": [
+            "Set 1: match card reps \u2014 elevate hands if needed"
           ],
-          "research_note": "Home volume counts when gym is impossible \u2014 still second-best to the gym priority ladder.",
-          "video_id": "IODxDxX7oi4",
-          "video_label": "Push-up form demo"
+          "set_plan": "Set 1: match card reps \u2014 elevate hands if needed",
+          "timing": {
+            "work_sec_per_set": 40,
+            "rest_sec_between_sets": 60,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Tiny half-reps OK?",
+            "answer": "No. Chest toward hands, full press. Raise hands to make easier \u2014 not uglier form.",
+            "why": "Home stand-in for pressing when gym is impossible."
+          },
+          "tips": [
+            "body in one line from head to heels.",
+            "this is the home stand-in for pressing."
+          ],
+          "tips_ranked": [
+            {
+              "text": "body in one line from head to heels.",
+              "weight": 95
+            },
+            {
+              "text": "this is the home stand-in for pressing.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Home volume counts when gym is impossible - still second-best to the gym priority ladder.",
+          "sources_cited": [
+            "01",
+            "02"
+          ],
+          "goal_weights": {
+            "shoulders": 20,
+            "chest_upper": 60,
+            "recomp": 15
+          },
+          "keep_recommended_pct": 80,
+          "alternatives": [
+            {
+              "name": "Knee push-ups",
+              "when": "Standard too hard",
+              "keep_original_pct": 70
+            },
+            {
+              "name": "Feet-elevated push-ups",
+              "when": "Too easy",
+              "keep_original_pct": 75
+            }
+          ],
+          "feel_zones": [
+            "chest",
+            "front_delt",
+            "triceps"
+          ],
+          "diagram_id": "pushup",
+          "pin_guidance": [],
+          "session_importance_pct": 23,
+          "goal_ring_pct": {
+            "shoulders": 17,
+            "chest_upper": 44,
+            "recomp": 10
+          }
         },
         {
           "order": 5,
@@ -1111,37 +1736,164 @@
           "sets": 1,
           "reps": "12\u201320",
           "notes": "Leg maintenance.",
-          "minutes": 6,
+          "minutes": 5,
           "where": "Open floor space.",
           "how_to": "Feet about shoulder width. Sit down and slightly back, knees track over toes, stand tall. Split squat: one foot forward, drop the back knee toward the floor.",
           "avoid": "Heels lifting. Knees caving hard inward.",
-          "set_plan": "Smooth controlled reps for the sets listed.",
+          "load_type": "bodyweight",
+          "set_plan_lines": [
+            "Set 1: smooth controlled reps for listed sets"
+          ],
+          "set_plan": "Set 1: smooth controlled reps for listed sets",
+          "timing": {
+            "work_sec_per_set": 40,
+            "rest_sec_between_sets": 60,
+            "rest_sec_before_next": 45
+          },
+          "rom_cues": {
+            "question": "Cut depth to make it easy?",
+            "answer": "Sit down and slightly back with control. Split squat: back knee toward floor.",
+            "why": "Leg maintenance only at home \u2014 health floor, not specialty."
+          },
           "tips": [
-            "Remember: this is only leg maintenance at home.",
-            "Remember: hold a backpack for load if bodyweight is too easy."
+            "this is only leg maintenance at home.",
+            "hold a backpack for load if bodyweight is too easy."
+          ],
+          "tips_ranked": [
+            {
+              "text": "this is only leg maintenance at home.",
+              "weight": 95
+            },
+            {
+              "text": "hold a backpack for load if bodyweight is too easy.",
+              "weight": 80
+            }
           ],
           "research_note": "Minimum lower-body stimulus when you cannot reach the gym.",
-          "video_id": "aclHkVaku9U",
-          "video_label": "Bodyweight squat demo"
+          "sources_cited": [
+            "02",
+            "03"
+          ],
+          "goal_weights": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 35
+          },
+          "keep_recommended_pct": 55,
+          "alternatives": [
+            {
+              "name": "Split squat",
+              "when": "Prefer single-leg",
+              "keep_original_pct": 55
+            },
+            {
+              "name": "Step-ups",
+              "when": "Have a sturdy step",
+              "keep_original_pct": 50
+            }
+          ],
+          "feel_zones": [
+            "quads",
+            "glutes"
+          ],
+          "diagram_id": "squat",
+          "pin_guidance": [],
+          "session_importance_pct": 9,
+          "goal_ring_pct": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 23
+          }
         },
         {
           "order": 6,
           "name": "Easy conditioning finisher",
           "sets": 1,
-          "reps": "time",
+          "reps": "8 min",
           "notes": "8 min \u00b7 Same minutes as gym finisher for this week.",
-          "minutes": 10,
+          "minutes": 8,
           "where": "Stair climber, incline treadmill, or jump-rope space.",
-          "how_to": "Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5\u20138% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
-          "avoid": "All-out intervals that trash tomorrow\u2019s lift. Hanging on the stair climber rails and cheating the steps.",
-          "set_plan": "One block of easy cardio for the minutes listed. No \u201cX kilograms\u201d \u2014 just steady effort.",
+          "how_to": "Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5-8% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
+          "avoid": "All-out intervals that trash tomorrow's lift. Hanging on the stair climber rails and cheating the steps.",
+          "load_type": "cardio",
+          "set_plan_lines": [
+            "One easy block for the minutes listed \u2014 no kilograms",
+            "StairMaster Technogym level ~4\u20136 (provisional week 1)",
+            "Or incline walk 5\u20138% \u00b7 talk-test OK"
+          ],
+          "set_plan": "One easy block for the minutes listed \u2014 no kilograms | StairMaster Technogym level ~4\u20136 (provisional week 1) | Or incline walk 5\u20138% \u00b7 talk-test OK",
+          "timing": {
+            "work_sec_per_set": 0,
+            "rest_sec_between_sets": 0,
+            "rest_sec_before_next": 0
+          },
+          "rom_cues": {
+            "question": "All-out intervals?",
+            "answer": "No. Easy\u2013moderate zone 2. Short sentences while moving.",
+            "why": "Protect tomorrow\u2019s lift; recomp support comes from consistency + protein, not punishing cardio."
+          },
           "tips": [
-            "Remember: this supports conditioning and midsection goals; lifting still builds the shoulders.",
-            "Remember: if you are exhausted from lifting, shorten this, do not skip the whole gym day."
+            "this supports conditioning and midsection goals; lifting still builds the shoulders.",
+            "if you are exhausted from lifting, shorten this, do not skip the whole gym day."
+          ],
+          "tips_ranked": [
+            {
+              "text": "this supports conditioning and midsection goals; lifting still builds the shoulders.",
+              "weight": 95
+            },
+            {
+              "text": "if you are exhausted from lifting, shorten this, do not skip the whole gym day.",
+              "weight": 80
+            }
           ],
           "research_note": "Extra easy cardio is optional support. Your main belly/definition lever in this 3-week restart is lifting + protein + not hard-cutting, not punishing cardio.",
-          "video_id": "aq8qG0s1i_U",
-          "video_label": "Steady stair-climber idea"
+          "sources_cited": [
+            "05",
+            "07"
+          ],
+          "goal_weights": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 80
+          },
+          "keep_recommended_pct": 65,
+          "alternatives": [
+            {
+              "name": "Incline treadmill walk",
+              "when": "StairMaster busy",
+              "keep_original_pct": 70
+            },
+            {
+              "name": "Jump rope easy",
+              "when": "Prefer rope",
+              "keep_original_pct": 60
+            },
+            {
+              "name": "Shorten to 5 min",
+              "when": "Exhausted after lifts",
+              "keep_original_pct": 50
+            }
+          ],
+          "feel_zones": [
+            "cardio"
+          ],
+          "diagram_id": "cardio",
+          "pin_guidance": [],
+          "stairmaster_level": "4\u20136",
+          "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
+          "target_hr": {
+            "bpm_low": 134,
+            "bpm_high": 148,
+            "label": "134\u2013148 bpm",
+            "note": "Provisional zone-2 from your WHOOP resting HR \u2014 use talk-test if the watch disagrees.",
+            "rhr_used": 54.0
+          },
+          "session_importance_pct": 20,
+          "goal_ring_pct": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 52
+          }
         }
       ],
       "habits": {
@@ -1179,7 +1931,34 @@
           "body": "First prize: gym Monday / Wednesday / Friday. Second: still three gym days with a makeup weekday. Home only if the gym is truly impossible."
         }
       ],
-      "template_id": "push"
+      "template_id": "push",
+      "goal_rings": [
+        {
+          "id": "shoulders",
+          "label": "Shoulders",
+          "color": "#FF6B4A"
+        },
+        {
+          "id": "chest_upper",
+          "label": "Chest / upper",
+          "color": "#3DDC97"
+        },
+        {
+          "id": "recomp",
+          "label": "Recomp",
+          "color": "#5EB1FF"
+        }
+      ],
+      "sources_count": 6,
+      "sources_cited": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "07"
+      ],
+      "session_sources_note": "Plan C cites Wave-1 packs 01\u201307 in data/sources/."
     }
   },
   "plan": {
@@ -1698,19 +2477,37 @@
     ]
   },
   "exercise_library": {
-    "version": 2,
+    "version": 3,
+    "goal_rings": [
+      {
+        "id": "shoulders",
+        "label": "Shoulders",
+        "color": "#FF6B4A"
+      },
+      {
+        "id": "chest_upper",
+        "label": "Chest / upper",
+        "color": "#3DDC97"
+      },
+      {
+        "id": "recomp",
+        "label": "Recomp",
+        "color": "#5EB1FF"
+      }
+    ],
+    "session_sources_note": "Plan C cites Wave-1 packs 01\u201307 in data/sources/.",
     "overall_tips": [
       {
         "title": "Best time of day",
-        "body": "For muscle size over weeks, morning and evening training are about equal when weekly hard sets are matched. A 2019 meta-analysis (Grgic et al., Chronobiology International) found similar hypertrophy morning vs evening (effect size near zero). Pick the time you will actually arrive \u2014 that beats the \u201cperfect\u201d clock."
+        "body": "For muscle size over weeks, morning and evening training are about equal when weekly hard sets are matched. A 2019 meta-analysis (Grgic et al., Chronobiology International) found similar hypertrophy morning vs evening (effect size near zero). Pick the time you will actually arrive - that beats the \"perfect\" clock."
       },
       {
         "title": "Food around training",
-        "body": "Daily protein (~115\u2013130 g for you) matters more than a magic 30-minute window. For this restart: a small meal or snack 1\u20132 hours before usually feels better than going completely empty (less light-headedness). If you train fasted and feel fine, that is OK \u2014 just hit protein across the day (ISSN protein position stand)."
+        "body": "Daily protein (~115-130 g for you) matters more than a magic 30-minute window. For this restart: a small meal or snack 1-2 hours before usually feels better than going completely empty (less light-headedness). If you train fasted and feel fine, that is OK - just hit protein across the day (ISSN protein position stand)."
       },
       {
         "title": "How hard (reps left in reserve)",
-        "body": "Week 1: stop each set when you could still do about 2\u20133 more clean reps. You do not need every set to failure. Training near failure is enough for growth; grinding every set to failure is not required (failure vs non-failure reviews)."
+        "body": "Week 1: stop each set when you could still do about 2-3 more clean reps. You do not need every set to failure. Training near failure is enough for growth; grinding every set to failure is not required (failure vs non-failure reviews)."
       },
       {
         "title": "Weights in kilograms",
@@ -1730,17 +2527,77 @@
           "Incline dumbbell or barbell press",
           "Incline dumbbell press (lighter)"
         ],
-        "where": "Adjustable bench + dumbbells (or barbell / Smith incline). Bench about 30\u201345 degrees.",
-        "how_to": "Set the bench to about 30\u201345 degrees. Plant your feet flat. Pull your shoulder blades back into the pad. Start with the weights at upper-chest height, elbows about 45 degrees from your torso (not flared flat out). Press up until arms are almost straight without slamming. Lower for about 2 seconds until you feel a stretch across the upper chest.",
+        "where": "Adjustable bench + dumbbells (or barbell / Smith incline). Bench about 30-45 degrees.",
+        "how_to": "Set the bench to about 30-45 degrees. Plant your feet flat. Pull your shoulder blades back into the pad. Start with the weights at upper-chest height, elbows about 45 degrees from your torso (not flared flat out). Press up until arms are almost straight without slamming. Lower for about 2 seconds until you feel a stretch across the upper chest.",
         "avoid": "Bench too upright (turns into a shoulder press). Bouncing the bar/dumbbells off the chest. Huge arch and lifting the hips.",
         "minutes": 12,
-        "set_plan": "Set 1: pick a weight (X kilograms) you can do for 8\u201310 reps with about 2\u20133 reps still left. Set 2: same X kg, or X + 2.5 kg if set 1 felt easy. Set 3 (when you have 3 sets): try X + 2.5 kg only if form stayed smooth \u2014 otherwise stay at X.",
-        "tips": [
-          "Remember: control the lowering \u2014 that stretch is where a lot of the chest work happens.",
-          "Remember: keep shoulder blades pinned; do not shrug into your ears.",
-          "If you only find a barbell incline machine, use that \u2014 same idea."
+        "load_type": "kg",
+        "set_plan": "Set 1: pick X kg for 8\u201310 reps with 2\u20133 left | Set 2: same X kg, or X + 2.5 kg if set 1 felt easy | Set 3: X + 2.5 kg only if form stayed smooth \u2014 else stay at X",
+        "set_plan_lines": [
+          "Set 1: pick X kg for 8\u201310 reps with 2\u20133 left",
+          "Set 2: same X kg, or X + 2.5 kg if set 1 felt easy",
+          "Set 3: X + 2.5 kg only if form stayed smooth \u2014 else stay at X"
         ],
-        "research_note": "Weekly hard sets on a muscle drive growth more than which machine you pick (Schoenfeld volume dose-response). Upper-chest emphasis from incline is a programming choice for your visual goals \u2014 not a magic percentage over flat press.",
+        "timing": {
+          "work_sec_per_set": 50,
+          "rest_sec_between_sets": 105,
+          "rest_sec_before_next": 90
+        },
+        "rom_cues": {
+          "question": "Full stretch at the bottom?",
+          "answer": "Yes \u2014 lower until you feel an upper-chest stretch (~2 sec). Do not bounce.",
+          "why": "Controlled stretch under load is useful for chest growth; slamming or tiny half-reps waste the set."
+        },
+        "tips": [
+          "Remember: control the lowering - that stretch is where a lot of the chest work happens.",
+          "Remember: keep shoulder blades pinned; do not shrug into your ears.",
+          "If you only find a barbell incline machine, use that - same idea."
+        ],
+        "tips_ranked": [
+          {
+            "text": "control the lowering - that stretch is where a lot of the chest work happens.",
+            "weight": 95
+          },
+          {
+            "text": "keep shoulder blades pinned; do not shrug into your ears.",
+            "weight": 80
+          },
+          {
+            "text": "If you only find a barbell incline machine, use that - same idea.",
+            "weight": 65
+          }
+        ],
+        "research_note": "Weekly hard sets on a muscle drive growth more than which machine you pick (Schoenfeld volume dose-response). Upper-chest emphasis from incline is a programming choice for your visual goals - not a magic percentage over flat press.",
+        "sources_cited": [
+          "01",
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 25,
+          "chest_upper": 65,
+          "recomp": 10
+        },
+        "keep_recommended_pct": 90,
+        "alternatives": [
+          {
+            "name": "Flat dumbbell press",
+            "when": "Incline bench taken",
+            "keep_original_pct": 85
+          },
+          {
+            "name": "Smith incline press",
+            "when": "Only Smith free",
+            "keep_original_pct": 80
+          }
+        ],
+        "feel_zones": [
+          "upper_chest",
+          "chest",
+          "front_delt",
+          "triceps"
+        ],
+        "diagram_id": "press_chest",
         "video_id": "oZVCBM9f8Eo",
         "video_label": "Short incline dumbbell press demo"
       },
@@ -1753,15 +2610,69 @@
           "Overhead press (dumbbell or machine)"
         ],
         "where": "Seated bench with back support + dumbbells, or a shoulder-press machine.",
-        "how_to": "Sit tall with your back against the pad. Start with dumbbells at about ear height. Press overhead until arms lock softly. Lower back to ear height. Do not shrug. On a machine: same path, slow and controlled.",
-        "avoid": "Big lower-back arch. Pressing the weights far out in front of your face.",
+        "how_to": "Sit tall with your back against the pad. Start with dumbbells at about ear height. Press overhead until arms lock softly. Lower only to ear height or the machine start position; do not drop into a relaxed dead hang at the bottom. Do not shrug. On a machine: same path, slow and controlled.",
+        "avoid": "Big lower-back arch. Pressing the weights far out in front of your face. Dropping into a loose hang between reps.",
         "minutes": 10,
-        "set_plan": "Set 1: X kilograms for 8\u201310 reps with 2\u20133 reps left. Set 2: X or X + 2.5 kg. Set 3 (if scheduled): same rule \u2014 only add 2.5 kg if set 2 was clean.",
+        "load_type": "kg",
+        "set_plan": "Set 1: X kg for 8\u201310 reps with 2\u20133 left | Set 2: same X kg, or X + 2.5 kg if clean | Set 3: same rule \u2014 add 2.5 kg only if set 2 was clean",
+        "set_plan_lines": [
+          "Set 1: X kg for 8\u201310 reps with 2\u20133 left",
+          "Set 2: same X kg, or X + 2.5 kg if clean",
+          "Set 3: same rule \u2014 add 2.5 kg only if set 2 was clean"
+        ],
+        "timing": {
+          "work_sec_per_set": 45,
+          "rest_sec_between_sets": 100,
+          "rest_sec_before_next": 75
+        },
+        "rom_cues": {
+          "question": "Lower to a fully relaxed hang?",
+          "answer": "No. Stop around ear height (or the machine\u2019s start). Soft lockout at the top \u2014 no slam.",
+          "why": "A dead hang dumps tension, stresses the shoulder joint, and turns the next rep into a risky heave. Controlled end-range keeps delts working."
+        },
         "tips": [
-          "Remember: this builds the front and middle of the shoulder \u2014 key for that round look.",
+          "Remember: this builds the front and middle of the shoulder - key for that round look.",
           "Remember: stop the set when form shakes; do not fight ugly reps in week 1."
         ],
+        "tips_ranked": [
+          {
+            "text": "this builds the front and middle of the shoulder - key for that round look.",
+            "weight": 95
+          },
+          {
+            "text": "stop the set when form shakes; do not fight ugly reps in week 1.",
+            "weight": 80
+          }
+        ],
         "research_note": "Shoulders respond to local weekly volume. Extra hard sets here support your visual shoulder goal without needing a fourth gym day.",
+        "sources_cited": [
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 70,
+          "chest_upper": 20,
+          "recomp": 10
+        },
+        "keep_recommended_pct": 92,
+        "alternatives": [
+          {
+            "name": "Machine shoulder press",
+            "when": "Dumbbells awkward / busy",
+            "keep_original_pct": 88
+          },
+          {
+            "name": "Landmine press",
+            "when": "Shoulder discomfort on strict OH",
+            "keep_original_pct": 70
+          }
+        ],
+        "feel_zones": [
+          "front_delt",
+          "side_delt",
+          "triceps"
+        ],
+        "diagram_id": "press_shoulder",
         "video_id": "qEwKCR5JCog",
         "video_label": "Seated dumbbell shoulder press demo"
       },
@@ -1775,15 +2686,67 @@
           "Cable or machine side lateral raise"
         ],
         "where": "Dumbbells standing, cable with a handle at your side, or a lateral-raise machine.",
-        "how_to": "Soft bend in the elbows. Lead with the elbows and raise arms out to just below shoulder height. Pause briefly. Lower slowly. Prefer clean reps over heavy weight \u2014 this is your main \u201cwider shoulders\u201d move.",
+        "how_to": "Soft bend in the elbows. Lead with the elbows and raise arms out to just below shoulder height. Pause briefly. Lower slowly. Prefer clean reps over heavy weight - this is your main \"wider shoulders\" move.",
         "avoid": "Swinging the body. Shrugging traps. Flinging weights above the head.",
         "minutes": 8,
-        "set_plan": "Set 1: light X kilograms (often 4\u20138 kg to start) for 12\u201315 reps with 2 reps left. Set 2: same X, or +2 kg / +2.5 kg if easy. Later sets: stay strict \u2014 if you need swing, the weight is too heavy.",
+        "load_type": "kg",
+        "set_plan": "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left | Set 2: same X, or +2 / +2.5 kg if easy and strict | Set 3: stay strict \u2014 if you swing, the weight is too heavy",
+        "set_plan_lines": [
+          "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left",
+          "Set 2: same X, or +2 / +2.5 kg if easy and strict",
+          "Set 3: stay strict \u2014 if you swing, the weight is too heavy"
+        ],
+        "timing": {
+          "work_sec_per_set": 40,
+          "rest_sec_between_sets": 65,
+          "rest_sec_before_next": 60
+        },
+        "rom_cues": {
+          "question": "Raise above shoulder height?",
+          "answer": "Stop just below shoulder height if traps take over. Soft elbows the whole time.",
+          "why": "Side delts build the wide look; shrugging shifts work to traps and steals the point of the move."
+        },
         "tips": [
           "Remember: stop just below shoulder height if traps take over.",
-          "Remember: side delts are a priority for looking broader in shirts \u2014 quality beats ego weight."
+          "Remember: side delts are a priority for looking broader in shirts - quality beats ego weight."
+        ],
+        "tips_ranked": [
+          {
+            "text": "stop just below shoulder height if traps take over.",
+            "weight": 95
+          },
+          {
+            "text": "side delts are a priority for looking broader in shirts - quality beats ego weight.",
+            "weight": 80
+          }
         ],
         "research_note": "Specialty volume on a region works because hypertrophy is largely local (sets per muscle). Raising week-to-week volume here is a standard specialization approach.",
+        "sources_cited": [
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 85,
+          "chest_upper": 5,
+          "recomp": 10
+        },
+        "keep_recommended_pct": 95,
+        "alternatives": [
+          {
+            "name": "Cable lateral raise",
+            "when": "Dumbbells feel jerky",
+            "keep_original_pct": 90
+          },
+          {
+            "name": "Machine lateral",
+            "when": "Cables/DBs taken",
+            "keep_original_pct": 85
+          }
+        ],
+        "feel_zones": [
+          "side_delt"
+        ],
+        "diagram_id": "lateral",
         "video_id": "3VcKaXpzqRo",
         "video_label": "Lateral raise form demo"
       },
@@ -1796,12 +2759,70 @@
         "how_to": "Keep a slight bend in the elbows and keep that bend fixed. Open until you feel a chest stretch, then bring the arms together as if hugging a tree. Squeeze one second at the inside.",
         "avoid": "Straight-arm swings. Jerky lowering.",
         "minutes": 6,
-        "set_plan": "Set 1: X kilograms (or machine pin) for 12\u201315 smooth reps. Set 2: same or + one pin / +2.5 kg if easy.",
+        "load_type": "machine_pin",
+        "set_plan": "Set 1: pin / load for 12\u201315 smooth reps with ~2 left | Set 2: same pin, or +1 pin if easy | Set 3: stay controlled \u2014 light is correct",
+        "set_plan_lines": [
+          "Set 1: pin / load for 12\u201315 smooth reps with ~2 left",
+          "Set 2: same pin, or +1 pin if easy",
+          "Set 3: stay controlled \u2014 light is correct"
+        ],
+        "timing": {
+          "work_sec_per_set": 40,
+          "rest_sec_between_sets": 60,
+          "rest_sec_before_next": 60
+        },
+        "rom_cues": {
+          "question": "Open until you feel a chest stretch?",
+          "answer": "Yes \u2014 fixed elbow bend, open to stretch, hug together, squeeze 1 sec inside.",
+          "why": "Flys top up chest volume; ego weight turns them into a front-delt swing."
+        },
         "tips": [
-          "Remember: this is a control / pump move \u2014 light is correct.",
+          "Remember: this is a control / pump move - light is correct.",
           "Remember: feel the stretch; do not bounce."
         ],
-        "research_note": "Isolation work adds local volume. It does not replace your main presses \u2014 it tops up chest work inside the time budget.",
+        "tips_ranked": [
+          {
+            "text": "this is a control / pump move - light is correct.",
+            "weight": 95
+          },
+          {
+            "text": "feel the stretch; do not bounce.",
+            "weight": 80
+          }
+        ],
+        "research_note": "Isolation work adds local volume. It does not replace your main presses - it tops up chest work inside the time budget.",
+        "sources_cited": [
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 10,
+          "chest_upper": 75,
+          "recomp": 15
+        },
+        "keep_recommended_pct": 75,
+        "alternatives": [
+          {
+            "name": "Dumbbell floor fly",
+            "when": "Pec-deck / cables busy",
+            "keep_original_pct": 70
+          },
+          {
+            "name": "Skip if short on time",
+            "when": "Pressed for time \u2014 keep presses + laterals",
+            "keep_original_pct": 55
+          }
+        ],
+        "feel_zones": [
+          "chest",
+          "upper_chest"
+        ],
+        "diagram_id": "fly",
+        "pin_guidance": [
+          "Technogym pec-deck / cable: start mid-stack where 12\u201315 leave ~2 reps",
+          "Next set: +1 pin only if set 1 was easy",
+          "Log the pin number on your phone (provisional until we calibrate your stack)"
+        ],
         "video_id": "eozdVDA78K0",
         "video_label": "Cable fly demo"
       },
@@ -1817,12 +2838,69 @@
         "how_to": "Pin elbows to your sides. Push down until arms straighten. If using a rope, spread the ends apart at the bottom. Let the forearms come up only as far as the elbows stay still.",
         "avoid": "Leaning and turning it into a chest press. Elbows flaring wide.",
         "minutes": 5,
-        "set_plan": "Set 1: X kilograms for 10\u201315 reps with 2 reps left. Set 2: X or X + 2.5 kg.",
+        "load_type": "machine_pin",
+        "set_plan": "Set 1: pin / load for 10\u201315 with ~2 left | Set 2: same, or +1 pin if clean | Set 3: elbows glued \u2014 only forearms move",
+        "set_plan_lines": [
+          "Set 1: pin / load for 10\u201315 with ~2 left",
+          "Set 2: same, or +1 pin if clean",
+          "Set 3: elbows glued \u2014 only forearms move"
+        ],
+        "timing": {
+          "work_sec_per_set": 35,
+          "rest_sec_between_sets": 55,
+          "rest_sec_before_next": 60
+        },
+        "rom_cues": {
+          "question": "Full straighten at the bottom?",
+          "answer": "Yes \u2014 soft lockout and squeeze. Up only as far as elbows stay still.",
+          "why": "Triceps finish presses; half-reps leave stimulus on the table."
+        },
         "tips": [
-          "Remember: only the forearms should move \u2014 elbows stay glued.",
+          "Remember: only the forearms should move - elbows stay glued.",
           "Remember: full straighten at the bottom for the triceps squeeze."
         ],
+        "tips_ranked": [
+          {
+            "text": "only the forearms should move - elbows stay glued.",
+            "weight": 95
+          },
+          {
+            "text": "full straighten at the bottom for the triceps squeeze.",
+            "weight": 80
+          }
+        ],
         "research_note": "Arms get work from presses too; this finishes triceps without long sessions.",
+        "sources_cited": [
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 15,
+          "chest_upper": 40,
+          "recomp": 10
+        },
+        "keep_recommended_pct": 70,
+        "alternatives": [
+          {
+            "name": "Overhead cable extension",
+            "when": "Pushdown station busy",
+            "keep_original_pct": 65
+          },
+          {
+            "name": "Diamond push-ups",
+            "when": "No cable",
+            "keep_original_pct": 55
+          }
+        ],
+        "feel_zones": [
+          "triceps"
+        ],
+        "diagram_id": "pushdown",
+        "pin_guidance": [
+          "Cable stack: pick a pin for smooth 10\u201315 with elbows pinned",
+          "+1 pin next set only if easy",
+          "Prefer rope or angled bar \u2014 log pin #"
+        ],
         "video_id": "2-g6w_cwGRw",
         "video_label": "Rope pushdown demo"
       },
@@ -1834,15 +2912,73 @@
           "Leg press or goblet squat (or walking lunges)"
         ],
         "where": "Leg-press sled, or one dumbbell for goblet squat, or open floor for walking lunges.",
-        "how_to": "Leg press: feet mid-platform, lower until thighs are about 90 degrees, press without slamming the locks. Goblet squat: hold one dumbbell at your chest, sit between your heels, stand tall. Lunges: short steps, torso upright. These are maintenance only \u2014 leave 2\u20133 reps in reserve.",
+        "how_to": "Leg press: feet mid-platform, lower until thighs are about 90 degrees, press without slamming the locks. Goblet squat: hold one dumbbell at your chest, sit between your heels, stand tall. Lunges: short steps, torso upright. These are maintenance only - leave 2-3 reps in reserve.",
         "avoid": "Butt peeling off the leg-press pad. Knees collapsing inward.",
         "minutes": 7,
-        "set_plan": "Set 1: X kilograms for 10\u201312 controlled reps. Set 2: same X (do not chase a leg personal record this block).",
+        "load_type": "kg",
+        "set_plan": "Set 1: load for 10\u201312 controlled reps (leave 2\u20133) | Set 2: same load \u2014 do not chase a leg PR this block | Set 3: same load, stop early if knees complain",
+        "set_plan_lines": [
+          "Set 1: load for 10\u201312 controlled reps (leave 2\u20133)",
+          "Set 2: same load \u2014 do not chase a leg PR this block",
+          "Set 3: same load, stop early if knees complain"
+        ],
+        "timing": {
+          "work_sec_per_set": 45,
+          "rest_sec_between_sets": 90,
+          "rest_sec_before_next": 75
+        },
+        "rom_cues": {
+          "question": "Full depth?",
+          "answer": "Leg press to ~90\u00b0 thighs; goblet sit between heels. No butt peel / knee cave.",
+          "why": "Maintenance volume only \u2014 health floor, not a leg specialty day."
+        },
         "tips": [
-          "Remember: legs stay in the plan for health balance (WHO major-muscle guidance) \u2014 not to become a leg specialty.",
+          "Remember: legs stay in the plan for health balance (WHO major-muscle guidance) - not to become a leg specialty.",
           "Remember: stop early if knees hurt; choose the machine that feels best."
         ],
+        "tips_ranked": [
+          {
+            "text": "legs stay in the plan for health balance (WHO major-muscle guidance) - not to become a leg specialty.",
+            "weight": 95
+          },
+          {
+            "text": "stop early if knees hurt; choose the machine that feels best.",
+            "weight": 80
+          }
+        ],
         "research_note": "Young adults can maintain muscle with much lower volume than they used to build it (Bickel et al., 2011). A few hard sets keep the floor without stealing time from upper body.",
+        "sources_cited": [
+          "02",
+          "03"
+        ],
+        "goal_weights": {
+          "shoulders": 0,
+          "chest_upper": 0,
+          "recomp": 40
+        },
+        "keep_recommended_pct": 60,
+        "alternatives": [
+          {
+            "name": "Goblet squat",
+            "when": "Leg press taken",
+            "keep_original_pct": 60
+          },
+          {
+            "name": "Walking lunges",
+            "when": "Prefer free space",
+            "keep_original_pct": 55
+          }
+        ],
+        "feel_zones": [
+          "quads",
+          "glutes"
+        ],
+        "diagram_id": "legs",
+        "pin_guidance": [
+          "Start mid-stack where 12-15 smooth reps leave 2 in reserve",
+          "Next set: +1 pin only if set 1 was easy",
+          "Log the pin number on your phone"
+        ],
         "video_id": "IZxyjW7MPJQ",
         "video_label": "Leg press demo"
       },
@@ -1856,15 +2992,75 @@
           "Easy conditioning finisher"
         ],
         "where": "Stair climber, incline treadmill, or jump-rope space.",
-        "how_to": "Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5\u20138% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
-        "avoid": "All-out intervals that trash tomorrow\u2019s lift. Hanging on the stair climber rails and cheating the steps.",
+        "how_to": "Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5-8% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
+        "avoid": "All-out intervals that trash tomorrow's lift. Hanging on the stair climber rails and cheating the steps.",
         "minutes": 10,
-        "set_plan": "One block of easy cardio for the minutes listed. No \u201cX kilograms\u201d \u2014 just steady effort.",
+        "load_type": "cardio",
+        "set_plan": "One easy block for the minutes listed \u2014 no kilograms | StairMaster Technogym level ~4\u20136 (provisional week 1) | Or incline walk 5\u20138% \u00b7 talk-test OK",
+        "set_plan_lines": [
+          "One easy block for the minutes listed \u2014 no kilograms",
+          "StairMaster Technogym level ~4\u20136 (provisional week 1)",
+          "Or incline walk 5\u20138% \u00b7 talk-test OK"
+        ],
+        "timing": {
+          "work_sec_per_set": 0,
+          "rest_sec_between_sets": 0,
+          "rest_sec_before_next": 0
+        },
+        "rom_cues": {
+          "question": "All-out intervals?",
+          "answer": "No. Easy\u2013moderate zone 2. Short sentences while moving.",
+          "why": "Protect tomorrow\u2019s lift; recomp support comes from consistency + protein, not punishing cardio."
+        },
         "tips": [
           "Remember: this supports conditioning and midsection goals; lifting still builds the shoulders.",
           "Remember: if you are exhausted from lifting, shorten this, do not skip the whole gym day."
         ],
+        "tips_ranked": [
+          {
+            "text": "this supports conditioning and midsection goals; lifting still builds the shoulders.",
+            "weight": 95
+          },
+          {
+            "text": "if you are exhausted from lifting, shorten this, do not skip the whole gym day.",
+            "weight": 80
+          }
+        ],
         "research_note": "Extra easy cardio is optional support. Your main belly/definition lever in this 3-week restart is lifting + protein + not hard-cutting, not punishing cardio.",
+        "sources_cited": [
+          "05",
+          "07"
+        ],
+        "goal_weights": {
+          "shoulders": 0,
+          "chest_upper": 0,
+          "recomp": 80
+        },
+        "keep_recommended_pct": 65,
+        "alternatives": [
+          {
+            "name": "Incline treadmill walk",
+            "when": "StairMaster busy",
+            "keep_original_pct": 70
+          },
+          {
+            "name": "Jump rope easy",
+            "when": "Prefer rope",
+            "keep_original_pct": 60
+          },
+          {
+            "name": "Shorten to 5 min",
+            "when": "Exhausted after lifts",
+            "keep_original_pct": 50
+          }
+        ],
+        "feel_zones": [
+          "cardio"
+        ],
+        "diagram_id": "cardio",
+        "stairmaster_level": "4\u20136",
+        "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
+        "target_hr_zone": "zone2",
         "video_id": "aq8qG0s1i_U",
         "video_label": "Steady stair-climber idea"
       },
@@ -1877,15 +3073,73 @@
           "Lat pulldown or assisted pull-up"
         ],
         "where": "Lat-pulldown station, assisted pull-up machine, or a pull-up bar.",
-        "how_to": "Pulldown: start with a long reach, pull elbows toward your hips, bar to upper chest, control the return. Assisted pull-up: same idea with help from the knee pad. Negatives: get the chin over the bar, lower for 3\u20135 seconds.",
+        "how_to": "Pulldown: start with a long reach, pull elbows toward your hips, bar to upper chest, control the return. Assisted pull-up: same idea with help from the knee pad. Negatives: get the chin over the bar, lower for 3-5 seconds.",
         "avoid": "Pulling the bar behind the neck. Huge swinging half-reps.",
         "minutes": 10,
-        "set_plan": "Set 1: X kilograms (pulldown stack) for 8\u201310 reps with 2\u20133 left. Set 2\u20133: X or X + 5 kg if the stack jumps by 5 and form stays clean.",
+        "load_type": "machine_pin",
+        "set_plan": "Set 1: pin / load for 8\u201310 with 2\u20133 left | Set 2: same or +1 pin / +5 kg if clean | Set 3: full stretch at the top every rep",
+        "set_plan_lines": [
+          "Set 1: pin / load for 8\u201310 with 2\u20133 left",
+          "Set 2: same or +1 pin / +5 kg if clean",
+          "Set 3: full stretch at the top every rep"
+        ],
+        "timing": {
+          "work_sec_per_set": 45,
+          "rest_sec_between_sets": 90,
+          "rest_sec_before_next": 75
+        },
+        "rom_cues": {
+          "question": "Bar to chest or behind neck?",
+          "answer": "To upper chest. Never behind the neck. Think elbows to hips.",
+          "why": "Behind-neck is riskier; full stretch at top lengthens lats for the V-taper."
+        },
         "tips": [
-          "Remember: think \u201celbows to hips,\u201d not \u201chands to bar.\u201d",
+          "Remember: think \"elbows to hips,\" not \"hands to bar.\"",
           "Remember: full stretch at the top every rep."
         ],
+        "tips_ranked": [
+          {
+            "text": "think \"elbows to hips,\" not \"hands to bar.\"",
+            "weight": 95
+          },
+          {
+            "text": "full stretch at the top every rep.",
+            "weight": 80
+          }
+        ],
         "research_note": "Back volume supports posture and the V-taper that makes shoulders look wider.",
+        "sources_cited": [
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 20,
+          "chest_upper": 15,
+          "recomp": 15
+        },
+        "keep_recommended_pct": 88,
+        "alternatives": [
+          {
+            "name": "Assisted pull-up",
+            "when": "Prefer pull-up machine",
+            "keep_original_pct": 85
+          },
+          {
+            "name": "Band-assisted pull-up",
+            "when": "No lat station",
+            "keep_original_pct": 70
+          }
+        ],
+        "feel_zones": [
+          "lats",
+          "upper_back"
+        ],
+        "diagram_id": "pulldown",
+        "pin_guidance": [
+          "Start where 8\u201310 leave 2\u20133 reps",
+          "+1 pin or +5 kg if stack jumps by 5 and form holds",
+          "Log pin / kg"
+        ],
         "video_id": "CAwf7n6Luuc",
         "video_label": "Lat pulldown demo"
       },
@@ -1899,12 +3153,70 @@
         "how_to": "Sit tall with a slight knee bend. Start with arms long. Pull the handle to your torso, squeeze the shoulder blades, do not shrug. Return to a full stretch. Keep the torso mostly still.",
         "avoid": "Rocking with the lower back. Shrugging the traps every rep.",
         "minutes": 9,
-        "set_plan": "Set 1: X kilograms for 8\u201310 reps. Set 2\u20133: X or X + 2.5\u20135 kg if clean.",
+        "load_type": "machine_pin",
+        "set_plan": "Set 1: load for 8\u201310 | Set 2: same or +2.5\u20135 kg if clean | Set 3: squeeze blades 1 sec \u2014 no rock",
+        "set_plan_lines": [
+          "Set 1: load for 8\u201310",
+          "Set 2: same or +2.5\u20135 kg if clean",
+          "Set 3: squeeze blades 1 sec \u2014 no rock"
+        ],
+        "timing": {
+          "work_sec_per_set": 45,
+          "rest_sec_between_sets": 90,
+          "rest_sec_before_next": 75
+        },
+        "rom_cues": {
+          "question": "Full stretch at the start?",
+          "answer": "Yes \u2014 arms long, then pull to torso. Chest proud, no shrug.",
+          "why": "Rows balance pressing days and protect shoulders while you bias push for visuals."
+        },
         "tips": [
           "Remember: chest proud, shoulders down.",
           "Remember: squeeze at the chest for one second."
         ],
+        "tips_ranked": [
+          {
+            "text": "chest proud, shoulders down.",
+            "weight": 95
+          },
+          {
+            "text": "squeeze at the chest for one second.",
+            "weight": 80
+          }
+        ],
         "research_note": "Rows balance pressing days and help shoulder health with your pressing volume.",
+        "sources_cited": [
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 25,
+          "chest_upper": 10,
+          "recomp": 15
+        },
+        "keep_recommended_pct": 88,
+        "alternatives": [
+          {
+            "name": "Chest-supported machine row",
+            "when": "Cable row busy",
+            "keep_original_pct": 85
+          },
+          {
+            "name": "One-arm DB row",
+            "when": "Prefer free weights",
+            "keep_original_pct": 80
+          }
+        ],
+        "feel_zones": [
+          "upper_back",
+          "lats"
+        ],
+        "diagram_id": "row",
+        "pin_guidance": [
+          "Cable row: pin for clean 8\u201310",
+          "Progress +1 pin when top of range is easy",
+          "Log pin #"
+        ],
         "video_id": "GZbfZ0338Zo",
         "video_label": "Seated cable row demo"
       },
@@ -1916,15 +3228,67 @@
           "Rear delt fly (dumbbell, cable, or machine)"
         ],
         "where": "Bent-over dumbbells, reverse pec-deck, or cables.",
-        "how_to": "Soft elbows. Sweep arms out and slightly back \u2014 show the rear of the shoulders to the wall behind you. Light weight; feel the burn.",
+        "how_to": "Soft elbows. Sweep arms out and slightly back - show the rear of the shoulders to the wall behind you. Light weight; feel the burn.",
         "avoid": "Turning it into a heavy shrug or row with swing.",
         "minutes": 7,
-        "set_plan": "Set 1: light X kilograms for 12\u201315. Set 2\u20133: same or +2 kg / +2.5 kg.",
+        "load_type": "kg",
+        "set_plan": "Set 1: light load for 12\u201315 | Set 2: same or +2 / +2.5 kg | Set 3: if you only feel traps, go lighter",
+        "set_plan_lines": [
+          "Set 1: light load for 12\u201315",
+          "Set 2: same or +2 / +2.5 kg",
+          "Set 3: if you only feel traps, go lighter"
+        ],
+        "timing": {
+          "work_sec_per_set": 40,
+          "rest_sec_between_sets": 60,
+          "rest_sec_before_next": 60
+        },
+        "rom_cues": {
+          "question": "Heavy row swing OK?",
+          "answer": "No. Soft elbows, sweep out/back \u2014 show rear delts to the wall behind you.",
+          "why": "Rear delts round the 3D shoulder; swing turns it into a trap shrug."
+        },
         "tips": [
-          "Remember: this rounds out the shoulder from the back \u2014 important for the 3D look.",
+          "Remember: this rounds out the shoulder from the back - important for the 3D look.",
           "Remember: if you only feel traps, go lighter."
         ],
+        "tips_ranked": [
+          {
+            "text": "this rounds out the shoulder from the back - important for the 3D look.",
+            "weight": 95
+          },
+          {
+            "text": "if you only feel traps, go lighter.",
+            "weight": 80
+          }
+        ],
         "research_note": "Rear-delt work supports aesthetics and pressing comfort.",
+        "sources_cited": [
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 80,
+          "chest_upper": 5,
+          "recomp": 10
+        },
+        "keep_recommended_pct": 90,
+        "alternatives": [
+          {
+            "name": "Reverse pec-deck",
+            "when": "DBs feel awkward",
+            "keep_original_pct": 88
+          },
+          {
+            "name": "Cable reverse fly",
+            "when": "Machine busy",
+            "keep_original_pct": 85
+          }
+        ],
+        "feel_zones": [
+          "rear_delt"
+        ],
+        "diagram_id": "rear_delt",
         "video_id": "EAPx_YF8L5c",
         "video_label": "Rear delt fly demo"
       },
@@ -1938,12 +3302,70 @@
         "how_to": "Pull the rope toward your face / forehead. At the end, rotate so thumbs point roughly toward your ears. Squeeze rear delts and upper back.",
         "avoid": "Pulling the rope to the belly (that becomes a regular row).",
         "minutes": 5,
-        "set_plan": "Set 1\u20132: light X kilograms for 12\u201315 smooth reps.",
+        "load_type": "machine_pin",
+        "set_plan": "Set 1: light pin for 12\u201315 smooth | Set 2: same pin \u2014 thumbs toward ears at the end | Set 3: form first \u2014 this is prehab + shape",
+        "set_plan_lines": [
+          "Set 1: light pin for 12\u201315 smooth",
+          "Set 2: same pin \u2014 thumbs toward ears at the end",
+          "Set 3: form first \u2014 this is prehab + shape"
+        ],
+        "timing": {
+          "work_sec_per_set": 40,
+          "rest_sec_between_sets": 55,
+          "rest_sec_before_next": 55
+        },
+        "rom_cues": {
+          "question": "Pull to belly or face?",
+          "answer": "To face / forehead. Externally rotate at the end (thumbs ~ears).",
+          "why": "Belly height becomes a row; face + rotation hits rear delts and external rotators."
+        },
         "tips": [
-          "Remember: this is shoulder-friendly \u201cprehab\u201d and shape work \u2014 form first.",
+          "Remember: this is shoulder-friendly \"prehab\" and shape work - form first.",
           "Remember: external rotation at the end matters."
         ],
+        "tips_ranked": [
+          {
+            "text": "this is shoulder-friendly \"prehab\" and shape work - form first.",
+            "weight": 95
+          },
+          {
+            "text": "external rotation at the end matters.",
+            "weight": 80
+          }
+        ],
         "research_note": "Helpful accessory for shoulder longevity while you bias pressing for visuals.",
+        "sources_cited": [
+          "03",
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 75,
+          "chest_upper": 5,
+          "recomp": 10
+        },
+        "keep_recommended_pct": 85,
+        "alternatives": [
+          {
+            "name": "Band face pull",
+            "when": "Cable busy",
+            "keep_original_pct": 75
+          },
+          {
+            "name": "Rear delt fly",
+            "when": "No rope",
+            "keep_original_pct": 80
+          }
+        ],
+        "feel_zones": [
+          "rear_delt",
+          "upper_back"
+        ],
+        "diagram_id": "face_pull",
+        "pin_guidance": [
+          "Upper-chest cable height, light pin",
+          "Stay light \u2014 quality over load",
+          "Log pin #"
+        ],
         "video_id": "repWdMEEgR4",
         "video_label": "Face pull demo"
       },
@@ -1958,12 +3380,63 @@
         "how_to": "Elbows near your sides. Curl up without swinging the hips. Lower fully. Brief squeeze at the top.",
         "avoid": "Huge cheat swings in week 1.",
         "minutes": 6,
-        "set_plan": "Set 1: X kilograms for 10\u201312. Set 2\u20133: X or X + 2 kg / +2.5 kg.",
+        "load_type": "kg",
+        "set_plan": "Set 1: load for 10\u201312 | Set 2: same or +2 / +2.5 kg | Set 3: full lower \u2014 no cheat swing",
+        "set_plan_lines": [
+          "Set 1: load for 10\u201312",
+          "Set 2: same or +2 / +2.5 kg",
+          "Set 3: full lower \u2014 no cheat swing"
+        ],
+        "timing": {
+          "work_sec_per_set": 35,
+          "rest_sec_between_sets": 55,
+          "rest_sec_before_next": 55
+        },
+        "rom_cues": {
+          "question": "Skip the bottom stretch?",
+          "answer": "No \u2014 lower fully, brief squeeze at top. Elbows near sides.",
+          "why": "Cutting ROM chops biceps stimulus; swing is ego, not growth."
+        },
         "tips": [
-          "Remember: lower all the way \u2014 skipping the bottom chops the set short.",
+          "Remember: lower all the way - skipping the bottom chops the set short.",
           "Remember: if you swing, drop the weight."
         ],
+        "tips_ranked": [
+          {
+            "text": "lower all the way - skipping the bottom chops the set short.",
+            "weight": 95
+          },
+          {
+            "text": "if you swing, drop the weight.",
+            "weight": 80
+          }
+        ],
         "research_note": "Direct arm work is optional volume on top of rows/pulldowns.",
+        "sources_cited": [
+          "04"
+        ],
+        "goal_weights": {
+          "shoulders": 5,
+          "chest_upper": 20,
+          "recomp": 10
+        },
+        "keep_recommended_pct": 65,
+        "alternatives": [
+          {
+            "name": "Cable curl",
+            "when": "DBs busy",
+            "keep_original_pct": 70
+          },
+          {
+            "name": "Skip if short on time",
+            "when": "Rows already hit arms",
+            "keep_original_pct": 45
+          }
+        ],
+        "feel_zones": [
+          "biceps"
+        ],
+        "diagram_id": "curl",
         "video_id": "ykJmrjLTFKw",
         "video_label": "Dumbbell curl demo"
       },
@@ -1975,15 +3448,68 @@
           "Romanian deadlift or lying leg curl"
         ],
         "where": "Barbell or dumbbell Romanian deadlift, or lying/seated leg-curl machine.",
-        "how_to": "Romanian deadlift: soft knees, push hips back, weights close to the legs, feel hamstrings stretch, stand by driving hips forward. Leg curl: pad on Achilles, curl heels toward glutes, control down. Light\u2013moderate \u2014 hinge maintenance.",
+        "how_to": "Romanian deadlift: soft knees, push hips back, weights close to the legs, feel hamstrings stretch, stand by driving hips forward. Leg curl: pad on Achilles, curl heels toward glutes, control down. Light-moderate - hinge maintenance.",
         "avoid": "Rounding the upper back hard. Yanking the leg curl.",
         "minutes": 7,
-        "set_plan": "Set 1: X kilograms for 8\u201312. Set 2: same X (maintenance).",
+        "load_type": "kg",
+        "set_plan": "Set 1: load for 8\u201312 (maintenance) | Set 2: same load \u2014 not a max deadlift day | Set 3: hips back, weights close to legs",
+        "set_plan_lines": [
+          "Set 1: load for 8\u201312 (maintenance)",
+          "Set 2: same load \u2014 not a max deadlift day",
+          "Set 3: hips back, weights close to legs"
+        ],
+        "timing": {
+          "work_sec_per_set": 45,
+          "rest_sec_between_sets": 90,
+          "rest_sec_before_next": 75
+        },
+        "rom_cues": {
+          "question": "Round the back to go deeper?",
+          "answer": "No. Soft knees, hips back, flat-ish back, feel hamstrings. Leg curl: control down.",
+          "why": "Posterior-chain floor for health while upper body stays the priority."
+        },
         "tips": [
           "Remember: hips go back like closing a car door with your hips.",
           "Remember: this is not a max deadlift day."
         ],
+        "tips_ranked": [
+          {
+            "text": "hips go back like closing a car door with your hips.",
+            "weight": 95
+          },
+          {
+            "text": "this is not a max deadlift day.",
+            "weight": 80
+          }
+        ],
         "research_note": "Keeps posterior-chain coverage for the WHO-style major-muscle floor while upper body stays the priority.",
+        "sources_cited": [
+          "02",
+          "03"
+        ],
+        "goal_weights": {
+          "shoulders": 0,
+          "chest_upper": 0,
+          "recomp": 35
+        },
+        "keep_recommended_pct": 60,
+        "alternatives": [
+          {
+            "name": "Lying leg curl",
+            "when": "Prefer machine",
+            "keep_original_pct": 60
+          },
+          {
+            "name": "Hip hinge good mornings (light)",
+            "when": "No bar / curl",
+            "keep_original_pct": 50
+          }
+        ],
+        "feel_zones": [
+          "hamstrings",
+          "glutes"
+        ],
+        "diagram_id": "hinge",
         "video_id": "JCXUYuzwNrM",
         "video_label": "Romanian deadlift demo"
       },
@@ -1994,15 +3520,71 @@
           "Cable crunch or hanging knee raise"
         ],
         "where": "Kneeling cable crunch, or pull-up bar for hanging knee raise.",
-        "how_to": "Cable crunch: kneel, rope at shoulders or behind head, crunch ribs toward pelvis \u2014 do not yank with arms. Hanging knee raise: dead hang, tip the pelvis, raise knees toward the chest under control.",
+        "how_to": "Cable crunch: kneel, rope at shoulders or behind head, crunch ribs toward pelvis - do not yank with arms. Hanging knee raise: dead hang, tip the pelvis, raise knees toward the chest under control.",
         "avoid": "Swinging like a gymnast kip. Pulling the rope with arms only.",
         "minutes": 5,
-        "set_plan": "Set 1\u20132: controlled 10\u201315 reps (cable pin = X kilograms as a guide).",
+        "load_type": "machine_pin",
+        "set_plan": "Set 1: controlled 10\u201315 (cable pin = guide) | Set 2: ribs to pelvis \u2014 do not yank with arms | Set 3: same control",
+        "set_plan_lines": [
+          "Set 1: controlled 10\u201315 (cable pin = guide)",
+          "Set 2: ribs to pelvis \u2014 do not yank with arms",
+          "Set 3: same control"
+        ],
+        "timing": {
+          "work_sec_per_set": 35,
+          "rest_sec_between_sets": 45,
+          "rest_sec_before_next": 45
+        },
+        "rom_cues": {
+          "question": "Yank the rope with arms?",
+          "answer": "No. Crunch ribs toward pelvis. Hanging raise: tip pelvis, knees up controlled.",
+          "why": "Abs are for control; midsection look still mostly fat + overall training."
+        },
         "tips": [
-          "Remember: think \u201cribs to pelvis,\u201d not \u201cpull the rope.\u201d",
+          "Remember: think \"ribs to pelvis,\" not \"pull the rope.\"",
           "Remember: abs show more from body fat + overall training than from endless crunches alone."
         ],
-        "research_note": "Core work is fine for feeling and control; your midsection look still depends mostly on overall fat loss rate and genetics \u2014 and you are already near ~17% body fat.",
+        "tips_ranked": [
+          {
+            "text": "think \"ribs to pelvis,\" not \"pull the rope.\"",
+            "weight": 95
+          },
+          {
+            "text": "abs show more from body fat + overall training than from endless crunches alone.",
+            "weight": 80
+          }
+        ],
+        "research_note": "Core work is fine for feeling and control; your midsection look still depends mostly on overall fat loss rate and genetics - and you are already near ~17% body fat.",
+        "sources_cited": [
+          "05"
+        ],
+        "goal_weights": {
+          "shoulders": 0,
+          "chest_upper": 5,
+          "recomp": 50
+        },
+        "keep_recommended_pct": 55,
+        "alternatives": [
+          {
+            "name": "Hanging knee raise",
+            "when": "Cable crunch busy",
+            "keep_original_pct": 55
+          },
+          {
+            "name": "Dead bug",
+            "when": "Lower back sensitive",
+            "keep_original_pct": 50
+          }
+        ],
+        "feel_zones": [
+          "abs"
+        ],
+        "diagram_id": "core",
+        "pin_guidance": [
+          "Light pin for clean 10\u201315",
+          "Progress slowly",
+          "Log pin #"
+        ],
         "video_id": "X1FqMz5YmX4",
         "video_label": "Cable crunch demo"
       },
@@ -2018,12 +3600,66 @@
         "how_to": "Hands under shoulders (closer together for a diamond push-up). Body straight. Lower the chest toward the hands, press up. Hands elevated = easier. Feet elevated = harder.",
         "avoid": "Hips sagging. Tiny half-reps.",
         "minutes": 8,
-        "set_plan": "Home sets: match the set count on the card. Soften difficulty with a higher hand elevation rather than ugly form.",
+        "load_type": "bodyweight",
+        "set_plan": "Set 1: match card reps \u2014 elevate hands if needed | Set 2: body in one line head to heels | Set 3: full ROM, no sag",
+        "set_plan_lines": [
+          "Set 1: match card reps \u2014 elevate hands if needed",
+          "Set 2: body in one line head to heels",
+          "Set 3: full ROM, no sag"
+        ],
+        "timing": {
+          "work_sec_per_set": 40,
+          "rest_sec_between_sets": 60,
+          "rest_sec_before_next": 60
+        },
+        "rom_cues": {
+          "question": "Tiny half-reps OK?",
+          "answer": "No. Chest toward hands, full press. Raise hands to make easier \u2014 not uglier form.",
+          "why": "Home stand-in for pressing when gym is impossible."
+        },
         "tips": [
           "Remember: body in one line from head to heels.",
           "Remember: this is the home stand-in for pressing."
         ],
-        "research_note": "Home volume counts when gym is impossible \u2014 still second-best to the gym priority ladder.",
+        "tips_ranked": [
+          {
+            "text": "body in one line from head to heels.",
+            "weight": 95
+          },
+          {
+            "text": "this is the home stand-in for pressing.",
+            "weight": 80
+          }
+        ],
+        "research_note": "Home volume counts when gym is impossible - still second-best to the gym priority ladder.",
+        "sources_cited": [
+          "01",
+          "02"
+        ],
+        "goal_weights": {
+          "shoulders": 20,
+          "chest_upper": 60,
+          "recomp": 15
+        },
+        "keep_recommended_pct": 80,
+        "alternatives": [
+          {
+            "name": "Knee push-ups",
+            "when": "Standard too hard",
+            "keep_original_pct": 70
+          },
+          {
+            "name": "Feet-elevated push-ups",
+            "when": "Too easy",
+            "keep_original_pct": 75
+          }
+        ],
+        "feel_zones": [
+          "chest",
+          "front_delt",
+          "triceps"
+        ],
+        "diagram_id": "pushup",
         "video_id": "IODxDxX7oi4",
         "video_label": "Push-up form demo"
       },
@@ -2038,12 +3674,65 @@
         "how_to": "Hips high in an inverted V. Bend elbows and lower the head toward the floor between the hands, then press back up. This copies a shoulder-press pattern at home.",
         "avoid": "Letting the hips drop into a normal push-up.",
         "minutes": 8,
-        "set_plan": "Strict reps; elevate feet later only if easy.",
+        "load_type": "bodyweight",
+        "set_plan": "Set 1: strict pike reps for the card range | Set 2: hips stay high \u2014 inverted V | Set 3: elevate feet later only if easy",
+        "set_plan_lines": [
+          "Set 1: strict pike reps for the card range",
+          "Set 2: hips stay high \u2014 inverted V",
+          "Set 3: elevate feet later only if easy"
+        ],
+        "timing": {
+          "work_sec_per_set": 40,
+          "rest_sec_between_sets": 70,
+          "rest_sec_before_next": 60
+        },
+        "rom_cues": {
+          "question": "Let hips drop into a normal push-up?",
+          "answer": "No. Keep hips high; head toward floor between hands.",
+          "why": "This is the home shoulder-press pattern."
+        },
         "tips": [
           "Remember: hips stay high.",
           "Remember: this is your home shoulder builder."
         ],
+        "tips_ranked": [
+          {
+            "text": "hips stay high.",
+            "weight": 95
+          },
+          {
+            "text": "this is your home shoulder builder.",
+            "weight": 80
+          }
+        ],
         "research_note": "Home shoulder pattern when dumbbells are not available.",
+        "sources_cited": [
+          "03"
+        ],
+        "goal_weights": {
+          "shoulders": 75,
+          "chest_upper": 15,
+          "recomp": 10
+        },
+        "keep_recommended_pct": 85,
+        "alternatives": [
+          {
+            "name": "Wall pike / feet elevated",
+            "when": "Need harder",
+            "keep_original_pct": 80
+          },
+          {
+            "name": "Seated DB press if DBs appear",
+            "when": "You got dumbbells",
+            "keep_original_pct": 60
+          }
+        ],
+        "feel_zones": [
+          "front_delt",
+          "side_delt",
+          "triceps"
+        ],
+        "diagram_id": "pike",
         "video_id": "XckEEwa1iQQ",
         "video_label": "Pike push-up demo"
       },
@@ -2058,12 +3747,65 @@
         "how_to": "Feet about shoulder width. Sit down and slightly back, knees track over toes, stand tall. Split squat: one foot forward, drop the back knee toward the floor.",
         "avoid": "Heels lifting. Knees caving hard inward.",
         "minutes": 6,
-        "set_plan": "Smooth controlled reps for the sets listed.",
+        "load_type": "bodyweight",
+        "set_plan": "Set 1: smooth controlled reps for listed sets | Set 2: heels down, knees track toes | Set 3: backpack load if bodyweight is too easy",
+        "set_plan_lines": [
+          "Set 1: smooth controlled reps for listed sets",
+          "Set 2: heels down, knees track toes",
+          "Set 3: backpack load if bodyweight is too easy"
+        ],
+        "timing": {
+          "work_sec_per_set": 40,
+          "rest_sec_between_sets": 60,
+          "rest_sec_before_next": 45
+        },
+        "rom_cues": {
+          "question": "Cut depth to make it easy?",
+          "answer": "Sit down and slightly back with control. Split squat: back knee toward floor.",
+          "why": "Leg maintenance only at home \u2014 health floor, not specialty."
+        },
         "tips": [
           "Remember: this is only leg maintenance at home.",
           "Remember: hold a backpack for load if bodyweight is too easy."
         ],
+        "tips_ranked": [
+          {
+            "text": "this is only leg maintenance at home.",
+            "weight": 95
+          },
+          {
+            "text": "hold a backpack for load if bodyweight is too easy.",
+            "weight": 80
+          }
+        ],
         "research_note": "Minimum lower-body stimulus when you cannot reach the gym.",
+        "sources_cited": [
+          "02",
+          "03"
+        ],
+        "goal_weights": {
+          "shoulders": 0,
+          "chest_upper": 0,
+          "recomp": 35
+        },
+        "keep_recommended_pct": 55,
+        "alternatives": [
+          {
+            "name": "Split squat",
+            "when": "Prefer single-leg",
+            "keep_original_pct": 55
+          },
+          {
+            "name": "Step-ups",
+            "when": "Have a sturdy step",
+            "keep_original_pct": 50
+          }
+        ],
+        "feel_zones": [
+          "quads",
+          "glutes"
+        ],
+        "diagram_id": "squat",
         "video_id": "aclHkVaku9U",
         "video_label": "Bodyweight squat demo"
       }
@@ -2157,6 +3899,98 @@
     ],
     "extra_whoop_days": [],
     "interpretation": "whoop_logged=true means some WHOOP workout exists that calendar day \u2014 not proof the exact lifts were done. Use with Dylan's report / portal."
+  },
+  "food": {
+    "updated": "2026-07-20",
+    "disclaimer": "Preference list for Dylan \u2014 not medical advice. Kosher status can change by batch/factory; check the hechsher on the pack. Availability varies (Dis-Chem, Pick n Pay, Checkers, Wellness Warehouse, Virgin Active cafe).",
+    "protein_target_g": "115\u2013130",
+    "voice_memo_note": "On mobile, record a short voice note of what you ate. The coach processes pending memos on the next coaching/sync review and attaches them to that calendar date.",
+    "bars": [
+      {
+        "brand": "Futurelife High Protein Smart Bar",
+        "form": "bar",
+        "protein_g_approx": 20,
+        "kosher_note": "Often OU / local hechsher \u2014 verify pack",
+        "where": "Pick n Pay, Checkers, Dis-Chem",
+        "notes": "Easy grab; watch sugar on flavoured variants"
+      },
+      {
+        "brand": "USN Protein Delite / similar USN bars",
+        "form": "bar",
+        "protein_g_approx": 20,
+        "kosher_note": "Some SKUs kosher \u2014 check logo",
+        "where": "Dis-Chem, Sportsmans Warehouse",
+        "notes": "Common in SA gyms; taste varies a lot by flavour"
+      },
+      {
+        "brand": "Trek / Bounce-style oat protein bars (selected)",
+        "form": "bar",
+        "protein_g_approx": 10,
+        "kosher_note": "Many are vegetarian; kosher only if marked",
+        "where": "Woolworths, Wellness Warehouse",
+        "notes": "Lower protein \u2014 snack, not a shake replacement"
+      },
+      {
+        "brand": "Woolworths Food high-protein snack bars (rotating)",
+        "form": "bar",
+        "protein_g_approx": 15,
+        "kosher_note": "WW often marks Beth Din / OU \u2014 read the label",
+        "where": "Woolworths",
+        "notes": "Convenient; protein per bar varies \u2014 aim to stack toward daily band"
+      }
+    ],
+    "shakes": [
+      {
+        "brand": "USN 100% Whey / BlueLab whey",
+        "form": "powder",
+        "protein_g_per_scoop_approx": 25,
+        "kosher_note": "Selected flavours carry kosher marks \u2014 verify",
+        "where": "Dis-Chem, Takealot, Sportsmans",
+        "notes": "Default SA whey workhorse; mix with water or milk"
+      },
+      {
+        "brand": "Nutritech 100% Whey",
+        "form": "powder",
+        "protein_g_per_scoop_approx": 24,
+        "kosher_note": "Check current hechsher",
+        "where": "Dis-Chem, Takealot",
+        "notes": "Often well priced; stick to one flavour you will finish"
+      },
+      {
+        "brand": "Biogen ISO-Whey / Complete Whey",
+        "form": "powder",
+        "protein_g_per_scoop_approx": 25,
+        "kosher_note": "Some lines marked \u2014 verify pack",
+        "where": "Dis-Chem",
+        "notes": "Widely stocked; isolate if lactose bothers you"
+      },
+      {
+        "brand": "Herd / plant blends (selected)",
+        "form": "powder",
+        "protein_g_per_scoop_approx": 20,
+        "kosher_note": "Often easier for kosher shoppers \u2014 still check",
+        "where": "Wellness Warehouse, Faithful to Nature",
+        "notes": "Use if dairy whey is off the table"
+      },
+      {
+        "brand": "Ready-to-drink: USN / similar RTD shakes",
+        "form": "RTD",
+        "protein_g_approx": 25,
+        "kosher_note": "Rarely all kosher \u2014 only buy marked cans",
+        "where": "Dis-Chem fridge, gym cafe",
+        "notes": "Emergency option after training \u2014 expensive per gram"
+      }
+    ],
+    "practical_rules": [
+      "Hit 115\u2013130 g protein most days; bars/shakes are tools, not the whole diet.",
+      "Prefer powder over bars for cost and control.",
+      "If a pack has no hechsher and you keep kosher strictly, skip it \u2014 do not guess.",
+      "Creatine 5 g daily stays separate from protein shakes (can mix in the same drink)."
+    ]
+  },
+  "coach": {
+    "walk_punishment_km_each_way": 2,
+    "tone_rule": "Be honest. Impressed when earned; not impressed when behind. Suggest the 2 km walk to gym + 2 km back when adherence is weak."
   },
   "trust": {
     "mode": "source_gated",

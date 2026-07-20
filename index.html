@@ -23,6 +23,9 @@
       --ok: #7dcea0;
       --amber: #e8b86d;
       --pulse: #9b8fd9;
+      --coral: #ff6b4a;
+      --mint: #3ddc97;
+      --sky: #5eb1ff;
       --font-display: "Syne", sans-serif;
       --font-body: "Manrope", sans-serif;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -803,6 +806,190 @@
       .metrics { grid-template-columns: 1fr 1fr; }
       .info-grid { grid-template-columns: 1fr; }
     }
+
+    /* Session Mode — one exercise per viewport */
+    .session-mode {
+      display: flex; flex-direction: column;
+      min-height: calc(100svh - 4.5rem);
+      max-width: 430px; margin: 0 auto;
+      padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+    }
+    .session-mode .sm-meta {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.65rem;
+    }
+    .session-mode .sm-chip {
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 0.28rem 0.65rem; font-size: 0.75rem; color: var(--ice-soft);
+      background: rgba(149, 200, 226, 0.08);
+    }
+    .session-mode .sm-chip strong { color: var(--white); font-weight: 600; }
+    .sm-card {
+      flex: 1; display: flex; flex-direction: column; gap: 0.55rem;
+      border: 1px solid var(--line); border-radius: 18px;
+      padding: 0.85rem 0.9rem 0.75rem;
+      background: rgba(18, 19, 22, 0.55);
+      min-height: 0;
+    }
+    .sm-card .sm-top {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem;
+    }
+    .sm-card .sm-idx {
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sm-card h3 {
+      margin: 0.15rem 0 0; font-family: var(--font-display);
+      font-size: clamp(1.15rem, 4.2vw, 1.45rem); line-height: 1.15;
+    }
+    .sm-dose {
+      font-weight: 700; color: var(--ice); font-size: 0.95rem; white-space: nowrap;
+    }
+    .sm-diagram {
+      position: relative; height: 132px; border-radius: 14px;
+      background: rgba(0,0,0,0.35); overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .sm-diagram object, .sm-diagram svg { width: 100%; height: 100%; }
+    .sm-diagram .sm-feel {
+      position: absolute; left: 0.55rem; bottom: 0.4rem;
+      font-size: 0.7rem; color: var(--coral); font-weight: 600;
+    }
+    .sm-rings {
+      display: flex; justify-content: space-around; gap: 0.35rem; padding: 0.15rem 0;
+    }
+    .sm-ring {
+      display: grid; place-items: center; text-align: center; width: 72px;
+    }
+    .sm-ring svg { width: 64px; height: 64px; }
+    .sm-ring .rl {
+      font-size: 0.65rem; color: var(--muted); margin-top: -0.15rem; line-height: 1.2;
+    }
+    .sm-ring .rv { font-weight: 700; font-size: 0.8rem; }
+    .sm-importance {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.78rem;
+    }
+    .sm-importance span {
+      border-radius: 8px; padding: 0.35rem 0.55rem;
+      background: rgba(255, 107, 74, 0.14); color: #ffb3a1; border: 1px solid rgba(255,107,74,0.35);
+    }
+    .sm-importance span.keep {
+      background: rgba(61, 220, 151, 0.12); color: var(--mint); border-color: rgba(61,220,151,0.35);
+    }
+    .sm-load {
+      display: grid; gap: 0.25rem; font-size: 0.86rem; line-height: 1.35;
+    }
+    .sm-load .ll {
+      padding: 0.35rem 0.5rem; border-radius: 8px;
+      background: rgba(149, 200, 226, 0.07); border-left: 3px solid var(--ice);
+    }
+    .sm-load.cardio .ll { border-left-color: var(--sky); }
+    .sm-timing {
+      display: flex; gap: 0.45rem; flex-wrap: wrap; font-size: 0.75rem; color: var(--muted);
+    }
+    .sm-timing b { color: var(--white); font-weight: 600; }
+    .sm-rom {
+      font-size: 0.82rem; line-height: 1.4; color: var(--ice-soft);
+      padding: 0.45rem 0.55rem; border-radius: 10px;
+      background: rgba(94, 177, 255, 0.08); border: 1px solid rgba(94,177,255,0.22);
+    }
+    .sm-rom strong { color: var(--sky); }
+    .sm-tips { margin: 0; padding-left: 1.05rem; font-size: 0.8rem; color: var(--muted); }
+    .sm-tips li { margin: 0.15rem 0; }
+    .sm-tips li .w {
+      display: inline-block; min-width: 1.6rem; color: var(--amber); font-weight: 700; font-size: 0.72rem;
+    }
+    .sm-sources { font-size: 0.72rem; color: var(--muted); }
+    .sm-progress {
+      margin-top: 0.35rem; padding: 0.45rem 0.55rem; border-radius: 10px;
+      background: rgba(18,19,22,0.5); border: 1px solid var(--line);
+    }
+    .sm-progress .sp-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .sm-progress .sp-label strong { color: var(--ice-soft); }
+    .sm-progress .sp-bar {
+      height: 6px; border-radius: 999px; background: rgba(149,200,226,0.12); overflow: hidden;
+    }
+    .sm-progress .sp-fill {
+      height: 100%; width: 0; background: linear-gradient(90deg, var(--ice), var(--mint));
+      transition: width 280ms var(--ease);
+    }
+    .sm-dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      padding: 0.65rem 0.75rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+      background: rgba(11,11,12,0.92); backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 0.4rem;
+      max-width: 430px; margin: 0 auto;
+    }
+    .sm-dock button {
+      appearance: none; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(149,200,226,0.08); color: var(--white);
+      font: 600 0.78rem/1.1 var(--font-body); padding: 0.75rem 0.35rem; cursor: pointer;
+    }
+    .sm-dock button.primary {
+      background: var(--ice); color: #0b0b0c; border-color: var(--ice);
+    }
+    .sm-dock button.danger {
+      border-color: rgba(255,107,74,0.45); color: #ffb3a1;
+    }
+    .sm-sheet {
+      position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.55);
+      display: none; place-items: end center;
+    }
+    .sm-sheet.open { display: grid; }
+    .sm-sheet .panel {
+      width: min(430px, 100%); background: #121316; border-radius: 18px 18px 0 0;
+      border: 1px solid var(--line); padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+      max-height: 70svh; overflow: auto;
+    }
+    .sm-sheet h4 { margin: 0 0 0.65rem; font-family: var(--font-display); }
+    .sm-sheet .reason, .sm-sheet .alt {
+      display: block; width: 100%; text-align: left; margin: 0.35rem 0;
+      padding: 0.7rem 0.8rem; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(149,200,226,0.06); color: var(--white);
+      font: 500 0.9rem/1.3 var(--font-body); cursor: pointer;
+    }
+    .sm-sheet .alt .meta { display: block; color: var(--muted); font-size: 0.78rem; margin-top: 0.2rem; }
+    .coach-tone.bad { color: var(--coral); }
+    .coach-tone.good { color: var(--mint); }
+    .coach-tone.meh { color: var(--amber); }
+
+    /* Food */
+    .food-grid { display: grid; gap: 0.75rem; }
+    .food-card {
+      border: 1px solid var(--line); border-radius: 14px; padding: 0.85rem 0.95rem;
+      background: rgba(18,19,22,0.45);
+    }
+    .food-card h4 { margin: 0 0 0.25rem; font-size: 1rem; }
+    .food-card .meta { color: var(--muted); font-size: 0.82rem; margin: 0 0 0.35rem; }
+    .food-card .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .food-card .tag {
+      font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 999px;
+      background: rgba(61,220,151,0.12); color: var(--mint); border: 1px solid rgba(61,220,151,0.25);
+    }
+    .voice-box {
+      border: 1px dashed rgba(149,200,226,0.35); border-radius: 14px;
+      padding: 1rem; margin-top: 1rem;
+    }
+    .voice-box .vb-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.65rem 0; }
+    .voice-box button {
+      appearance: none; border-radius: 999px; border: 1px solid var(--ice);
+      background: var(--ice); color: #0b0b0c; font: 600 0.88rem var(--font-body);
+      padding: 0.65rem 1rem; cursor: pointer;
+    }
+    .voice-box button.ghost { background: transparent; color: var(--ice-soft); }
+    .voice-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+    .voice-list li {
+      display: flex; justify-content: space-between; gap: 0.5rem; align-items: center;
+      font-size: 0.82rem; padding: 0.5rem 0.65rem; border-radius: 10px;
+      background: rgba(149,200,226,0.06); border: 1px solid var(--line);
+    }
+    .voice-list li button {
+      border: 0; background: transparent; color: var(--coral); font-size: 0.75rem; cursor: pointer;
+    }
+    @media (min-width: 900px) {
+      .session-mode { max-width: 520px; }
+      .sm-dock { max-width: 520px; left: 50%; transform: translateX(-50%); width: 100%; }
+      .sm-diagram { height: 160px; }
+    }
   </style>
 </head>
 <body class="locked">
@@ -830,6 +1017,7 @@
         <nav class="nav" aria-label="Sections">
           <button type="button" data-view="today" class="active">Today</button>
           <button type="button" data-view="plan">This week</button>
+          <button type="button" data-view="food">Food</button>
           <button type="button" data-view="overview">Overview</button>
           <button type="button" data-view="history">History</button>
           <button type="button" data-view="you">You</button>
@@ -913,6 +1101,38 @@
               <ul id="philosophyList"></ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-food">
+        <div class="hero-strip">
+          <div class="kicker">Nutrition tools</div>
+          <h2>Food</h2>
+          <p>South Africa–friendly protein bars and shakes with a kosher-leaning preference. Check the hechsher on every pack.</p>
+        </div>
+        <div class="block">
+          <h3>Practical rules</h3>
+          <ul id="foodRules"></ul>
+        </div>
+        <div class="block">
+          <h3>Protein shakes</h3>
+          <div class="food-grid" id="foodShakes"></div>
+        </div>
+        <div class="block">
+          <h3>Protein bars</h3>
+          <div class="food-grid" id="foodBars"></div>
+        </div>
+        <div class="voice-box" id="voiceBox">
+          <h3 style="margin:0 0 0.35rem;font-family:var(--font-display)">Voice memo</h3>
+          <p style="margin:0;color:var(--muted);font-size:0.88rem;line-height:1.45">
+            Record what you ate today. Stored on this phone until the coach processes it on the next review (keeps the date).
+          </p>
+          <div class="vb-actions">
+            <button type="button" id="voiceStart">Record</button>
+            <button type="button" class="ghost" id="voiceStop" disabled>Stop</button>
+          </div>
+          <p id="voiceStatus" style="margin:0;font-size:0.82rem;color:var(--muted)"></p>
+          <ul class="voice-list" id="voiceList"></ul>
         </div>
       </section>
 
@@ -1015,12 +1235,22 @@
         return next;
       }
 
-      function setMoveStatus(iso, mode, moveName, status) {
+      function setMoveStatus(iso, mode, moveName, status, meta) {
         const day = getDayLog(iso);
         const moves = Object.assign({}, day.moves || {});
         if (!status) delete moves[moveName];
-        else moves[moveName] = status;
+        else if (meta && typeof meta === "object") {
+          moves[moveName] = Object.assign({ status: status }, meta);
+        } else {
+          moves[moveName] = status;
+        }
         return upsertDayLog(iso, { mode: mode || day.mode || "gym", moves: moves });
+      }
+
+      function moveStatusKey(st) {
+        if (!st) return null;
+        if (typeof st === "string") return st;
+        return st.status || null;
       }
 
       function summarizeMoves(moves, dayLog) {
@@ -1029,7 +1259,7 @@
         let skipped = 0;
         let unset = 0;
         (moves || []).forEach((m) => {
-          const st = map[m.name];
+          const st = moveStatusKey(map[m.name]);
           if (st === "done") done += 1;
           else if (st === "skipped") skipped += 1;
           else unset += 1;
@@ -1295,6 +1525,138 @@
         });
       }
 
+      function renderFood(data) {
+        const food = data.food || {};
+        const rules = document.getElementById("foodRules");
+        const shakes = document.getElementById("foodShakes");
+        const bars = document.getElementById("foodBars");
+        if (!rules || !shakes || !bars) return;
+        rules.innerHTML = ((food.practical_rules || []).map((r) => "<li>" + escapeHtml(r) + "</li>").join("")) ||
+          "<li>Hit 115–130 g protein most days.</li>";
+        function card(item) {
+          const prot = item.protein_g_approx != null ? item.protein_g_approx : item.protein_g_per_scoop_approx;
+          return (
+            '<div class="food-card"><h4>' + escapeHtml(item.brand || "") + "</h4>" +
+            '<p class="meta">' + escapeHtml(item.where || "") +
+            (prot != null ? " · ~" + escapeHtml(String(prot)) + " g protein" : "") + "</p>" +
+            '<div class="tags"><span class="tag">' + escapeHtml(item.kosher_note || "Check hechsher") + "</span></div>" +
+            (item.notes ? '<p class="meta" style="margin-top:0.45rem">' + escapeHtml(item.notes) + "</p>" : "") +
+            "</div>"
+          );
+        }
+        shakes.innerHTML = ((food.shakes || []).map(card).join("")) || '<p class="empty">No shake list yet.</p>';
+        bars.innerHTML = ((food.bars || []).map(card).join("")) || '<p class="empty">No bar list yet.</p>';
+      }
+
+      const VOICE_DB = "walt_food_voice_v1";
+      let voiceRecorder = null;
+      let voiceChunks = [];
+
+      function openVoiceDb() {
+        return new Promise((resolve, reject) => {
+          const req = indexedDB.open(VOICE_DB, 1);
+          req.onupgradeneeded = () => {
+            const db = req.result;
+            if (!db.objectStoreNames.contains("memos")) {
+              db.createObjectStore("memos", { keyPath: "id" });
+            }
+          };
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => reject(req.error);
+        });
+      }
+
+      async function listVoiceMemos() {
+        const db = await openVoiceDb();
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction("memos", "readonly");
+          const req = tx.objectStore("memos").getAll();
+          req.onsuccess = () => resolve(req.result || []);
+          req.onerror = () => reject(req.error);
+        });
+      }
+
+      async function saveVoiceMemo(blob, iso) {
+        const db = await openVoiceDb();
+        const id = iso + "_" + Date.now();
+        const item = { id: id, date: iso, created_at: new Date().toISOString(), blob: blob, pending: true };
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction("memos", "readwrite");
+          tx.objectStore("memos").put(item);
+          tx.oncomplete = () => resolve(item);
+          tx.onerror = () => reject(tx.error);
+        });
+      }
+
+      async function deleteVoiceMemo(id) {
+        const db = await openVoiceDb();
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction("memos", "readwrite");
+          tx.objectStore("memos").delete(id);
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => reject(tx.error);
+        });
+      }
+
+      async function refreshVoiceList() {
+        const list = document.getElementById("voiceList");
+        const status = document.getElementById("voiceStatus");
+        if (!list) return;
+        try {
+          const items = (await listVoiceMemos()).sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+          list.innerHTML = items.map((it) =>
+            "<li><span>" + escapeHtml(it.date) + " · " + escapeHtml(String(it.created_at || "").slice(11, 16)) +
+            (it.pending ? " · pending coach" : "") +
+            '</span><button type="button" data-del="' + escapeHtml(it.id) + '">Delete</button></li>'
+          ).join("") || '<li style="justify-content:center;color:var(--muted)">No memos yet</li>';
+          list.querySelectorAll("[data-del]").forEach((btn) => {
+            btn.addEventListener("click", async () => {
+              await deleteVoiceMemo(btn.getAttribute("data-del"));
+              refreshVoiceList();
+            });
+          });
+          if (status && !status.dataset.recording) status.textContent = items.length ? (items.length + " memo(s) on this phone") : "";
+        } catch (e) {
+          if (status) status.textContent = "Voice storage unavailable in this browser.";
+        }
+      }
+
+      function initVoiceMemos() {
+        const start = document.getElementById("voiceStart");
+        const stop = document.getElementById("voiceStop");
+        const status = document.getElementById("voiceStatus");
+        if (!start || start.dataset.bound) return;
+        start.dataset.bound = "1";
+        refreshVoiceList();
+        start.addEventListener("click", async () => {
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            voiceChunks = [];
+            voiceRecorder = new MediaRecorder(stream);
+            voiceRecorder.ondataavailable = (ev) => { if (ev.data && ev.data.size) voiceChunks.push(ev.data); };
+            voiceRecorder.onstop = async () => {
+              stream.getTracks().forEach((t) => t.stop());
+              const blob = new Blob(voiceChunks, { type: voiceRecorder.mimeType || "audio/webm" });
+              const iso = isoDate(getPortalNow());
+              await saveVoiceMemo(blob, iso);
+              if (status) { status.dataset.recording = ""; status.textContent = "Saved for " + iso + " — pending coach review."; }
+              refreshVoiceList();
+            };
+            voiceRecorder.start();
+            start.disabled = true;
+            stop.disabled = false;
+            if (status) { status.dataset.recording = "1"; status.textContent = "Recording… tap Stop when done."; }
+          } catch (e) {
+            if (status) status.textContent = "Mic permission denied or unavailable.";
+          }
+        });
+        stop.addEventListener("click", () => {
+          if (voiceRecorder && voiceRecorder.state !== "inactive") voiceRecorder.stop();
+          start.disabled = false;
+          stop.disabled = true;
+        });
+      }
+
       function renderYou(data) {
         const p = data.profile || {};
         const goals = p.goals || {};
@@ -1407,6 +1769,8 @@
 
         renderHistory(data);
         renderYou(data);
+        renderFood(data);
+        initVoiceMemos();
 
         const plan = data.plan || {};
         window.__waltDashboard = data;
@@ -1506,7 +1870,7 @@
         renderWeekProgress(data, weekStart, realNow);
         const selected = window.__waltSelectedDate || getPortalNow();
         data.today = data.today || {};
-        data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, selected);
+        data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, selected, (data.today.latest_recovery||{}).resting_heart_rate);
         const sameDay = isoDate(selected) === isoDate(realNow);
         document.getElementById("todayTitle").textContent =
           (sameDay ? "Today" : "Session") + " · " + weekdayName(selected) + " " + selected.getDate() + " " + selected.toLocaleString("en", { month: "short" });
@@ -1514,7 +1878,7 @@
       }
 
       function dayChecklistStatus(data, iso, realNow) {
-        const workout = resolveWorkoutClient(data.plan, data.exercise_library, new Date(iso + "T12:00:00"));
+        const workout = resolveWorkoutClient(data.plan, data.exercise_library, new Date(iso + "T12:00:00"), (data.today && data.today.latest_recovery||{}).resting_heart_rate);
         if (!workout || workout.mode !== "session") return null;
         const dayLog = getDayLog(iso);
         const mode = dayLog.mode === "home" ? "home" : "gym";
@@ -1607,11 +1971,29 @@
           );
         }).join("");
 
-        let motivate = "First prize: hit Mon / Wed / Fri at the gym. Tick moves as you go — the bar here is your scoreboard.";
-        if (weekPct >= 100) motivate = "Week locked in. Keep the same energy next week.";
-        else if (weekPct >= 67) motivate = "Strong week so far. One more clean gym session seals it.";
-        else if (weekPct > 0) motivate = "You're on the board. Finish the remaining planned days — makeup Tue/Thu is fine.";
-        else if (weekPlanned) motivate = "Empty board. Open Today on your next gym day and tick as you train.";
+        let toneClass = "meh";
+        let motivate = "Neutral. First prize is still Mon / Wed / Fri. Tick moves as you train.";
+        const missedPast = weekSessions.filter((s) => s.status && s.status.state === "dim").length;
+        const whoopOnly = weekSessions.filter((s) => s.status && s.status.state === "purple").length;
+        if (weekPct >= 100) {
+          toneClass = "good";
+          motivate = "Impressed. Week locked. Don’t coast — same standard next week.";
+        } else if (missedPast >= 1 || (weekPct === 0 && weekPlanned && weekSessions.some((s) => s.status && s.status.state === "dim"))) {
+          toneClass = "bad";
+          motivate = "Not impressed. You missed planned gym day(s). Makeup Tue/Thu if you can. Backup punishment: walk the ~2 km to Virgin Active and 2 km back — then decide if you’ll actually do it.";
+        } else if (whoopOnly >= 1 && weekPct < 67) {
+          toneClass = "bad";
+          motivate = "Not impressed yet. WHOOP saw activity but the portal checklist isn’t done — finish ticking Today or own the miss.";
+        } else if (weekPct >= 67) {
+          toneClass = "good";
+          motivate = "Impressed so far. One more clean gym session seals the week.";
+        } else if (weekPct > 0) {
+          toneClass = "meh";
+          motivate = "On the board, not done. Finish remaining planned days — makeup Tue/Thu is fine. If you flake, expect the 2 km walk each way suggestion.";
+        } else if (weekPlanned) {
+          toneClass = "meh";
+          motivate = "Empty board. Open Today on your next gym day. Showing up beats perfect.";
+        }
 
         root.innerHTML =
           '<div class="wp-stats">' +
@@ -1630,7 +2012,7 @@
           '<li><i class="y"></i> Planned, not started</li>' +
           '<li><i class="d"></i> Past day with no checklist</li>' +
           "</ul>" +
-          '<p class="wp-coach">' + escapeHtml(motivate) + "</p>";
+          '<p class="wp-coach coach-tone ' + toneClass + '">' + escapeHtml(motivate) + "</p>";
       }
 
       function fillRail(railId, data, weekStart, realNow) {
@@ -1712,8 +2094,52 @@
         });
       }
 
+
       function scaleSets(base, scale) {
         return Math.max(1, Math.round(Number(base || 2) * Number(scale || 1)));
+      }
+
+      function moveMinutes(sets, timing, condMin, isCond) {
+        if (isCond) return Number(condMin || 8);
+        const work = Number((timing && timing.work_sec_per_set) || 45);
+        const rest = Number((timing && timing.rest_sec_between_sets) || 75);
+        const transition = Number((timing && timing.rest_sec_before_next) || 60);
+        const setup = Number((timing && timing.setup_sec) || 240);
+        const secs = setup + sets * work + Math.max(0, sets - 1) * rest + transition;
+        return Math.max(4, Math.round(secs / 60));
+      }
+
+      function normalizeGoalWeights(moves) {
+        const totals = { shoulders: 0, chest_upper: 0, recomp: 0 };
+        let sessionTotal = 0;
+        (moves || []).forEach((m) => {
+          const gw = m.goal_weights || {};
+          ["shoulders", "chest_upper", "recomp"].forEach((k) => { totals[k] += Number(gw[k] || 0); });
+          sessionTotal += Number(gw.shoulders || 0) + Number(gw.chest_upper || 0) + Number(gw.recomp || 0);
+        });
+        if (!sessionTotal) sessionTotal = 1;
+        (moves || []).forEach((m) => {
+          const gw = m.goal_weights || { shoulders: 0, chest_upper: 0, recomp: 0 };
+          const raw = Number(gw.shoulders || 0) + Number(gw.chest_upper || 0) + Number(gw.recomp || 0);
+          m.session_importance_pct = Math.round(100 * raw / sessionTotal);
+          m.goal_ring_pct = {};
+          ["shoulders", "chest_upper", "recomp"].forEach((k) => {
+            m.goal_ring_pct[k] = totals[k] ? Math.round(100 * Number(gw[k] || 0) / totals[k]) : 0;
+          });
+        });
+      }
+
+      function zone2Hr(rhr) {
+        const r = Number(rhr != null ? rhr : 57);
+        const maxHr = 188;
+        const reserve = Math.max(40, maxHr - r);
+        const lo = Math.round(r + 0.60 * reserve);
+        const hi = Math.round(r + 0.70 * reserve);
+        return {
+          bpm_low: lo, bpm_high: hi, label: lo + "–" + hi + " bpm",
+          note: "Provisional zone-2 from your WHOOP resting HR — use talk-test if the watch disagrees.",
+          rhr_used: r
+        };
       }
 
       function lookupExercise(name, library) {
@@ -1730,7 +2156,7 @@
         return {};
       }
 
-      function resolveWorkoutClient(plan, library, now) {
+      function resolveWorkoutClient(plan, library, now, rhr) {
         if (!plan || plan.status !== "active") return null;
         const today = isoDate(now);
         const schedule = plan.schedule || [];
@@ -1760,6 +2186,7 @@
         const scale = Number(modifiers.set_scale || 1);
         const condMin = Number(modifiers.conditioning_min || 10);
         const tmpl = ((plan.templates || {})[entry.template]) || {};
+        const hrBand = zone2Hr(rhr);
         function buildMoves(raw) {
           return (raw || []).map((mv, i) => {
             const name = mv.name || "Movement";
@@ -1767,29 +2194,57 @@
             const isCond = String(mv.reps) === "time" || /conditioning|finisher/i.test(name);
             if (isCond) notes = condMin + " minutes · " + notes;
             const meta = lookupExercise(name, library);
-            let minutes = Number(mv.minutes || meta.minutes || 8);
-            if (isCond) minutes = condMin;
-            if (!isCond && scale < 1) minutes = Math.max(4, Math.round(minutes * (0.75 + 0.25 * scale)));
-            return {
+            const sets = scaleSets(mv.sets_base, scale);
+            const loadType = meta.load_type || (isCond ? "cardio" : "kg");
+            const timing = meta.timing || { work_sec_per_set: 45, rest_sec_between_sets: 75, rest_sec_before_next: 60 };
+            const minutes = moveMinutes(sets, timing, condMin, isCond || loadType === "cardio");
+            const lines = (meta.set_plan_lines || []).slice(0, loadType === "cardio" ? 3 : sets);
+            const tipsRanked = (meta.tips_ranked || (meta.tips || []).map((t, idx) => ({
+              text: String(t).replace(/^Remember:\s*/i, ""),
+              weight: 90 - idx * 15
+            }))).slice().sort((a, b) => Number(b.weight || 0) - Number(a.weight || 0));
+            const row = {
               order: i + 1,
               name: meta.display_name || name,
-              sets: scaleSets(mv.sets_base, scale),
-              reps: mv.reps || "8–12",
+              sets: loadType === "cardio" ? 1 : sets,
+              reps: loadType === "cardio" ? (condMin + " min") : (mv.reps || "8–12"),
               notes: notes,
               minutes: minutes,
               where: meta.where || "",
               how_to: meta.how_to || notes,
               avoid: meta.avoid || "",
-              set_plan: meta.set_plan || "",
-              tips: meta.tips || [],
+              load_type: loadType,
+              set_plan_lines: lines,
+              set_plan: lines.join(" | "),
+              timing: timing,
+              rom_cues: meta.rom_cues || {},
+              tips: tipsRanked.map((t) => t.text),
+              tips_ranked: tipsRanked,
               research_note: meta.research_note || "",
-              video_id: meta.video_id || "",
-              video_label: meta.video_label || "Demo"
+              sources_cited: meta.sources_cited || [],
+              goal_weights: meta.goal_weights || { shoulders: 0, chest_upper: 0, recomp: 0 },
+              keep_recommended_pct: Number(meta.keep_recommended_pct || 70),
+              alternatives: meta.alternatives || [],
+              feel_zones: meta.feel_zones || [],
+              diagram_id: meta.diagram_id || "press_chest",
+              pin_guidance: meta.pin_guidance || []
             };
+            if (loadType === "cardio") {
+              row.stairmaster_level = meta.stairmaster_level || "4–6";
+              row.stairmaster_note = meta.stairmaster_note || "";
+              row.target_hr = hrBand;
+            }
+            return row;
           });
         }
         const gym = buildMoves(tmpl.gym);
         const home = buildMoves(tmpl.home);
+        normalizeGoalWeights(gym);
+        normalizeGoalWeights(home);
+        const est = gym.reduce((a, m) => a + Number(m.minutes || 0), 0) || (plan.minutes_per_session || 75);
+        const src = {};
+        gym.forEach((m) => (m.sources_cited || []).forEach((s) => { src[s] = true; }));
+        const sources = Object.keys(src).sort();
         return {
           mode: "session",
           date: today,
@@ -1800,15 +2255,24 @@
           load_cue: modifiers.load_cue,
           title: tmpl.title || "Session",
           focus: tmpl.focus || "",
-          summary: "Week " + weekN + " · " + (modifiers.label || "") + " · about " + (plan.minutes_per_session || 75) + " minutes total",
-          minutes: plan.minutes_per_session || 75,
+          summary: "Week " + weekN + " · " + (modifiers.label || "") + " · about " + est + " minutes total",
+          minutes: est,
+          budget_minutes: plan.minutes_per_session || 75,
           gym: gym,
           home: home,
           habits: plan.daily_habits,
           missed_day_rule: plan.missed_day_rule,
           attendance_priority: priority,
           session_tips: tips,
-          template_id: entry.template
+          template_id: entry.template,
+          goal_rings: (library && library.goal_rings) || [
+            { id: "shoulders", label: "Shoulders", color: "#FF6B4A" },
+            { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
+            { id: "recomp", label: "Recomp", color: "#5EB1FF" }
+          ],
+          sources_count: sources.length || 7,
+          sources_cited: sources.length ? sources : ["01", "02", "03", "04", "05", "06", "07"],
+          session_sources_note: (library && library.session_sources_note) || "Plan C cites Wave-1 packs 01–07."
         };
       }
 
@@ -1865,12 +2329,18 @@
           return;
         }
 
-        lede.textContent = "Gym first. Tap the arrow for how-to. Tick moves as you go. Home only if the gym is impossible.";
+
+        lede.textContent = "One exercise per screen. Done → Next. Use Can’t do / Alternative when stuck.";
         const gymMoves = workout.gym || [];
         const homeMoves = workout.home || [];
         const sessionIso = String(workout.date || isoDate(window.__waltSelectedDate || getPortalNow()));
         const dayLog = getDayLog(sessionIso);
         const startMode = dayLog.mode === "home" ? "home" : "gym";
+        const ringsMeta = workout.goal_rings || [
+          { id: "shoulders", label: "Shoulders", color: "#FF6B4A" },
+          { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
+          { id: "recomp", label: "Recomp", color: "#5EB1FF" }
+        ];
 
         guide.innerHTML =
           priorityHtml +
@@ -1882,135 +2352,255 @@
           '<p class="home-warn" id="homeWarn">Home is last resort. Prefer a makeup gym day when you can.</p>' +
           '<div class="session-meta">' +
           '<div class="chip"><div class="k">Phase</div><div class="v">' + escapeHtml(String(workout.week_label || workout.week || "—")) + "</div></div>" +
-          '<div class="chip"><div class="k">Session time</div><div class="v">about ' + escapeHtml(String(workout.minutes || 75)) + " minutes</div></div>" +
-          '<div class="chip"><div class="k">Effort</div><div class="v" style="font-size:0.82rem;line-height:1.25">' + escapeHtml(String(workout.reps_in_reserve || workout.rir || "—")) + "</div></div>" +
+          '<div class="chip"><div class="k">Est. time</div><div class="v">about ' + escapeHtml(String(workout.minutes || 75)) + " min</div></div>" +
+          '<div class="chip"><div class="k">Budget</div><div class="v">' + escapeHtml(String(workout.budget_minutes || 75)) + " min plan</div></div>" +
+          '<div class="chip"><div class="k">Sources</div><div class="v">' + escapeHtml(String(workout.sources_count || 7)) + " packs</div></div>" +
           "</div>" +
           (workout.load_cue ? '<div class="cue-box"><strong>Load cue:</strong> ' + escapeHtml(workout.load_cue) + "</div>" : "") +
-          (workout.focus ? '<p style="color:var(--muted);margin:0 0 0.85rem">' + escapeHtml(workout.focus) + "</p>" : "") +
-          '<div class="move-list" id="moveList"></div>' +
-          '<div class="session-progress" id="sessionProgress"></div>' +
+          '<div class="session-mode" id="sessionMode"></div>' +
           '<div class="habits-row">' + formatHabits(workout.habits) + "</div>" +
-          tipsHtml;
+          tipsHtml +
+          '<div class="sm-sheet" id="skipSheet" aria-hidden="true"><div class="panel">' +
+          "<h4>Why can’t you do this?</h4>" +
+          '<button type="button" class="reason" data-reason="no_machine">No machine / equipment</button>' +
+          '<button type="button" class="reason" data-reason="in_use">Machine is being used</button>' +
+          '<button type="button" class="reason" data-reason="no_time">No time</button>' +
+          '<button type="button" class="reason" data-reason="dont_feel">Don’t feel like it</button>' +
+          '<button type="button" class="reason" data-reason="hate">Hate this exercise</button>' +
+          '<button type="button" class="reason" data-reason="cancel" style="opacity:0.7">Cancel</button>' +
+          "</div></div>" +
+          '<div class="sm-sheet" id="altSheet" aria-hidden="true"><div class="panel" id="altPanel"></div></div>';
 
-        const list = document.getElementById("moveList");
         const homeWarn = document.getElementById("homeWarn");
-        const progressEl = document.getElementById("sessionProgress");
+        const modeRoot = document.getElementById("sessionMode");
         const buttons = guide.querySelectorAll(".mode-toggle button");
+        const skipSheet = document.getElementById("skipSheet");
+        const altSheet = document.getElementById("altSheet");
         let currentMode = startMode;
+        let moveIndex = 0;
 
-        function moveCard(m, status) {
-          const st = status === "done" || status === "skipped" ? status : "";
-          const how = m.how_to || m.notes || "";
-          const where = m.where ? "<strong>Where in the gym:</strong> " + escapeHtml(m.where) + "<br/>" : "";
-          const avoid = m.avoid ? "<br/><strong>Avoid:</strong> " + escapeHtml(m.avoid) : "";
-          const tips = (m.tips || []).map((t) => "<li>" + escapeHtml(t) + "</li>").join("");
-          const research = m.research_note ? "<br/><strong>Why / research:</strong> " + escapeHtml(m.research_note) : "";
-          const vid = m.video_id
-            ? '<div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/' +
-              encodeURIComponent(m.video_id) +
-              '?rel=0" title="' + escapeHtml(m.video_label || "Demo") +
-              '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>'
-            : "";
-          const stateClass = st === "done" ? " is-done" : (st === "skipped" ? " is-skipped" : "");
+        function ringSvg(pct, color) {
+          const p = Math.max(0, Math.min(100, Number(pct) || 0));
+          const r = 26;
+          const c = 2 * Math.PI * r;
+          const dash = (p / 100) * c;
           return (
-            '<div class="move' + stateClass + '" data-name="' + escapeHtml(m.name || "") + '">' +
-            '<div class="top"><div class="n">' +
-            '<button type="button" class="expand-btn" aria-label="Show how to do this" aria-expanded="false">▸</button>' +
-            '<span class="n-text">' + escapeHtml(String(m.order || "") + ". " + (m.name || "")) + "</span></div>" +
-            '<div class="dose">' + escapeHtml(String(m.sets) + " sets × " + (m.reps || "")) + "</div></div>" +
-            '<div class="check-row">' +
-            '<button type="button" class="check-btn' + (st === "done" ? " on" : "") + '" data-act="done" aria-label="Mark done" aria-pressed="' + (st === "done" ? "true" : "false") + '">✓</button>' +
-            '<button type="button" class="check-btn' + (st === "skipped" ? " on" : "") + '" data-act="skipped" aria-label="Mark skipped" aria-pressed="' + (st === "skipped" ? "true" : "false") + '">✕</button>' +
-            "</div>" +
-            '<div class="mins">About ' + escapeHtml(String(m.minutes || "?")) + " minutes (including rests)</div>" +
-            (m.set_plan ? '<div class="sets-guide"><strong>Kilograms guide:</strong> ' + escapeHtml(m.set_plan) + "</div>" : "") +
-            (m.notes ? '<div class="hint">' + escapeHtml(m.notes) + "</div>" : "") +
-            '<div class="how-panel"><div class="how">' +
-            where + escapeHtml(how) + avoid +
-            (tips ? "<br/><br/><strong>Remember:</strong><ul style='margin:0.35rem 0 0;padding-left:1.1rem'>" + tips + "</ul>" : "") +
-            research +
-            "</div>" + vid + "</div></div>"
+            '<svg viewBox="0 0 64 64" aria-hidden="true">' +
+            '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>' +
+            '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="6" ' +
+            'stroke-linecap="round" stroke-dasharray="' + dash + " " + c + '" transform="rotate(-90 32 32)"/>' +
+            '<text x="32" y="36" text-anchor="middle" fill="#f5f7f8" font-size="12" font-weight="700">' + p + "%</text></svg>"
           );
         }
 
-        function updateProgress(moves) {
-          if (!progressEl) return;
-          const log = getDayLog(sessionIso);
-          const sum = summarizeMoves(moves, log);
-          progressEl.classList.toggle("is-complete", sum.complete);
-          const label = sum.complete
-            ? "Session complete · logged as " + (currentMode === "home" ? "home" : "gym")
-            : (sum.pct + "% checked");
-          progressEl.innerHTML =
-            '<div class="sp-top"><strong>' + escapeHtml(label) + "</strong>" +
-            '<span class="sp-meta">' + sum.done + "/" + sum.total + " done" +
-            (sum.skipped ? " · " + sum.skipped + " skipped" : "") +
-            (sum.unset ? " · " + sum.unset + " left" : "") +
-            "</span></div>" +
-            '<div class="sp-bar" aria-hidden="true"><div class="sp-fill" style="width:' + sum.pct + '%"></div></div>';
+        function highlightZones(container, zones) {
+          const obj = container.querySelector("object");
+          if (!obj) return;
+          const apply = () => {
+            try {
+              const doc = obj.contentDocument;
+              if (!doc) return;
+              doc.querySelectorAll(".zone").forEach((el) => el.classList.remove("on"));
+              (zones || []).forEach((z) => {
+                doc.querySelectorAll('.zone[data-zone="' + z + '"]').forEach((el) => el.classList.add("on"));
+              });
+            } catch (e) { /* ignore */ }
+          };
+          obj.addEventListener("load", apply);
+          apply();
         }
 
-        function bindMoveCard(card) {
-          const name = card.getAttribute("data-name");
-          const expandBtn = card.querySelector(".expand-btn");
-          if (expandBtn) {
-            expandBtn.addEventListener("click", () => {
-              const open = card.classList.toggle("is-open");
-              expandBtn.setAttribute("aria-expanded", open ? "true" : "false");
-              expandBtn.setAttribute("aria-label", open ? "Hide how to do this" : "Show how to do this");
-            });
+        function renderStep(moves) {
+          if (!moves.length) {
+            modeRoot.innerHTML = '<p class="empty">No movements listed.</p>';
+            return;
           }
-          card.querySelectorAll(".check-btn").forEach((btn) => {
-            btn.addEventListener("click", () => {
-              const act = btn.getAttribute("data-act");
-              const log = getDayLog(sessionIso);
-              const cur = (log.moves || {})[name];
-              const next = cur === act ? null : act;
-              setMoveStatus(sessionIso, currentMode, name, next);
-              paint(currentMode, true);
-              renderWeekProgress(window.__waltDashboard, viewedWeekStart(), new Date());
+          if (moveIndex >= moves.length) moveIndex = moves.length - 1;
+          if (moveIndex < 0) moveIndex = 0;
+          const m = moves[moveIndex];
+          const log = getDayLog(sessionIso);
+          const st = moveStatusKey((log.moves || {})[m.name]);
+          const afterDone = moves.slice(0, moveIndex + (st === "done" || st === "skipped" ? 1 : 0));
+          // Progress = completed moves up through current if checked, else previous
+          let completedBefore = 0;
+          moves.forEach((mv, i) => {
+            const s = moveStatusKey((log.moves || {})[mv.name]);
+            if (i < moveIndex && (s === "done" || s === "skipped")) completedBefore += 1;
+            if (i === moveIndex && (s === "done" || s === "skipped")) completedBefore += 1;
+          });
+          const pct = Math.round((completedBefore / moves.length) * 100);
+          const timing = m.timing || {};
+          const isCardio = m.load_type === "cardio";
+          const loadLines = isCardio
+            ? [
+                "StairMaster level: " + (m.stairmaster_level || "4–6") + " (Technogym provisional)",
+                "Target HR: " + ((m.target_hr && m.target_hr.label) || "zone 2"),
+                m.stairmaster_note || "Talk-test: short sentences OK"
+              ]
+            : (m.set_plan_lines || []).concat(m.pin_guidance || []);
+          const loadHtml = loadLines.length
+            ? '<div class="sm-load' + (isCardio ? " cardio" : "") + '">' +
+              loadLines.map((ln) => '<div class="ll">' + escapeHtml(ln) + "</div>").join("") +
+              "</div>"
+            : "";
+          const rom = m.rom_cues || {};
+          const romHtml = rom.question
+            ? '<div class="sm-rom"><strong>' + escapeHtml(rom.question) + "</strong><br/>" +
+              escapeHtml(rom.answer || "") +
+              (rom.why ? '<br/><span style="color:var(--muted)">' + escapeHtml(rom.why) + "</span>" : "") +
+              "</div>"
+            : "";
+          const tips = (m.tips_ranked || []).slice(0, 3);
+          const tipsHtml2 = tips.length
+            ? "<ul class='sm-tips'>" + tips.map((t) =>
+                "<li><span class='w'>" + escapeHtml(String(t.weight || "")) + "</span> " + escapeHtml(t.text || "") + "</li>"
+              ).join("") + "</ul>"
+            : "";
+          const ringsHtml = '<div class="sm-rings">' + ringsMeta.map((r) => {
+            const p = (m.goal_ring_pct && m.goal_ring_pct[r.id]) || 0;
+            return '<div class="sm-ring">' + ringSvg(p, r.color) +
+              '<div class="rv" style="color:' + r.color + '">' + escapeHtml(r.label) + "</div>" +
+              '<div class="rl">of this ring</div></div>';
+          }).join("") + "</div>";
+
+          modeRoot.innerHTML =
+            '<div class="sm-meta">' +
+            '<span class="sm-chip"><strong>' + escapeHtml(String(workout.title || "Session")) + "</strong></span>" +
+            '<span class="sm-chip">Work <strong>' + escapeHtml(String(isCardio ? (m.reps || "") : ((timing.work_sec_per_set || 45) + "s"))) +
+            "</strong></span>" +
+            '<span class="sm-chip">Rest <strong>' + escapeHtml(String(isCardio ? "—" : ((timing.rest_sec_between_sets || 75) + "s"))) +
+            "</strong></span>" +
+            '<span class="sm-chip">Next gap <strong>' + escapeHtml(String((timing.rest_sec_before_next || 60) + "s")) + "</strong></span>" +
+            "</div>" +
+            '<div class="sm-card">' +
+            '<div class="sm-top"><div><div class="sm-idx">Exercise ' + (moveIndex + 1) + " / " + moves.length +
+            (st === "done" ? " · done" : (st === "skipped" ? " · skipped" : "")) +
+            "</div><h3>" + escapeHtml(m.name || "") + "</h3></div>" +
+            '<div class="sm-dose">' + escapeHtml(isCardio ? String(m.reps || m.minutes + " min") : (m.sets + " × " + (m.reps || ""))) + "</div></div>" +
+            '<div class="sm-diagram" id="smDiagram">' +
+            '<object data="assets/diagrams/body.svg" type="image/svg+xml" style="width:100%;height:100%"></object>' +
+            '<div class="sm-feel">Feel: ' + escapeHtml((m.feel_zones || []).join(", ") || "—") + "</div></div>" +
+            ringsHtml +
+            '<div class="sm-importance"><span>Session value <strong>' + escapeHtml(String(m.session_importance_pct || 0)) +
+            "%</strong></span><span class='keep'>Keep prescribed <strong>" +
+            escapeHtml(String(m.keep_recommended_pct || 70)) + "%</strong></span></div>" +
+            loadHtml +
+            romHtml +
+            tipsHtml2 +
+            '<div class="sm-sources">' + escapeHtml(workout.session_sources_note || "") +
+            " · this move cites " + escapeHtml(String((m.sources_cited || []).length)) + " pack(s)</div>" +
+            '<div class="sm-progress"><div class="sp-label"><strong>Session after this move</strong> — ' +
+            completedBefore + "/" + moves.length + " checked (" + pct + "%)</div>" +
+            '<div class="sp-bar"><div class="sp-fill" style="width:' + pct + '%"></div></div></div>' +
+            "</div>" +
+            '<div class="sm-dock">' +
+            '<button type="button" class="danger" id="smCant">Can’t do</button>' +
+            '<button type="button" id="smAlt">Alternative</button>' +
+            '<button type="button" id="smDone">' + (st === "done" ? "Undo ✓" : "Done ✓") + "</button>" +
+            '<button type="button" class="primary" id="smNext">' + (moveIndex >= moves.length - 1 ? "Finish" : "Next →") + "</button>" +
+            "</div>";
+
+          highlightZones(document.getElementById("smDiagram"), m.feel_zones || []);
+
+          document.getElementById("smNext").addEventListener("click", () => {
+            if (moveIndex >= moves.length - 1) {
+              updateWeek();
+              return;
+            }
+            moveIndex += 1;
+            renderStep(moves);
+          });
+          document.getElementById("smDone").addEventListener("click", () => {
+            const cur = moveStatusKey((getDayLog(sessionIso).moves || {})[m.name]);
+            if (cur === "done") setMoveStatus(sessionIso, currentMode, m.name, null);
+            else setMoveStatus(sessionIso, currentMode, m.name, "done");
+            renderStep(moves);
+            updateWeek();
+          });
+          document.getElementById("smCant").addEventListener("click", () => {
+            skipSheet.classList.add("open");
+            skipSheet.setAttribute("aria-hidden", "false");
+          });
+          document.getElementById("smAlt").addEventListener("click", () => {
+            const alts = m.alternatives || [];
+            document.getElementById("altPanel").innerHTML =
+              "<h4>Alternatives</h4>" +
+              '<p style="color:var(--mint);font-size:0.88rem;margin:0 0 0.5rem">Recommended to keep original: <strong>' +
+              escapeHtml(String(m.keep_recommended_pct || 70)) + "%</strong></p>" +
+              (alts.length ? alts.map((a) =>
+                '<button type="button" class="alt" data-alt="' + escapeHtml(a.name || "") + '">' +
+                escapeHtml(a.name || "") +
+                '<span class="meta">' + escapeHtml(a.when || "") +
+                " · keep original " + escapeHtml(String(a.keep_original_pct || "")) + "%</span></button>"
+              ).join("") : '<p class="empty">No listed swaps — pick closest machine and note it.</p>') +
+              '<button type="button" class="reason" data-alt-cancel="1">Close</button>';
+            altSheet.classList.add("open");
+            altSheet.setAttribute("aria-hidden", "false");
+            altSheet.querySelectorAll("[data-alt]").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                setMoveStatus(sessionIso, currentMode, m.name, "skipped", {
+                  reason: "alternative",
+                  alternative: btn.getAttribute("data-alt")
+                });
+                altSheet.classList.remove("open");
+                moveIndex = Math.min(moveIndex + 1, moves.length - 1);
+                renderStep(moves);
+                updateWeek();
+              });
             });
+            const close = altSheet.querySelector("[data-alt-cancel]");
+            if (close) close.addEventListener("click", () => altSheet.classList.remove("open"));
           });
         }
 
-        function paint(mode, keepOpenNames) {
+        function updateWeek() {
+          renderWeekProgress(window.__waltDashboard, viewedWeekStart(), new Date());
+        }
+
+        skipSheet.querySelectorAll(".reason").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const reason = btn.getAttribute("data-reason");
+            skipSheet.classList.remove("open");
+            skipSheet.setAttribute("aria-hidden", "true");
+            if (!reason || reason === "cancel") return;
+            const moves = currentMode === "home" ? homeMoves : gymMoves;
+            const m = moves[moveIndex];
+            if (!m) return;
+            setMoveStatus(sessionIso, currentMode, m.name, "skipped", { reason: reason });
+            moveIndex = Math.min(moveIndex + 1, moves.length - 1);
+            renderStep(moves);
+            updateWeek();
+          });
+        });
+
+        function paint(mode) {
           currentMode = mode;
           buttons.forEach((b) => b.classList.toggle("on", b.getAttribute("data-mode") === mode));
           if (homeWarn) homeWarn.classList.toggle("show", mode === "home");
-          const openNames = keepOpenNames
-            ? Array.from(list.querySelectorAll(".move.is-open")).map((el) => el.getAttribute("data-name"))
-            : [];
           const moves = mode === "home" ? homeMoves : gymMoves;
-          const log = getDayLog(sessionIso);
-          upsertDayLog(sessionIso, { mode: mode, moves: log.moves || {} });
-          const fresh = getDayLog(sessionIso);
-          list.innerHTML = moves.map((m) => moveCard(m, (fresh.moves || {})[m.name])).join("") ||
-            '<p class="empty">No movements listed.</p>';
-          list.querySelectorAll(".move").forEach((card) => {
-            if (openNames.indexOf(card.getAttribute("data-name")) !== -1) {
-              card.classList.add("is-open");
-              const eb = card.querySelector(".expand-btn");
-              if (eb) {
-                eb.setAttribute("aria-expanded", "true");
-                eb.setAttribute("aria-label", "Hide how to do this");
-              }
-            }
-            bindMoveCard(card);
-          });
-          updateProgress(moves);
+          upsertDayLog(sessionIso, { mode: mode, moves: getDayLog(sessionIso).moves || {} });
+          // start at first unchecked
+          moveIndex = 0;
+          for (let i = 0; i < moves.length; i++) {
+            const s = moveStatusKey((getDayLog(sessionIso).moves || {})[moves[i].name]);
+            if (s !== "done" && s !== "skipped") { moveIndex = i; break; }
+            moveIndex = i;
+          }
+          renderStep(moves);
         }
 
         buttons.forEach((b) => b.addEventListener("click", () => {
           const mode = b.getAttribute("data-mode");
           if (mode === "home") {
             const ok = window.confirm("Home is last resort. Can you still make Virgin Active today or tomorrow instead?");
-            if (!ok) { paint("gym", true); return; }
+            if (!ok) { paint("gym"); return; }
           }
-          paint(mode, true);
-          renderWeekProgress(window.__waltDashboard, viewedWeekStart(), new Date());
+          paint(mode);
+          updateWeek();
         }));
-        paint(startMode, false);
+        paint(startMode);
       }
+
 
       function formatHabits(habits) {
         if (!habits) return "";
