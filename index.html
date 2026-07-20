@@ -1225,11 +1225,13 @@
         <div class="voice-box" id="voiceBox">
           <h3 style="margin:0 0 0.35rem;font-family:var(--font-display)">Voice memo</h3>
           <p style="margin:0;color:var(--muted);font-size:0.88rem;line-height:1.45">
-            Record what you ate today. Stored on this phone until the coach processes it on the next review (keeps the date).
+            Record what you ate. Then <strong style="color:var(--ice-soft)">Export for Cursor</strong> and save the files into
+            <code style="color:var(--ice)">HEALTH_APP/data/context/food_voice_inbox/</code> (OneDrive). The coach processes them on the next chat and deletes the inbox copies.
           </p>
           <div class="vb-actions">
             <button type="button" id="voiceStart">Record</button>
             <button type="button" class="ghost" id="voiceStop" disabled>Stop</button>
+            <button type="button" class="ghost" id="voiceExport">Export for Cursor</button>
           </div>
           <p id="voiceStatus" style="margin:0;font-size:0.82rem;color:var(--muted)"></p>
           <ul class="voice-list" id="voiceList"></ul>
@@ -1777,9 +1779,83 @@
         }
       }
 
+      async function clearAllVoiceMemos() {
+        const items = await listVoiceMemos();
+        for (const it of items) {
+          await deleteVoiceMemo(it.id);
+        }
+      }
+
+      function downloadBlob(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 2500);
+      }
+
+      function safeVoiceFilename(dateIso, createdAt, id) {
+        const t = String(createdAt || "").replace(/[-:]/g, "").replace("T", "_").slice(0, 15);
+        const stamp = t || String(Date.now());
+        const shortId = String(id || "memo").replace(/[^\w.-]/g, "_").slice(-8);
+        return dateIso + "_" + stamp + "_" + shortId + ".webm";
+      }
+
+      async function exportVoiceMemosForCursor() {
+        const status = document.getElementById("voiceStatus");
+        if (isDemoMode()) {
+          if (status) status.textContent = "Export disabled in demo.";
+          return;
+        }
+        const items = await listVoiceMemos();
+        if (!items.length) {
+          if (status) status.textContent = "No memos to export.";
+          return;
+        }
+        const manifest = {
+          exported_at: new Date().toISOString(),
+          inbox_hint: "Save into HEALTH_APP/data/context/food_voice_inbox/",
+          memos: []
+        };
+        for (const it of items) {
+          if (!it.blob) continue;
+          const fname = safeVoiceFilename(it.date, it.created_at, it.id);
+          const type = (it.blob.type && it.blob.type.indexOf("audio") === 0) ? it.blob.type : "audio/webm";
+          const blob = it.blob instanceof Blob ? it.blob : new Blob([it.blob], { type: type });
+          downloadBlob(blob, fname);
+          manifest.memos.push({
+            file: fname,
+            date: it.date,
+            created_at: it.created_at,
+            id: it.id
+          });
+          await new Promise((r) => setTimeout(r, 350));
+        }
+        downloadBlob(
+          new Blob([JSON.stringify(manifest, null, 2)], { type: "application/json" }),
+          "manifest_" + isoDate(getPortalNow()) + ".json"
+        );
+        if (status) {
+          status.textContent = "Downloaded " + manifest.memos.length +
+            " file(s). Save them into data/context/food_voice_inbox/ then open Cursor.";
+        }
+        const wipe = window.confirm(
+          "Exports downloaded. Clear these memos from this phone now? (Only after you’ve saved them into the inbox folder.)"
+        );
+        if (wipe) {
+          await clearAllVoiceMemos();
+          refreshVoiceList();
+          if (status) status.textContent = "Phone memos cleared. Coach will process the inbox folder next chat.";
+        }
+      }
+
       function initVoiceMemos() {
         const start = document.getElementById("voiceStart");
         const stop = document.getElementById("voiceStop");
+        const exportBtn = document.getElementById("voiceExport");
         const status = document.getElementById("voiceStatus");
         if (!start || start.dataset.bound) return;
         start.dataset.bound = "1";
@@ -1799,7 +1875,7 @@
               const blob = new Blob(voiceChunks, { type: voiceRecorder.mimeType || "audio/webm" });
               const iso = isoDate(getPortalNow());
               await saveVoiceMemo(blob, iso);
-              if (status) { status.dataset.recording = ""; status.textContent = "Saved for " + iso + " — pending coach review."; }
+              if (status) { status.dataset.recording = ""; status.textContent = "Saved for " + iso + " — export when ready for Cursor."; }
               refreshVoiceList();
             };
             voiceRecorder.start();
@@ -1815,6 +1891,7 @@
           start.disabled = false;
           stop.disabled = true;
         });
+        if (exportBtn) exportBtn.addEventListener("click", () => { exportVoiceMemosForCursor(); });
       }
 
       function renderYou(data) {
