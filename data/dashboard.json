@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-19T17:00:23.212719+00:00",
+  "generated_at": "2026-07-20T13:09:46.720390+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -55,70 +55,62 @@
       "recovery": 60,
       "sleep_non_nap": 60,
       "cycles": 61,
-      "workouts": 26
+      "workouts": 27
     },
     "metrics": {
       "recovery_score": {
-        "avg": 68.22,
+        "avg": 68.33,
         "min": 14.0,
         "max": 93.0,
         "trend": {
-          "days_31_60_avg": 68.07,
-          "days_1_30_avg": 68.37
+          "days_31_60_avg": 68.47,
+          "days_1_30_avg": 68.2
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 100.82
+        "avg": 100.9
       },
       "resting_heart_rate": {
         "avg": 57.28
       },
       "sleep_performance_pct": {
-        "avg": 81.1
+        "avg": 81.0
       },
       "sleep_duration_hours": {
-        "avg": 8.1
+        "avg": 8.08
       },
       "cycle_strain": {
-        "avg": 8.5
+        "avg": 8.55
       },
       "workout_strain": {
-        "avg": 7.02
+        "avg": 7.16
       }
     },
     "workout_mix": {
       "golf": 12,
       "activity": 10,
       "jumping-rope": 3,
-      "walking": 1
+      "walking": 1,
+      "weightlifting": 1
     },
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.5 over the window.",
-      "26 workouts logged in 60 days (~3.1/week)."
+      "Average daily cycle strain ~8.55 over the window.",
+      "27 workouts logged in 60 days (~3.2/week)."
     ],
     "history_totals_all_time_pulled": {
-      "recovery": 192,
-      "sleep": 193,
-      "cycle": 196,
-      "workout": 78
+      "recovery": 193,
+      "sleep": 194,
+      "cycle": 197,
+      "workout": 79
     }
   },
   "history": {
     "window_days": 60,
     "points": [
       {
-        "date": "2026-05-20",
-        "strain": 8.82
-      },
-      {
         "date": "2026-05-21",
-        "recovery": 71.0,
-        "hrv": 100.5,
-        "rhr": 54.0,
-        "sleep_hours": 8.31,
-        "sleep_perf": 88.0,
         "strain": 7.32
       },
       {
@@ -649,70 +641,79 @@
         "rhr": 73.0,
         "sleep_hours": 7.94,
         "sleep_perf": 76.0,
-        "strain": 4.62
+        "strain": 4.64
+      },
+      {
+        "date": "2026-07-20",
+        "recovery": 78.0,
+        "hrv": 105.1,
+        "rhr": 54.0,
+        "sleep_hours": 7.35,
+        "sleep_perf": 82.0,
+        "strain": 11.92
       }
     ],
     "summaries": {
       "recovery": {
-        "avg": 68.22,
+        "avg": 68.33,
         "min": 14.0,
         "max": 93.0,
-        "first": 71.0,
-        "last": 43.0,
-        "older_half_avg": 68.07,
-        "newer_half_avg": 68.37
+        "first": 54.0,
+        "last": 78.0,
+        "older_half_avg": 68.47,
+        "newer_half_avg": 68.2
       },
       "hrv": {
-        "avg": 100.83,
+        "avg": 100.9,
         "min": 73.4,
         "max": 126.8,
-        "first": 100.5,
-        "last": 87.1,
-        "older_half_avg": 98.58,
-        "newer_half_avg": 103.07
+        "first": 90.5,
+        "last": 105.1,
+        "older_half_avg": 98.71,
+        "newer_half_avg": 103.1
       },
       "rhr": {
         "avg": 57.28,
         "min": 50.0,
         "max": 75.0,
         "first": 54.0,
-        "last": 73.0,
-        "older_half_avg": 56.37,
-        "newer_half_avg": 58.2
+        "last": 54.0,
+        "older_half_avg": 56.4,
+        "newer_half_avg": 58.17
       },
       "sleep_hours": {
-        "avg": 7.38,
+        "avg": 7.37,
         "min": 3.57,
         "max": 9.87,
-        "first": 8.31,
-        "last": 7.94,
-        "older_half_avg": 7.38,
+        "first": 7.85,
+        "last": 7.35,
+        "older_half_avg": 7.34,
         "newer_half_avg": 7.39
       },
       "sleep_perf": {
-        "avg": 81.1,
+        "avg": 81.0,
         "min": 28.0,
         "max": 94.0,
-        "first": 88.0,
-        "last": 76.0,
-        "older_half_avg": 80.57,
+        "first": 93.0,
+        "last": 82.0,
+        "older_half_avg": 80.37,
         "newer_half_avg": 81.63
       },
       "strain": {
-        "avg": 8.39,
+        "avg": 8.45,
         "min": 4.49,
         "max": 16.5,
-        "first": 8.82,
-        "last": 4.62,
-        "older_half_avg": 9.2,
-        "newer_half_avg": 7.59
+        "first": 7.32,
+        "last": 11.92,
+        "older_half_avg": 9.14,
+        "newer_half_avg": 7.75
       }
     },
     "totals_pulled": {
-      "recovery": 192,
-      "sleep": 193,
-      "cycle": 196,
-      "workout": 78
+      "recovery": 193,
+      "sleep": 194,
+      "cycle": 197,
+      "workout": 79
     }
   },
   "profile": {
@@ -876,22 +877,273 @@
   "today": {
     "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
-      "recovery_score": 43.0,
-      "hrv_rmssd_milli": 87.09888,
-      "resting_heart_rate": 73.0,
-      "created_at": "2026-07-19T06:31:55.111Z"
+      "recovery_score": 78.0,
+      "hrv_rmssd_milli": 105.07231,
+      "resting_heart_rate": 54.0,
+      "created_at": "2026-07-20T06:40:01.399Z"
     },
     "guided_workout": {
-      "mode": "rest",
-      "title": "Recovery / off day",
-      "summary": "No lifting prescribed today (MWF plan). Walk, sleep, hit protein + creatine.",
-      "date": "2026-07-19",
-      "next_session": {
-        "date": "2026-07-20",
-        "weekday": "monday",
-        "week": 1,
-        "template": "push"
-      },
+      "mode": "session",
+      "date": "2026-07-20",
+      "weekday": "monday",
+      "week": 1,
+      "week_label": "Ease-in",
+      "reps_in_reserve": "Leave about 2 to 3 reps in reserve (you could still do 2\u20133 more clean reps). Last set can finish closer to 2 left.",
+      "rir": "Leave about 2 to 3 reps in reserve (you could still do 2\u20133 more clean reps). Last set can finish closer to 2 left.",
+      "load_cue": "Start ~60\u201370% of what you remember. Smooth reps. Stop if form breaks.",
+      "title": "Push \u00b7 chest + shoulders",
+      "focus": "Chest, front/side delts, triceps \u00b7 small leg maintenance",
+      "summary": "Week 1 \u00b7 Ease-in \u00b7 about 75 minutes \u00b7 Leave about 2 to 3 reps in reserve (you could still do 2\u20133 more clean reps). Last set can finish closer to 2 left.",
+      "minutes": 75,
+      "gym": [
+        {
+          "order": 1,
+          "name": "Incline dumbbell or barbell press",
+          "sets": 2,
+          "reps": "8\u201310",
+          "notes": "45\u00b0 incline. Control the eccentric.",
+          "minutes": 12,
+          "where": "Adjustable bench + dumbbells (or barbell / Smith incline). Bench about 30\u201345 degrees.",
+          "how_to": "Set the bench to about 30\u201345 degrees. Plant your feet flat. Pull your shoulder blades back into the pad. Start with the weights at upper-chest height, elbows about 45 degrees from your torso (not flared flat out). Press up until arms are almost straight without slamming. Lower for about 2 seconds until you feel a stretch across the upper chest.",
+          "avoid": "Bench too upright (turns into a shoulder press). Bouncing the bar/dumbbells off the chest. Huge arch and lifting the hips.",
+          "set_plan": "Set 1: pick a weight (X kilograms) you can do for 8\u201310 reps with about 2\u20133 reps still left. Set 2: same X kg, or X + 2.5 kg if set 1 felt easy. Set 3 (when you have 3 sets): try X + 2.5 kg only if form stayed smooth \u2014 otherwise stay at X.",
+          "tips": [
+            "Remember: control the lowering \u2014 that stretch is where a lot of the chest work happens.",
+            "Remember: keep shoulder blades pinned; do not shrug into your ears.",
+            "If you only find a barbell incline machine, use that \u2014 same idea."
+          ],
+          "research_note": "Weekly hard sets on a muscle drive growth more than which machine you pick (Schoenfeld volume dose-response). Upper-chest emphasis from incline is a programming choice for your visual goals \u2014 not a magic percentage over flat press.",
+          "video_id": "oZVCBM9f8Eo",
+          "video_label": "Short incline dumbbell press demo"
+        },
+        {
+          "order": 2,
+          "name": "Seated dumbbell or machine shoulder press",
+          "sets": 2,
+          "reps": "8\u201310",
+          "notes": "Don't shrug. Full lockout without slamming.",
+          "minutes": 10,
+          "where": "Seated bench with back support + dumbbells, or a shoulder-press machine.",
+          "how_to": "Sit tall with your back against the pad. Start with dumbbells at about ear height. Press overhead until arms lock softly. Lower back to ear height. Do not shrug. On a machine: same path, slow and controlled.",
+          "avoid": "Big lower-back arch. Pressing the weights far out in front of your face.",
+          "set_plan": "Set 1: X kilograms for 8\u201310 reps with 2\u20133 reps left. Set 2: X or X + 2.5 kg. Set 3 (if scheduled): same rule \u2014 only add 2.5 kg if set 2 was clean.",
+          "tips": [
+            "Remember: this builds the front and middle of the shoulder \u2014 key for that round look.",
+            "Remember: stop the set when form shakes; do not fight ugly reps in week 1."
+          ],
+          "research_note": "Shoulders respond to local weekly volume. Extra hard sets here support your visual shoulder goal without needing a fourth gym day.",
+          "video_id": "qEwKCR5JCog",
+          "video_label": "Seated dumbbell shoulder press demo"
+        },
+        {
+          "order": 3,
+          "name": "Dumbbell or cable side lateral raise",
+          "sets": 2,
+          "reps": "12\u201315",
+          "notes": "Visual priority \u2014 soft elbows, lead with elbows.",
+          "minutes": 8,
+          "where": "Dumbbells standing, cable with a handle at your side, or a lateral-raise machine.",
+          "how_to": "Soft bend in the elbows. Lead with the elbows and raise arms out to just below shoulder height. Pause briefly. Lower slowly. Prefer clean reps over heavy weight \u2014 this is your main \u201cwider shoulders\u201d move.",
+          "avoid": "Swinging the body. Shrugging traps. Flinging weights above the head.",
+          "set_plan": "Set 1: light X kilograms (often 4\u20138 kg to start) for 12\u201315 reps with 2 reps left. Set 2: same X, or +2 kg / +2.5 kg if easy. Later sets: stay strict \u2014 if you need swing, the weight is too heavy.",
+          "tips": [
+            "Remember: stop just below shoulder height if traps take over.",
+            "Remember: side delts are a priority for looking broader in shirts \u2014 quality beats ego weight."
+          ],
+          "research_note": "Specialty volume on a region works because hypertrophy is largely local (sets per muscle). Raising week-to-week volume here is a standard specialization approach.",
+          "video_id": "3VcKaXpzqRo",
+          "video_label": "Lateral raise form demo"
+        },
+        {
+          "order": 4,
+          "name": "Cable or machine chest fly",
+          "sets": 1,
+          "reps": "12\u201315",
+          "notes": "Squeeze at the inside; no ego weight.",
+          "minutes": 6,
+          "where": "Pec-deck / fly machine, or dual cables at chest height.",
+          "how_to": "Keep a slight bend in the elbows and keep that bend fixed. Open until you feel a chest stretch, then bring the arms together as if hugging a tree. Squeeze one second at the inside.",
+          "avoid": "Straight-arm swings. Jerky lowering.",
+          "set_plan": "Set 1: X kilograms (or machine pin) for 12\u201315 smooth reps. Set 2: same or + one pin / +2.5 kg if easy.",
+          "tips": [
+            "Remember: this is a control / pump move \u2014 light is correct.",
+            "Remember: feel the stretch; do not bounce."
+          ],
+          "research_note": "Isolation work adds local volume. It does not replace your main presses \u2014 it tops up chest work inside the time budget.",
+          "video_id": "eozdVDA78K0",
+          "video_label": "Cable fly demo"
+        },
+        {
+          "order": 5,
+          "name": "Cable triceps pushdown (rope or bar)",
+          "sets": 1,
+          "reps": "10\u201315",
+          "notes": "Elbows pinned.",
+          "minutes": 5,
+          "where": "Cable stack with a rope or straight / angled bar.",
+          "how_to": "Pin elbows to your sides. Push down until arms straighten. If using a rope, spread the ends apart at the bottom. Let the forearms come up only as far as the elbows stay still.",
+          "avoid": "Leaning and turning it into a chest press. Elbows flaring wide.",
+          "set_plan": "Set 1: X kilograms for 10\u201315 reps with 2 reps left. Set 2: X or X + 2.5 kg.",
+          "tips": [
+            "Remember: only the forearms should move \u2014 elbows stay glued.",
+            "Remember: full straighten at the bottom for the triceps squeeze."
+          ],
+          "research_note": "Arms get work from presses too; this finishes triceps without long sessions.",
+          "video_id": "2-g6w_cwGRw",
+          "video_label": "Rope pushdown demo"
+        },
+        {
+          "order": 6,
+          "name": "Leg press or goblet squat (or walking lunges)",
+          "sets": 1,
+          "reps": "10\u201312",
+          "notes": "Maintenance only \u2014 stop with about 2\u20133 clean reps still left.",
+          "minutes": 7,
+          "where": "Leg-press sled, or one dumbbell for goblet squat, or open floor for walking lunges.",
+          "how_to": "Leg press: feet mid-platform, lower until thighs are about 90 degrees, press without slamming the locks. Goblet squat: hold one dumbbell at your chest, sit between your heels, stand tall. Lunges: short steps, torso upright. These are maintenance only \u2014 leave 2\u20133 reps in reserve.",
+          "avoid": "Butt peeling off the leg-press pad. Knees collapsing inward.",
+          "set_plan": "Set 1: X kilograms for 10\u201312 controlled reps. Set 2: same X (do not chase a leg personal record this block).",
+          "tips": [
+            "Remember: legs stay in the plan for health balance (WHO major-muscle guidance) \u2014 not to become a leg specialty.",
+            "Remember: stop early if knees hurt; choose the machine that feels best."
+          ],
+          "research_note": "Young adults can maintain muscle with much lower volume than they used to build it (Bickel et al., 2011). A few hard sets keep the floor without stealing time from upper body.",
+          "video_id": "IZxyjW7MPJQ",
+          "video_label": "Leg press demo"
+        },
+        {
+          "order": 7,
+          "name": "Easy conditioning finisher",
+          "sets": 1,
+          "reps": "time",
+          "notes": "8 min \u00b7 MIX: StairMaster OR incline walk OR jump rope \u00b7 easy-moderate zone 2 feel.",
+          "minutes": 10,
+          "where": "Stair climber, incline treadmill, or jump-rope space.",
+          "how_to": "Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5\u20138% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
+          "avoid": "All-out intervals that trash tomorrow\u2019s lift. Hanging on the stair climber rails and cheating the steps.",
+          "set_plan": "One block of easy cardio for the minutes listed. No \u201cX kilograms\u201d \u2014 just steady effort.",
+          "tips": [
+            "Remember: this supports conditioning and midsection goals; lifting still builds the shoulders.",
+            "Remember: if you are exhausted from lifting, shorten this, do not skip the whole gym day."
+          ],
+          "research_note": "Extra easy cardio is optional support. Your main belly/definition lever in this 3-week restart is lifting + protein + not hard-cutting, not punishing cardio.",
+          "video_id": "aq8qG0s1i_U",
+          "video_label": "Steady stair-climber idea"
+        }
+      ],
+      "home": [
+        {
+          "order": 1,
+          "name": "Push-up (hands elevated or standard)",
+          "sets": 2,
+          "reps": "8\u201315",
+          "notes": "Feet on floor; elevate hands to make harder as needed.",
+          "minutes": 8,
+          "where": "Floor or sturdy chair/couch.",
+          "how_to": "Hands under shoulders (closer together for a diamond push-up). Body straight. Lower the chest toward the hands, press up. Hands elevated = easier. Feet elevated = harder.",
+          "avoid": "Hips sagging. Tiny half-reps.",
+          "set_plan": "Home sets: match the set count on the card. Soften difficulty with a higher hand elevation rather than ugly form.",
+          "tips": [
+            "Remember: body in one line from head to heels.",
+            "Remember: this is the home stand-in for pressing."
+          ],
+          "research_note": "Home volume counts when gym is impossible \u2014 still second-best to the gym priority ladder.",
+          "video_id": "IODxDxX7oi4",
+          "video_label": "Push-up form demo"
+        },
+        {
+          "order": 2,
+          "name": "Pike push-up (shoulder focus)",
+          "sets": 2,
+          "reps": "6\u201312",
+          "notes": "Hips high; head toward floor between hands.",
+          "minutes": 8,
+          "where": "Floor.",
+          "how_to": "Hips high in an inverted V. Bend elbows and lower the head toward the floor between the hands, then press back up. This copies a shoulder-press pattern at home.",
+          "avoid": "Letting the hips drop into a normal push-up.",
+          "set_plan": "Strict reps; elevate feet later only if easy.",
+          "tips": [
+            "Remember: hips stay high.",
+            "Remember: this is your home shoulder builder."
+          ],
+          "research_note": "Home shoulder pattern when dumbbells are not available.",
+          "video_id": "XckEEwa1iQQ",
+          "video_label": "Pike push-up demo"
+        },
+        {
+          "order": 3,
+          "name": "Side-lying or standing arm-raise holds",
+          "sets": 2,
+          "reps": "12\u201320",
+          "notes": "Slow laterals with water bottles / backpack if you have no dumbbells.",
+          "minutes": 8,
+          "where": "",
+          "how_to": "Slow laterals with water bottles / backpack if you have no dumbbells.",
+          "avoid": "",
+          "set_plan": "",
+          "tips": [],
+          "research_note": "",
+          "video_id": "",
+          "video_label": "Demo"
+        },
+        {
+          "order": 4,
+          "name": "Push-up (hands elevated or standard)",
+          "sets": 1,
+          "reps": "8\u201315",
+          "notes": "Triceps.",
+          "minutes": 8,
+          "where": "Floor or sturdy chair/couch.",
+          "how_to": "Hands under shoulders (closer together for a diamond push-up). Body straight. Lower the chest toward the hands, press up. Hands elevated = easier. Feet elevated = harder.",
+          "avoid": "Hips sagging. Tiny half-reps.",
+          "set_plan": "Home sets: match the set count on the card. Soften difficulty with a higher hand elevation rather than ugly form.",
+          "tips": [
+            "Remember: body in one line from head to heels.",
+            "Remember: this is the home stand-in for pressing."
+          ],
+          "research_note": "Home volume counts when gym is impossible \u2014 still second-best to the gym priority ladder.",
+          "video_id": "IODxDxX7oi4",
+          "video_label": "Push-up form demo"
+        },
+        {
+          "order": 5,
+          "name": "Bodyweight squat or split squat",
+          "sets": 1,
+          "reps": "12\u201320",
+          "notes": "Leg maintenance.",
+          "minutes": 6,
+          "where": "Open floor space.",
+          "how_to": "Feet about shoulder width. Sit down and slightly back, knees track over toes, stand tall. Split squat: one foot forward, drop the back knee toward the floor.",
+          "avoid": "Heels lifting. Knees caving hard inward.",
+          "set_plan": "Smooth controlled reps for the sets listed.",
+          "tips": [
+            "Remember: this is only leg maintenance at home.",
+            "Remember: hold a backpack for load if bodyweight is too easy."
+          ],
+          "research_note": "Minimum lower-body stimulus when you cannot reach the gym.",
+          "video_id": "aclHkVaku9U",
+          "video_label": "Bodyweight squat demo"
+        },
+        {
+          "order": 6,
+          "name": "Easy conditioning finisher",
+          "sets": 1,
+          "reps": "time",
+          "notes": "8 min \u00b7 Same minutes as gym finisher for this week.",
+          "minutes": 10,
+          "where": "Stair climber, incline treadmill, or jump-rope space.",
+          "how_to": "Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5\u20138% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
+          "avoid": "All-out intervals that trash tomorrow\u2019s lift. Hanging on the stair climber rails and cheating the steps.",
+          "set_plan": "One block of easy cardio for the minutes listed. No \u201cX kilograms\u201d \u2014 just steady effort.",
+          "tips": [
+            "Remember: this supports conditioning and midsection goals; lifting still builds the shoulders.",
+            "Remember: if you are exhausted from lifting, shorten this, do not skip the whole gym day."
+          ],
+          "research_note": "Extra easy cardio is optional support. Your main belly/definition lever in this 3-week restart is lifting + protein + not hard-cutting, not punishing cardio.",
+          "video_id": "aq8qG0s1i_U",
+          "video_label": "Steady stair-climber idea"
+        }
+      ],
       "habits": {
         "creatine_monohydrate_g": 5,
         "protein_g_day": "115\u2013130",
@@ -904,7 +1156,30 @@
         "First prize: Gym on Monday, Wednesday, and Friday",
         "Second: Still three gym days \u2014 makeup Tuesday or Thursday if you miss a plan day",
         "Last resort: Home only if getting to Virgin Active is truly impossible for that session"
-      ]
+      ],
+      "session_tips": [
+        {
+          "title": "Best time of day",
+          "body": "For muscle size over weeks, morning and evening training are about equal when weekly hard sets are matched. A 2019 meta-analysis (Grgic et al., Chronobiology International) found similar hypertrophy morning vs evening (effect size near zero). Pick the time you will actually arrive \u2014 that beats the \u201cperfect\u201d clock."
+        },
+        {
+          "title": "Food around training",
+          "body": "Daily protein (~115\u2013130 g for you) matters more than a magic 30-minute window. For this restart: a small meal or snack 1\u20132 hours before usually feels better than going completely empty (less light-headedness). If you train fasted and feel fine, that is OK \u2014 just hit protein across the day (ISSN protein position stand)."
+        },
+        {
+          "title": "How hard (reps left in reserve)",
+          "body": "Week 1: stop each set when you could still do about 2\u20133 more clean reps. You do not need every set to failure. Training near failure is enough for growth; grinding every set to failure is not required (failure vs non-failure reviews)."
+        },
+        {
+          "title": "Weights in kilograms",
+          "body": "Virgin Active plates and dumbbells are in kilograms. Write the number on your phone notes: Set 1 = X kg. Next set, try the same or +2.5 kg if it felt easy."
+        },
+        {
+          "title": "Showing up beats perfect",
+          "body": "First prize: gym Monday / Wednesday / Friday. Second: still three gym days with a makeup weekday. Home only if the gym is truly impossible."
+        }
+      ],
+      "template_id": "push"
     }
   },
   "plan": {
@@ -1799,16 +2074,21 @@
     "block_start": "2026-07-20",
     "block_end": "2026-08-07",
     "scheduled_sessions": 9,
-    "sessions_with_whoop_log": 0,
-    "adherence_pct_logged": 0.0,
+    "sessions_with_whoop_log": 1,
+    "adherence_pct_logged": 11.1,
     "planned": [
       {
         "date": "2026-07-20",
         "template": "push",
         "week": 1,
         "planned": true,
-        "whoop_logged": false,
-        "whoop_activities": []
+        "whoop_logged": true,
+        "whoop_activities": [
+          {
+            "sport": "weightlifting",
+            "strain": 10.8534
+          }
+        ]
       },
       {
         "date": "2026-07-22",
