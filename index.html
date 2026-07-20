@@ -990,6 +990,27 @@
       .sm-dock { max-width: 520px; left: 50%; transform: translateX(-50%); width: 100%; }
       .sm-diagram { height: 160px; }
     }
+    @media (max-width: 700px) {
+      #view-today.active .hero-strip,
+      #view-today.active .week-nav,
+      #view-today.active .day-rail,
+      #view-today.active .jump-chips,
+      #todayGuide .priority-box,
+      #todayGuide .tips-block,
+      #todayGuide .habits-row,
+      #todayGuide .cue-box,
+      #todayGuide .session-meta {
+        display: none !important;
+      }
+      #todayGuide .session-toolbar { margin-bottom: 0.35rem; }
+      .session-mode { min-height: calc(100svh - 3.5rem); padding-bottom: calc(4.8rem + env(safe-area-inset-bottom, 0px)); }
+      .sm-diagram { height: 110px; }
+      .sm-ring { width: 64px; }
+      .sm-ring svg { width: 56px; height: 56px; }
+      .sm-card { padding: 0.65rem 0.75rem; gap: 0.4rem; }
+      .sm-card h3 { font-size: 1.1rem; }
+      .top { padding: 0.55rem 0.75rem; }
+    }
   </style>
 </head>
 <body class="locked">
