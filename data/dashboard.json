@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-23T09:21:32.581509+00:00",
+  "generated_at": "2026-07-23T14:02:07.091416+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -889,12 +889,28 @@
       "weekday": "thursday",
       "week": 1,
       "week_label": "MAX \u00b7 hard restart",
-      "reps_in_reserve": "Leave about 0 to 2 reps in reserve. Isolation (laterals, curls, flies) can finish at 0\u20131. Stop if form breaks.",
-      "rir": "Leave about 0 to 2 reps in reserve. Isolation (laterals, curls, flies) can finish at 0\u20131. Stop if form breaks.",
-      "load_cue": "Work up to challenging working weights. Last hard sets should feel hard \u2014 leave ~1\u20132 clean reps on compounds, 0\u20131 on laterals/arms.",
+      "reps_in_reserve": "STOP RULE: most hard sets end with 1\u20132 clean reps still left. You are NOT supposed to hit absolute failure on every set. Only the last set of laterals/curls/flies/pushdowns may go to 0\u20131 left. If form breaks, the set is over.",
+      "rir": "STOP RULE: most hard sets end with 1\u20132 clean reps still left. You are NOT supposed to hit absolute failure on every set. Only the last set of laterals/curls/flies/pushdowns may go to 0\u20131 left. If form breaks, the set is over.",
+      "load_cue": "Pick a weight where the target reps finish hard but you still have ~1\u20132 clean reps left. If you had 4+ easy reps left, go heavier next set. If you failed a rep, go lighter.",
+      "effort_rule": {
+        "headline": "Do NOT take every set to absolute failure",
+        "answer": "No \u2014 you are not supposed to grind every set until you cannot move the weight.",
+        "do": [
+          "Warm-up / early sets: stop with about 2\u20133 clean reps left in the tank.",
+          "Hard working sets: stop with about 1\u20132 clean reps left (you could still do 1\u20132 more with good form).",
+          "Last set of side laterals, curls, flies, pushdowns only: you may finish with 0\u20131 left \u2014 hard, but still controlled."
+        ],
+        "dont": [
+          "Do not fail mid-rep on presses, pulldowns, rows, or RDLs (no stuck bar / ugly grind).",
+          "Do not keep going after form breaks \u2014 that set is over.",
+          "Do not turn every set into a max-out. Hard \u2260 form collapse."
+        ],
+        "one_liner": "Hard sets = 1\u20132 reps left. Absolute failure = only optional on the last isolation set.",
+        "source": "data/sources/04_overload_stable_menu.md"
+      },
       "title": "Pull \u00b7 back + rear delts + arms",
       "focus": "Lats, upper back, rear delts, biceps \u00b7 hinge maintenance",
-      "summary": "Week 1 \u00b7 MAX \u00b7 hard restart \u00b7 about 74 minutes \u00b7 Leave about 0 to 2 reps in reserve. Isolation (laterals, curls, flies) can finish at 0\u20131. Stop if form breaks.",
+      "summary": "Week 1 \u00b7 MAX \u00b7 hard restart \u00b7 about 74 minutes \u00b7 STOP RULE: most hard sets end with 1\u20132 clean reps still left. You are NOT supposed to hit absolute failure on every set. Only the last set of laterals/curls/flies/pushdowns may go to 0\u20131 left. If form breaks, the set is over.",
       "minutes": 74,
       "budget_minutes": 85,
       "gym": [
@@ -910,11 +926,11 @@
           "avoid": "Pulling the bar behind the neck. Huge swinging half-reps.",
           "load_type": "machine_pin",
           "set_plan_lines": [
-            "Set 1: pin / load for 8\u201310 with 2\u20133 left",
+            "Set 1: pin / load for 8\u201310 stopping with 1\u20132 clean reps left (not failure)",
             "Set 2: same or +1 pin / +5 kg if clean",
             "Set 3: full stretch at the top every rep"
           ],
-          "set_plan": "Set 1: pin / load for 8\u201310 with 2\u20133 left | Set 2: same or +1 pin / +5 kg if clean | Set 3: full stretch at the top every rep",
+          "set_plan": "Set 1: pin / load for 8\u201310 stopping with 1\u20132 clean reps left (not failure) | Set 2: same or +1 pin / +5 kg if clean | Set 3: full stretch at the top every rep",
           "timing": {
             "work_sec_per_set": 45,
             "rest_sec_between_sets": 90,
@@ -993,11 +1009,11 @@
           "avoid": "Rocking with the lower back. Shrugging the traps every rep.",
           "load_type": "machine_pin",
           "set_plan_lines": [
-            "Set 1: load for 8\u201310",
+            "Set 1: load for 8\u201310 \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same or +2.5\u20135 kg if clean",
             "Set 3: squeeze blades 1 sec \u2014 no rock"
           ],
-          "set_plan": "Set 1: load for 8\u201310 | Set 2: same or +2.5\u20135 kg if clean | Set 3: squeeze blades 1 sec \u2014 no rock",
+          "set_plan": "Set 1: load for 8\u201310 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2.5\u20135 kg if clean | Set 3: squeeze blades 1 sec \u2014 no rock",
           "timing": {
             "work_sec_per_set": 45,
             "rest_sec_between_sets": 90,
@@ -1076,11 +1092,11 @@
           "avoid": "Turning it into a heavy shrug or row with swing.",
           "load_type": "kg",
           "set_plan_lines": [
-            "Set 1: light load for 12\u201315",
+            "Set 1: light load for 12\u201315 \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same or +2 / +2.5 kg",
             "Set 3: if you only feel traps, go lighter"
           ],
-          "set_plan": "Set 1: light load for 12\u201315 | Set 2: same or +2 / +2.5 kg | Set 3: if you only feel traps, go lighter",
+          "set_plan": "Set 1: light load for 12\u201315 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2 / +2.5 kg | Set 3: if you only feel traps, go lighter",
           "timing": {
             "work_sec_per_set": 40,
             "rest_sec_between_sets": 60,
@@ -1154,11 +1170,11 @@
           "avoid": "Pulling the rope to the belly (that becomes a regular row).",
           "load_type": "machine_pin",
           "set_plan_lines": [
-            "Set 1: light pin for 12\u201315 smooth",
+            "Set 1: light pin for 12\u201315 smooth \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same pin \u2014 thumbs toward ears at the end",
             "Set 3: form first \u2014 this is prehab + shape"
           ],
-          "set_plan": "Set 1: light pin for 12\u201315 smooth | Set 2: same pin \u2014 thumbs toward ears at the end | Set 3: form first \u2014 this is prehab + shape",
+          "set_plan": "Set 1: light pin for 12\u201315 smooth \u2014 stop with 1\u20132 clean reps left | Set 2: same pin \u2014 thumbs toward ears at the end | Set 3: form first \u2014 this is prehab + shape",
           "timing": {
             "work_sec_per_set": 40,
             "rest_sec_between_sets": 55,
@@ -1237,11 +1253,11 @@
           "avoid": "Huge cheat swings in week 1.",
           "load_type": "kg",
           "set_plan_lines": [
-            "Set 1: load for 10\u201312",
+            "Set 1: load for 10\u201312 \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same or +2 / +2.5 kg",
             "Set 3: full lower \u2014 no cheat swing"
           ],
-          "set_plan": "Set 1: load for 10\u201312 | Set 2: same or +2 / +2.5 kg | Set 3: full lower \u2014 no cheat swing",
+          "set_plan": "Set 1: load for 10\u201312 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2 / +2.5 kg | Set 3: full lower \u2014 no cheat swing",
           "timing": {
             "work_sec_per_set": 35,
             "rest_sec_between_sets": 55,
@@ -1314,11 +1330,11 @@
           "avoid": "Rounding the upper back hard. Yanking the leg curl.",
           "load_type": "kg",
           "set_plan_lines": [
-            "Set 1: load for 8\u201312 (maintenance)",
+            "Set 1: load for 8\u201312 (maintenance) \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same load \u2014 not a max deadlift day",
             "Set 3: hips back, weights close to legs"
           ],
-          "set_plan": "Set 1: load for 8\u201312 (maintenance) | Set 2: same load \u2014 not a max deadlift day | Set 3: hips back, weights close to legs",
+          "set_plan": "Set 1: load for 8\u201312 (maintenance) \u2014 stop with 1\u20132 clean reps left | Set 2: same load \u2014 not a max deadlift day | Set 3: hips back, weights close to legs",
           "timing": {
             "work_sec_per_set": 45,
             "rest_sec_between_sets": 90,
@@ -1487,11 +1503,11 @@
           "avoid": "Pulling the bar behind the neck. Huge swinging half-reps.",
           "load_type": "machine_pin",
           "set_plan_lines": [
-            "Set 1: pin / load for 8\u201310 with 2\u20133 left",
+            "Set 1: pin / load for 8\u201310 stopping with 1\u20132 clean reps left (not failure)",
             "Set 2: same or +1 pin / +5 kg if clean",
             "Set 3: full stretch at the top every rep"
           ],
-          "set_plan": "Set 1: pin / load for 8\u201310 with 2\u20133 left | Set 2: same or +1 pin / +5 kg if clean | Set 3: full stretch at the top every rep",
+          "set_plan": "Set 1: pin / load for 8\u201310 stopping with 1\u20132 clean reps left (not failure) | Set 2: same or +1 pin / +5 kg if clean | Set 3: full stretch at the top every rep",
           "timing": {
             "work_sec_per_set": 45,
             "rest_sec_between_sets": 90,
@@ -1570,11 +1586,11 @@
           "avoid": "Rocking with the lower back. Shrugging the traps every rep.",
           "load_type": "machine_pin",
           "set_plan_lines": [
-            "Set 1: load for 8\u201310",
+            "Set 1: load for 8\u201310 \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same or +2.5\u20135 kg if clean",
             "Set 3: squeeze blades 1 sec \u2014 no rock"
           ],
-          "set_plan": "Set 1: load for 8\u201310 | Set 2: same or +2.5\u20135 kg if clean | Set 3: squeeze blades 1 sec \u2014 no rock",
+          "set_plan": "Set 1: load for 8\u201310 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2.5\u20135 kg if clean | Set 3: squeeze blades 1 sec \u2014 no rock",
           "timing": {
             "work_sec_per_set": 45,
             "rest_sec_between_sets": 90,
@@ -1653,11 +1669,11 @@
           "avoid": "Turning it into a heavy shrug or row with swing.",
           "load_type": "kg",
           "set_plan_lines": [
-            "Set 1: light load for 12\u201315",
+            "Set 1: light load for 12\u201315 \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same or +2 / +2.5 kg",
             "Set 3: if you only feel traps, go lighter"
           ],
-          "set_plan": "Set 1: light load for 12\u201315 | Set 2: same or +2 / +2.5 kg | Set 3: if you only feel traps, go lighter",
+          "set_plan": "Set 1: light load for 12\u201315 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2 / +2.5 kg | Set 3: if you only feel traps, go lighter",
           "timing": {
             "work_sec_per_set": 40,
             "rest_sec_between_sets": 60,
@@ -1731,11 +1747,11 @@
           "avoid": "Huge cheat swings in week 1.",
           "load_type": "kg",
           "set_plan_lines": [
-            "Set 1: load for 10\u201312",
+            "Set 1: load for 10\u201312 \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same or +2 / +2.5 kg",
             "Set 3: full lower \u2014 no cheat swing"
           ],
-          "set_plan": "Set 1: load for 10\u201312 | Set 2: same or +2 / +2.5 kg | Set 3: full lower \u2014 no cheat swing",
+          "set_plan": "Set 1: load for 10\u201312 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2 / +2.5 kg | Set 3: full lower \u2014 no cheat swing",
           "timing": {
             "work_sec_per_set": 35,
             "rest_sec_between_sets": 55,
@@ -1808,10 +1824,10 @@
           "avoid": "Rounding the upper back hard. Yanking the leg curl.",
           "load_type": "kg",
           "set_plan_lines": [
-            "Set 1: load for 8\u201312 (maintenance)",
+            "Set 1: load for 8\u201312 (maintenance) \u2014 stop with 1\u20132 clean reps left",
             "Set 2: same load \u2014 not a max deadlift day"
           ],
-          "set_plan": "Set 1: load for 8\u201312 (maintenance) | Set 2: same load \u2014 not a max deadlift day",
+          "set_plan": "Set 1: load for 8\u201312 (maintenance) \u2014 stop with 1\u20132 clean reps left | Set 2: same load \u2014 not a max deadlift day",
           "timing": {
             "work_sec_per_set": 45,
             "rest_sec_between_sets": 90,
@@ -1982,6 +1998,10 @@
       ],
       "session_tips": [
         {
+          "title": "Failure rule (read this)",
+          "body": "You are NOT supposed to go to absolute failure on every set. Hard working sets stop with about 1\u20132 clean reps left. Only the last set of isolation moves (laterals, curls, flies, pushdowns) may finish at 0\u20131 left. Compounds (press, pulldown, row, RDL): never grind to a stuck rep. Pack 04."
+        },
+        {
           "title": "What 'hard' means today",
           "body": "Max results \u2260 sloppy grinding. Last hard sets should leave about 0\u20132 clean reps (pack 04). If you could do 5 more easy reps, the set was too light."
         },
@@ -2095,7 +2115,7 @@
         "Hit all 3 gym days (makeup weekdays OK)",
         "Creatine 5 g daily",
         "Protein ~115\u2013130 g most days (push toward 130 on training days)",
-        "Hard sets finish ~0\u20132 RIR (isolation can touch 0; compounds keep ~1\u20132)",
+        "Hard sets finish with ~1\u20132 clean reps left (NOT absolute failure every set); last isolation set may be 0\u20131 left",
         "Log loads in kg \u2014 add weight/reps when top of range is clean"
       ]
     },
@@ -2110,23 +2130,23 @@
       "1": {
         "label": "MAX \u00b7 hard restart",
         "set_scale": 1.0,
-        "load_cue": "Work up to challenging working weights. Last hard sets should feel hard \u2014 leave ~1\u20132 clean reps on compounds, 0\u20131 on laterals/arms.",
+        "load_cue": "Pick a weight where the target reps finish hard but you still have ~1\u20132 clean reps left. If you had 4+ easy reps left, go heavier next set. If you failed a rep, go lighter.",
         "conditioning_min": 12,
-        "reps_in_reserve": "Leave about 0 to 2 reps in reserve. Isolation (laterals, curls, flies) can finish at 0\u20131. Stop if form breaks."
+        "reps_in_reserve": "STOP RULE: most hard sets end with 1\u20132 clean reps still left. You are NOT supposed to hit absolute failure on every set. Only the last set of laterals/curls/flies/pushdowns may go to 0\u20131 left. If form breaks, the set is over."
       },
       "2": {
         "label": "MAX \u00b7 build",
         "set_scale": 1.0,
-        "load_cue": "Beat week 1: same reps + more kg, or same kg + more reps. No empty sets.",
+        "load_cue": "Pick a weight where the target reps finish hard but you still have ~1\u20132 clean reps left. If you had 4+ easy reps left, go heavier next set. If you failed a rep, go lighter.",
         "conditioning_min": 12,
-        "reps_in_reserve": "Leave about 0 to 2 reps in reserve on hard sets."
+        "reps_in_reserve": "STOP RULE: most hard sets end with 1\u20132 clean reps still left. You are NOT supposed to hit absolute failure on every set. Only the last set of laterals/curls/flies/pushdowns may go to 0\u20131 left. If form breaks, the set is over."
       },
       "3": {
         "label": "MAX \u00b7 peak before InBody",
         "set_scale": 1.05,
-        "load_cue": "Best loads of the block. Still controlled eccentrics \u2014 intensity \u2260 sloppy.",
+        "load_cue": "Pick a weight where the target reps finish hard but you still have ~1\u20132 clean reps left. If you had 4+ easy reps left, go heavier next set. If you failed a rep, go lighter.",
         "conditioning_min": 12,
-        "reps_in_reserve": "Leave about 0 to 1 rep on isolation; about 1\u20132 on big compounds."
+        "reps_in_reserve": "STOP RULE: most hard sets end with 1\u20132 clean reps still left. You are NOT supposed to hit absolute failure on every set. Only the last set of laterals/curls/flies/pushdowns may go to 0\u20131 left. If form breaks, the set is over."
       }
     },
     "templates": {
@@ -2153,7 +2173,7 @@
             "name": "Dumbbell or cable side lateral raise",
             "sets_base": 4,
             "reps": "12\u201315",
-            "notes": "Visual priority \u2014 soft elbows, lead with elbows. Last set near failure.",
+            "notes": "Visual priority \u2014 soft elbows, lead with elbows. Last set: 0\u20131 clean reps left \u2014 controlled, not a collapse.",
             "minutes": 8
           },
           {
@@ -2345,7 +2365,7 @@
             "name": "Dumbbell or cable side lateral raise",
             "sets_base": 5,
             "reps": "12\u201315",
-            "notes": "MAIN visual builder \u2014 rest 60\u201390s. Last 2 sets near failure.",
+            "notes": "MAIN visual builder \u2014 rest 60\u201390s. Last 2 sets: 0\u20131 clean reps left.",
             "minutes": 8
           },
           {
@@ -2359,14 +2379,14 @@
             "name": "Dumbbell or cable side lateral raise",
             "sets_base": 3,
             "reps": "12\u201320",
-            "notes": "Pump / constant tension; take near failure.",
+            "notes": "Pump / constant tension; finish with 0\u20131 clean reps left.",
             "minutes": 8
           },
           {
             "name": "Cable triceps pushdown (rope or bar)",
             "sets_base": 3,
             "reps": "10\u201312",
-            "notes": "Arms finish \u2014 near failure on last set.",
+            "notes": "Arms finish \u2014 0\u20131 clean reps left on the last set.",
             "minutes": 5
           },
           {
@@ -2532,6 +2552,10 @@
     ],
     "session_tips": [
       {
+        "title": "Failure rule (read this)",
+        "body": "You are NOT supposed to go to absolute failure on every set. Hard working sets stop with about 1\u20132 clean reps left. Only the last set of isolation moves (laterals, curls, flies, pushdowns) may finish at 0\u20131 left. Compounds (press, pulldown, row, RDL): never grind to a stuck rep. Pack 04."
+      },
+      {
         "title": "What 'hard' means today",
         "body": "Max results \u2260 sloppy grinding. Last hard sets should leave about 0\u20132 clean reps (pack 04). If you could do 5 more easy reps, the set was too light."
       },
@@ -2551,7 +2575,23 @@
         "title": "Weights in kilograms",
         "body": "Write every working weight. Next session: same reps + more kg, or same kg + more reps."
       }
-    ]
+    ],
+    "effort_rule": {
+      "headline": "Do NOT take every set to absolute failure",
+      "answer": "No \u2014 you are not supposed to grind every set until you cannot move the weight.",
+      "do": [
+        "Warm-up / early sets: stop with about 2\u20133 clean reps left in the tank.",
+        "Hard working sets: stop with about 1\u20132 clean reps left (you could still do 1\u20132 more with good form).",
+        "Last set of side laterals, curls, flies, pushdowns only: you may finish with 0\u20131 left \u2014 hard, but still controlled."
+      ],
+      "dont": [
+        "Do not fail mid-rep on presses, pulldowns, rows, or RDLs (no stuck bar / ugly grind).",
+        "Do not keep going after form breaks \u2014 that set is over.",
+        "Do not turn every set into a max-out. Hard \u2260 form collapse."
+      ],
+      "one_liner": "Hard sets = 1\u20132 reps left. Absolute failure = only optional on the last isolation set.",
+      "source": "data/sources/04_overload_stable_menu.md"
+    }
   },
   "exercise_library": {
     "version": 3,
@@ -2575,16 +2615,16 @@
     "session_sources_note": "Plan C cites Wave-1 packs 01\u201307 in data/sources/.",
     "overall_tips": [
       {
+        "title": "Failure rule (read this)",
+        "body": "You are NOT supposed to take every set to absolute failure. Hard sets stop with about 1\u20132 clean reps still left. Only the last isolation set may finish at 0\u20131 left. Compounds: never stuck-rep grind."
+      },
+      {
         "title": "Best time of day",
         "body": "For muscle size over weeks, morning and evening training are about equal when weekly hard sets are matched. A 2019 meta-analysis (Grgic et al., Chronobiology International) found similar hypertrophy morning vs evening (effect size near zero). Pick the time you will actually arrive - that beats the \"perfect\" clock."
       },
       {
         "title": "Food around training",
         "body": "Daily protein (~115-130 g for you) matters more than a magic 30-minute window. For this restart: a small meal or snack 1-2 hours before usually feels better than going completely empty (less light-headedness). If you train fasted and feel fine, that is OK - just hit protein across the day (ISSN protein position stand)."
-      },
-      {
-        "title": "How hard (reps left in reserve)",
-        "body": "Week 1: stop each set when you could still do about 2-3 more clean reps. You do not need every set to failure. Training near failure is enough for growth; grinding every set to failure is not required (failure vs non-failure reviews)."
       },
       {
         "title": "Weights in kilograms",
@@ -2609,9 +2649,9 @@
         "avoid": "Bench too upright (turns into a shoulder press). Bouncing the bar/dumbbells off the chest. Huge arch and lifting the hips.",
         "minutes": 12,
         "load_type": "kg",
-        "set_plan": "Set 1: pick X kg for 8\u201310 reps with 2\u20133 left | Set 2: same X kg, or X + 2.5 kg if set 1 felt easy | Set 3: X + 2.5 kg only if form stayed smooth \u2014 else stay at X",
+        "set_plan": "Set 1: pick X kg for 8\u201310 reps stopping with 1\u20132 clean reps left (not failure) | Set 2: same X kg, or X + 2.5 kg if set 1 felt easy | Set 3: X + 2.5 kg only if form stayed smooth \u2014 else stay at X",
         "set_plan_lines": [
-          "Set 1: pick X kg for 8\u201310 reps with 2\u20133 left",
+          "Set 1: pick X kg for 8\u201310 reps stopping with 1\u20132 clean reps left (not failure)",
           "Set 2: same X kg, or X + 2.5 kg if set 1 felt easy",
           "Set 3: X + 2.5 kg only if form stayed smooth \u2014 else stay at X"
         ],
@@ -2691,9 +2731,9 @@
         "avoid": "Big lower-back arch. Pressing the weights far out in front of your face. Dropping into a loose hang between reps.",
         "minutes": 10,
         "load_type": "kg",
-        "set_plan": "Set 1: X kg for 8\u201310 reps with 2\u20133 left | Set 2: same X kg, or X + 2.5 kg if clean | Set 3: same rule \u2014 add 2.5 kg only if set 2 was clean",
+        "set_plan": "Set 1: X kg for 8\u201310 reps stopping with 1\u20132 clean reps left (not failure) | Set 2: same X kg, or X + 2.5 kg if clean | Set 3: same rule \u2014 add 2.5 kg only if set 2 was clean",
         "set_plan_lines": [
-          "Set 1: X kg for 8\u201310 reps with 2\u20133 left",
+          "Set 1: X kg for 8\u201310 reps stopping with 1\u20132 clean reps left (not failure)",
           "Set 2: same X kg, or X + 2.5 kg if clean",
           "Set 3: same rule \u2014 add 2.5 kg only if set 2 was clean"
         ],
@@ -2767,9 +2807,9 @@
         "avoid": "Swinging the body. Shrugging traps. Flinging weights above the head.",
         "minutes": 8,
         "load_type": "kg",
-        "set_plan": "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left | Set 2: same X, or +2 / +2.5 kg if easy and strict | Set 3: stay strict \u2014 if you swing, the weight is too heavy",
+        "set_plan": "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left \u2014 stop with 1\u20132 clean reps left | Set 2: same X, or +2 / +2.5 kg if easy and strict | Set 3: stay strict \u2014 if you swing, the weight is too heavy",
         "set_plan_lines": [
-          "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left",
+          "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same X, or +2 / +2.5 kg if easy and strict",
           "Set 3: stay strict \u2014 if you swing, the weight is too heavy"
         ],
@@ -2837,9 +2877,9 @@
         "avoid": "Straight-arm swings. Jerky lowering.",
         "minutes": 6,
         "load_type": "machine_pin",
-        "set_plan": "Set 1: pin / load for 12\u201315 smooth reps with ~2 left | Set 2: same pin, or +1 pin if easy | Set 3: stay controlled \u2014 light is correct",
+        "set_plan": "Set 1: pin / load for 12\u201315 smooth reps with ~2 left \u2014 stop with 1\u20132 clean reps left | Set 2: same pin, or +1 pin if easy | Set 3: stay controlled \u2014 light is correct",
         "set_plan_lines": [
-          "Set 1: pin / load for 12\u201315 smooth reps with ~2 left",
+          "Set 1: pin / load for 12\u201315 smooth reps with ~2 left \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same pin, or +1 pin if easy",
           "Set 3: stay controlled \u2014 light is correct"
         ],
@@ -2916,9 +2956,9 @@
         "avoid": "Leaning and turning it into a chest press. Elbows flaring wide.",
         "minutes": 5,
         "load_type": "machine_pin",
-        "set_plan": "Set 1: pin / load for 10\u201315 with ~2 left | Set 2: same, or +1 pin if clean | Set 3: elbows glued \u2014 only forearms move",
+        "set_plan": "Set 1: pin / load for 10\u201315 with ~2 left \u2014 stop with 1\u20132 clean reps left | Set 2: same, or +1 pin if clean | Set 3: elbows glued \u2014 only forearms move",
         "set_plan_lines": [
-          "Set 1: pin / load for 10\u201315 with ~2 left",
+          "Set 1: pin / load for 10\u201315 with ~2 left \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same, or +1 pin if clean",
           "Set 3: elbows glued \u2014 only forearms move"
         ],
@@ -2993,9 +3033,9 @@
         "avoid": "Butt peeling off the leg-press pad. Knees collapsing inward.",
         "minutes": 7,
         "load_type": "kg",
-        "set_plan": "Set 1: load for 10\u201312 controlled reps (leave 2\u20133) | Set 2: same load \u2014 do not chase a leg PR this block | Set 3: same load, stop early if knees complain",
+        "set_plan": "Set 1: load for 10\u201312 controlled reps (leave 2\u20133) \u2014 stop with 1\u20132 clean reps left | Set 2: same load \u2014 do not chase a leg PR this block | Set 3: same load, stop early if knees complain",
         "set_plan_lines": [
-          "Set 1: load for 10\u201312 controlled reps (leave 2\u20133)",
+          "Set 1: load for 10\u201312 controlled reps (leave 2\u20133) \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same load \u2014 do not chase a leg PR this block",
           "Set 3: same load, stop early if knees complain"
         ],
@@ -3154,9 +3194,9 @@
         "avoid": "Pulling the bar behind the neck. Huge swinging half-reps.",
         "minutes": 10,
         "load_type": "machine_pin",
-        "set_plan": "Set 1: pin / load for 8\u201310 with 2\u20133 left | Set 2: same or +1 pin / +5 kg if clean | Set 3: full stretch at the top every rep",
+        "set_plan": "Set 1: pin / load for 8\u201310 stopping with 1\u20132 clean reps left (not failure) | Set 2: same or +1 pin / +5 kg if clean | Set 3: full stretch at the top every rep",
         "set_plan_lines": [
-          "Set 1: pin / load for 8\u201310 with 2\u20133 left",
+          "Set 1: pin / load for 8\u201310 stopping with 1\u20132 clean reps left (not failure)",
           "Set 2: same or +1 pin / +5 kg if clean",
           "Set 3: full stretch at the top every rep"
         ],
@@ -3231,9 +3271,9 @@
         "avoid": "Rocking with the lower back. Shrugging the traps every rep.",
         "minutes": 9,
         "load_type": "machine_pin",
-        "set_plan": "Set 1: load for 8\u201310 | Set 2: same or +2.5\u20135 kg if clean | Set 3: squeeze blades 1 sec \u2014 no rock",
+        "set_plan": "Set 1: load for 8\u201310 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2.5\u20135 kg if clean | Set 3: squeeze blades 1 sec \u2014 no rock",
         "set_plan_lines": [
-          "Set 1: load for 8\u201310",
+          "Set 1: load for 8\u201310 \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same or +2.5\u20135 kg if clean",
           "Set 3: squeeze blades 1 sec \u2014 no rock"
         ],
@@ -3309,9 +3349,9 @@
         "avoid": "Turning it into a heavy shrug or row with swing.",
         "minutes": 7,
         "load_type": "kg",
-        "set_plan": "Set 1: light load for 12\u201315 | Set 2: same or +2 / +2.5 kg | Set 3: if you only feel traps, go lighter",
+        "set_plan": "Set 1: light load for 12\u201315 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2 / +2.5 kg | Set 3: if you only feel traps, go lighter",
         "set_plan_lines": [
-          "Set 1: light load for 12\u201315",
+          "Set 1: light load for 12\u201315 \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same or +2 / +2.5 kg",
           "Set 3: if you only feel traps, go lighter"
         ],
@@ -3380,9 +3420,9 @@
         "avoid": "Pulling the rope to the belly (that becomes a regular row).",
         "minutes": 5,
         "load_type": "machine_pin",
-        "set_plan": "Set 1: light pin for 12\u201315 smooth | Set 2: same pin \u2014 thumbs toward ears at the end | Set 3: form first \u2014 this is prehab + shape",
+        "set_plan": "Set 1: light pin for 12\u201315 smooth \u2014 stop with 1\u20132 clean reps left | Set 2: same pin \u2014 thumbs toward ears at the end | Set 3: form first \u2014 this is prehab + shape",
         "set_plan_lines": [
-          "Set 1: light pin for 12\u201315 smooth",
+          "Set 1: light pin for 12\u201315 smooth \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same pin \u2014 thumbs toward ears at the end",
           "Set 3: form first \u2014 this is prehab + shape"
         ],
@@ -3458,9 +3498,9 @@
         "avoid": "Huge cheat swings in week 1.",
         "minutes": 6,
         "load_type": "kg",
-        "set_plan": "Set 1: load for 10\u201312 | Set 2: same or +2 / +2.5 kg | Set 3: full lower \u2014 no cheat swing",
+        "set_plan": "Set 1: load for 10\u201312 \u2014 stop with 1\u20132 clean reps left | Set 2: same or +2 / +2.5 kg | Set 3: full lower \u2014 no cheat swing",
         "set_plan_lines": [
-          "Set 1: load for 10\u201312",
+          "Set 1: load for 10\u201312 \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same or +2 / +2.5 kg",
           "Set 3: full lower \u2014 no cheat swing"
         ],
@@ -3529,9 +3569,9 @@
         "avoid": "Rounding the upper back hard. Yanking the leg curl.",
         "minutes": 7,
         "load_type": "kg",
-        "set_plan": "Set 1: load for 8\u201312 (maintenance) | Set 2: same load \u2014 not a max deadlift day | Set 3: hips back, weights close to legs",
+        "set_plan": "Set 1: load for 8\u201312 (maintenance) \u2014 stop with 1\u20132 clean reps left | Set 2: same load \u2014 not a max deadlift day | Set 3: hips back, weights close to legs",
         "set_plan_lines": [
-          "Set 1: load for 8\u201312 (maintenance)",
+          "Set 1: load for 8\u201312 (maintenance) \u2014 stop with 1\u20132 clean reps left",
           "Set 2: same load \u2014 not a max deadlift day",
           "Set 3: hips back, weights close to legs"
         ],
@@ -3601,9 +3641,9 @@
         "avoid": "Swinging like a gymnast kip. Pulling the rope with arms only.",
         "minutes": 5,
         "load_type": "machine_pin",
-        "set_plan": "Set 1: controlled 10\u201315 (cable pin = guide) | Set 2: ribs to pelvis \u2014 do not yank with arms | Set 3: same control",
+        "set_plan": "Set 1: controlled 10\u201315 (cable pin = guide) \u2014 stop with 1\u20132 clean reps left | Set 2: ribs to pelvis \u2014 do not yank with arms | Set 3: same control",
         "set_plan_lines": [
-          "Set 1: controlled 10\u201315 (cable pin = guide)",
+          "Set 1: controlled 10\u201315 (cable pin = guide) \u2014 stop with 1\u20132 clean reps left",
           "Set 2: ribs to pelvis \u2014 do not yank with arms",
           "Set 3: same control"
         ],
@@ -3678,9 +3718,9 @@
         "avoid": "Hips sagging. Tiny half-reps.",
         "minutes": 8,
         "load_type": "bodyweight",
-        "set_plan": "Set 1: match card reps \u2014 elevate hands if needed | Set 2: body in one line head to heels | Set 3: full ROM, no sag",
+        "set_plan": "Set 1: match card reps \u2014 elevate hands if needed \u2014 stop with 1\u20132 clean reps left | Set 2: body in one line head to heels | Set 3: full ROM, no sag",
         "set_plan_lines": [
-          "Set 1: match card reps \u2014 elevate hands if needed",
+          "Set 1: match card reps \u2014 elevate hands if needed \u2014 stop with 1\u20132 clean reps left",
           "Set 2: body in one line head to heels",
           "Set 3: full ROM, no sag"
         ],
@@ -3752,9 +3792,9 @@
         "avoid": "Letting the hips drop into a normal push-up.",
         "minutes": 8,
         "load_type": "bodyweight",
-        "set_plan": "Set 1: strict pike reps for the card range | Set 2: hips stay high \u2014 inverted V | Set 3: elevate feet later only if easy",
+        "set_plan": "Set 1: strict pike reps for the card range \u2014 stop with 1\u20132 clean reps left | Set 2: hips stay high \u2014 inverted V | Set 3: elevate feet later only if easy",
         "set_plan_lines": [
-          "Set 1: strict pike reps for the card range",
+          "Set 1: strict pike reps for the card range \u2014 stop with 1\u20132 clean reps left",
           "Set 2: hips stay high \u2014 inverted V",
           "Set 3: elevate feet later only if easy"
         ],
@@ -3825,9 +3865,9 @@
         "avoid": "Heels lifting. Knees caving hard inward.",
         "minutes": 6,
         "load_type": "bodyweight",
-        "set_plan": "Set 1: smooth controlled reps for listed sets | Set 2: heels down, knees track toes | Set 3: backpack load if bodyweight is too easy",
+        "set_plan": "Set 1: smooth controlled reps for listed sets \u2014 stop with 1\u20132 clean reps left | Set 2: heels down, knees track toes | Set 3: backpack load if bodyweight is too easy",
         "set_plan_lines": [
-          "Set 1: smooth controlled reps for listed sets",
+          "Set 1: smooth controlled reps for listed sets \u2014 stop with 1\u20132 clean reps left",
           "Set 2: heels down, knees track toes",
           "Set 3: backpack load if bodyweight is too easy"
         ],

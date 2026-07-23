@@ -731,6 +731,48 @@
       font-size: 0.92rem;
     }
     .cue-box strong { color: var(--white); }
+    .effort-box {
+      border: 1px solid rgba(255, 176, 94, 0.45);
+      background: rgba(255, 176, 94, 0.08);
+      padding: 0.85rem 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .effort-box .eb-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber, #ffb05e);
+      margin-bottom: 0.25rem;
+    }
+    .effort-box .eb-head {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--white);
+      margin: 0 0 0.35rem;
+    }
+    .effort-box .eb-answer {
+      color: var(--ice-soft);
+      font-weight: 600;
+      margin: 0 0 0.55rem;
+    }
+    .effort-box ul {
+      margin: 0.25rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .effort-box li { margin: 0.2rem 0; }
+    .sm-effort {
+      border: 1px solid rgba(255, 176, 94, 0.4);
+      background: rgba(255, 176, 94, 0.1);
+      padding: 0.65rem 0.8rem;
+      margin: 0.65rem 0 0.75rem;
+      font-size: 0.88rem;
+      line-height: 1.45;
+      color: var(--ice-soft);
+    }
+    .sm-effort strong { color: var(--white); }
     .habits-row {
       margin-top: 1.25rem;
       border-top: 1px solid var(--line);
@@ -2497,6 +2539,7 @@
           week_label: modifiers.label || ("Week " + weekN),
           reps_in_reserve: modifiers.reps_in_reserve || modifiers.rir,
           load_cue: modifiers.load_cue,
+          effort_rule: plan.effort_rule || {},
           title: tmpl.title || "Session",
           focus: tmpl.focus || "",
           summary: "Week " + weekN + " · " + (modifiers.label || "") + " · about " + est + " minutes total",
@@ -2600,6 +2643,7 @@
           '<div class="chip"><div class="k">Budget</div><div class="v">' + escapeHtml(String(workout.budget_minutes || 75)) + " min plan</div></div>" +
           '<div class="chip"><div class="k">Sources suggest</div><div class="v">' + escapeHtml(String(workout.sources_count || 7)) + " packs</div></div>" +
           "</div>" +
+          formatEffortRule(workout.effort_rule, workout.reps_in_reserve) +
           (workout.load_cue ? '<div class="cue-box"><strong>Load cue:</strong> ' + escapeHtml(workout.load_cue) + "</div>" : "") +
           '<div class="session-mode" id="sessionMode"></div>' +
           '<div class="habits-row">' + formatHabits(workout.habits) + "</div>" +
@@ -2748,6 +2792,7 @@
             (st === "done" ? " · done" : (st === "skipped" ? " · skipped" : "")) +
             "</div><h3>" + escapeHtml(m.name || "") + "</h3></div>" +
             '<div class="sm-dose">' + escapeHtml(isCardio ? String(m.reps || m.minutes + " min") : (m.sets + " × " + (m.reps || ""))) + "</div></div>" +
+            formatEffortStrip(workout.effort_rule) +
             '<div class="sm-diagram" id="smDiagram">' +
             '<object data="assets/diagrams/body.svg" type="image/svg+xml" style="width:100%;height:100%"></object>' +
             '<div class="sm-feel">Feel: ' + escapeHtml((m.feel_zones || []).join(", ") || "—") + "</div></div>" +
@@ -2892,6 +2937,45 @@
           escapeHtml(String(habits.creatine_monohydrate_g || 5)) + " g · protein " +
           escapeHtml(String(habits.protein_g_day || "115–130")) + " g · " +
           escapeHtml(String(habits.eating_frame || ""))
+        );
+      }
+
+      function formatEffortRule(rule, rirFallback) {
+        rule = rule || {};
+        const head = rule.headline || "Do NOT take every set to absolute failure";
+        const answer = rule.answer || "No — hard sets stop with about 1–2 clean reps left.";
+        const doList = (rule.do && rule.do.length)
+          ? rule.do
+          : ["Hard working sets: stop with about 1–2 clean reps left."];
+        const dontList = (rule.dont && rule.dont.length)
+          ? rule.dont
+          : ["Do not grind compounds to a stuck rep."];
+        return (
+          '<div class="effort-box">' +
+          '<div class="eb-kicker">Effort rule · read before you lift</div>' +
+          '<div class="eb-head">' + escapeHtml(head) + "</div>" +
+          '<p class="eb-answer">' + escapeHtml(answer) + "</p>" +
+          "<strong style='color:var(--white);font-size:0.85rem'>Do</strong><ul>" +
+          doList.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
+          "</ul><strong style='color:var(--white);font-size:0.85rem'>Don’t</strong><ul>" +
+          dontList.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
+          "</ul>" +
+          (rirFallback
+            ? '<p style="margin:0.55rem 0 0;color:var(--muted);font-size:0.85rem">' +
+              escapeHtml(String(rirFallback)) + "</p>"
+            : "") +
+          "</div>"
+        );
+      }
+
+      function formatEffortStrip(rule) {
+        rule = rule || {};
+        const line = rule.one_liner ||
+          "Hard sets = 1–2 reps left. Absolute failure = only optional on the last isolation set.";
+        return (
+          '<div class="sm-effort"><strong>Failure?</strong> ' +
+          escapeHtml(line) +
+          "</div>"
         );
       }
 
