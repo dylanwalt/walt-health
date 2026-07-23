@@ -756,23 +756,78 @@
       font-weight: 600;
       margin: 0 0 0.55rem;
     }
-    .effort-box ul {
-      margin: 0.25rem 0 0;
-      padding-left: 1.1rem;
-      color: var(--muted);
-      font-size: 0.9rem;
+    .effort-box .eb-open {
+      appearance: none; width: 100%; margin-top: 0.55rem; cursor: pointer;
+      border-radius: 12px; border: 1px solid rgba(255, 176, 94, 0.55);
+      background: rgba(255, 176, 94, 0.16); color: #ffe0b8;
+      font: 600 0.88rem/1.2 var(--font-body); padding: 0.7rem 0.85rem;
+      text-align: left;
     }
-    .effort-box li { margin: 0.2rem 0; }
+    .effort-box .eb-open span {
+      display: block; color: var(--muted); font-weight: 500; font-size: 0.78rem; margin-top: 0.2rem;
+    }
     .sm-effort {
-      border: 1px solid rgba(255, 176, 94, 0.4);
-      background: rgba(255, 176, 94, 0.1);
-      padding: 0.65rem 0.8rem;
-      margin: 0.65rem 0 0.75rem;
-      font-size: 0.88rem;
-      line-height: 1.45;
+      appearance: none; display: block; width: 100%; text-align: left; cursor: pointer;
+      border: 1px solid rgba(255, 176, 94, 0.45);
+      background: rgba(255, 176, 94, 0.12);
+      padding: 0.7rem 0.85rem;
+      margin: 0.55rem 0 0.65rem;
+      border-radius: 12px;
+      font: 600 0.88rem/1.35 var(--font-body);
       color: var(--ice-soft);
     }
-    .sm-effort strong { color: var(--white); }
+    .sm-effort strong { color: #ffe0b8; display: block; font-size: 0.95rem; margin-bottom: 0.15rem; }
+    .sm-effort .sm-effort-sub { color: var(--muted); font-weight: 500; font-size: 0.78rem; }
+    .sm-dock button.push-guide {
+      border-color: rgba(255, 176, 94, 0.5); color: #ffe0b8;
+      grid-column: 1 / -1;
+    }
+    .push-guide-sheet {
+      position: fixed; inset: 0; z-index: 60;
+      background: #0b0b0c;
+      display: none; overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .push-guide-sheet.open { display: block; }
+    .push-guide-panel {
+      max-width: 520px; margin: 0 auto;
+      padding: 0.75rem 0.9rem calc(1.75rem + env(safe-area-inset-bottom, 0px));
+    }
+    .push-guide-body {
+      border: 1px solid var(--line); border-radius: 16px; padding: 0.95rem;
+      background: rgba(18,19,22,0.55); font-size: 0.9rem; line-height: 1.55; color: var(--ice-soft);
+    }
+    .push-guide-body h4 {
+      margin: 1rem 0 0.4rem; color: var(--white); font-size: 0.78rem;
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .push-guide-body h4:first-child { margin-top: 0; }
+    .push-guide-body .pg-answer {
+      font-family: var(--font-display); font-size: 1.2rem; color: var(--white);
+      line-height: 1.25; margin: 0 0 0.45rem;
+    }
+    .push-guide-body .pg-easy {
+      font-weight: 600; color: #ffe0b8; margin: 0 0 0.65rem;
+    }
+    .push-guide-body .pg-rec {
+      border-radius: 12px; padding: 0.65rem 0.75rem; margin: 0.5rem 0 0;
+      border: 1px solid var(--line); background: rgba(149,200,226,0.06);
+      font-size: 0.86rem;
+    }
+    .push-guide-body .pg-rec.good { border-color: rgba(61,220,151,0.4); background: rgba(61,220,151,0.08); }
+    .push-guide-body .pg-rec.meh { border-color: rgba(232,184,109,0.45); background: rgba(232,184,109,0.1); }
+    .push-guide-body .pg-rec.bad { border-color: rgba(255,107,74,0.45); background: rgba(255,107,74,0.1); }
+    .push-guide-body .pg-rec strong { display: block; color: var(--white); margin-bottom: 0.2rem; }
+    .push-guide-body ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+    .push-guide-body li { margin: 0.25rem 0; }
+    .push-guide-body .pg-chip-row {
+      display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.35rem 0 0.55rem;
+    }
+    .push-guide-body .pg-chip {
+      border-radius: 999px; padding: 0.28rem 0.6rem; font-size: 0.72rem;
+      border: 1px solid var(--line); color: var(--ice-soft);
+      background: rgba(149,200,226,0.08);
+    }
     .habits-row {
       margin-top: 1.25rem;
       border-top: 1px solid var(--line);
@@ -854,7 +909,7 @@
       display: flex; flex-direction: column;
       min-height: calc(100svh - 4.5rem);
       max-width: 430px; margin: 0 auto;
-      padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(7.8rem + env(safe-area-inset-bottom, 0px));
     }
     .session-mode .sm-meta {
       display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.65rem;
@@ -955,10 +1010,10 @@
     }
     .sm-dock {
       position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
-      padding: 0.65rem 0.75rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+      padding: 0.55rem 0.75rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
       background: rgba(11,11,12,0.92); backdrop-filter: blur(12px);
       border-top: 1px solid var(--line);
-      display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 0.4rem;
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 0.35rem;
       max-width: 430px; margin: 0 auto;
     }
     .sm-dock button {
@@ -1119,7 +1174,7 @@
         display: none !important;
       }
       #todayGuide .session-toolbar { margin-bottom: 0.35rem; }
-      .session-mode { min-height: calc(100svh - 3.5rem); padding-bottom: calc(4.8rem + env(safe-area-inset-bottom, 0px)); }
+      .session-mode { min-height: calc(100svh - 3.5rem); padding-bottom: calc(7.2rem + env(safe-area-inset-bottom, 0px)); }
       .sm-diagram { height: 110px; }
       .sm-ring { width: 64px; }
       .sm-ring svg { width: 56px; height: 56px; }
@@ -2552,6 +2607,8 @@
           attendance_priority: priority,
           session_tips: tips,
           template_id: entry.template,
+          schedule_note: entry.note || "",
+          intensity: entry.intensity || "",
           goal_rings: (library && library.goal_rings) || [
             { id: "shoulders", label: "Shoulders", color: "#FF6B4A" },
             { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
@@ -2643,8 +2700,7 @@
           '<div class="chip"><div class="k">Budget</div><div class="v">' + escapeHtml(String(workout.budget_minutes || 75)) + " min plan</div></div>" +
           '<div class="chip"><div class="k">Sources suggest</div><div class="v">' + escapeHtml(String(workout.sources_count || 7)) + " packs</div></div>" +
           "</div>" +
-          formatEffortRule(workout.effort_rule, workout.reps_in_reserve) +
-          (workout.load_cue ? '<div class="cue-box"><strong>Load cue:</strong> ' + escapeHtml(workout.load_cue) + "</div>" : "") +
+          formatEffortTeaser(workout.effort_rule) +
           '<div class="session-mode" id="sessionMode"></div>' +
           '<div class="habits-row">' + formatHabits(workout.habits) + "</div>" +
           tipsHtml +
@@ -2657,15 +2713,47 @@
           '<button type="button" class="reason" data-reason="hate">Hate this exercise</button>' +
           '<button type="button" class="reason" data-reason="cancel" style="opacity:0.7">Cancel</button>' +
           "</div></div>" +
-          '<div class="sm-sheet" id="altSheet" aria-hidden="true"><div class="panel" id="altPanel"></div></div>';
+          '<div class="sm-sheet" id="altSheet" aria-hidden="true"><div class="panel" id="altPanel"></div></div>' +
+          '<div class="push-guide-sheet" id="pushGuideSheet" aria-hidden="true">' +
+          '<div class="push-guide-panel">' +
+          '<div class="sm-howto-top"><button type="button" id="pushGuideBack">← Back</button>' +
+          "<h3>How hard should you push?</h3></div>" +
+          '<div class="push-guide-body" id="pushGuideBody"></div></div></div>';
 
         const homeWarn = document.getElementById("homeWarn");
         const modeRoot = document.getElementById("sessionMode");
         const buttons = guide.querySelectorAll(".mode-toggle button");
         const skipSheet = document.getElementById("skipSheet");
         const altSheet = document.getElementById("altSheet");
+        const pushSheet = document.getElementById("pushGuideSheet");
+        const pushBody = document.getElementById("pushGuideBody");
         let currentMode = startMode;
         let moveIndex = 0;
+
+        function openPushGuide() {
+          if (pushBody) {
+            pushBody.innerHTML = buildPushGuideHtml(
+              workout,
+              data.plan || {},
+              (data.today && data.today.latest_recovery) || {}
+            );
+          }
+          if (pushSheet) {
+            pushSheet.classList.add("open");
+            pushSheet.setAttribute("aria-hidden", "false");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }
+        function closePushGuide() {
+          if (pushSheet) {
+            pushSheet.classList.remove("open");
+            pushSheet.setAttribute("aria-hidden", "true");
+          }
+        }
+        const teaserBtn = document.getElementById("effortOpenBtn");
+        if (teaserBtn) teaserBtn.addEventListener("click", openPushGuide);
+        const pushBack = document.getElementById("pushGuideBack");
+        if (pushBack) pushBack.addEventListener("click", closePushGuide);
 
         function ringSvg(pct, color) {
           const p = Math.max(0, Math.min(100, Number(pct) || 0));
@@ -2813,6 +2901,7 @@
             "<h3>" + escapeHtml(m.name || "How to") + "</h3></div>" +
             '<div class="sm-howto-body">' + howtoBody + "</div></div>" +
             '<div class="sm-dock with-howto">' +
+            '<button type="button" class="push-guide" id="smPushGuide">How hard should you push? · plan fit</button>' +
             '<button type="button" class="howto" id="smHowTo">How to · tips · video</button>' +
             '<button type="button" class="danger" id="smCant">Can’t do</button>' +
             '<button type="button" id="smAlt">Alternative</button>' +
@@ -2821,6 +2910,11 @@
             "</div>";
 
           highlightZones(document.getElementById("smDiagram"), m.feel_zones || []);
+
+          const smPush = document.getElementById("smPushGuide");
+          if (smPush) smPush.addEventListener("click", openPushGuide);
+          const smEffort = document.getElementById("smEffortBtn");
+          if (smEffort) smEffort.addEventListener("click", openPushGuide);
 
           document.getElementById("smHowTo").addEventListener("click", () => {
             modeRoot.classList.add("is-howto");
@@ -2940,43 +3034,156 @@
         );
       }
 
-      function formatEffortRule(rule, rirFallback) {
+      function recoveryPushAdvice(score) {
+        if (score == null || Number.isNaN(Number(score))) {
+          return {
+            tone: "meh",
+            label: "No recovery reading yet",
+            text: "Train as written: hard working sets stop with 1–2 clean reps left. Don’t invent a max-out day."
+          };
+        }
+        const n = Number(score);
+        if (n >= 67) {
+          return {
+            tone: "good",
+            label: "Recovery " + Math.round(n) + " · green-ish",
+            text: "Push the session as written. Hard sets to 1–2 reps in reserve. You can progress load when the top of the rep range is clean."
+          };
+        }
+        if (n >= 34) {
+          return {
+            tone: "meh",
+            label: "Recovery " + Math.round(n) + " · yellow",
+            text: "Still do the full menu, but stay honest: compounds closer to 2 reps left. Skip grinding and ego jumps."
+          };
+        }
+        return {
+          tone: "bad",
+          label: "Recovery " + Math.round(n) + " · red",
+          text: "Show up and finish the workout with cleaner stops (about 2–3 reps left on compounds). No PR chasing today — consistency beats one ugly session."
+        };
+      }
+
+      function formatEffortTeaser(rule) {
         rule = rule || {};
-        const head = rule.headline || "Do NOT take every set to absolute failure";
-        const answer = rule.answer || "No — hard sets stop with about 1–2 clean reps left.";
-        const doList = (rule.do && rule.do.length)
-          ? rule.do
-          : ["Hard working sets: stop with about 1–2 clean reps left."];
-        const dontList = (rule.dont && rule.dont.length)
-          ? rule.dont
-          : ["Do not grind compounds to a stuck rep."];
+        const q = rule.question || "How hard should you push?";
+        const easy = rule.easy_answer || rule.one_liner ||
+          "Hard and controlled — most working sets stop with 1–2 clean reps left.";
         return (
           '<div class="effort-box">' +
-          '<div class="eb-kicker">Effort rule · read before you lift</div>' +
-          '<div class="eb-head">' + escapeHtml(head) + "</div>" +
-          '<p class="eb-answer">' + escapeHtml(answer) + "</p>" +
-          "<strong style='color:var(--white);font-size:0.85rem'>Do</strong><ul>" +
-          doList.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
-          "</ul><strong style='color:var(--white);font-size:0.85rem'>Don’t</strong><ul>" +
-          dontList.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
-          "</ul>" +
-          (rirFallback
-            ? '<p style="margin:0.55rem 0 0;color:var(--muted);font-size:0.85rem">' +
-              escapeHtml(String(rirFallback)) + "</p>"
-            : "") +
+          '<div class="eb-kicker">Effort · before you lift</div>' +
+          '<div class="eb-head">' + escapeHtml(q) + "</div>" +
+          '<p class="eb-answer">' + escapeHtml(easy) + "</p>" +
+          '<button type="button" class="eb-open" id="effortOpenBtn">' +
+          "Open full guide — why this hard, how it fits your plan" +
+          "<span>Recovery tweak · do / don’t · this session’s job · load picking</span></button>" +
           "</div>"
         );
       }
 
       function formatEffortStrip(rule) {
         rule = rule || {};
-        const line = rule.one_liner ||
+        const q = rule.question || "How hard should you push?";
+        const line = rule.one_liner || rule.easy_answer ||
           "Hard sets = 1–2 reps left. Absolute failure = only optional on the last isolation set.";
         return (
-          '<div class="sm-effort"><strong>Failure?</strong> ' +
+          '<button type="button" class="sm-effort" id="smEffortBtn">' +
+          "<strong>" + escapeHtml(q) + "</strong>" +
           escapeHtml(line) +
-          "</div>"
+          '<div class="sm-effort-sub">Tap for full guide · plan fit · recovery</div></button>'
         );
+      }
+
+      function buildPushGuideHtml(workout, plan, recovery) {
+        const rule = (workout && workout.effort_rule) || (plan && plan.effort_rule) || {};
+        const q = rule.question || "How hard should you push?";
+        const easy = rule.easy_answer || "Hard and controlled — most working sets stop with 1–2 clean reps left.";
+        const head = rule.headline || "Do NOT take every set to absolute failure";
+        const doList = (rule.do && rule.do.length) ? rule.do
+          : ["Hard working sets: stop with about 1–2 clean reps left."];
+        const dontList = (rule.dont && rule.dont.length) ? rule.dont
+          : ["Do not grind compounds to a stuck rep."];
+        const feels = (rule.feel_checks && rule.feel_checks.length) ? rule.feel_checks : [];
+        const roles = rule.session_roles || {};
+        const tid = String((workout && workout.template_id) || "").toLowerCase();
+        const roleText = roles[tid] || (workout && workout.focus) || "";
+        const rec = recoveryPushAdvice(recovery && recovery.recovery_score);
+        const block = (plan && plan.block) || {};
+        const goals = (plan && plan.goals_3_weeks) || {};
+        const visuals = goals.visual_primary || [];
+        const process = goals.process_non_negotiable || [];
+        const inbody = block.inbody_reeval_target || "2026-08-08";
+        const planFitIntro = rule.plan_fit_intro ||
+          ((plan && plan.headline) || "Plan C") + " — upper hypertrophy experiment with full weekly volume.";
+
+        let html = "";
+        html += "<h4>" + escapeHtml(q) + "</h4>";
+        html += '<p class="pg-answer">' + escapeHtml(easy) + "</p>";
+        html += "<p style='margin:0 0 0.35rem;color:var(--muted)'>" + escapeHtml(head) + " — " +
+          escapeHtml(rule.answer || "") + "</p>";
+        html += '<div class="pg-rec ' + escapeHtml(rec.tone) + '"><strong>' + escapeHtml(rec.label) +
+          "</strong>" + escapeHtml(rec.text) + "</div>";
+
+        html += "<h4>What to do</h4><ul>" +
+          doList.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        html += "<h4>What not to do</h4><ul>" +
+          dontList.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+
+        if (feels.length) {
+          html += "<h4>How it should feel</h4><ul>" +
+            feels.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+
+        if (workout && workout.load_cue) {
+          html += "<h4>How to pick the weight</h4><p style='margin:0'>" +
+            escapeHtml(workout.load_cue) + "</p>";
+        }
+        if (workout && workout.reps_in_reserve) {
+          html += "<p style='margin:0.55rem 0 0;color:var(--muted);font-size:0.84rem'>" +
+            escapeHtml(String(workout.reps_in_reserve)) + "</p>";
+        }
+
+        html += "<h4>How this workout fits your plan</h4>";
+        html += '<div class="pg-chip-row">' +
+          '<span class="pg-chip">' + escapeHtml((plan && plan.headline) || "Plan C") + "</span>" +
+          '<span class="pg-chip">Week ' + escapeHtml(String((workout && workout.week) || "—")) +
+          " · " + escapeHtml(String((workout && workout.week_label) || "")) + "</span>" +
+          '<span class="pg-chip">' + escapeHtml(String((workout && workout.title) || "Session")) + "</span>" +
+          ((workout && workout.intensity)
+            ? '<span class="pg-chip">Intensity · ' + escapeHtml(String(workout.intensity)) + "</span>"
+            : "") +
+          '<span class="pg-chip">InBody ' + escapeHtml(String(inbody)) + "</span>" +
+          "</div>";
+        html += "<p style='margin:0 0 0.55rem'>" + escapeHtml(planFitIntro) + "</p>";
+        if (roleText) {
+          html += "<p style='margin:0 0 0.55rem'><strong style='color:var(--white)'>This session’s job:</strong> " +
+            escapeHtml(roleText) + "</p>";
+        }
+        if (workout && workout.focus) {
+          html += "<p style='margin:0 0 0.55rem;color:var(--muted)'>Focus: " +
+            escapeHtml(workout.focus) + "</p>";
+        }
+        if (workout && workout.schedule_note) {
+          html += "<p style='margin:0 0 0.55rem'><strong style='color:var(--white)'>Today’s note:</strong> " +
+            escapeHtml(workout.schedule_note) + "</p>";
+        }
+        if (visuals.length) {
+          html += "<p style='margin:0 0 0.25rem'><strong style='color:var(--white)'>Block visual goals</strong></p><ul>" +
+            visuals.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+        if (process.length) {
+          html += "<h4>Non-negotiables this block</h4><ul>" +
+            process.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+        if (rule.source || (workout && workout.session_sources_note)) {
+          html += "<h4>Sources</h4><p style='margin:0;color:var(--muted);font-size:0.82rem'>" +
+            escapeHtml(String(rule.source || "")) +
+            (workout && workout.session_sources_note
+              ? " · " + escapeHtml(workout.session_sources_note)
+              : "") +
+            "</p>";
+        }
+        return html;
       }
 
       if (!document.body.classList.contains("locked") && !isOauth) {
