@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T04:41:11.080365+00:00",
+  "generated_at": "2026-07-27T08:36:38.971701+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -54,33 +54,33 @@
     "counts": {
       "recovery": 60,
       "sleep_non_nap": 60,
-      "cycles": 60,
+      "cycles": 61,
       "workouts": 31
     },
     "metrics": {
       "recovery_score": {
-        "avg": 69.17,
+        "avg": 69.58,
         "min": 33.0,
         "max": 93.0,
         "trend": {
-          "days_31_60_avg": 68.77,
-          "days_1_30_avg": 69.57
+          "days_31_60_avg": 69.73,
+          "days_1_30_avg": 69.43
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 101.71
+        "avg": 101.95
       },
       "resting_heart_rate": {
-        "avg": 57.1
+        "avg": 57.05
       },
       "sleep_performance_pct": {
-        "avg": 81.75
+        "avg": 81.85
       },
       "sleep_duration_hours": {
         "avg": 8.12
       },
       "cycle_strain": {
-        "avg": 8.65
+        "avg": 8.57
       },
       "workout_strain": {
         "avg": 7.46
@@ -96,13 +96,13 @@
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.65 over the window.",
+      "Average daily cycle strain ~8.57 over the window.",
       "31 workouts logged in 60 days (~3.6/week)."
     ],
     "history_totals_all_time_pulled": {
-      "recovery": 199,
-      "sleep": 200,
-      "cycle": 203,
+      "recovery": 200,
+      "sleep": 201,
+      "cycle": 204,
       "workout": 83
     }
   },
@@ -111,11 +111,6 @@
     "points": [
       {
         "date": "2026-05-28",
-        "recovery": 64.0,
-        "hrv": 98.4,
-        "rhr": 56.0,
-        "sleep_hours": 6.97,
-        "sleep_perf": 78.0,
         "strain": 6.09
       },
       {
@@ -647,68 +642,77 @@
         "sleep_hours": 8.23,
         "sleep_perf": 85.0,
         "strain": 4.69
+      },
+      {
+        "date": "2026-07-27",
+        "recovery": 89.0,
+        "hrv": 112.8,
+        "rhr": 53.0,
+        "sleep_hours": 7.34,
+        "sleep_perf": 84.0,
+        "strain": 4.0
       }
     ],
     "summaries": {
       "recovery": {
-        "avg": 69.17,
+        "avg": 69.58,
         "min": 33.0,
         "max": 93.0,
-        "first": 64.0,
-        "last": 79.0,
-        "older_half_avg": 68.77,
-        "newer_half_avg": 69.57
+        "first": 55.0,
+        "last": 89.0,
+        "older_half_avg": 69.73,
+        "newer_half_avg": 69.43
       },
       "hrv": {
-        "avg": 101.71,
+        "avg": 101.95,
         "min": 76.1,
         "max": 126.8,
-        "first": 98.4,
-        "last": 109.0,
-        "older_half_avg": 99.46,
-        "newer_half_avg": 103.96
+        "first": 91.3,
+        "last": 112.8,
+        "older_half_avg": 100.13,
+        "newer_half_avg": 103.77
       },
       "rhr": {
-        "avg": 57.1,
+        "avg": 57.05,
         "min": 50.0,
         "max": 75.0,
         "first": 56.0,
-        "last": 55.0,
-        "older_half_avg": 56.0,
-        "newer_half_avg": 58.2
+        "last": 53.0,
+        "older_half_avg": 55.87,
+        "newer_half_avg": 58.23
       },
       "sleep_hours": {
         "avg": 7.41,
         "min": 3.57,
         "max": 10.88,
-        "first": 6.97,
-        "last": 8.23,
-        "older_half_avg": 7.12,
-        "newer_half_avg": 7.69
+        "first": 6.38,
+        "last": 7.34,
+        "older_half_avg": 7.22,
+        "newer_half_avg": 7.61
       },
       "sleep_perf": {
-        "avg": 81.75,
+        "avg": 81.85,
         "min": 58.0,
         "max": 94.0,
-        "first": 78.0,
-        "last": 85.0,
-        "older_half_avg": 79.97,
-        "newer_half_avg": 83.53
+        "first": 81.0,
+        "last": 84.0,
+        "older_half_avg": 80.23,
+        "newer_half_avg": 83.47
       },
       "strain": {
-        "avg": 8.54,
-        "min": 4.18,
+        "avg": 8.47,
+        "min": 4.0,
         "max": 16.5,
         "first": 6.09,
-        "last": 4.69,
-        "older_half_avg": 9.12,
-        "newer_half_avg": 7.99
+        "last": 4.0,
+        "older_half_avg": 9.14,
+        "newer_half_avg": 7.79
       }
     },
     "totals_pulled": {
-      "recovery": 199,
-      "sleep": 200,
-      "cycle": 203,
+      "recovery": 200,
+      "sleep": 201,
+      "cycle": 204,
       "workout": 83
     }
   },
@@ -874,10 +878,10 @@
   "today": {
     "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
-      "recovery_score": 79.0,
-      "hrv_rmssd_milli": 109.00706,
-      "resting_heart_rate": 55.0,
-      "created_at": "2026-07-26T05:37:38.458Z"
+      "recovery_score": 89.0,
+      "hrv_rmssd_milli": 112.84445,
+      "resting_heart_rate": 53.0,
+      "created_at": "2026-07-27T05:23:44.229Z"
     },
     "guided_workout": {
       "mode": "session",
@@ -1495,11 +1499,11 @@
           "stairmaster_level": "4\u20136",
           "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
           "target_hr": {
-            "bpm_low": 135,
+            "bpm_low": 134,
             "bpm_high": 148,
-            "label": "135\u2013148 bpm",
+            "label": "134\u2013148 bpm",
             "note": "Provisional zone-2 from your WHOOP resting HR \u2014 use talk-test if the watch disagrees.",
-            "rhr_used": 55.0
+            "rhr_used": 53.0
           },
           "session_importance_pct": 14,
           "goal_ring_pct": {
@@ -1947,11 +1951,11 @@
           "stairmaster_level": "4\u20136",
           "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
           "target_hr": {
-            "bpm_low": 135,
+            "bpm_low": 134,
             "bpm_high": 148,
-            "label": "135\u2013148 bpm",
+            "label": "134\u2013148 bpm",
             "note": "Provisional zone-2 from your WHOOP resting HR \u2014 use talk-test if the watch disagrees.",
-            "rhr_used": 55.0
+            "rhr_used": 53.0
           },
           "session_importance_pct": 20,
           "goal_ring_pct": {
