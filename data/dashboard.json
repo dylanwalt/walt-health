@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-30T11:55:36.089347+00:00",
+  "generated_at": "2026-07-30T14:17:05.797241+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -650,7 +650,7 @@
         "rhr": 53.0,
         "sleep_hours": 9.01,
         "sleep_perf": 85.0,
-        "strain": 4.49
+        "strain": 4.53
       }
     ],
     "summaries": {
@@ -704,7 +704,7 @@
         "min": 4.18,
         "max": 16.5,
         "first": 7.98,
-        "last": 4.49,
+        "last": 4.53,
         "older_half_avg": 9.08,
         "newer_half_avg": 8.12
       }
