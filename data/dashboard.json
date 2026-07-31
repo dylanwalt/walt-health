@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-31T00:07:52.673683+00:00",
+  "generated_at": "2026-07-31T04:27:04.553812+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -52,35 +52,35 @@
   "window": {
     "days": 60,
     "counts": {
-      "recovery": 60,
-      "sleep_non_nap": 60,
-      "cycles": 60,
+      "recovery": 61,
+      "sleep_non_nap": 61,
+      "cycles": 61,
       "workouts": 33
     },
     "metrics": {
       "recovery_score": {
-        "avg": 69.9,
+        "avg": 69.87,
         "min": 33.0,
         "max": 93.0,
         "trend": {
           "days_31_60_avg": 70.8,
-          "days_1_30_avg": 69.0
+          "days_1_30_avg": 68.97
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 102.35
+        "avg": 102.37
       },
       "resting_heart_rate": {
-        "avg": 56.83
+        "avg": 56.75
       },
       "sleep_performance_pct": {
-        "avg": 81.88
+        "avg": 81.84
       },
       "sleep_duration_hours": {
         "avg": 8.12
       },
       "cycle_strain": {
-        "avg": 8.72
+        "avg": 8.57
       },
       "workout_strain": {
         "avg": 7.7
@@ -96,13 +96,13 @@
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.72 over the window.",
+      "Average daily cycle strain ~8.57 over the window.",
       "33 workouts logged in 60 days (~3.9/week)."
     ],
     "history_totals_all_time_pulled": {
-      "recovery": 203,
-      "sleep": 204,
-      "cycle": 207,
+      "recovery": 204,
+      "sleep": 205,
+      "cycle": 208,
       "workout": 85
     }
   },
@@ -647,68 +647,77 @@
         "sleep_hours": 9.01,
         "sleep_perf": 85.0,
         "strain": 4.73
+      },
+      {
+        "date": "2026-07-31",
+        "recovery": 68.0,
+        "hrv": 103.7,
+        "rhr": 52.0,
+        "sleep_hours": 6.84,
+        "sleep_perf": 79.0,
+        "strain": 0.05
       }
     ],
     "summaries": {
       "recovery": {
-        "avg": 69.9,
+        "avg": 69.87,
         "min": 33.0,
         "max": 93.0,
         "first": 57.0,
-        "last": 78.0,
+        "last": 68.0,
         "older_half_avg": 70.8,
-        "newer_half_avg": 69.0
+        "newer_half_avg": 68.97
       },
       "hrv": {
-        "avg": 102.35,
+        "avg": 102.37,
         "min": 76.1,
         "max": 126.8,
         "first": 93.7,
-        "last": 109.3,
+        "last": 103.7,
         "older_half_avg": 101.19,
         "newer_half_avg": 103.51
       },
       "rhr": {
-        "avg": 56.83,
+        "avg": 56.75,
         "min": 50.0,
         "max": 75.0,
         "first": 55.0,
-        "last": 53.0,
+        "last": 52.0,
         "older_half_avg": 55.4,
-        "newer_half_avg": 58.27
+        "newer_half_avg": 58.06
       },
       "sleep_hours": {
-        "avg": 7.43,
+        "avg": 7.42,
         "min": 3.57,
         "max": 10.88,
         "first": 6.98,
-        "last": 9.01,
+        "last": 6.84,
         "older_half_avg": 7.26,
-        "newer_half_avg": 7.61
+        "newer_half_avg": 7.58
       },
       "sleep_perf": {
-        "avg": 81.88,
+        "avg": 81.84,
         "min": 58.0,
         "max": 94.0,
         "first": 85.0,
-        "last": 85.0,
+        "last": 79.0,
         "older_half_avg": 81.2,
-        "newer_half_avg": 82.57
+        "newer_half_avg": 82.45
       },
       "strain": {
-        "avg": 8.61,
-        "min": 4.18,
+        "avg": 8.47,
+        "min": 0.05,
         "max": 16.5,
         "first": 7.77,
-        "last": 4.73,
-        "older_half_avg": 9.12,
-        "newer_half_avg": 8.12
+        "last": 0.05,
+        "older_half_avg": 9.06,
+        "newer_half_avg": 7.88
       }
     },
     "totals_pulled": {
-      "recovery": 203,
-      "sleep": 204,
-      "cycle": 207,
+      "recovery": 204,
+      "sleep": 205,
+      "cycle": 208,
       "workout": 85
     }
   },
@@ -874,10 +883,10 @@
   "today": {
     "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
-      "recovery_score": 78.0,
-      "hrv_rmssd_milli": 109.33921,
-      "resting_heart_rate": 53.0,
-      "created_at": "2026-07-30T07:23:43.041Z"
+      "recovery_score": 68.0,
+      "hrv_rmssd_milli": 103.68204,
+      "resting_heart_rate": 52.0,
+      "created_at": "2026-07-31T03:55:14.634Z"
     },
     "guided_workout": {
       "mode": "session",
@@ -1572,10 +1581,10 @@
           "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
           "target_hr": {
             "bpm_low": 134,
-            "bpm_high": 148,
-            "label": "134\u2013148 bpm",
+            "bpm_high": 147,
+            "label": "134\u2013147 bpm",
             "note": "Provisional zone-2 from your WHOOP resting HR \u2014 use talk-test if the watch disagrees.",
-            "rhr_used": 53.0
+            "rhr_used": 52.0
           },
           "session_importance_pct": 12,
           "goal_ring_pct": {
@@ -2062,10 +2071,10 @@
           "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
           "target_hr": {
             "bpm_low": 134,
-            "bpm_high": 148,
-            "label": "134\u2013148 bpm",
+            "bpm_high": 147,
+            "label": "134\u2013147 bpm",
             "note": "Provisional zone-2 from your WHOOP resting HR \u2014 use talk-test if the watch disagrees.",
-            "rhr_used": 53.0
+            "rhr_used": 52.0
           },
           "session_importance_pct": 17,
           "goal_ring_pct": {
