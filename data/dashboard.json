@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T11:21:44.929897+00:00",
+  "generated_at": "2026-08-01T13:40:06.008057+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -55,7 +55,7 @@
       "recovery": 60,
       "sleep_non_nap": 60,
       "cycles": 61,
-      "workouts": 33
+      "workouts": 34
     },
     "metrics": {
       "recovery_score": {
@@ -80,30 +80,30 @@
         "avg": 8.15
       },
       "cycle_strain": {
-        "avg": 8.65
+        "avg": 8.75
       },
       "workout_strain": {
-        "avg": 7.7
+        "avg": 7.86
       }
     },
     "workout_mix": {
       "golf": 13,
       "activity": 10,
-      "weightlifting": 6,
+      "weightlifting": 7,
       "jumping-rope": 3,
       "walking": 1
     },
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.65 over the window.",
-      "33 workouts logged in 60 days (~3.9/week)."
+      "Average daily cycle strain ~8.75 over the window.",
+      "34 workouts logged in 60 days (~4.0/week)."
     ],
     "history_totals_all_time_pulled": {
       "recovery": 205,
       "sleep": 206,
       "cycle": 209,
-      "workout": 85
+      "workout": 86
     }
   },
   "history": {
@@ -650,7 +650,7 @@
         "rhr": 57.0,
         "sleep_hours": 6.74,
         "sleep_perf": 80.0,
-        "strain": 7.56
+        "strain": 14.04
       }
     ],
     "summaries": {
@@ -700,20 +700,20 @@
         "newer_half_avg": 82.1
       },
       "strain": {
-        "avg": 8.54,
+        "avg": 8.65,
         "min": 4.18,
         "max": 16.5,
         "first": 9.06,
-        "last": 7.56,
+        "last": 14.04,
         "older_half_avg": 8.99,
-        "newer_half_avg": 8.09
+        "newer_half_avg": 8.31
       }
     },
     "totals_pulled": {
       "recovery": 205,
       "sleep": 206,
       "cycle": 209,
-      "workout": 85
+      "workout": 86
     }
   },
   "profile": {
@@ -2918,6 +2918,16 @@
           {
             "sport": "golf",
             "strain": 10.486322
+          }
+        ],
+        "note": "WHOOP workout outside scheduled MWF \u2014 possible makeup / golf / other"
+      },
+      {
+        "date": "2026-08-01",
+        "whoop_activities": [
+          {
+            "sport": "weightlifting",
+            "strain": 13.31034
           }
         ],
         "note": "WHOOP workout outside scheduled MWF \u2014 possible makeup / golf / other"
