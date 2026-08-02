@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T03:41:13.816249+00:00",
+  "generated_at": "2026-08-02T06:38:35.341308+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -54,41 +54,41 @@
     "counts": {
       "recovery": 60,
       "sleep_non_nap": 60,
-      "cycles": 60,
-      "workouts": 34
+      "cycles": 61,
+      "workouts": 33
     },
     "metrics": {
       "recovery_score": {
-        "avg": 70.7,
+        "avg": 70.17,
         "min": 33.0,
         "max": 93.0,
         "trend": {
-          "days_31_60_avg": 72.97,
-          "days_1_30_avg": 68.28
+          "days_31_60_avg": 72.53,
+          "days_1_30_avg": 67.8
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 103.0
+        "avg": 102.99
       },
       "resting_heart_rate": {
-        "avg": 56.83
+        "avg": 56.98
       },
       "sleep_performance_pct": {
-        "avg": 81.77
+        "avg": 81.6
       },
       "sleep_duration_hours": {
-        "avg": 8.15
+        "avg": 8.11
       },
       "cycle_strain": {
-        "avg": 8.76
+        "avg": 8.69
       },
       "workout_strain": {
-        "avg": 7.86
+        "avg": 7.96
       }
     },
     "workout_mix": {
       "golf": 13,
-      "activity": 10,
+      "activity": 9,
       "weightlifting": 7,
       "jumping-rope": 3,
       "walking": 1
@@ -96,13 +96,13 @@
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.76 over the window.",
-      "34 workouts logged in 60 days (~4.0/week)."
+      "Average daily cycle strain ~8.69 over the window.",
+      "33 workouts logged in 60 days (~3.9/week)."
     ],
     "history_totals_all_time_pulled": {
-      "recovery": 205,
-      "sleep": 206,
-      "cycle": 209,
+      "recovery": 206,
+      "sleep": 207,
+      "cycle": 210,
       "workout": 86
     }
   },
@@ -111,11 +111,6 @@
     "points": [
       {
         "date": "2026-06-03",
-        "recovery": 86.0,
-        "hrv": 103.6,
-        "rhr": 54.0,
-        "sleep_hours": 8.0,
-        "sleep_perf": 79.0,
         "strain": 7.34
       },
       {
@@ -647,68 +642,77 @@
         "sleep_hours": 6.74,
         "sleep_perf": 80.0,
         "strain": 14.68
+      },
+      {
+        "date": "2026-08-02",
+        "recovery": 54.0,
+        "hrv": 102.7,
+        "rhr": 63.0,
+        "sleep_hours": 5.6,
+        "sleep_perf": 69.0,
+        "strain": 4.28
       }
     ],
     "summaries": {
       "recovery": {
-        "avg": 70.7,
+        "avg": 70.17,
         "min": 33.0,
         "max": 93.0,
-        "first": 86.0,
-        "last": 77.0,
-        "older_half_avg": 72.63,
-        "newer_half_avg": 68.77
+        "first": 76.0,
+        "last": 54.0,
+        "older_half_avg": 72.53,
+        "newer_half_avg": 67.8
       },
       "hrv": {
-        "avg": 103.01,
+        "avg": 102.99,
         "min": 76.1,
         "max": 126.8,
-        "first": 103.6,
-        "last": 110.9,
-        "older_half_avg": 102.45,
-        "newer_half_avg": 103.56
+        "first": 98.4,
+        "last": 102.7,
+        "older_half_avg": 103.22,
+        "newer_half_avg": 102.76
       },
       "rhr": {
-        "avg": 56.83,
+        "avg": 56.98,
         "min": 50.0,
         "max": 75.0,
-        "first": 54.0,
-        "last": 57.0,
-        "older_half_avg": 55.13,
-        "newer_half_avg": 58.53
+        "first": 58.0,
+        "last": 63.0,
+        "older_half_avg": 55.17,
+        "newer_half_avg": 58.8
       },
       "sleep_hours": {
-        "avg": 7.45,
+        "avg": 7.41,
         "min": 3.57,
         "max": 10.88,
-        "first": 8.0,
-        "last": 6.74,
-        "older_half_avg": 7.28,
-        "newer_half_avg": 7.61
+        "first": 8.37,
+        "last": 5.6,
+        "older_half_avg": 7.21,
+        "newer_half_avg": 7.6
       },
       "sleep_perf": {
-        "avg": 81.77,
+        "avg": 81.6,
         "min": 58.0,
         "max": 94.0,
-        "first": 79.0,
-        "last": 80.0,
-        "older_half_avg": 81.43,
-        "newer_half_avg": 82.1
+        "first": 85.0,
+        "last": 69.0,
+        "older_half_avg": 81.47,
+        "newer_half_avg": 81.73
       },
       "strain": {
-        "avg": 8.65,
+        "avg": 8.58,
         "min": 4.18,
         "max": 16.5,
         "first": 7.34,
-        "last": 14.68,
-        "older_half_avg": 8.99,
-        "newer_half_avg": 8.33
+        "last": 4.28,
+        "older_half_avg": 8.97,
+        "newer_half_avg": 8.19
       }
     },
     "totals_pulled": {
-      "recovery": 205,
-      "sleep": 206,
-      "cycle": 209,
+      "recovery": 206,
+      "sleep": 207,
+      "cycle": 210,
       "workout": 86
     }
   },
@@ -874,10 +878,10 @@
   "today": {
     "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
-      "recovery_score": 77.0,
-      "hrv_rmssd_milli": 110.89463,
-      "resting_heart_rate": 57.0,
-      "created_at": "2026-08-01T03:06:41.533Z"
+      "recovery_score": 54.0,
+      "hrv_rmssd_milli": 102.716576,
+      "resting_heart_rate": 63.0,
+      "created_at": "2026-08-02T05:23:30.288Z"
     },
     "guided_workout": {
       "mode": "rest",
