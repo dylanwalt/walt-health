@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T00:01:37.069910+00:00",
+  "generated_at": "2026-08-02T03:41:13.816249+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -63,8 +63,8 @@
         "min": 33.0,
         "max": 93.0,
         "trend": {
-          "days_31_60_avg": 72.63,
-          "days_1_30_avg": 68.77
+          "days_31_60_avg": 72.97,
+          "days_1_30_avg": 68.28
         }
       },
       "hrv_rmssd_milli": {
