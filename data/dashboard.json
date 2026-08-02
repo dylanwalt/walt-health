@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-02T19:18:34.308518+00:00",
+  "generated_at": "2026-08-02T21:01:38.057647+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -54,8 +54,8 @@
     "counts": {
       "recovery": 60,
       "sleep_non_nap": 60,
-      "cycles": 61,
-      "workouts": 35
+      "cycles": 60,
+      "workouts": 36
     },
     "metrics": {
       "recovery_score": {
@@ -80,39 +80,35 @@
         "avg": 8.11
       },
       "cycle_strain": {
-        "avg": 8.84
+        "avg": 8.87
       },
       "workout_strain": {
-        "avg": 7.99
+        "avg": 7.9
       }
     },
     "workout_mix": {
       "golf": 14,
       "activity": 9,
-      "weightlifting": 8,
+      "weightlifting": 9,
       "jumping-rope": 3,
       "walking": 1
     },
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.84 over the window.",
-      "35 workouts logged in 60 days (~4.1/week)."
+      "Average daily cycle strain ~8.87 over the window.",
+      "36 workouts logged in 60 days (~4.2/week)."
     ],
     "history_totals_all_time_pulled": {
       "recovery": 206,
       "sleep": 207,
       "cycle": 210,
-      "workout": 88
+      "workout": 89
     }
   },
   "history": {
     "window_days": 60,
     "points": [
-      {
-        "date": "2026-06-03",
-        "strain": 7.34
-      },
       {
         "date": "2026-06-04",
         "recovery": 76.0,
@@ -650,7 +646,7 @@
         "rhr": 63.0,
         "sleep_hours": 5.6,
         "sleep_perf": 69.0,
-        "strain": 13.38
+        "strain": 13.76
       }
     ],
     "summaries": {
@@ -700,20 +696,20 @@
         "newer_half_avg": 81.73
       },
       "strain": {
-        "avg": 8.73,
+        "avg": 8.76,
         "min": 4.18,
         "max": 16.5,
-        "first": 7.34,
-        "last": 13.38,
-        "older_half_avg": 8.97,
-        "newer_half_avg": 8.49
+        "first": 13.85,
+        "last": 13.76,
+        "older_half_avg": 9.03,
+        "newer_half_avg": 8.51
       }
     },
     "totals_pulled": {
       "recovery": 206,
       "sleep": 207,
       "cycle": 210,
-      "workout": 88
+      "workout": 89
     }
   },
   "profile": {
@@ -2935,6 +2931,10 @@
       {
         "date": "2026-08-02",
         "whoop_activities": [
+          {
+            "sport": "weightlifting",
+            "strain": 4.78143
+          },
           {
             "sport": "weightlifting",
             "strain": 12.627798
