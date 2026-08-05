@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T07:44:29.593722+00:00",
+  "generated_at": "2026-08-05T10:42:19.271914+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -55,7 +55,7 @@
       "recovery": 60,
       "sleep_non_nap": 60,
       "cycles": 61,
-      "workouts": 31
+      "workouts": 32
     },
     "metrics": {
       "recovery_score": {
@@ -80,15 +80,15 @@
         "avg": 8.09
       },
       "cycle_strain": {
-        "avg": 8.64
+        "avg": 8.78
       },
       "workout_strain": {
-        "avg": 8.29
+        "avg": 8.43
       }
     },
     "workout_mix": {
       "golf": 14,
-      "weightlifting": 9,
+      "weightlifting": 10,
       "activity": 4,
       "jumping-rope": 3,
       "walking": 1
@@ -96,14 +96,14 @@
     "notes": [
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~8.64 over the window.",
-      "31 workouts logged in 60 days (~3.6/week)."
+      "Average daily cycle strain ~8.78 over the window.",
+      "32 workouts logged in 60 days (~3.8/week)."
     ],
     "history_totals_all_time_pulled": {
       "recovery": 209,
       "sleep": 210,
       "cycle": 213,
-      "workout": 89
+      "workout": 90
     }
   },
   "history": {
@@ -650,7 +650,7 @@
         "rhr": 53.0,
         "sleep_hours": 7.76,
         "sleep_perf": 87.0,
-        "strain": 4.45
+        "strain": 12.98
       }
     ],
     "summaries": {
@@ -700,20 +700,20 @@
         "newer_half_avg": 82.0
       },
       "strain": {
-        "avg": 8.53,
+        "avg": 8.68,
         "min": 4.18,
         "max": 16.5,
         "first": 7.44,
-        "last": 4.45,
+        "last": 12.98,
         "older_half_avg": 8.86,
-        "newer_half_avg": 8.21
+        "newer_half_avg": 8.49
       }
     },
     "totals_pulled": {
       "recovery": 209,
       "sleep": 210,
       "cycle": 213,
-      "workout": 89
+      "workout": 90
     }
   },
   "profile": {
@@ -3964,8 +3964,8 @@
     "block_start": "2026-07-20",
     "block_end": "2026-08-07",
     "scheduled_sessions": 9,
-    "sessions_with_whoop_log": 5,
-    "adherence_pct_logged": 55.6,
+    "sessions_with_whoop_log": 6,
+    "adherence_pct_logged": 66.7,
     "planned": [
       {
         "date": "2026-07-20",
@@ -4057,8 +4057,13 @@
         "template": "pull",
         "week": 3,
         "planned": true,
-        "whoop_logged": false,
-        "whoop_activities": []
+        "whoop_logged": true,
+        "whoop_activities": [
+          {
+            "sport": "weightlifting",
+            "strain": 12.623149
+          }
+        ]
       },
       {
         "date": "2026-08-07",
