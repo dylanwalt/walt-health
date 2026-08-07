@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-07T13:16:10.994101+00:00",
+  "generated_at": "2026-08-07T14:58:20.841568+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -651,7 +651,7 @@
         "rhr": 62.0,
         "sleep_hours": 7.97,
         "sleep_perf": 80.0,
-        "strain": 13.9
+        "strain": 14.1
       }
     ],
     "summaries": {
@@ -701,13 +701,13 @@
         "newer_half_avg": 82.0
       },
       "strain": {
-        "avg": 8.77,
+        "avg": 8.78,
         "min": 4.18,
         "max": 16.5,
         "first": 10.69,
-        "last": 13.9,
+        "last": 14.1,
         "older_half_avg": 8.71,
-        "newer_half_avg": 8.83
+        "newer_half_avg": 8.84
       }
     },
     "totals_pulled": {
