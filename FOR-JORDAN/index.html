@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>FOR JORDAN · Jeff Nippard — WALT HEALTH</title>
+  <meta name="description" content="Jordan demo — Plan C Session Mode, Jeff Nippard sourced." />
+  <meta name="theme-color" content="#0B0B0C" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="../assets/logo-mark.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --ice: #95c8e2;
+      --ice-soft: #b7d9eb;
+      --ice-dim: rgba(149, 200, 226, 0.14);
+      --white: #f5f7f8;
+      --muted: #9aa3a8;
+      --line: rgba(149, 200, 226, 0.16);
+      --danger: #ff8f8f;
+      --ok: #7dcea0;
+      --amber: #e8b86d;
+      --coral: #ff6b4a;
+      --mint: #3ddc97;
+      --sky: #5eb1ff;
+      --font-display: "Syne", sans-serif;
+      --font-body: "Manrope", sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: var(--font-body);
+      color: var(--white);
+      background:
+        radial-gradient(1100px 640px at 88% -8%, rgba(149, 200, 226, 0.18), transparent 58%),
+        radial-gradient(720px 520px at -8% 72%, rgba(149, 200, 226, 0.09), transparent 55%),
+        linear-gradient(168deg, #09090a 0%, #101114 46%, #0b0b0c 100%);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--ice); }
+
+    .top {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      padding: calc(0.7rem + env(safe-area-inset-top, 0px)) 0.85rem 0.7rem;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11, 11, 12, 0.82);
+      backdrop-filter: blur(14px);
+      position: sticky; top: 0; z-index: 30;
+    }
+    .brand-mini { display: flex; align-items: center; gap: 0.55rem; min-width: 0; }
+    .brand-mini img { width: 30px; height: auto; }
+    .brand-mini strong {
+      font-family: var(--font-display); letter-spacing: 0.08em; font-size: 0.82rem;
+    }
+    .badge {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #0b0b0c; background: var(--amber); border-radius: 999px; padding: 0.32rem 0.6rem;
+    }
+
+    .shell { width: min(430px, 100%); margin: 0 auto; padding: 0.75rem 0.75rem 0; }
+
+    .day-rail {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.35rem;
+      margin-bottom: 0.65rem;
+    }
+    .day-rail button {
+      appearance: none; border: 1px solid transparent; background: transparent;
+      color: var(--muted); border-radius: 999px; padding: 0.55rem 0.35rem;
+      font: 600 0.82rem/1 var(--font-body); cursor: pointer;
+    }
+    .day-rail button.active {
+      color: var(--white); border-color: var(--line); background: var(--ice-dim);
+    }
+
+    .lede {
+      margin: 0 0 0.75rem; color: var(--muted); font-size: 0.82rem; line-height: 1.4;
+    }
+    .lede strong { color: var(--ice-soft); font-weight: 600; }
+
+    /* Session Mode — mirrored from portal */
+    .session-mode {
+      display: flex; flex-direction: column;
+      min-height: calc(100svh - 7.5rem);
+      max-width: 430px; margin: 0 auto;
+      padding-bottom: calc(7.8rem + env(safe-area-inset-bottom, 0px));
+    }
+    .session-mode .sm-meta {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.65rem;
+    }
+    .session-mode .sm-chip {
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 0.28rem 0.65rem; font-size: 0.75rem; color: var(--ice-soft);
+      background: rgba(149, 200, 226, 0.08);
+    }
+    .session-mode .sm-chip strong { color: var(--white); font-weight: 600; }
+    .sm-card {
+      flex: 1; display: flex; flex-direction: column; gap: 0.55rem;
+      border: 1px solid var(--line); border-radius: 18px;
+      padding: 0.85rem 0.9rem 0.75rem;
+      background: rgba(18, 19, 22, 0.55);
+      min-height: 0;
+    }
+    .sm-card .sm-top {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem;
+    }
+    .sm-card .sm-idx {
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sm-card h3 {
+      margin: 0.15rem 0 0; font-family: var(--font-display);
+      font-size: clamp(1.15rem, 4.2vw, 1.45rem); line-height: 1.15;
+    }
+    .sm-dose { font-weight: 700; color: var(--ice); font-size: 0.95rem; white-space: nowrap; }
+    .sm-diagram {
+      position: relative; height: 132px; border-radius: 14px;
+      background: rgba(0,0,0,0.35); overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .sm-diagram object, .sm-diagram svg { width: 100%; height: 100%; }
+    .sm-diagram .sm-feel {
+      position: absolute; left: 0.55rem; bottom: 0.4rem;
+      font-size: 0.7rem; color: var(--coral); font-weight: 600;
+    }
+    .sm-rings { display: flex; justify-content: space-around; gap: 0.35rem; padding: 0.15rem 0; }
+    .sm-ring { display: grid; place-items: center; text-align: center; width: 72px; }
+    .sm-ring svg { width: 64px; height: 64px; }
+    .sm-ring .rl { font-size: 0.65rem; color: var(--muted); margin-top: -0.15rem; line-height: 1.2; }
+    .sm-ring .rv { font-weight: 700; font-size: 0.8rem; }
+    .sm-importance { display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.78rem; }
+    .sm-importance span {
+      border-radius: 8px; padding: 0.35rem 0.55rem;
+      background: rgba(255, 107, 74, 0.14); color: #ffb3a1; border: 1px solid rgba(255,107,74,0.35);
+    }
+    .sm-importance span.keep {
+      background: rgba(61, 220, 151, 0.12); color: var(--mint); border-color: rgba(61,220,151,0.35);
+    }
+    .sm-load { display: grid; gap: 0.25rem; font-size: 0.86rem; line-height: 1.35; }
+    .sm-load .ll {
+      padding: 0.35rem 0.5rem; border-radius: 8px;
+      background: rgba(149, 200, 226, 0.07); border-left: 3px solid var(--ice);
+    }
+    .sm-load.cardio .ll { border-left-color: var(--sky); }
+    .sm-rom {
+      font-size: 0.82rem; line-height: 1.4; color: var(--ice-soft);
+      padding: 0.45rem 0.55rem; border-radius: 10px;
+      background: rgba(94, 177, 255, 0.08); border: 1px solid rgba(94,177,255,0.22);
+    }
+    .sm-rom strong { color: var(--sky); }
+    .sm-jeff {
+      font-size: 0.8rem; line-height: 1.4; color: var(--ice-soft);
+      padding: 0.5rem 0.55rem; border-radius: 10px;
+      background: rgba(149, 200, 226, 0.08); border: 1px solid var(--line);
+    }
+    .sm-jeff .jq { display: block; margin: 0.25rem 0 0.4rem; color: var(--white); }
+    .sm-jeff a { font-weight: 600; font-size: 0.74rem; }
+    .sm-tips { margin: 0; padding-left: 1.05rem; font-size: 0.8rem; color: var(--muted); }
+    .sm-tips li { margin: 0.15rem 0; }
+    .sm-tips li .w {
+      display: inline-block; min-width: 1.6rem; color: var(--amber); font-weight: 700; font-size: 0.72rem;
+    }
+    .sm-sources-pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      border-radius: 999px; padding: 0.28rem 0.65rem; font-size: 0.72rem; font-weight: 600;
+      background: rgba(61,220,151,0.12); color: var(--mint); border: 1px solid rgba(61,220,151,0.35);
+    }
+    .sm-sources { font-size: 0.72rem; color: var(--muted); }
+    .sm-progress {
+      margin-top: 0.35rem; padding: 0.45rem 0.55rem; border-radius: 10px;
+      background: rgba(18,19,22,0.5); border: 1px solid var(--line);
+    }
+    .sm-progress .sp-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .sm-progress .sp-label strong { color: var(--ice-soft); }
+    .sm-progress .sp-bar {
+      height: 6px; border-radius: 999px; background: rgba(149,200,226,0.12); overflow: hidden;
+    }
+    .sm-progress .sp-fill {
+      height: 100%; width: 0; background: linear-gradient(90deg, var(--ice), var(--mint));
+      transition: width 280ms var(--ease);
+    }
+    .sm-effort {
+      appearance: none; display: block; width: 100%; text-align: left; cursor: pointer;
+      border: 1px solid rgba(255, 176, 94, 0.45);
+      background: rgba(255, 176, 94, 0.12);
+      padding: 0.7rem 0.85rem; margin: 0.15rem 0 0.15rem;
+      border-radius: 12px;
+      font: 600 0.88rem/1.35 var(--font-body);
+      color: var(--ice-soft);
+    }
+    .sm-effort strong { color: #ffe0b8; display: block; font-size: 0.95rem; margin-bottom: 0.15rem; }
+    .sm-effort .sm-effort-sub { color: var(--muted); font-weight: 500; font-size: 0.78rem; }
+
+    .sm-dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      padding: 0.55rem 0.75rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
+      background: rgba(11,11,12,0.92); backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 0.35rem;
+      max-width: 430px; margin: 0 auto;
+    }
+    .sm-dock button {
+      appearance: none; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(149,200,226,0.08); color: var(--white);
+      font: 600 0.78rem/1.1 var(--font-body); padding: 0.75rem 0.35rem; cursor: pointer;
+    }
+    .sm-dock button.primary { background: var(--ice); color: #0b0b0c; border-color: var(--ice); }
+    .sm-dock button.danger { border-color: rgba(255,107,74,0.45); color: #ffb3a1; }
+    .sm-dock button.howto {
+      border-color: rgba(94,177,255,0.45); color: var(--sky);
+      grid-column: 1 / -1;
+    }
+    .sm-dock button.push-guide {
+      border-color: rgba(255, 176, 94, 0.5); color: #ffe0b8;
+      grid-column: 1 / -1;
+    }
+    .sm-dock.with-howto {
+      grid-template-columns: 1fr 1fr 1fr 1.2fr;
+      grid-template-rows: auto auto;
+    }
+
+    .sm-howto-screen {
+      display: none; flex-direction: column; gap: 0.65rem;
+      min-height: calc(100svh - 4.5rem);
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+    .session-mode.is-howto .sm-workout { display: none; }
+    .session-mode.is-howto .sm-howto-screen { display: flex; }
+    .session-mode.is-howto .sm-dock { display: none; }
+    .sm-howto-top {
+      display: flex; align-items: center; gap: 0.55rem;
+      position: sticky; top: 0; z-index: 5;
+      padding: 0.35rem 0 0.55rem;
+      background: linear-gradient(180deg, rgba(11,11,12,0.96), rgba(11,11,12,0.88) 70%, transparent);
+    }
+    .sm-howto-top button {
+      appearance: none; border: 1px solid var(--ice); background: transparent;
+      color: var(--ice); font: 600 0.88rem var(--font-body);
+      border-radius: 999px; padding: 0.55rem 0.95rem; cursor: pointer;
+    }
+    .sm-howto-top h3 {
+      margin: 0; font-family: var(--font-display); font-size: 1.05rem; line-height: 1.2;
+    }
+    .sm-howto-body {
+      border: 1px solid var(--line); border-radius: 16px; padding: 0.85rem;
+      background: rgba(18,19,22,0.55); font-size: 0.88rem; line-height: 1.5; color: var(--ice-soft);
+    }
+    .sm-howto-body h4 {
+      margin: 0.85rem 0 0.35rem; color: var(--white); font-size: 0.82rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .sm-howto-body h4:first-child { margin-top: 0; }
+    .sm-howto-body .vid {
+      margin: 0.5rem 0 0; border-radius: 12px; overflow: hidden; background: #000;
+      aspect-ratio: 16 / 9;
+    }
+    .sm-howto-body .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .sm-howto-body ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+
+    .sm-sheet {
+      position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.55);
+      display: none; place-items: end center;
+    }
+    .sm-sheet.open { display: grid; }
+    .sm-sheet .panel {
+      width: min(430px, 100%); background: #121316; border-radius: 18px 18px 0 0;
+      border: 1px solid var(--line); padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+      max-height: 70svh; overflow: auto;
+    }
+    .sm-sheet h4 { margin: 0 0 0.65rem; font-family: var(--font-display); }
+    .sm-sheet .reason, .sm-sheet .alt {
+      display: block; width: 100%; text-align: left; margin: 0.35rem 0;
+      padding: 0.7rem 0.8rem; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(149,200,226,0.06); color: var(--white);
+      font: 500 0.9rem/1.3 var(--font-body); cursor: pointer;
+    }
+    .sm-sheet .alt .meta { display: block; color: var(--muted); font-size: 0.78rem; margin-top: 0.2rem; }
+
+    .push-guide-sheet {
+      position: fixed; inset: 0; z-index: 60;
+      background: #0b0b0c;
+      display: none; overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .push-guide-sheet.open { display: block; }
+    .push-guide-panel {
+      max-width: 520px; margin: 0 auto;
+      padding: 0.75rem 0.9rem calc(1.75rem + env(safe-area-inset-bottom, 0px));
+    }
+    .push-guide-body {
+      border: 1px solid var(--line); border-radius: 16px; padding: 0.95rem;
+      background: rgba(18,19,22,0.55); font-size: 0.9rem; line-height: 1.55; color: var(--ice-soft);
+    }
+    .push-guide-body h4 {
+      margin: 1rem 0 0.4rem; color: var(--white); font-size: 0.78rem;
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .push-guide-body h4:first-child { margin-top: 0; }
+    .push-guide-body .pg-answer {
+      font-family: var(--font-display); font-size: 1.2rem; color: var(--white);
+      line-height: 1.25; margin: 0 0 0.45rem;
+    }
+    .push-guide-body a { font-weight: 600; }
+
+    .empty { color: var(--muted); padding: 2rem 1rem; text-align: center; }
+
+    @media (min-width: 900px) {
+      .session-mode { max-width: 520px; }
+      .sm-dock { max-width: 520px; left: 50%; transform: translateX(-50%); width: 100%; }
+      .sm-diagram { height: 160px; }
+      .shell { max-width: 520px; }
+    }
+    @media (max-width: 700px) {
+      .sm-diagram { height: 110px; }
+      .sm-ring { width: 64px; }
+      .sm-ring svg { width: 56px; height: 56px; }
+      .sm-card { padding: 0.65rem 0.75rem; gap: 0.4rem; }
+      .sm-card h3 { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="brand-mini">
+      <img src="../assets/logo-mark.svg" alt="" />
+      <strong>WALT HEALTH</strong>
+    </div>
+    <span class="badge">FOR JORDAN</span>
+  </header>
+
+  <div class="shell">
+    <nav class="day-rail" id="dayRail" aria-label="Training days">
+      <button type="button" data-day="push" class="active">Push</button>
+      <button type="button" data-day="pull">Pull</button>
+      <button type="button" data-day="shoulders">Shoulders</button>
+    </nav>
+    <p class="lede" id="lede">Loading Jeff Nippard session…</p>
+    <div class="session-mode" id="sessionMode"></div>
+  </div>
+
+  <div class="sm-sheet" id="skipSheet" aria-hidden="true"><div class="panel">
+    <h4>Why can’t you do this?</h4>
+    <button type="button" class="reason" data-reason="no_machine">No machine / equipment</button>
+    <button type="button" class="reason" data-reason="in_use">Machine is being used</button>
+    <button type="button" class="reason" data-reason="no_time">No time</button>
+    <button type="button" class="reason" data-reason="dont_feel">Don’t feel like it</button>
+    <button type="button" class="reason" data-reason="hate">Hate this exercise</button>
+    <button type="button" class="reason" data-reason="cancel" style="opacity:0.7">Cancel</button>
+  </div></div>
+  <div class="sm-sheet" id="altSheet" aria-hidden="true"><div class="panel" id="altPanel"></div></div>
+  <div class="push-guide-sheet" id="pushGuideSheet" aria-hidden="true">
+    <div class="push-guide-panel">
+      <div class="sm-howto-top">
+        <button type="button" id="pushGuideBack">← Back</button>
+        <h3>How hard · Jeff’s rules</h3>
+      </div>
+      <div class="push-guide-body" id="pushGuideBody"></div>
+    </div>
+  </div>
+
+  <script>
+  (function () {
+    const LOG_KEY = "walt_for_jordan_session_v1";
+    let DATA = null;
+    let dayKey = "push";
+    let moveIndex = 0;
+    const modeRoot = document.getElementById("sessionMode");
+    const skipSheet = document.getElementById("skipSheet");
+    const altSheet = document.getElementById("altSheet");
+    const pushSheet = document.getElementById("pushGuideSheet");
+    const pushBody = document.getElementById("pushGuideBody");
+
+    function escapeHtml(s) {
+      return String(s == null ? "" : s)
+        .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+    }
+
+    function getLog() {
+      try { return JSON.parse(localStorage.getItem(LOG_KEY) || "{}") || {}; }
+      catch { return {}; }
+    }
+    function saveLog(log) {
+      try { localStorage.setItem(LOG_KEY, JSON.stringify(log)); } catch {}
+    }
+    function dayLog() {
+      const log = getLog();
+      if (!log[dayKey]) log[dayKey] = { moves: {} };
+      if (!log[dayKey].moves) log[dayKey].moves = {};
+      return log;
+    }
+    function moveStatus(name) {
+      const st = ((dayLog()[dayKey] || {}).moves || {})[name];
+      return st && st.status ? st.status : (typeof st === "string" ? st : null);
+    }
+    function setMoveStatus(name, status, extra) {
+      const log = dayLog();
+      if (!status) delete log[dayKey].moves[name];
+      else log[dayKey].moves[name] = Object.assign({ status: status }, extra || {});
+      saveLog(log);
+    }
+
+    function ringSvg(pct, color) {
+      const p = Math.max(0, Math.min(100, Number(pct) || 0));
+      const r = 26;
+      const c = 2 * Math.PI * r;
+      const dash = (p / 100) * c;
+      return (
+        '<svg viewBox="0 0 64 64" aria-hidden="true">' +
+        '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>' +
+        '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="6" ' +
+        'stroke-linecap="round" stroke-dasharray="' + dash + " " + c + '" transform="rotate(-90 32 32)"/>' +
+        '<text x="32" y="36" text-anchor="middle" fill="#f5f7f8" font-size="12" font-weight="700">' + p + "%</text></svg>"
+      );
+    }
+
+    function highlightZones(container, zones) {
+      const obj = container && container.querySelector("object");
+      if (!obj) return;
+      const apply = () => {
+        try {
+          const doc = obj.contentDocument;
+          if (!doc) return;
+          doc.querySelectorAll(".zone").forEach((el) => el.classList.remove("on"));
+          (zones || []).forEach((z) => {
+            doc.querySelectorAll('.zone[data-zone="' + z + '"]').forEach((el) => el.classList.add("on"));
+          });
+        } catch (e) { /* ignore */ }
+      };
+      obj.addEventListener("load", apply);
+      apply();
+    }
+
+    function currentSession() {
+      return (DATA && DATA.sessions && DATA.sessions[dayKey]) || null;
+    }
+
+    function openPushGuide() {
+      const workout = currentSession();
+      const rule = (workout && workout.effort_rule) || {};
+      let html = "";
+      html += "<h4>" + escapeHtml(rule.question || "How hard should you push?") + "</h4>";
+      html += '<p class="pg-answer">' + escapeHtml(rule.easy_answer || "") + "</p>";
+      html += "<p style='margin:0 0 0.55rem;color:var(--muted)'>" + escapeHtml(rule.headline || "") +
+        " — " + escapeHtml(rule.answer || "") + "</p>";
+      html += "<h4>What to do</h4><ul>" +
+        (rule.do || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+      html += "<h4>What not to do</h4><ul>" +
+        (rule.dont || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+      if ((rule.feel_checks || []).length) {
+        html += "<h4>How it should feel</h4><ul>" +
+          rule.feel_checks.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+      }
+      html += "<h4>This session’s job</h4><p style='margin:0'>" +
+        escapeHtml(((rule.session_roles || {})[dayKey]) || (workout && workout.focus) || "") + "</p>";
+      html += "<h4>Jeff links</h4><ul>" +
+        '<li><a href="https://www.youtube.com/watch?v=71op1DQ2gyo" target="_blank" rel="noopener">How To Train For Pure Muscle Growth</a></li>' +
+        '<li><a href="https://www.youtube.com/shorts/VsmSkg2h4d8" target="_blank" rel="noopener">Training to failure (short)</a></li>' +
+        '<li><a href="https://jeffnippard.com/" target="_blank" rel="noopener">jeffnippard.com</a></li>' +
+        "</ul>";
+      html += "<h4>Daily basics</h4><ul>";
+      const habits = (workout && workout.habits) || {};
+      Object.keys(habits).forEach((k) => {
+        html += "<li>" + escapeHtml(habits[k]) + "</li>";
+      });
+      html += "</ul>";
+      pushBody.innerHTML = html;
+      pushSheet.classList.add("open");
+      pushSheet.setAttribute("aria-hidden", "false");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function closePushGuide() {
+      pushSheet.classList.remove("open");
+      pushSheet.setAttribute("aria-hidden", "true");
+    }
+
+    function renderStep() {
+      const workout = currentSession();
+      if (!workout) {
+        modeRoot.innerHTML = '<p class="empty">Session missing.</p>';
+        return;
+      }
+      const moves = workout.gym || [];
+      if (!moves.length) {
+        modeRoot.innerHTML = '<p class="empty">No movements listed.</p>';
+        return;
+      }
+      if (moveIndex >= moves.length) moveIndex = moves.length - 1;
+      if (moveIndex < 0) moveIndex = 0;
+      const m = moves[moveIndex];
+      const st = moveStatus(m.name);
+      let completedBefore = 0;
+      moves.forEach((mv, i) => {
+        const s = moveStatus(mv.name);
+        if (i < moveIndex && (s === "done" || s === "skipped")) completedBefore += 1;
+        if (i === moveIndex && (s === "done" || s === "skipped")) completedBefore += 1;
+      });
+      const pct = Math.round((completedBefore / moves.length) * 100);
+      const timing = m.timing || {};
+      const isCardio = m.load_type === "cardio";
+      const ringsMeta = workout.goal_rings || [
+        { id: "shoulders", label: "Shoulders", color: "#ff6b4a" },
+        { id: "chest_upper", label: "Upper chest", color: "#5eb1ff" },
+        { id: "recomp", label: "Recomp", color: "#3ddc97" }
+      ];
+
+      const loadLines = isCardio
+        ? [
+            "Steady zone-2 · ~" + (m.minutes || 10) + " min",
+            m.stairmaster_note || "Talk-test: short sentences OK",
+            "After lifting (Jeff)"
+          ]
+        : (m.set_plan_lines || []).concat(m.pin_guidance || []);
+      const loadHtml = loadLines.length
+        ? '<div class="sm-load' + (isCardio ? " cardio" : "") + '">' +
+          loadLines.map((ln) => '<div class="ll">' + escapeHtml(ln) + "</div>").join("") +
+          "</div>"
+        : "";
+
+      const rom = m.rom_cues || {};
+      const romHtml = rom.question
+        ? '<div class="sm-rom"><strong>' + escapeHtml(rom.question) + "</strong><br/>" +
+          escapeHtml(rom.answer || "") +
+          (rom.why ? '<br/><span style="color:var(--muted)">' + escapeHtml(rom.why) + "</span>" : "") +
+          "</div>"
+        : "";
+
+      const tips = (m.tips_ranked || []).slice(0, 2);
+      const tipsHtml = tips.length
+        ? "<ul class='sm-tips'>" + tips.map((t) =>
+            "<li><span class='w'>" + escapeHtml(String(t.weight || "")) + "</span> " +
+            escapeHtml(t.text || "") + "</li>"
+          ).join("") + "</ul>"
+        : "";
+
+      const ringsHtml = '<div class="sm-rings">' + ringsMeta.map((r) => {
+        const p = (m.goal_ring_pct && m.goal_ring_pct[r.id]) || 0;
+        return '<div class="sm-ring">' + ringSvg(p, r.color) +
+          '<div class="rv" style="color:' + r.color + '">' + escapeHtml(r.label) + "</div>" +
+          '<div class="rl">of this ring</div></div>';
+      }).join("") + "</div>";
+
+      const jeffHtml =
+        '<div class="sm-jeff"><span class="sm-sources-pill">Jeff Nippard</span>' +
+        '<span class="jq">“' + escapeHtml(m.jeff_quote || "Tension is king.") + '”</span>' +
+        (m.jeff_url
+          ? '<a href="' + escapeHtml(m.jeff_url) + '" target="_blank" rel="noopener">Source →</a>'
+          : "") +
+        "</div>";
+
+      const sourcesLine =
+        '<div class="sm-sources"><span class="sm-sources-pill">Jeff Nippard suggests this</span> · not pack sources</div>';
+
+      const rule = workout.effort_rule || {};
+      const effortHtml =
+        '<button type="button" class="sm-effort" id="smEffortBtn">' +
+        "<strong>" + escapeHtml(rule.question || "How hard should you push?") + "</strong>" +
+        escapeHtml(rule.one_liner || "") +
+        '<div class="sm-effort-sub">Tap for Jeff’s full guide</div></button>';
+
+      const howtoBody =
+        (m.where ? "<h4>Where</h4><p style='margin:0'>" + escapeHtml(m.where) + "</p>" : "") +
+        "<h4>How to</h4><p style='margin:0'>" + escapeHtml(m.how_to || m.notes || "—") + "</p>" +
+        (m.jeff_quote
+          ? "<h4>Jeff says</h4><p style='margin:0'>“" + escapeHtml(m.jeff_quote) + "”</p>" +
+            (m.jeff_url
+              ? '<p style="margin:0.4rem 0 0"><a href="' + escapeHtml(m.jeff_url) +
+                '" target="_blank" rel="noopener">Open source</a></p>'
+              : "")
+          : "") +
+        (m.avoid ? "<h4>Don’t</h4><p style='margin:0'>" + escapeHtml(m.avoid) + "</p>" : "") +
+        ((m.tips_ranked || []).length
+          ? "<h4>Do / remember</h4><ul>" +
+            m.tips_ranked.map((t) => "<li>" + escapeHtml(t.text || t) + "</li>").join("") + "</ul>"
+          : "") +
+        (m.research_note ? "<h4>Why · Jeff</h4><p style='margin:0'>" + escapeHtml(m.research_note) + "</p>" : "") +
+        (m.video_id
+          ? "<h4>Video demo</h4><div class='vid'><iframe src='https://www.youtube-nocookie.com/embed/" +
+            encodeURIComponent(m.video_id) +
+            "?rel=0' title='" + escapeHtml(m.video_label || "Demo") +
+            "' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen loading='lazy'></iframe></div>"
+          : "<h4>Video demo</h4><p style='margin:0;color:var(--muted)'>No video linked.</p>");
+
+      modeRoot.classList.remove("is-howto");
+      modeRoot.innerHTML =
+        '<div class="sm-workout">' +
+        '<div class="sm-meta">' +
+        '<span class="sm-chip"><strong>' + escapeHtml(String(workout.title || "Session")) + "</strong></span>" +
+        '<span class="sm-chip" style="border-color:var(--amber);color:var(--amber)">FOR JORDAN</span>' +
+        '<span class="sm-chip">Work <strong>' + escapeHtml(String(isCardio ? (m.reps || "") : ((timing.work_sec_per_set || 45) + "s"))) +
+        "</strong></span>" +
+        '<span class="sm-chip">Rest <strong>' + escapeHtml(String(isCardio ? "—" : ((timing.rest_sec_between_sets || 75) + "s"))) +
+        "</strong></span>" +
+        '<span class="sm-chip">Next gap <strong>' + escapeHtml(String((timing.rest_sec_before_next || 60) + "s")) + "</strong></span>" +
+        "</div>" +
+        '<div class="sm-card">' +
+        '<div class="sm-top"><div><div class="sm-idx">Exercise ' + (moveIndex + 1) + " / " + moves.length +
+        (st === "done" ? " · done" : (st === "skipped" ? " · skipped" : "")) +
+        "</div><h3>" + escapeHtml(m.name || "") + "</h3></div>" +
+        '<div class="sm-dose">' + escapeHtml(isCardio ? String(m.reps || ((m.minutes || 10) + " min")) : (m.sets + " × " + (m.reps || ""))) + "</div></div>" +
+        effortHtml +
+        '<div class="sm-diagram" id="smDiagram">' +
+        '<object data="../assets/diagrams/body.svg" type="image/svg+xml" style="width:100%;height:100%"></object>' +
+        '<div class="sm-feel">Feel: ' + escapeHtml((m.feel_zones || []).join(", ") || "—") + "</div></div>" +
+        ringsHtml +
+        '<div class="sm-importance"><span>Session value <strong>' + escapeHtml(String(m.session_importance_pct || 0)) +
+        "%</strong></span><span class='keep'>Keep prescribed <strong>" +
+        escapeHtml(String(m.keep_recommended_pct || 70)) + "%</strong></span></div>" +
+        loadHtml +
+        romHtml +
+        jeffHtml +
+        tipsHtml +
+        sourcesLine +
+        '<div class="sm-progress"><div class="sp-label"><strong>Session after this move</strong> — ' +
+        completedBefore + "/" + moves.length + " checked (" + pct + "%)</div>" +
+        '<div class="sp-bar"><div class="sp-fill" style="width:' + pct + '%"></div></div></div>' +
+        "</div></div>" +
+        '<div class="sm-howto-screen" id="smHowToScreen">' +
+        '<div class="sm-howto-top"><button type="button" id="smHowToBack">← Back</button>' +
+        "<h3>" + escapeHtml(m.name || "How to") + "</h3></div>" +
+        '<div class="sm-howto-body">' + howtoBody + "</div></div>" +
+        '<div class="sm-dock with-howto">' +
+        '<button type="button" class="push-guide" id="smPushGuide">How hard should you push? · Jeff</button>' +
+        '<button type="button" class="howto" id="smHowTo">How to · tips · video</button>' +
+        '<button type="button" class="danger" id="smCant">Can’t do</button>' +
+        '<button type="button" id="smAlt">Alternative</button>' +
+        '<button type="button" id="smDone">' + (st === "done" ? "Undo ✓" : "Done ✓") + "</button>" +
+        '<button type="button" class="primary" id="smNext">' + (moveIndex >= moves.length - 1 ? "Finish" : "Next →") + "</button>" +
+        "</div>";
+
+      highlightZones(document.getElementById("smDiagram"), m.feel_zones || []);
+
+      document.getElementById("smEffortBtn").addEventListener("click", openPushGuide);
+      document.getElementById("smPushGuide").addEventListener("click", openPushGuide);
+      document.getElementById("smHowTo").addEventListener("click", () => {
+        modeRoot.classList.add("is-howto");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+      document.getElementById("smHowToBack").addEventListener("click", () => {
+        modeRoot.classList.remove("is-howto");
+      });
+      document.getElementById("smNext").addEventListener("click", () => {
+        if (moveIndex >= moves.length - 1) {
+          moveIndex = 0;
+          renderStep();
+          return;
+        }
+        moveIndex += 1;
+        renderStep();
+      });
+      document.getElementById("smDone").addEventListener("click", () => {
+        if (st === "done") setMoveStatus(m.name, null);
+        else setMoveStatus(m.name, "done");
+        renderStep();
+      });
+      document.getElementById("smCant").addEventListener("click", () => {
+        skipSheet.classList.add("open");
+        skipSheet.setAttribute("aria-hidden", "false");
+      });
+      document.getElementById("smAlt").addEventListener("click", () => {
+        const alts = m.alternatives || [];
+        document.getElementById("altPanel").innerHTML =
+          "<h4>Alternatives</h4>" +
+          '<p style="color:var(--mint);font-size:0.88rem;margin:0 0 0.5rem">Recommended to keep original: <strong>' +
+          escapeHtml(String(m.keep_recommended_pct || 70)) + "%</strong></p>" +
+          (alts.length ? alts.map((a) =>
+            '<button type="button" class="alt" data-alt="' + escapeHtml(a.name || "") + '">' +
+            escapeHtml(a.name || "") +
+            '<span class="meta">' + escapeHtml(a.when || "") +
+            " · keep original " + escapeHtml(String(a.keep_original_pct || "")) + "%</span></button>"
+          ).join("") : '<p class="empty">No listed swaps — pick closest machine.</p>') +
+          '<button type="button" class="reason" data-alt-cancel="1">Close</button>';
+        altSheet.classList.add("open");
+        altSheet.setAttribute("aria-hidden", "false");
+        altSheet.querySelectorAll("[data-alt]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            setMoveStatus(m.name, "skipped", {
+              reason: "alternative",
+              alternative: btn.getAttribute("data-alt")
+            });
+            altSheet.classList.remove("open");
+            moveIndex = Math.min(moveIndex + 1, moves.length - 1);
+            renderStep();
+          });
+        });
+        const cancel = altSheet.querySelector("[data-alt-cancel]");
+        if (cancel) cancel.addEventListener("click", () => {
+          altSheet.classList.remove("open");
+          altSheet.setAttribute("aria-hidden", "true");
+        });
+      });
+    }
+
+    skipSheet.querySelectorAll(".reason").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const reason = btn.getAttribute("data-reason");
+        skipSheet.classList.remove("open");
+        skipSheet.setAttribute("aria-hidden", "true");
+        if (reason === "cancel") return;
+        const workout = currentSession();
+        const m = (workout.gym || [])[moveIndex];
+        if (m) {
+          setMoveStatus(m.name, "skipped", { reason: reason });
+          moveIndex = Math.min(moveIndex + 1, (workout.gym || []).length - 1);
+          renderStep();
+        }
+      });
+    });
+
+    document.getElementById("pushGuideBack").addEventListener("click", closePushGuide);
+
+    document.querySelectorAll("#dayRail button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        dayKey = btn.getAttribute("data-day");
+        document.querySelectorAll("#dayRail button").forEach((b) => {
+          b.classList.toggle("active", b === btn);
+        });
+        moveIndex = 0;
+        const s = currentSession();
+        document.getElementById("lede").innerHTML =
+          "<strong>" + escapeHtml(s.title) + "</strong> · " + escapeHtml(s.focus || "") +
+          " · about " + escapeHtml(String(s.minutes || 75)) + " min · cues from <strong>Jeff Nippard</strong>";
+        renderStep();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+
+    fetch("workout.json")
+      .then((r) => r.json())
+      .then((data) => {
+        DATA = data;
+        const s = currentSession();
+        document.getElementById("lede").innerHTML =
+          "<strong>" + escapeHtml(s.title) + "</strong> · " + escapeHtml(s.focus || "") +
+          " · about " + escapeHtml(String(s.minutes || 75)) + " min · cues from <strong>Jeff Nippard</strong>";
+        const hash = (location.hash || "").replace("#", "").toLowerCase();
+        if (hash === "pull" || hash === "shoulders" || hash === "push") {
+          dayKey = hash;
+          document.querySelectorAll("#dayRail button").forEach((b) => {
+            b.classList.toggle("active", b.getAttribute("data-day") === dayKey);
+          });
+        }
+        renderStep();
+      })
+      .catch((err) => {
+        modeRoot.innerHTML = '<p class="empty">Could not load workout.json</p>';
+        console.error(err);
+      });
+  })();
+  </script>
+</body>
+</html>
