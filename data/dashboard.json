@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-11T10:17:14.635004+00:00",
+  "generated_at": "2026-08-11T10:45:50.172019+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -2167,8 +2167,8 @@
           "+1 pin next set only if easy",
           "Prefer rope or angled bar \u2014 log pin #"
         ],
-        "video_id": "2-g6w_cwGRw",
-        "video_label": "Rope pushdown demo"
+        "video_id": "2-LAMcpzODU",
+        "video_label": "How To: Tricep Pushdown (Scott Herman)"
       },
       "leg_press_or_goblet": {
         "display_name": "Leg press or goblet squat (or walking lunges)",
@@ -2327,8 +2327,8 @@
         "stairmaster_level": "4\u20136",
         "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
         "target_hr_zone": "zone2",
-        "video_id": "aq8qG0s1i_U",
-        "video_label": "Steady stair-climber idea"
+        "video_id": "Zn1O9LcKW9E",
+        "video_label": "Stair climber / StairMaster tutorial"
       },
       "lat_pulldown": {
         "display_name": "Lat pulldown or assisted pull-up",
@@ -2483,8 +2483,8 @@
           "Progress +1 pin when top of range is easy",
           "Log pin #"
         ],
-        "video_id": "GZbfZ0338Zo",
-        "video_label": "Seated cable row demo"
+        "video_id": "GZbfZ033f74",
+        "video_label": "How To: Seated Low Row (Scott Herman)"
       },
       "rear_delt": {
         "display_name": "Rear delt fly (dumbbell, cable, or machine)",
@@ -2555,8 +2555,8 @@
           "rear_delt"
         ],
         "diagram_id": "rear_delt",
-        "video_id": "EAPx_YF8L5c",
-        "video_label": "Rear delt fly demo"
+        "video_id": "Y7ZKBP5bMwg",
+        "video_label": "How To: Reverse Pec Deck Machine Fly"
       },
       "face_pull": {
         "display_name": "Face pull (cable rope)",
@@ -2632,8 +2632,8 @@
           "Stay light \u2014 quality over load",
           "Log pin #"
         ],
-        "video_id": "repWdMEEgR4",
-        "video_label": "Face pull demo"
+        "video_id": "rep-qVOkqgk",
+        "video_label": "How To: Face Pull (Scott Herman)"
       },
       "curl": {
         "display_name": "Dumbbell or EZ-bar curl",
@@ -2703,8 +2703,8 @@
           "biceps"
         ],
         "diagram_id": "curl",
-        "video_id": "ykJmrjLTFKw",
-        "video_label": "Dumbbell curl demo"
+        "video_id": "kwG2ipFRgfo",
+        "video_label": "How to Do a Barbell Curl (Howcast)"
       },
       "rdl_or_leg_curl": {
         "display_name": "Romanian deadlift or lying leg curl",
@@ -2877,8 +2877,8 @@
           "Progress slowly",
           "Log pin #"
         ],
-        "video_id": "X1FqMz5YmX4",
-        "video_label": "Cable crunch demo"
+        "video_id": "aBd6T01PBqw",
+        "video_label": "How to properly perform a cable crunch"
       },
       "elevated_pushup": {
         "display_name": "Push-up (hands elevated or standard)",
@@ -3025,8 +3025,8 @@
           "triceps"
         ],
         "diagram_id": "pike",
-        "video_id": "XckEEwa1iQQ",
-        "video_label": "Pike push-up demo"
+        "video_id": "fXgou2W10ok",
+        "video_label": "How to Pike Push Up | Beginner progressions"
       },
       "bw_squat": {
         "display_name": "Bodyweight squat or split squat",

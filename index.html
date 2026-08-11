@@ -1112,11 +1112,11 @@
     }
 
     /* Session Mode — one exercise per viewport */
-    .session-mode {
+      .session-mode {
       display: flex; flex-direction: column;
       min-height: calc(100svh - 4.5rem);
       max-width: 430px; margin: 0 auto;
-      padding-bottom: calc(7.8rem + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(5.8rem + env(safe-area-inset-bottom, 0px));
     }
     .session-mode .sm-meta {
       display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.65rem;
@@ -1135,7 +1135,38 @@
       min-height: 0;
     }
     .sm-card .sm-top {
-      display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 0.45rem;
+    }
+    .sm-nav-arrows {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.5rem; margin: 0 0 0.55rem;
+    }
+    .sm-arrow {
+      appearance: none; flex: 0 0 auto;
+      width: 2.55rem; height: 2.55rem; border-radius: 999px;
+      border: 1px solid var(--ice);
+      background: rgba(149, 200, 226, 0.12);
+      color: var(--ice); font-size: 1.45rem; line-height: 1;
+      display: grid; place-items: center; cursor: pointer;
+      padding: 0;
+    }
+    .sm-arrow:disabled {
+      opacity: 0.28; cursor: default; border-color: var(--line); color: var(--muted);
+    }
+    .sm-nav-mid {
+      flex: 1; text-align: center; min-width: 0;
+    }
+    .sm-nav-mid .sm-idx {
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sm-finish-wrap {
+      margin-top: 0.55rem;
+    }
+    .sm-finish-wrap button {
+      appearance: none; width: 100%; border-radius: 12px;
+      border: 1px solid var(--mint); background: rgba(61, 220, 151, 0.12);
+      color: var(--mint); font: 650 0.9rem/1.2 var(--font-body);
+      padding: 0.75rem 0.85rem; cursor: pointer;
     }
     .sm-card .sm-idx {
       font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
@@ -1220,7 +1251,7 @@
       padding: 0.55rem 0.75rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
       background: rgba(11,11,12,0.92); backdrop-filter: blur(12px);
       border-top: 1px solid var(--line);
-      display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 0.35rem;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.35rem;
       max-width: 430px; margin: 0 auto;
     }
     .sm-dock button {
@@ -1239,9 +1270,10 @@
       grid-column: 1 / -1;
     }
     .sm-dock.with-howto {
-      grid-template-columns: 1fr 1fr 1fr 1.2fr;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
     }
+    .sm-dock.with-howto button.howto { grid-column: 1 / -1; }
     .sm-howto-screen {
       display: none; flex-direction: column; gap: 0.65rem;
       min-height: calc(100svh - 4.5rem);
@@ -3106,7 +3138,7 @@
         }
 
 
-        lede.textContent = "One exercise per screen. Done → Next. Use Can’t do / Alternative when stuck.";
+        lede.textContent = "One exercise per screen. Use ← → arrows to move. How-to has tips + effort guide + video.";
         const gymMoves = workout.gym || [];
         const homeMoves = workout.home || [];
         const sessionIso = String(workout.date || isoDate(window.__waltSelectedDate || getPortalNow()));
@@ -3136,7 +3168,6 @@
           '<div class="chip"><div class="k">Budget</div><div class="v">' + escapeHtml(String(workout.budget_minutes || 75)) + " min plan</div></div>" +
           '<div class="chip"><div class="k">Sources suggest</div><div class="v">' + escapeHtml(String(workout.sources_count || 7)) + " packs</div></div>" +
           "</div>" +
-          formatEffortTeaser(workout.effort_rule) +
           '<div class="session-mode" id="sessionMode"></div>' +
           '<div class="habits-row">' + formatHabits(workout.habits) + "</div>" +
           tipsHtml +
@@ -3288,7 +3319,17 @@
             " sources suggest this plan</span> · this move: packs " +
             escapeHtml(srcPacks || "—") + "</div>";
 
+          const navPct = Math.round(((moveIndex + 1) / moves.length) * 100);
+          const effortRule = workout.effort_rule || {};
+          const effortHowto =
+            "<h4>How hard should you push?</h4>" +
+            "<p style='margin:0'>" + escapeHtml(effortRule.easy_answer || effortRule.one_liner ||
+              "Hard and controlled — most working sets stop with 1–2 clean reps left.") + "</p>" +
+            '<p style="margin:0.55rem 0 0"><button type="button" class="btn ghost" id="smEffortFromHowTo" style="padding:0.55rem 0.85rem;font-size:0.85rem">' +
+            "Open full effort / plan-fit guide</button></p>";
+
           const howtoBody =
+            effortHowto +
             (m.where ? "<h4>Where</h4><p style='margin:0'>" + escapeHtml(m.where) + "</p>" : "") +
             "<h4>How to</h4><p style='margin:0'>" + escapeHtml(m.how_to || m.notes || "—") + "</p>" +
             (m.avoid ? "<h4>Don’t</h4><p style='margin:0'>" + escapeHtml(m.avoid) + "</p>" : "") +
@@ -3306,9 +3347,21 @@
                 "' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen loading='lazy'></iframe></div>"
               : "<h4>Video demo</h4><p style='margin:0;color:var(--muted)'>No video linked for this move.</p>");
 
+          const finishHtml = (moveIndex >= moves.length - 1)
+            ? '<div class="sm-finish-wrap"><button type="button" id="smFinishedAll">Finished everything</button></div>'
+            : "";
+
           modeRoot.classList.remove("is-howto");
           modeRoot.innerHTML =
             '<div class="sm-workout">' +
+            '<div class="sm-nav-arrows">' +
+            '<button type="button" class="sm-arrow" id="smPrev" aria-label="Previous exercise"' +
+            (moveIndex <= 0 ? " disabled" : "") + ">&#8249;</button>" +
+            '<div class="sm-nav-mid"><div class="sm-idx">Exercise ' + (moveIndex + 1) + " / " + moves.length +
+            "</div></div>" +
+            '<button type="button" class="sm-arrow" id="smNext" aria-label="Next exercise"' +
+            (moveIndex >= moves.length - 1 ? " disabled" : "") + ">&#8250;</button>" +
+            "</div>" +
             '<div class="sm-meta">' +
             '<span class="sm-chip"><strong>' + escapeHtml(String(workout.title || "Session")) + "</strong></span>" +
             (isDemoMode() ? '<span class="sm-chip" style="border-color:var(--amber);color:var(--amber)">DEMO</span>' : "") +
@@ -3319,11 +3372,8 @@
             '<span class="sm-chip">Next gap <strong>' + escapeHtml(String((timing.rest_sec_before_next || 60) + "s")) + "</strong></span>" +
             "</div>" +
             '<div class="sm-card">' +
-            '<div class="sm-top"><div><div class="sm-idx">Exercise ' + (moveIndex + 1) + " / " + moves.length +
-            (st === "done" ? " · done" : (st === "skipped" ? " · skipped" : "")) +
-            "</div><h3>" + escapeHtml(m.name || "") + "</h3></div>" +
+            '<div class="sm-top"><div><h3>' + escapeHtml(m.name || "") + "</h3></div>" +
             '<div class="sm-dose">' + escapeHtml(isCardio ? String(m.reps || m.minutes + " min") : (m.sets + " × " + (m.reps || ""))) + "</div></div>" +
-            formatEffortStrip(workout.effort_rule) +
             '<div class="sm-diagram" id="smDiagram">' +
             '<object data="assets/diagrams/body.svg" type="image/svg+xml" style="width:100%;height:100%"></object>' +
             '<div class="sm-feel">Feel: ' + escapeHtml((m.feel_zones || []).join(", ") || "—") + "</div></div>" +
@@ -3335,29 +3385,22 @@
             romHtml +
             tipsHtml2 +
             sourcesLine +
-            '<div class="sm-progress"><div class="sp-label"><strong>Session after this move</strong> — ' +
-            completedBefore + "/" + moves.length + " checked (" + pct + "%)</div>" +
-            '<div class="sp-bar"><div class="sp-fill" style="width:' + pct + '%"></div></div></div>' +
+            '<div class="sm-progress"><div class="sp-label"><strong>Browsing</strong> — exercise ' +
+            (moveIndex + 1) + "/" + moves.length + " (" + navPct + "%)</div>" +
+            '<div class="sp-bar"><div class="sp-fill" style="width:' + navPct + '%"></div></div></div>' +
+            finishHtml +
             "</div></div>" +
             '<div class="sm-howto-screen" id="smHowToScreen">' +
             '<div class="sm-howto-top"><button type="button" id="smHowToBack">← Back</button>' +
             "<h3>" + escapeHtml(m.name || "How to") + "</h3></div>" +
             '<div class="sm-howto-body">' + howtoBody + "</div></div>" +
             '<div class="sm-dock with-howto">' +
-            '<button type="button" class="push-guide" id="smPushGuide">How hard should you push? · plan fit</button>' +
-            '<button type="button" class="howto" id="smHowTo">How to · tips · video</button>' +
+            '<button type="button" class="howto" id="smHowTo">How to · tips · video · effort</button>' +
             '<button type="button" class="danger" id="smCant">Can’t do</button>' +
             '<button type="button" id="smAlt">Alternative</button>' +
-            '<button type="button" id="smDone">' + (st === "done" ? "Undo ✓" : "Done ✓") + "</button>" +
-            '<button type="button" class="primary" id="smNext">' + (moveIndex >= moves.length - 1 ? "Finish" : "Next →") + "</button>" +
             "</div>";
 
           highlightZones(document.getElementById("smDiagram"), m.feel_zones || []);
-
-          const smPush = document.getElementById("smPushGuide");
-          if (smPush) smPush.addEventListener("click", openPushGuide);
-          const smEffort = document.getElementById("smEffortBtn");
-          if (smEffort) smEffort.addEventListener("click", openPushGuide);
 
           document.getElementById("smHowTo").addEventListener("click", () => {
             modeRoot.classList.add("is-howto");
@@ -3366,22 +3409,27 @@
           document.getElementById("smHowToBack").addEventListener("click", () => {
             modeRoot.classList.remove("is-howto");
           });
+          const effortFromHowTo = document.getElementById("smEffortFromHowTo");
+          if (effortFromHowTo) effortFromHowTo.addEventListener("click", openPushGuide);
 
+          document.getElementById("smPrev").addEventListener("click", () => {
+            if (moveIndex <= 0) return;
+            moveIndex -= 1;
+            renderStep(moves);
+          });
           document.getElementById("smNext").addEventListener("click", () => {
-            if (moveIndex >= moves.length - 1) {
-              updateWeek();
-              return;
-            }
+            if (moveIndex >= moves.length - 1) return;
             moveIndex += 1;
             renderStep(moves);
           });
-          document.getElementById("smDone").addEventListener("click", () => {
-            const cur = moveStatusKey((getDayLog(sessionIso).moves || {})[m.name]);
-            if (cur === "done") setMoveStatus(sessionIso, currentMode, m.name, null);
-            else setMoveStatus(sessionIso, currentMode, m.name, "done");
-            renderStep(moves);
-            updateWeek();
-          });
+          const finishedBtn = document.getElementById("smFinishedAll");
+          if (finishedBtn) {
+            finishedBtn.addEventListener("click", () => {
+              updateWeek();
+              finishedBtn.textContent = "Nice — session browsed";
+              finishedBtn.disabled = true;
+            });
+          }
           document.getElementById("smCant").addEventListener("click", () => {
             skipSheet.classList.add("open");
             skipSheet.setAttribute("aria-hidden", "false");
