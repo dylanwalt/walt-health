@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T04:51:50.124194+00:00",
+  "generated_at": "2026-08-12T06:18:40.062513+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -52,32 +52,32 @@
   "window": {
     "days": 60,
     "counts": {
-      "recovery": 60,
-      "sleep_non_nap": 60,
+      "recovery": 59,
+      "sleep_non_nap": 59,
       "cycles": 60,
       "workouts": 30
     },
     "metrics": {
       "recovery_score": {
-        "avg": 69.53,
+        "avg": 69.95,
         "min": 33.0,
         "max": 93.0,
         "trend": {
-          "days_31_60_avg": 69.06,
+          "days_31_60_avg": 69.87,
           "days_1_30_avg": 70.03
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 103.35
+        "avg": 103.63
       },
       "resting_heart_rate": {
-        "avg": 57.4
+        "avg": 57.2
       },
       "sleep_performance_pct": {
-        "avg": 81.62
+        "avg": 81.83
       },
       "sleep_duration_hours": {
-        "avg": 8.12
+        "avg": 8.11
       },
       "cycle_strain": {
         "avg": 8.58
@@ -112,8 +112,6 @@
     "points": [
       {
         "date": "2026-06-13",
-        "sleep_hours": 7.51,
-        "sleep_perf": 69.0,
         "strain": 6.35
       },
       {
@@ -679,18 +677,18 @@
         "avg": 7.42,
         "min": 3.57,
         "max": 10.88,
-        "first": 7.51,
+        "first": 6.77,
         "last": 8.4,
-        "older_half_avg": 7.28,
+        "older_half_avg": 7.27,
         "newer_half_avg": 7.56
       },
       "sleep_perf": {
-        "avg": 81.62,
+        "avg": 81.83,
         "min": 58.0,
         "max": 98.0,
-        "first": 69.0,
+        "first": 82.0,
         "last": 98.0,
-        "older_half_avg": 80.6,
+        "older_half_avg": 81.0,
         "newer_half_avg": 82.63
       },
       "strain": {
