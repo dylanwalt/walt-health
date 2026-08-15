@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T23:26:43.428545+00:00",
+  "generated_at": "2026-08-15T01:35:38.797515+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -646,7 +646,7 @@
         "rhr": 57.0,
         "sleep_hours": 7.95,
         "sleep_perf": 90.0,
-        "strain": 13.22
+        "strain": 13.23
       }
     ],
     "summaries": {
@@ -700,7 +700,7 @@
         "min": 4.18,
         "max": 16.5,
         "first": 9.88,
-        "last": 13.22,
+        "last": 13.23,
         "older_half_avg": 7.47,
         "newer_half_avg": 9.54
       }
@@ -883,7 +883,7 @@
       "mode": "rest",
       "title": "Recovery / off day",
       "summary": "No lifting prescribed today (MWF plan). Walk, sleep, hit protein + creatine.",
-      "date": "2026-08-14",
+      "date": "2026-08-15",
       "next_session": null,
       "habits": {
         "creatine_monohydrate_g": 5,
