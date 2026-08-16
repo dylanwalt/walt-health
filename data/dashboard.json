@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T21:25:24.185073+00:00",
+  "generated_at": "2026-08-16T22:26:46.883520+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -54,7 +54,7 @@
     "counts": {
       "recovery": 59,
       "sleep_non_nap": 59,
-      "cycles": 60,
+      "cycles": 59,
       "workouts": 31
     },
     "metrics": {
@@ -109,10 +109,6 @@
   "history": {
     "window_days": 60,
     "points": [
-      {
-        "date": "2026-06-17",
-        "strain": 8.31
-      },
       {
         "date": "2026-06-18",
         "recovery": 93.0,
@@ -694,10 +690,10 @@
         "avg": 8.43,
         "min": 4.18,
         "max": 16.5,
-        "first": 8.31,
+        "first": 10.96,
         "last": 4.4,
-        "older_half_avg": 7.59,
-        "newer_half_avg": 9.24
+        "older_half_avg": 7.87,
+        "newer_half_avg": 8.99
       }
     },
     "totals_pulled": {
