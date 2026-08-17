@@ -1,0 +1,1187 @@
+{
+  "brand": "WALT HEALTH",
+  "demo_for": "Jordan",
+  "slug": "FOR-JORDAN",
+  "coach": "Jeff Nippard",
+  "coach_site": "https://jeffnippard.com/",
+  "coach_about": "https://jeffnippard.com/pages/about",
+  "key_video": "https://www.youtube.com/watch?v=71op1DQ2gyo",
+  "headline": "FOR JORDAN \u00b7 Jeff Nippard session",
+  "sessions": {
+    "push": {
+      "id": "push",
+      "title": "Push \u00b7 chest + shoulders",
+      "focus": "Chest, front/side delts, triceps \u00b7 small leg maintenance",
+      "minutes": 70,
+      "summary": "Jeff Nippard\u2013framed \u00b7 same Plan C menu \u00b7 one exercise at a time.",
+      "gym": [
+        {
+          "order": 1,
+          "name": "Incline dumbbell or barbell press",
+          "sets": 3,
+          "reps": "8\u201310",
+          "notes": "45\u00b0 incline. Control the eccentric. Rest ~90\u2013180s between sets",
+          "minutes": 12,
+          "where": "Adjustable bench + dumbbells (or barbell / Smith incline). Bench about 30-45 degrees.",
+          "how_to": "Keep elbows moderately tucked and think about pressing the dumbbells up and back toward your face, rather than just straight up. Control the descent, slight pause, then press. Set the bench to about 30-45 degrees. Plant your feet flat. Pull your shoulder blades back into the pad. Start with the weights at upper-chest height, elbows about 45 degrees from your torso (not flared flat out). Press up until arms are almost straight without slamming. Lower for about 2 seconds until you feel a stretch across the upper chest.",
+          "avoid": "Bench too upright (turns into a shoulder press). Bouncing the bar/dumbbells off the chest. Huge arch and lifting the hips.",
+          "load_type": "kg",
+          "set_plan_lines": [
+            "Set 1: pick X kg for 8\u201310 reps stopping with 1\u20132 clean reps left (not failure)",
+            "Set 2: same X kg, or X + 2.5 kg if set 1 felt easy",
+            "Set 3: X + 2.5 kg only if form stayed smooth \u2014 else stay at X"
+          ],
+          "set_plan": "Set 1: pick X kg for 8\u201310 reps stopping with 1\u20132 clean reps left (not failure) | Set 2: same X kg, or X + 2.5 kg if set 1 felt easy | Set 3: X + 2.5 kg only if form stayed smooth \u2014 else stay at X",
+          "timing": {
+            "work_sec_per_set": 50,
+            "rest_sec_between_sets": 105,
+            "rest_sec_before_next": 90
+          },
+          "rom_cues": {
+            "question": "Full stretch at the bottom?",
+            "answer": "Yes \u2014 lower until you feel an upper-chest stretch (~2 sec). Do not bounce.",
+            "why": "\u201cBring the dumbbells all the way down on presses until you feel a nice deep stretch in your pecs.\u201d \u2014 How To Train For Pure Muscle Growth"
+          },
+          "tips": [
+            "control the lowering - that stretch is where a lot of the chest work happens.",
+            "keep shoulder blades pinned; do not shrug into your ears.",
+            "If you only find a barbell incline machine, use that - same idea."
+          ],
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"I prefer something between like 30 and 45\u00b0 \u2014 if I get over 45\u00b0 I start to feel a lot more shoulders and a lot less pec.\"",
+              "weight": 99
+            },
+            {
+              "text": "control the lowering - that stretch is where a lot of the chest work happens.",
+              "weight": 95
+            },
+            {
+              "text": "keep shoulder blades pinned; do not shrug into your ears.",
+              "weight": 80
+            },
+            {
+              "text": "If you only find a barbell incline machine, use that - same idea.",
+              "weight": 65
+            }
+          ],
+          "research_note": "Jeff: tension is king \u2014 deep stretch on the pecs under load drives growth. Progressive overload = add reps or load week to week.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "goal_weights": {
+            "shoulders": 25,
+            "chest_upper": 65,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 90,
+          "alternatives": [
+            {
+              "name": "Flat dumbbell press",
+              "when": "Incline bench taken",
+              "keep_original_pct": 85
+            },
+            {
+              "name": "Smith incline press",
+              "when": "Only Smith free",
+              "keep_original_pct": 80
+            }
+          ],
+          "feel_zones": [
+            "upper_chest",
+            "chest",
+            "front_delt",
+            "triceps"
+          ],
+          "diagram_id": "press_chest",
+          "pin_guidance": [],
+          "video_id": "B_2meD6SSNA",
+          "video_label": "Jeff Nippard \u00b7 incline press cues",
+          "session_importance_pct": 17,
+          "goal_ring_pct": {
+            "shoulders": 12,
+            "chest_upper": 32,
+            "recomp": 6
+          },
+          "jeff_quote": "I prefer something between like 30 and 45\u00b0 \u2014 if I get over 45\u00b0 I start to feel a lot more shoulders and a lot less pec.",
+          "jeff_url": "https://www.youtube.com/watch?v=B_2meD6SSNA",
+          "jeff_how": "Keep elbows moderately tucked and think about pressing the dumbbells up and back toward your face, rather than just straight up. Control the descent, slight pause, then press."
+        },
+        {
+          "order": 2,
+          "name": "Seated dumbbell or machine shoulder press",
+          "sets": 3,
+          "reps": "8\u201310",
+          "notes": "Don't shrug. Full lockout without slamming. Rest ~90\u2013180s between sets",
+          "minutes": 11,
+          "where": "Seated bench with back support + dumbbells, or a shoulder-press machine.",
+          "how_to": "Leave 1\u20132 reps in the tank on free-weight presses. Machine is fine for a hard last set. Soft lockout \u2014 no shrug. Sit tall with your back against the pad. Start with dumbbells at about ear height. Press overhead until arms lock softly. Lower only to ear height or the machine start position; do not drop into a relaxed dead hang at the bottom. Do not shrug. On a machine: same path, slow and controlled.",
+          "avoid": "Big lower-back arch. Pressing the weights far out in front of your face. Dropping into a loose hang between reps.",
+          "load_type": "kg",
+          "set_plan_lines": [
+            "Set 1: X kg for 8\u201310 reps stopping with 1\u20132 clean reps left (not failure)",
+            "Set 2: same X kg, or X + 2.5 kg if clean",
+            "Set 3: same rule \u2014 add 2.5 kg only if set 2 was clean"
+          ],
+          "set_plan": "Set 1: X kg for 8\u201310 reps stopping with 1\u20132 clean reps left (not failure) | Set 2: same X kg, or X + 2.5 kg if clean | Set 3: same rule \u2014 add 2.5 kg only if set 2 was clean",
+          "timing": {
+            "work_sec_per_set": 45,
+            "rest_sec_between_sets": 100,
+            "rest_sec_before_next": 75
+          },
+          "rom_cues": {
+            "question": "Lower to a fully relaxed hang?",
+            "answer": "No. Stop around ear height (or the machine\u2019s start). Soft lockout at the top \u2014 no slam.",
+            "why": "A dead hang dumps tension, stresses the shoulder joint, and turns the next rep into a risky heave. Controlled end-range keeps delts working."
+          },
+          "tips": [
+            "this builds the front and middle of the shoulder - key for that round look.",
+            "stop the set when form shakes; do not fight ugly reps in week 1."
+          ],
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"I like the machine here because on my last set I can really push my delts all the way to failure without needing to worry about stabilizatio\u2026\"",
+              "weight": 99
+            },
+            {
+              "text": "this builds the front and middle of the shoulder - key for that round look.",
+              "weight": 95
+            },
+            {
+              "text": "stop the set when form shakes; do not fight ugly reps in week 1.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Jeff: leave a rep or two on heavy free-weight compounds; machines/cables are safer to take to failure.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "goal_weights": {
+            "shoulders": 70,
+            "chest_upper": 20,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 92,
+          "alternatives": [
+            {
+              "name": "Machine shoulder press",
+              "when": "Dumbbells awkward / busy",
+              "keep_original_pct": 88
+            },
+            {
+              "name": "Landmine press",
+              "when": "Shoulder discomfort on strict OH",
+              "keep_original_pct": 70
+            }
+          ],
+          "feel_zones": [
+            "front_delt",
+            "side_delt",
+            "triceps"
+          ],
+          "diagram_id": "press_shoulder",
+          "pin_guidance": [],
+          "video_id": "bvwg4D9UWGI",
+          "video_label": "Jeff Nippard \u00b7 Best Push Workout 2025",
+          "session_importance_pct": 17,
+          "goal_ring_pct": {
+            "shoulders": 34,
+            "chest_upper": 10,
+            "recomp": 6
+          },
+          "jeff_quote": "I like the machine here because on my last set I can really push my delts all the way to failure without needing to worry about stabilization.",
+          "jeff_url": "https://www.youtube.com/watch?v=bvwg4D9UWGI",
+          "jeff_how": "Leave 1\u20132 reps in the tank on free-weight presses. Machine is fine for a hard last set. Soft lockout \u2014 no shrug."
+        },
+        {
+          "order": 3,
+          "name": "Dumbbell or cable side lateral raise",
+          "sets": 4,
+          "reps": "12\u201315",
+          "notes": "Visual priority \u2014 soft elbows, lead with elbows. Last set: 0\u20131 clean reps left \u2014 controlled, not a collapse. Rest ~60\u201390s",
+          "minutes": 11,
+          "where": "Dumbbells standing, cable with a handle at your side, or a lateral-raise machine.",
+          "how_to": "Raise cable height so tension peaks when the cable and arm form ~90\u00b0. Stretch the cable across your body \u2014 don\u2019t stop at your side. Resist the negative 2\u20134 seconds. Soft bend in the elbows. Lead with the elbows and raise arms out to just below shoulder height. Pause briefly. Lower slowly. Prefer clean reps over heavy weight - this is your main \"wider shoulders\" move.",
+          "avoid": "Swinging the body. Shrugging traps. Flinging weights above the head.",
+          "load_type": "kg",
+          "set_plan_lines": [
+            "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left \u2014 stop with 1\u20132 clean reps left",
+            "Set 2: same X, or +2 / +2.5 kg if easy and strict",
+            "Set 3: stay strict \u2014 if you swing, the weight is too heavy"
+          ],
+          "set_plan": "Set 1: light X kg (often 4\u20138) for 12\u201315 with ~2 left \u2014 stop with 1\u20132 clean reps left | Set 2: same X, or +2 / +2.5 kg if easy and strict | Set 3: stay strict \u2014 if you swing, the weight is too heavy",
+          "timing": {
+            "work_sec_per_set": 40,
+            "rest_sec_between_sets": 65,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Raise above shoulder height?",
+            "answer": "Stop just below shoulder height if traps take over. Soft elbows the whole time.",
+            "why": "Side delts build the wide look; shrugging shifts work to traps and steals the point of the move."
+          },
+          "tips": [
+            "stop just below shoulder height if traps take over.",
+            "side delts are a priority for looking broader in shirts - quality beats ego weight."
+          ],
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Focus on scooping the weight out. I think about pushing the cable away from my body rather than lifting the cable up.\"",
+              "weight": 99
+            },
+            {
+              "text": "stop just below shoulder height if traps take over.",
+              "weight": 95
+            },
+            {
+              "text": "side delts are a priority for looking broader in shirts - quality beats ego weight.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Jeff favors cable laterals for max tension in the stretched side-delt position. Last set \u2192 failure.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "goal_weights": {
+            "shoulders": 85,
+            "chest_upper": 5,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 95,
+          "alternatives": [
+            {
+              "name": "Cable lateral raise",
+              "when": "Dumbbells feel jerky",
+              "keep_original_pct": 90
+            },
+            {
+              "name": "Machine lateral",
+              "when": "Cables/DBs taken",
+              "keep_original_pct": 85
+            }
+          ],
+          "feel_zones": [
+            "side_delt"
+          ],
+          "diagram_id": "lateral",
+          "pin_guidance": [],
+          "video_id": "f_OGBg2KxgY",
+          "video_label": "Jeff Nippard \u00b7 Stop Messing Up Lateral Raises",
+          "session_importance_pct": 17,
+          "goal_ring_pct": {
+            "shoulders": 41,
+            "chest_upper": 2,
+            "recomp": 6
+          },
+          "jeff_quote": "Focus on scooping the weight out. I think about pushing the cable away from my body rather than lifting the cable up.",
+          "jeff_url": "https://www.youtube.com/watch?v=bvwg4D9UWGI",
+          "jeff_how": "Raise cable height so tension peaks when the cable and arm form ~90\u00b0. Stretch the cable across your body \u2014 don\u2019t stop at your side. Resist the negative 2\u20134 seconds."
+        },
+        {
+          "order": 4,
+          "name": "Cable or machine chest fly",
+          "sets": 3,
+          "reps": "12\u201315",
+          "notes": "Squeeze at the inside; no ego weight. Rest ~60\u201390s",
+          "minutes": 9,
+          "where": "Pec-deck / fly machine, or dual cables at chest height.",
+          "how_to": "Fixed elbow bend. Open to a chest stretch, hug together. If standing cables pull you around, lean forward and fly downward. Keep a slight bend in the elbows and keep that bend fixed. Open until you feel a chest stretch, then bring the arms together as if hugging a tree. Squeeze one second at the inside.",
+          "avoid": "Straight-arm swings. Jerky lowering.",
+          "load_type": "machine_pin",
+          "set_plan_lines": [
+            "Set 1: pin / load for 12\u201315 smooth reps with ~2 left \u2014 stop with 1\u20132 clean reps left",
+            "Set 2: same pin, or +1 pin if easy",
+            "Set 3: stay controlled \u2014 light is correct"
+          ],
+          "set_plan": "Set 1: pin / load for 12\u201315 smooth reps with ~2 left \u2014 stop with 1\u20132 clean reps left | Set 2: same pin, or +1 pin if easy | Set 3: stay controlled \u2014 light is correct",
+          "timing": {
+            "work_sec_per_set": 40,
+            "rest_sec_between_sets": 60,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Open until you feel a chest stretch?",
+            "answer": "Yes \u2014 fixed elbow bend, open to stretch, hug together, squeeze 1 sec inside.",
+            "why": "Flys top up chest volume; ego weight turns them into a front-delt swing."
+          },
+          "tips": [
+            "this is a control / pump move - light is correct.",
+            "feel the stretch; do not bounce."
+          ],
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Machine and cable-based exercises provide massive tension for less fatigue than free weights and also tend to be safer to take to failure.\"",
+              "weight": 99
+            },
+            {
+              "text": "this is a control / pump move - light is correct.",
+              "weight": 95
+            },
+            {
+              "text": "feel the stretch; do not bounce.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Jeff: high stimulus-to-fatigue \u2014 cables/machines excel for pure hypertrophy isolation.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "goal_weights": {
+            "shoulders": 10,
+            "chest_upper": 75,
+            "recomp": 15
+          },
+          "keep_recommended_pct": 75,
+          "alternatives": [
+            {
+              "name": "Dumbbell floor fly",
+              "when": "Pec-deck / cables busy",
+              "keep_original_pct": 70
+            },
+            {
+              "name": "Skip if short on time",
+              "when": "Pressed for time \u2014 keep presses + laterals",
+              "keep_original_pct": 55
+            }
+          ],
+          "feel_zones": [
+            "chest",
+            "upper_chest"
+          ],
+          "diagram_id": "fly",
+          "pin_guidance": [
+            "Technogym pec-deck / cable: start mid-stack where 12\u201315 leave ~2 reps",
+            "Next set: +1 pin only if set 1 was easy",
+            "Log the pin number on your phone (provisional until we calibrate your stack)"
+          ],
+          "video_id": "fGm-ef-4PVk",
+          "video_label": "Jeff Nippard \u00b7 chest fly / press-around cues",
+          "session_importance_pct": 17,
+          "goal_ring_pct": {
+            "shoulders": 5,
+            "chest_upper": 37,
+            "recomp": 9
+          },
+          "jeff_quote": "Machine and cable-based exercises provide massive tension for less fatigue than free weights and also tend to be safer to take to failure.",
+          "jeff_url": "https://www.youtube.com/watch?v=71op1DQ2gyo",
+          "jeff_how": "Fixed elbow bend. Open to a chest stretch, hug together. If standing cables pull you around, lean forward and fly downward."
+        },
+        {
+          "order": 5,
+          "name": "Cable triceps pushdown (rope or bar)",
+          "sets": 3,
+          "reps": "10\u201315",
+          "notes": "Elbows pinned. Rest ~60\u201390s",
+          "minutes": 9,
+          "where": "Cable stack with a rope or straight / angled bar.",
+          "how_to": "Elbows pinned. Drive apart at the bottom on rope. Earlier sets leave 1\u20132; last set send it. Pin elbows to your sides. Push down until arms straighten. If using a rope, spread the ends apart at the bottom. Let the forearms come up only as far as the elbows stay still.",
+          "avoid": "Leaning and turning it into a chest press. Elbows flaring wide.",
+          "load_type": "machine_pin",
+          "set_plan_lines": [
+            "Set 1: pin / load for 10\u201315 with ~2 left \u2014 stop with 1\u20132 clean reps left",
+            "Set 2: same, or +1 pin if clean",
+            "Set 3: elbows glued \u2014 only forearms move"
+          ],
+          "set_plan": "Set 1: pin / load for 10\u201315 with ~2 left \u2014 stop with 1\u20132 clean reps left | Set 2: same, or +1 pin if clean | Set 3: elbows glued \u2014 only forearms move",
+          "timing": {
+            "work_sec_per_set": 35,
+            "rest_sec_between_sets": 55,
+            "rest_sec_before_next": 60
+          },
+          "rom_cues": {
+            "question": "Full straighten at the bottom?",
+            "answer": "Yes \u2014 soft lockout and squeeze. Up only as far as elbows stay still.",
+            "why": "Triceps finish presses; half-reps leave stimulus on the table."
+          },
+          "tips": [
+            "only the forearms should move - elbows stay glued.",
+            "full straighten at the bottom for the triceps squeeze."
+          ],
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"The advantage of using a rope is that you can really drive the handles apart at the bottom.\"",
+              "weight": 99
+            },
+            {
+              "text": "only the forearms should move - elbows stay glued.",
+              "weight": 95
+            },
+            {
+              "text": "full straighten at the bottom for the triceps squeeze.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Jeff: \u201cDo two to three sets on most exercises and take the last set all the way to failure.\u201d",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "goal_weights": {
+            "shoulders": 15,
+            "chest_upper": 40,
+            "recomp": 10
+          },
+          "keep_recommended_pct": 70,
+          "alternatives": [
+            {
+              "name": "Overhead cable extension",
+              "when": "Pushdown station busy",
+              "keep_original_pct": 65
+            },
+            {
+              "name": "Diamond push-ups",
+              "when": "No cable",
+              "keep_original_pct": 55
+            }
+          ],
+          "feel_zones": [
+            "triceps"
+          ],
+          "diagram_id": "pushdown",
+          "pin_guidance": [
+            "Cable stack: pick a pin for smooth 10\u201315 with elbows pinned",
+            "+1 pin next set only if easy",
+            "Prefer rope or angled bar \u2014 log pin #"
+          ],
+          "video_id": "OpRMRhr0Ycc",
+          "video_label": "Jeff Nippard \u00b7 triceps training",
+          "session_importance_pct": 11,
+          "goal_ring_pct": {
+            "shoulders": 7,
+            "chest_upper": 20,
+            "recomp": 6
+          },
+          "jeff_quote": "The advantage of using a rope is that you can really drive the handles apart at the bottom.",
+          "jeff_url": "https://www.youtube.com/watch?v=OpRMRhr0Ycc",
+          "jeff_how": "Elbows pinned. Drive apart at the bottom on rope. Earlier sets leave 1\u20132; last set send it."
+        },
+        {
+          "order": 6,
+          "name": "Leg press or goblet squat (or walking lunges)",
+          "sets": 2,
+          "reps": "10\u201312",
+          "notes": "Maintenance only \u2014 hard but leave ~2 clean reps. Rest ~90\u2013180s between sets",
+          "minutes": 8,
+          "where": "Leg-press sled, or one dumbbell for goblet squat, or open floor for walking lunges.",
+          "how_to": "Deep comfortable ROM. Control the eccentric. Soft knees at lockout \u2014 keep tension. Don\u2019t bounce the sled. Leg press: feet mid-platform, lower until thighs are about 90 degrees, press without slamming the locks. Goblet squat: hold one dumbbell at your chest, sit between your heels, stand tall. Lunges: short steps, torso upright. These are maintenance only - leave 2-3 reps in reserve.",
+          "avoid": "Butt peeling off the leg-press pad. Knees collapsing inward.",
+          "load_type": "kg",
+          "set_plan_lines": [
+            "Set 1: load for 10\u201312 controlled reps (leave 2\u20133) \u2014 stop with 1\u20132 clean reps left",
+            "Set 2: same load \u2014 do not chase a leg PR this block"
+          ],
+          "set_plan": "Set 1: load for 10\u201312 controlled reps (leave 2\u20133) \u2014 stop with 1\u20132 clean reps left | Set 2: same load \u2014 do not chase a leg PR this block",
+          "timing": {
+            "work_sec_per_set": 45,
+            "rest_sec_between_sets": 90,
+            "rest_sec_before_next": 75
+          },
+          "rom_cues": {
+            "question": "Full depth?",
+            "answer": "Leg press to ~90\u00b0 thighs; goblet sit between heels. No butt peel / knee cave.",
+            "why": "Maintenance volume only \u2014 health floor, not a leg specialty day."
+          },
+          "tips": [
+            "legs stay in the plan for health balance (WHO major-muscle guidance) - not to become a leg specialty.",
+            "stop early if knees hurt; choose the machine that feels best."
+          ],
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Go as deep as you comfortably can\u2026 maintain a very slight knee bend at lockout.\"",
+              "weight": 99
+            },
+            {
+              "text": "legs stay in the plan for health balance (WHO major-muscle guidance) - not to become a leg specialty.",
+              "weight": 95
+            },
+            {
+              "text": "stop early if knees hurt; choose the machine that feels best.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Jeff: control the negative near failure \u2014 don\u2019t let the weight free-fall.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "goal_weights": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 40
+          },
+          "keep_recommended_pct": 60,
+          "alternatives": [
+            {
+              "name": "Goblet squat",
+              "when": "Leg press taken",
+              "keep_original_pct": 60
+            },
+            {
+              "name": "Walking lunges",
+              "when": "Prefer free space",
+              "keep_original_pct": 55
+            }
+          ],
+          "feel_zones": [
+            "quads",
+            "glutes"
+          ],
+          "diagram_id": "legs",
+          "pin_guidance": [
+            "Start mid-stack where 12-15 smooth reps leave 2 in reserve",
+            "Next set: +1 pin only if set 1 was easy",
+            "Log the pin number on your phone"
+          ],
+          "video_id": "nDh_BlnLCGc",
+          "video_label": "Jeff Nippard \u00b7 leg press cues",
+          "session_importance_pct": 7,
+          "goal_ring_pct": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 23
+          },
+          "jeff_quote": "Go as deep as you comfortably can\u2026 maintain a very slight knee bend at lockout.",
+          "jeff_url": "https://www.youtube.com/shorts/nDh_BlnLCGc",
+          "jeff_how": "Deep comfortable ROM. Control the eccentric. Soft knees at lockout \u2014 keep tension. Don\u2019t bounce the sled."
+        },
+        {
+          "order": 7,
+          "name": "Easy conditioning finisher",
+          "sets": 1,
+          "reps": "10 min",
+          "notes": "10 min \u00b7 MIX: StairMaster OR incline walk OR jump rope \u00b7 steady zone-2 \u00b7 ~10 min. Do not turn into a HIIT wreck",
+          "minutes": 10,
+          "where": "Stair climber, incline treadmill, or jump-rope space.",
+          "how_to": "~10 min easy zone-2 after the lift. Talk-test: short sentences OK. Not a HIIT wreck. Easy-moderate pace where you can still talk in short sentences. Stair climber: light hands on the rails, full steps. Incline walk: about 5-8% incline, brisk walk not a sprint. Jump rope: steady rhythm. Use the minutes shown on the card.",
+          "avoid": "All-out intervals that trash tomorrow's lift. Hanging on the stair climber rails and cheating the steps.",
+          "load_type": "cardio",
+          "set_plan_lines": [
+            "One easy block for the minutes listed \u2014 no kilograms",
+            "StairMaster Technogym level ~4\u20136 (provisional week 1)",
+            "Or incline walk 5\u20138% \u00b7 talk-test OK"
+          ],
+          "set_plan": "One easy block for the minutes listed \u2014 no kilograms | StairMaster Technogym level ~4\u20136 (provisional week 1) | Or incline walk 5\u20138% \u00b7 talk-test OK",
+          "timing": {
+            "work_sec_per_set": 0,
+            "rest_sec_between_sets": 0,
+            "rest_sec_before_next": 0
+          },
+          "rom_cues": {
+            "question": "All-out intervals?",
+            "answer": "No. Easy\u2013moderate zone 2. Short sentences while moving.",
+            "why": "Protect tomorrow\u2019s lift; recomp support comes from consistency + protein, not punishing cardio."
+          },
+          "tips": [
+            "this supports conditioning and midsection goals; lifting still builds the shoulders.",
+            "if you are exhausted from lifting, shorten this, do not skip the whole gym day."
+          ],
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Do cardio after lifting or at a separate time so it doesn\u2019t steal strength from the session.\"",
+              "weight": 99
+            },
+            {
+              "text": "this supports conditioning and midsection goals; lifting still builds the shoulders.",
+              "weight": 95
+            },
+            {
+              "text": "if you are exhausted from lifting, shorten this, do not skip the whole gym day.",
+              "weight": 80
+            }
+          ],
+          "research_note": "Jeff: place cardio after weights (or separate) to protect performance.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "goal_weights": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 80
+          },
+          "keep_recommended_pct": 65,
+          "alternatives": [
+            {
+              "name": "Incline treadmill walk",
+              "when": "StairMaster busy",
+              "keep_original_pct": 70
+            },
+            {
+              "name": "Jump rope easy",
+              "when": "Prefer rope",
+              "keep_original_pct": 60
+            },
+            {
+              "name": "Shorten to 5 min",
+              "when": "Exhausted after lifts",
+              "keep_original_pct": 50
+            }
+          ],
+          "feel_zones": [
+            "cardio"
+          ],
+          "diagram_id": "cardio",
+          "pin_guidance": [],
+          "video_id": "3Y2vxKsaK9A",
+          "video_label": "Jeff Nippard \u00b7 cardio without losing muscle",
+          "stairmaster_level": "4\u20136",
+          "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
+          "target_hr": {
+            "bpm_low": 137,
+            "bpm_high": 150,
+            "label": "137\u2013150 bpm",
+            "note": "Provisional zone-2 from your WHOOP resting HR \u2014 use talk-test if the watch disagrees.",
+            "rhr_used": 60.0
+          },
+          "session_importance_pct": 14,
+          "goal_ring_pct": {
+            "shoulders": 0,
+            "chest_upper": 0,
+            "recomp": 46
+          },
+          "jeff_quote": "Do cardio after lifting or at a separate time so it doesn\u2019t steal strength from the session.",
+          "jeff_url": "https://www.youtube.com/shorts/3Y2vxKsaK9A",
+          "jeff_how": "~10 min easy zone-2 after the lift. Talk-test: short sentences OK. Not a HIIT wreck."
+        }
+      ],
+      "effort_rule": {
+        "question": "How hard should you push?",
+        "headline": "Jeff\u2019s rule: last set to failure \u2014 earlier sets leave reps",
+        "easy_answer": "Leave 1\u20132 reps in the tank on early sets. Last set \u2014 send it (especially machines/cables).",
+        "answer": "Jeff: conflicting evidence on failure vs near-failure, so he leaves 1\u20132 early and takes the last set to failure so you learn what RIR feels like.",
+        "one_liner": "Early sets 1\u20132 RIR \u00b7 last set to failure \u00b7 compounds keep a rep if free-weight heavy.",
+        "do": [
+          "Do 2\u20133 hard sets on most exercises.",
+          "Earlier sets: leave one or two clean reps.",
+          "Last set: take it to failure (machines/cables preferred).",
+          "Heavy free-weight compounds: still leave a rep or two even on the last set.",
+          "Control a 2\u20134 second negative \u2014 especially near failure."
+        ],
+        "dont": [
+          "Don\u2019t fail every set of squats/bench/RDLs with ugly form.",
+          "Don\u2019t rest under 1 minute as a default \u2014 Jeff: \u22651 min is generally better.",
+          "Don\u2019t chase novelty every week \u2014 progress the same menu."
+        ],
+        "feel_checks": [
+          "Last 2\u20133 reps should feel slow and demanding.",
+          "If you had 4+ easy reps left, go heavier next set.",
+          "If form breaks, the set is over.",
+          "Side delts / curls / flies / pushdowns: last set may be 0 RIR."
+        ],
+        "plan_fit_intro": "Jordan demo \u00b7 Plan C shape (3\u00d7 push / pull / shoulders) \u00b7 every cue sourced to Jeff Nippard.",
+        "session_roles": {
+          "push": "Chest + front/side delts + triceps \u2014 Jeff-style high-tension presses and laterals.",
+          "pull": "Lats, mid-back, rear delts, biceps \u2014 stretch + squeeze, progressive overload.",
+          "shoulders": "Side-delt priority volume \u2014 Jeff\u2019s cable lateral cues and failure on isolations."
+        }
+      },
+      "load_cue": "Pick a weight where target reps finish hard with ~1\u20132 left. Add weight or reps next week (Jeff: progressive overload).",
+      "reps_in_reserve": "Jeff: leave a few reps early \u00b7 last set to failure \u00b7 keep a rep on heavy free-weight compounds.",
+      "goal_rings": [
+        {
+          "id": "shoulders",
+          "label": "Shoulders",
+          "color": "#ff6b4a"
+        },
+        {
+          "id": "chest_upper",
+          "label": "Upper chest",
+          "color": "#5eb1ff"
+        },
+        {
+          "id": "recomp",
+          "label": "Recomp",
+          "color": "#3ddc97"
+        }
+      ],
+      "habits": {
+        "protein": "Jeff: \u201c0.7 g protein per lb\u2026 1 g/lb may provide extra anabolic insurance.\u201d",
+        "creatine": "Jeff staple: 3\u20135 g creatine monohydrate daily.",
+        "cardio": "After the lift \u00b7 easy zone-2 ~10 min."
+      }
+    },
+    "pull": {
+      "id": "pull",
+      "title": "Pull \u00b7 back + rear delts + arms",
+      "focus": "Lats, upper back, rear delts, biceps \u00b7 hinge maintenance",
+      "minutes": 75,
+      "summary": "Jeff Nippard\u2013framed \u00b7 same Plan C menu \u00b7 one exercise at a time.",
+      "gym": [
+        {
+          "name": "Lat pulldown or assisted pull-up",
+          "sets_base": 4,
+          "reps": "8\u201310",
+          "notes": "Full stretch at top; pull elbows down. Last set hard. Rest ~90\u2013180s between sets",
+          "minutes": 10,
+          "rest_seconds": "90\u2013180",
+          "jeff_quote": "The most obvious thing is eccentric control. Think about your lats pulling apart on the negative.",
+          "jeff_url": "https://www.youtube.com/watch?v=vD-dEl7R2Bg",
+          "jeff_how": "Full stretch at the top. Pull elbows down. Control the eccentric so lats lengthen under load.",
+          "video_id": "vD-dEl7R2Bg",
+          "video_label": "Jeff Nippard \u00b7 pull / lat cues",
+          "research_note": "Jeff: pulldowns emphasize lats/teres; get the stretch and own the negative.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Full stretch at the top. Pull elbows down. Control the eccentric so lats lengthen under load.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"The most obvious thing is eccentric control. Think about your lats pulling apart on the negative.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Seated cable row",
+          "sets_base": 4,
+          "reps": "8\u201310",
+          "notes": "Chest proud; squeeze shoulder blades. Progressive load. Rest ~90\u2013180s between sets",
+          "minutes": 9,
+          "rest_seconds": "90\u2013180",
+          "jeff_quote": "Rows emphasize the traps and rhomboids of the mid-back \u2014 especially if you focus on actively squeezing your shoulder blades together.",
+          "jeff_url": "https://jeffnippard.com/blogs/news/the-ultimate-pull-workout-for-muscle-growth-back-biceps-rear-delts-2023",
+          "jeff_how": "Chest proud. Squeeze shoulder blades. Stretch on the way out. Progress load or reps next week.",
+          "video_id": "spKGN0XzErU",
+          "video_label": "Jeff Nippard \u00b7 Ultimate Pull Workout",
+          "research_note": "Jeff: progressive overload \u2014 increase some training variable week to week.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Chest proud. Squeeze shoulder blades. Stretch on the way out. Progress load or reps next week.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Rows emphasize the traps and rhomboids of the mid-back \u2014 especially if you focus on actively squeezing your shoulder blades together.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Rear delt fly (dumbbell, cable, or machine)",
+          "sets_base": 3,
+          "reps": "12\u201315",
+          "notes": "Definition + shoulder health. Rest ~60\u201390s",
+          "minutes": 7,
+          "rest_seconds": "60\u201390",
+          "jeff_quote": "Machine and cable-based exercises provide massive tension for less fatigue than free weights and also tend to be safer to take to failure.",
+          "jeff_url": "https://www.youtube.com/watch?v=71op1DQ2gyo",
+          "jeff_how": "Fixed elbow bend. Open to a chest stretch, hug together. If standing cables pull you around, lean forward and fly downward.",
+          "video_id": "fGm-ef-4PVk",
+          "video_label": "Jeff Nippard \u00b7 chest fly / press-around cues",
+          "research_note": "Jeff: high stimulus-to-fatigue \u2014 cables/machines excel for pure hypertrophy isolation.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Fixed elbow bend. Open to a chest stretch, hug together. If standing cables pull you around, lean forward and fly downward.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Machine and cable-based exercises provide massive tension for less fatigue than free weights and also tend to be safer to take to failure.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Face pull (cable rope)",
+          "sets_base": 3,
+          "reps": "12\u201315",
+          "notes": "External rotation at the end. Rest ~60\u201390s",
+          "minutes": 5,
+          "rest_seconds": "60\u201390",
+          "jeff_quote": "Omni-direction: set one low-to-high, set two mid, set three high toward the eyes.",
+          "jeff_url": "https://jeffnippard.com/blogs/news/the-ultimate-pull-workout-for-muscle-growth-back-biceps-rear-delts-2023",
+          "jeff_how": "External rotation at the end. Vary cable height across sets for complete rear-delt/upper-back coverage.",
+          "video_id": "spKGN0XzErU",
+          "video_label": "Jeff Nippard \u00b7 Ultimate Pull Workout",
+          "research_note": "Jeff programs angle variation on face pulls for fuller rear-delt stimulus.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "External rotation at the end. Vary cable height across sets for complete rear-delt/upper-back coverage.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Omni-direction: set one low-to-high, set two mid, set three high toward the eyes.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell or EZ-bar curl",
+          "sets_base": 3,
+          "reps": "10\u201312",
+          "notes": "No swing. Last set 0\u20131 RIR. Rest ~60\u201390s",
+          "minutes": 6,
+          "rest_seconds": "60\u201390",
+          "jeff_quote": "Step forward until we get that deep stretch in the bicep. And then we\u2019re going to curl forward from there.",
+          "jeff_url": "https://www.youtube.com/watch?v=vD-dEl7R2Bg",
+          "jeff_how": "No swing. Stretch at the bottom. Curl from stretch. Last set may go to failure.",
+          "video_id": "vD-dEl7R2Bg",
+          "video_label": "Jeff Nippard \u00b7 biceps stretch curl",
+          "research_note": "Jeff: keep momentum under control \u2014 swinging shifts tension off the biceps.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "No swing. Stretch at the bottom. Curl from stretch. Last set may go to failure.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Step forward until we get that deep stretch in the bicep. And then we\u2019re going to curl forward from there.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Romanian deadlift or lying leg curl",
+          "sets_base": 3,
+          "reps": "8\u201312",
+          "notes": "Soft knees, flat back; hinge \u2014 not a bounce. Compounds: leave ~1\u20132 clean reps (not 0\u20131 grind). Rest ~90\u2013180s between sets",
+          "minutes": 7,
+          "rest_seconds": "90\u2013180",
+          "jeff_quote": "Step forward until we get that deep stretch in the bicep. And then we\u2019re going to curl forward from there.",
+          "jeff_url": "https://www.youtube.com/watch?v=vD-dEl7R2Bg",
+          "jeff_how": "No swing. Stretch at the bottom. Curl from stretch. Last set may go to failure.",
+          "video_id": "vD-dEl7R2Bg",
+          "video_label": "Jeff Nippard \u00b7 biceps stretch curl",
+          "research_note": "Jeff: keep momentum under control \u2014 swinging shifts tension off the biceps.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "No swing. Stretch at the bottom. Curl from stretch. Last set may go to failure.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Step forward until we get that deep stretch in the bicep. And then we\u2019re going to curl forward from there.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Easy conditioning finisher",
+          "sets_base": 1,
+          "reps": "time",
+          "notes": "Incline walk preferred (less grip fatigue) OR easy StairMaster \u00b7 zone-2 \u00b7 ~10 min",
+          "minutes": 10,
+          "jeff_quote": "Do cardio after lifting or at a separate time so it doesn\u2019t steal strength from the session.",
+          "jeff_url": "https://www.youtube.com/shorts/3Y2vxKsaK9A",
+          "jeff_how": "~10 min easy zone-2 after the lift. Talk-test: short sentences OK. Not a HIIT wreck.",
+          "video_id": "3Y2vxKsaK9A",
+          "video_label": "Jeff Nippard \u00b7 cardio without losing muscle",
+          "research_note": "Jeff: place cardio after weights (or separate) to protect performance.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "~10 min easy zone-2 after the lift. Talk-test: short sentences OK. Not a HIIT wreck.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Do cardio after lifting or at a separate time so it doesn\u2019t steal strength from the session.\"",
+              "weight": 99
+            }
+          ]
+        }
+      ],
+      "effort_rule": {
+        "question": "How hard should you push?",
+        "headline": "Jeff\u2019s rule: last set to failure \u2014 earlier sets leave reps",
+        "easy_answer": "Leave 1\u20132 reps in the tank on early sets. Last set \u2014 send it (especially machines/cables).",
+        "answer": "Jeff: conflicting evidence on failure vs near-failure, so he leaves 1\u20132 early and takes the last set to failure so you learn what RIR feels like.",
+        "one_liner": "Early sets 1\u20132 RIR \u00b7 last set to failure \u00b7 compounds keep a rep if free-weight heavy.",
+        "do": [
+          "Do 2\u20133 hard sets on most exercises.",
+          "Earlier sets: leave one or two clean reps.",
+          "Last set: take it to failure (machines/cables preferred).",
+          "Heavy free-weight compounds: still leave a rep or two even on the last set.",
+          "Control a 2\u20134 second negative \u2014 especially near failure."
+        ],
+        "dont": [
+          "Don\u2019t fail every set of squats/bench/RDLs with ugly form.",
+          "Don\u2019t rest under 1 minute as a default \u2014 Jeff: \u22651 min is generally better.",
+          "Don\u2019t chase novelty every week \u2014 progress the same menu."
+        ],
+        "feel_checks": [
+          "Last 2\u20133 reps should feel slow and demanding.",
+          "If you had 4+ easy reps left, go heavier next set.",
+          "If form breaks, the set is over.",
+          "Side delts / curls / flies / pushdowns: last set may be 0 RIR."
+        ],
+        "plan_fit_intro": "Jordan demo \u00b7 Plan C shape (3\u00d7 push / pull / shoulders) \u00b7 every cue sourced to Jeff Nippard.",
+        "session_roles": {
+          "push": "Chest + front/side delts + triceps \u2014 Jeff-style high-tension presses and laterals.",
+          "pull": "Lats, mid-back, rear delts, biceps \u2014 stretch + squeeze, progressive overload.",
+          "shoulders": "Side-delt priority volume \u2014 Jeff\u2019s cable lateral cues and failure on isolations."
+        }
+      },
+      "load_cue": "Pick a weight where target reps finish hard with ~1\u20132 left. Add weight or reps next week (Jeff: progressive overload).",
+      "reps_in_reserve": "Jeff: leave a few reps early \u00b7 last set to failure \u00b7 keep a rep on heavy free-weight compounds.",
+      "goal_rings": [
+        {
+          "id": "shoulders",
+          "label": "Shoulders",
+          "color": "#ff6b4a"
+        },
+        {
+          "id": "chest_upper",
+          "label": "Upper chest",
+          "color": "#5eb1ff"
+        },
+        {
+          "id": "recomp",
+          "label": "Recomp",
+          "color": "#3ddc97"
+        }
+      ],
+      "habits": {
+        "protein": "Jeff: \u201c0.7 g protein per lb\u2026 1 g/lb may provide extra anabolic insurance.\u201d",
+        "creatine": "Jeff staple: 3\u20135 g creatine monohydrate daily.",
+        "cardio": "After the lift \u00b7 easy zone-2 ~10 min."
+      }
+    },
+    "shoulders": {
+      "id": "shoulders",
+      "title": "Shoulders emphasis + arms + abs",
+      "focus": "Side delts volume \u00b7 visual priority day \u00b7 light legs + core",
+      "minutes": 75,
+      "summary": "Jeff Nippard\u2013framed \u00b7 same Plan C menu \u00b7 one exercise at a time.",
+      "gym": [
+        {
+          "name": "Seated dumbbell or machine shoulder press",
+          "sets_base": 4,
+          "reps": "6\u201310",
+          "notes": "Quality over ego. Hard sets \u2014 leave ~1\u20132 RIR. Rest ~90\u2013180s between sets",
+          "minutes": 10,
+          "rest_seconds": "90\u2013180",
+          "jeff_quote": "I like the machine here because on my last set I can really push my delts all the way to failure without needing to worry about stabilization.",
+          "jeff_url": "https://www.youtube.com/watch?v=bvwg4D9UWGI",
+          "jeff_how": "Leave 1\u20132 reps in the tank on free-weight presses. Machine is fine for a hard last set. Soft lockout \u2014 no shrug.",
+          "video_id": "bvwg4D9UWGI",
+          "video_label": "Jeff Nippard \u00b7 Best Push Workout 2025",
+          "research_note": "Jeff: leave a rep or two on heavy free-weight compounds; machines/cables are safer to take to failure.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Leave 1\u20132 reps in the tank on free-weight presses. Machine is fine for a hard last set. Soft lockout \u2014 no shrug.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"I like the machine here because on my last set I can really push my delts all the way to failure without needing to worry about stabilizatio\u2026\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell or cable side lateral raise",
+          "sets_base": 5,
+          "reps": "12\u201315",
+          "notes": "MAIN visual builder \u2014 rest 60\u201390s. Last 2 sets: 0\u20131 clean reps left.",
+          "minutes": 8,
+          "rest_seconds": "60\u201390",
+          "jeff_quote": "Focus on scooping the weight out. I think about pushing the cable away from my body rather than lifting the cable up.",
+          "jeff_url": "https://www.youtube.com/watch?v=bvwg4D9UWGI",
+          "jeff_how": "Raise cable height so tension peaks when the cable and arm form ~90\u00b0. Stretch the cable across your body \u2014 don\u2019t stop at your side. Resist the negative 2\u20134 seconds.",
+          "video_id": "f_OGBg2KxgY",
+          "video_label": "Jeff Nippard \u00b7 Stop Messing Up Lateral Raises",
+          "research_note": "Jeff favors cable laterals for max tension in the stretched side-delt position. Last set \u2192 failure.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Raise cable height so tension peaks when the cable and arm form ~90\u00b0. Stretch the cable across your body \u2014 don\u2019t stop at your side. Resist the negative 2\u20134 seconds.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Focus on scooping the weight out. I think about pushing the cable away from my body rather than lifting the cable up.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Incline dumbbell or barbell press",
+          "sets_base": 3,
+          "reps": "10\u201312",
+          "notes": "Upper chest carryover to shoulder look. Rest ~90\u2013180s between sets",
+          "minutes": 12,
+          "rest_seconds": "90\u2013180",
+          "jeff_quote": "I prefer something between like 30 and 45\u00b0 \u2014 if I get over 45\u00b0 I start to feel a lot more shoulders and a lot less pec.",
+          "jeff_url": "https://www.youtube.com/watch?v=B_2meD6SSNA",
+          "jeff_how": "Keep elbows moderately tucked and think about pressing the dumbbells up and back toward your face, rather than just straight up. Control the descent, slight pause, then press.",
+          "video_id": "B_2meD6SSNA",
+          "video_label": "Jeff Nippard \u00b7 incline press cues",
+          "research_note": "Jeff: tension is king \u2014 deep stretch on the pecs under load drives growth. Progressive overload = add reps or load week to week.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Keep elbows moderately tucked and think about pressing the dumbbells up and back toward your face, rather than just straight up. Control the descent, slight pause, then press.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"I prefer something between like 30 and 45\u00b0 \u2014 if I get over 45\u00b0 I start to feel a lot more shoulders and a lot less pec.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Dumbbell or cable side lateral raise",
+          "sets_base": 3,
+          "reps": "12\u201320",
+          "notes": "Pump / constant tension; finish with 0\u20131 clean reps left. Rest ~60\u201390s",
+          "minutes": 8,
+          "rest_seconds": "60\u201390",
+          "jeff_quote": "Focus on scooping the weight out. I think about pushing the cable away from my body rather than lifting the cable up.",
+          "jeff_url": "https://www.youtube.com/watch?v=bvwg4D9UWGI",
+          "jeff_how": "Raise cable height so tension peaks when the cable and arm form ~90\u00b0. Stretch the cable across your body \u2014 don\u2019t stop at your side. Resist the negative 2\u20134 seconds.",
+          "video_id": "f_OGBg2KxgY",
+          "video_label": "Jeff Nippard \u00b7 Stop Messing Up Lateral Raises",
+          "research_note": "Jeff favors cable laterals for max tension in the stretched side-delt position. Last set \u2192 failure.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Raise cable height so tension peaks when the cable and arm form ~90\u00b0. Stretch the cable across your body \u2014 don\u2019t stop at your side. Resist the negative 2\u20134 seconds.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Focus on scooping the weight out. I think about pushing the cable away from my body rather than lifting the cable up.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Cable triceps pushdown (rope or bar)",
+          "sets_base": 3,
+          "reps": "10\u201312",
+          "notes": "Arms finish \u2014 0\u20131 clean reps left on the last set. Rest ~60\u201390s",
+          "minutes": 5,
+          "rest_seconds": "60\u201390",
+          "jeff_quote": "The advantage of using a rope is that you can really drive the handles apart at the bottom.",
+          "jeff_url": "https://www.youtube.com/watch?v=OpRMRhr0Ycc",
+          "jeff_how": "Elbows pinned. Drive apart at the bottom on rope. Earlier sets leave 1\u20132; last set send it.",
+          "video_id": "OpRMRhr0Ycc",
+          "video_label": "Jeff Nippard \u00b7 triceps training",
+          "research_note": "Jeff: \u201cDo two to three sets on most exercises and take the last set all the way to failure.\u201d",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Elbows pinned. Drive apart at the bottom on rope. Earlier sets leave 1\u20132; last set send it.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"The advantage of using a rope is that you can really drive the handles apart at the bottom.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Leg press or goblet squat (or walking lunges)",
+          "sets_base": 2,
+          "reps": "10/leg or 10\u201312",
+          "notes": "WHO major-muscle floor. Rest ~90\u2013180s between sets",
+          "minutes": 7,
+          "rest_seconds": "90\u2013180",
+          "jeff_quote": "Go as deep as you comfortably can\u2026 maintain a very slight knee bend at lockout.",
+          "jeff_url": "https://www.youtube.com/shorts/nDh_BlnLCGc",
+          "jeff_how": "Deep comfortable ROM. Control the eccentric. Soft knees at lockout \u2014 keep tension. Don\u2019t bounce the sled.",
+          "video_id": "nDh_BlnLCGc",
+          "video_label": "Jeff Nippard \u00b7 leg press cues",
+          "research_note": "Jeff: control the negative near failure \u2014 don\u2019t let the weight free-fall.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Deep comfortable ROM. Control the eccentric. Soft knees at lockout \u2014 keep tension. Don\u2019t bounce the sled.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Go as deep as you comfortably can\u2026 maintain a very slight knee bend at lockout.\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Cable crunch or hanging knee raise",
+          "sets_base": 3,
+          "reps": "10\u201315",
+          "notes": "Controlled; no yanking. Hard last set. Rest ~60\u201390s  Builds abs \u2014 does NOT spot-reduce belly fat (pack 13).",
+          "minutes": 5,
+          "rest_seconds": "60\u201390",
+          "jeff_quote": "For the loaded crunch you can do a cable crunch where you grab a rope, kneel down, and crunch while allowing your lower back to round as you squeeze your abs.",
+          "jeff_url": "https://fitnessvolt.com/jeff-nippard-6-pack-abs-tips/",
+          "jeff_how": "Ribs toward pelvis. Allow the low back to round as abs shorten. Controlled \u2014 no yanking.",
+          "video_id": "Tn-XvYG9x7w",
+          "video_label": "Abs / crunch form reference",
+          "research_note": "Jeff: train abs hard; fat loss still comes from the whole plan (lift + protein + consistency).",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "Ribs toward pelvis. Allow the low back to round as abs shorten. Controlled \u2014 no yanking.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"For the loaded crunch you can do a cable crunch where you grab a rope, kneel down, and crunch while allowing your lower back to round as you\u2026\"",
+              "weight": 99
+            }
+          ]
+        },
+        {
+          "name": "Easy conditioning finisher",
+          "sets_base": 1,
+          "reps": "time",
+          "notes": "StairMaster preferred for midsection feel OR jump rope if time-crushed \u00b7 zone-2 \u00b7 ~10 min",
+          "minutes": 10,
+          "jeff_quote": "Do cardio after lifting or at a separate time so it doesn\u2019t steal strength from the session.",
+          "jeff_url": "https://www.youtube.com/shorts/3Y2vxKsaK9A",
+          "jeff_how": "~10 min easy zone-2 after the lift. Talk-test: short sentences OK. Not a HIIT wreck.",
+          "video_id": "3Y2vxKsaK9A",
+          "video_label": "Jeff Nippard \u00b7 cardio without losing muscle",
+          "research_note": "Jeff: place cardio after weights (or separate) to protect performance.",
+          "sources_cited": [
+            "Jeff Nippard"
+          ],
+          "how_to": "~10 min easy zone-2 after the lift. Talk-test: short sentences OK. Not a HIIT wreck.",
+          "tips_ranked": [
+            {
+              "text": "Jeff: \"Do cardio after lifting or at a separate time so it doesn\u2019t steal strength from the session.\"",
+              "weight": 99
+            }
+          ]
+        }
+      ],
+      "effort_rule": {
+        "question": "How hard should you push?",
+        "headline": "Jeff\u2019s rule: last set to failure \u2014 earlier sets leave reps",
+        "easy_answer": "Leave 1\u20132 reps in the tank on early sets. Last set \u2014 send it (especially machines/cables).",
+        "answer": "Jeff: conflicting evidence on failure vs near-failure, so he leaves 1\u20132 early and takes the last set to failure so you learn what RIR feels like.",
+        "one_liner": "Early sets 1\u20132 RIR \u00b7 last set to failure \u00b7 compounds keep a rep if free-weight heavy.",
+        "do": [
+          "Do 2\u20133 hard sets on most exercises.",
+          "Earlier sets: leave one or two clean reps.",
+          "Last set: take it to failure (machines/cables preferred).",
+          "Heavy free-weight compounds: still leave a rep or two even on the last set.",
+          "Control a 2\u20134 second negative \u2014 especially near failure."
+        ],
+        "dont": [
+          "Don\u2019t fail every set of squats/bench/RDLs with ugly form.",
+          "Don\u2019t rest under 1 minute as a default \u2014 Jeff: \u22651 min is generally better.",
+          "Don\u2019t chase novelty every week \u2014 progress the same menu."
+        ],
+        "feel_checks": [
+          "Last 2\u20133 reps should feel slow and demanding.",
+          "If you had 4+ easy reps left, go heavier next set.",
+          "If form breaks, the set is over.",
+          "Side delts / curls / flies / pushdowns: last set may be 0 RIR."
+        ],
+        "plan_fit_intro": "Jordan demo \u00b7 Plan C shape (3\u00d7 push / pull / shoulders) \u00b7 every cue sourced to Jeff Nippard.",
+        "session_roles": {
+          "push": "Chest + front/side delts + triceps \u2014 Jeff-style high-tension presses and laterals.",
+          "pull": "Lats, mid-back, rear delts, biceps \u2014 stretch + squeeze, progressive overload.",
+          "shoulders": "Side-delt priority volume \u2014 Jeff\u2019s cable lateral cues and failure on isolations."
+        }
+      },
+      "load_cue": "Pick a weight where target reps finish hard with ~1\u20132 left. Add weight or reps next week (Jeff: progressive overload).",
+      "reps_in_reserve": "Jeff: leave a few reps early \u00b7 last set to failure \u00b7 keep a rep on heavy free-weight compounds.",
+      "goal_rings": [
+        {
+          "id": "shoulders",
+          "label": "Shoulders",
+          "color": "#ff6b4a"
+        },
+        {
+          "id": "chest_upper",
+          "label": "Upper chest",
+          "color": "#5eb1ff"
+        },
+        {
+          "id": "recomp",
+          "label": "Recomp",
+          "color": "#3ddc97"
+        }
+      ],
+      "habits": {
+        "protein": "Jeff: \u201c0.7 g protein per lb\u2026 1 g/lb may provide extra anabolic insurance.\u201d",
+        "creatine": "Jeff staple: 3\u20135 g creatine monohydrate daily.",
+        "cardio": "After the lift \u00b7 easy zone-2 ~10 min."
+      }
+    }
+  }
+}
