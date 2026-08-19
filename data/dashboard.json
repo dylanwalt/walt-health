@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T05:35:32.493897+00:00",
+  "generated_at": "2026-08-19T06:53:14.536951+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -63,8 +63,8 @@
         "min": 8.0,
         "max": 93.0,
         "trend": {
-          "days_31_60_avg": 68.37,
-          "days_1_30_avg": 68.96
+          "days_31_60_avg": 68.68,
+          "days_1_30_avg": 68.62
         }
       },
       "hrv_rmssd_milli": {
@@ -113,9 +113,7 @@
         "date": "2026-06-20",
         "recovery": 83.0,
         "hrv": 104.3,
-        "rhr": 55.0,
-        "sleep_hours": 7.26,
-        "sleep_perf": 82.0
+        "rhr": 55.0
       },
       {
         "date": "2026-06-21",
@@ -655,19 +653,19 @@
         "newer_half_avg": 57.59
       },
       "sleep_hours": {
-        "avg": 7.46,
+        "avg": 7.47,
         "min": 3.57,
         "max": 10.88,
-        "first": 7.26,
+        "first": 3.57,
         "last": 7.5,
-        "older_half_avg": 7.31,
-        "newer_half_avg": 7.61
+        "older_half_avg": 7.37,
+        "newer_half_avg": 7.56
       },
       "sleep_perf": {
         "avg": 81.84,
         "min": 44.0,
         "max": 98.0,
-        "first": 82.0,
+        "first": 58.0,
         "last": 44.0,
         "older_half_avg": 81.82,
         "newer_half_avg": 81.86
