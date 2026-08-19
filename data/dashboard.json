@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T11:53:57.858068+00:00",
+  "generated_at": "2026-08-19T13:15:45.823979+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -80,7 +80,7 @@
         "avg": 8.16
       },
       "cycle_strain": {
-        "avg": 26.2
+        "avg": 26.8
       },
       "workout_strain": {
         "avg": 0.52
@@ -95,7 +95,7 @@
       "Garmin watch started Saturday 2026-08-15 \u2014 expect a short series for ~1 week. Do not compare 60-day Garmin averages to the old WHOOP window until more nights exist. Training Readiness is still onboarding (HRV baseline not established).",
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~26.2 over the window.",
+      "Average daily cycle strain ~26.8 over the window.",
       "5 workouts logged in 60 days (~0.6/week)."
     ],
     "history_totals_all_time_pulled": {
@@ -164,12 +164,12 @@
         "hrv": 83.0,
         "rhr": 53.0,
         "body_battery": 100.0,
-        "stress": 24.0,
-        "steps": 3632.0,
-        "intensity_minutes": 10.0,
+        "stress": 25.0,
+        "steps": 4930.0,
+        "intensity_minutes": 13.0,
         "sleep_hours": 7.57,
         "sleep_perf": 91.0,
-        "strain": 10.0
+        "strain": 13.0
       }
     ],
     "summaries": {
@@ -219,13 +219,13 @@
         "newer_half_avg": 86.5
       },
       "strain": {
-        "avg": 26.2,
+        "avg": 26.8,
         "min": 2.0,
         "max": 74.0,
         "first": 9.0,
-        "last": 10.0,
+        "last": 13.0,
         "older_half_avg": 5.5,
-        "newer_half_avg": 40.0
+        "newer_half_avg": 41.0
       },
       "body_battery": {
         "avg": 84.0,
@@ -237,31 +237,31 @@
         "newer_half_avg": 99.67
       },
       "stress": {
-        "avg": 20.6,
+        "avg": 20.8,
         "min": 18.0,
-        "max": 24.0,
+        "max": 25.0,
         "first": 22.0,
-        "last": 24.0,
+        "last": 25.0,
         "older_half_avg": 20.0,
-        "newer_half_avg": 21.0
+        "newer_half_avg": 21.33
       },
       "steps": {
-        "avg": 7308.6,
-        "min": 3632.0,
+        "avg": 7568.2,
+        "min": 4930.0,
         "max": 11424.0,
         "first": 7461.0,
-        "last": 3632.0,
+        "last": 4930.0,
         "older_half_avg": 6730.5,
-        "newer_half_avg": 7694.0
+        "newer_half_avg": 8126.67
       },
       "intensity_minutes": {
-        "avg": 26.2,
+        "avg": 26.8,
         "min": 2.0,
         "max": 74.0,
         "first": 9.0,
-        "last": 10.0,
+        "last": 13.0,
         "older_half_avg": 5.5,
-        "newer_half_avg": 40.0
+        "newer_half_avg": 41.0
       }
     },
     "totals_pulled": {
@@ -441,8 +441,8 @@
       "hrv_rmssd_milli": 83.0,
       "resting_heart_rate": 53.0,
       "body_battery_max": 100.0,
-      "stress_avg": 24.0,
-      "steps": 3632.0,
+      "stress_avg": 25.0,
+      "steps": 4930.0,
       "source": "garmin",
       "created_at": "2026-08-19T12:00:00+02:00",
       "calendar_date": "2026-08-19"
@@ -1055,11 +1055,11 @@
           "stairmaster_level": "4\u20136",
           "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
           "target_hr": {
-            "bpm_low": 135,
-            "bpm_high": 148,
-            "label": "135\u2013148 bpm",
+            "bpm_low": 144,
+            "bpm_high": 155,
+            "label": "144\u2013155 bpm",
             "note": "Provisional zone-2 from your resting HR \u2014 use talk-test if the watch disagrees.",
-            "rhr_used": 55.0
+            "rhr_used": 78.0
           },
           "session_importance_pct": 18,
           "goal_ring_pct": {
@@ -1359,11 +1359,11 @@
           "stairmaster_level": "4\u20136",
           "stairmaster_note": "Technogym / Virgin Active provisional. Light hands on rails, full steps.",
           "target_hr": {
-            "bpm_low": 135,
-            "bpm_high": 148,
-            "label": "135\u2013148 bpm",
+            "bpm_low": 144,
+            "bpm_high": 155,
+            "label": "144\u2013155 bpm",
             "note": "Provisional zone-2 from your resting HR \u2014 use talk-test if the watch disagrees.",
-            "rhr_used": 55.0
+            "rhr_used": 78.0
           },
           "session_importance_pct": 100,
           "goal_ring_pct": {
