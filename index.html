@@ -475,6 +475,195 @@
     }
     .tips-block summary { cursor: pointer; color: var(--ice); font-weight: 600; }
 
+    .plan-briefing {
+      margin-top: 2.4rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--line);
+      max-width: 42rem;
+    }
+    .plan-briefing .pb-hero h3 {
+      margin: 0 0 0.45rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 3.5vw, 1.85rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .plan-briefing .pb-hero p {
+      margin: 0 0 1.1rem;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .plan-briefing .pb-confidence {
+      border-left: 3px solid var(--amber);
+      padding: 0.85rem 0 0.85rem 1rem;
+      margin: 0 0 1.6rem;
+      background: rgba(232, 184, 109, 0.06);
+    }
+    .plan-briefing .pb-confidence h4 {
+      margin: 0 0 0.4rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--amber);
+    }
+    .plan-briefing .pb-confidence p,
+    .plan-briefing .pb-confidence li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .plan-briefing .pb-confidence ul {
+      margin: 0.55rem 0 0;
+      padding-left: 1.15rem;
+    }
+    .plan-briefing .pb-glance {
+      margin: 0 0 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .plan-briefing .pb-glance .pb-phase {
+      color: var(--ice);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+    }
+    .plan-briefing .pb-glance h4 {
+      margin: 0 0 0.55rem;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+    }
+    .plan-briefing .pb-section {
+      margin: 0 0 2.15rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .plan-briefing .pb-section:last-child { border-bottom: 0; }
+    .plan-briefing .pb-section h4 {
+      margin: 0 0 0.7rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.8vw, 1.4rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .plan-briefing .pb-section p {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+    .plan-briefing .pb-impact {
+      margin: 0.9rem 0 0;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(149, 200, 226, 0.05);
+    }
+    .plan-briefing .pb-impact .k {
+      display: block;
+      color: var(--ice);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .plan-briefing .pb-impact p {
+      margin: 0;
+      color: var(--ice-soft);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .plan-briefing .pb-quote {
+      margin: 0.85rem 0;
+      padding: 0.85rem 1rem;
+      border-left: 3px solid var(--ice);
+      background: rgba(149, 200, 226, 0.06);
+    }
+    .plan-briefing .pb-quote .org {
+      display: block;
+      color: var(--ice-soft);
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.35rem;
+    }
+    .plan-briefing .pb-quote p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .plan-briefing .pb-moves {
+      margin: 0.85rem 0 0.4rem;
+      display: grid;
+      gap: 0.55rem;
+    }
+    .plan-briefing .pb-move {
+      padding: 0.7rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .plan-briefing .pb-move .name {
+      font-weight: 600;
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+    .plan-briefing .pb-move .meta {
+      color: var(--ice-soft);
+      font-size: 0.82rem;
+      margin-top: 0.2rem;
+    }
+    .plan-briefing .pb-move .why {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      margin-top: 0.25rem;
+    }
+    .plan-briefing .pb-sources {
+      margin: 0.75rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .plan-briefing .pb-sources span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+    .plan-briefing .pb-index {
+      margin-top: 0.5rem;
+    }
+    .plan-briefing .pb-index table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+    .plan-briefing .pb-index th,
+    .plan-briefing .pb-index td {
+      text-align: left;
+      padding: 0.55rem 0.35rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .plan-briefing .pb-index th {
+      color: var(--ice-soft);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .plan-briefing .pb-index td:first-child {
+      color: var(--ice);
+      font-weight: 600;
+      white-space: nowrap;
+      width: 3.2rem;
+    }
+
     .guide {
       margin-top: 1rem;
       padding: 0;
@@ -846,6 +1035,24 @@
       color: var(--ice-soft);
       margin: 0.2rem 0 0.6rem;
     }
+    .rest-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+    .rest-actions .btn.primary {
+      background: var(--ice);
+      color: #041018;
+      border: none;
+      font-weight: 650;
+    }
+    .rest-rule {
+      margin-top: 0.85rem;
+      color: var(--ice-soft);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
 
     @media (max-width: 720px) {
       .hero-grid, .you-layout, .chart-row, .info-grid, .history-foot, .session-meta {
@@ -905,11 +1112,11 @@
     }
 
     /* Session Mode — one exercise per viewport */
-    .session-mode {
+      .session-mode {
       display: flex; flex-direction: column;
       min-height: calc(100svh - 4.5rem);
       max-width: 430px; margin: 0 auto;
-      padding-bottom: calc(7.8rem + env(safe-area-inset-bottom, 0px));
+      padding-bottom: calc(5.8rem + env(safe-area-inset-bottom, 0px));
     }
     .session-mode .sm-meta {
       display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.65rem;
@@ -928,7 +1135,38 @@
       min-height: 0;
     }
     .sm-card .sm-top {
-      display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 0.45rem;
+    }
+    .sm-nav-arrows {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.5rem; margin: 0 0 0.55rem;
+    }
+    .sm-arrow {
+      appearance: none; flex: 0 0 auto;
+      width: 2.55rem; height: 2.55rem; border-radius: 999px;
+      border: 1px solid var(--ice);
+      background: rgba(149, 200, 226, 0.12);
+      color: var(--ice); font-size: 1.45rem; line-height: 1;
+      display: grid; place-items: center; cursor: pointer;
+      padding: 0;
+    }
+    .sm-arrow:disabled {
+      opacity: 0.28; cursor: default; border-color: var(--line); color: var(--muted);
+    }
+    .sm-nav-mid {
+      flex: 1; text-align: center; min-width: 0;
+    }
+    .sm-nav-mid .sm-idx {
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sm-finish-wrap {
+      margin-top: 0.55rem;
+    }
+    .sm-finish-wrap button {
+      appearance: none; width: 100%; border-radius: 12px;
+      border: 1px solid var(--mint); background: rgba(61, 220, 151, 0.12);
+      color: var(--mint); font: 650 0.9rem/1.2 var(--font-body);
+      padding: 0.75rem 0.85rem; cursor: pointer;
     }
     .sm-card .sm-idx {
       font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
@@ -1013,7 +1251,7 @@
       padding: 0.55rem 0.75rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
       background: rgba(11,11,12,0.92); backdrop-filter: blur(12px);
       border-top: 1px solid var(--line);
-      display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 0.35rem;
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.35rem;
       max-width: 430px; margin: 0 auto;
     }
     .sm-dock button {
@@ -1032,9 +1270,10 @@
       grid-column: 1 / -1;
     }
     .sm-dock.with-howto {
-      grid-template-columns: 1fr 1fr 1fr 1.2fr;
+      grid-template-columns: 1fr 1fr;
       grid-template-rows: auto auto;
     }
+    .sm-dock.with-howto button.howto { grid-column: 1 / -1; }
     .sm-howto-screen {
       display: none; flex-direction: column; gap: 0.65rem;
       min-height: calc(100svh - 4.5rem);
@@ -1208,7 +1447,7 @@
         </div>
         <nav class="nav" aria-label="Sections">
           <button type="button" data-view="today" class="active">Today</button>
-          <button type="button" data-view="plan">This week</button>
+          <button type="button" data-view="plan">Plan</button>
           <button type="button" data-view="food">Food</button>
           <button type="button" data-view="overview">Overview</button>
           <button type="button" data-view="history">History</button>
@@ -1225,13 +1464,13 @@
         <div class="hero-strip">
           <div class="kicker">Private coaching portal</div>
           <h2 id="greet">Welcome back</h2>
-          <p id="overviewLede">Loading your latest WHOOP snapshot…</p>
+          <p id="overviewLede">Loading your latest Garmin snapshot…</p>
         </div>
         <div class="hero-grid">
           <div class="big-stat">
-            <div class="label">Latest recovery</div>
+            <div class="label">Latest readiness</div>
             <div class="value" id="heroRecovery">—</div>
-            <div class="sub" id="heroRecoverySub">Waiting on WHOOP sync</div>
+            <div class="sub" id="heroRecoverySub">Waiting on Garmin sync</div>
           </div>
           <div class="metrics" id="metrics"></div>
         </div>
@@ -1247,9 +1486,9 @@
 
       <section class="view" id="view-history">
         <div class="hero-strip">
-          <div class="kicker">WHOOP evidence</div>
+          <div class="kicker">Garmin evidence</div>
           <h2>Historical values</h2>
-          <p id="historyLede">Sixty days of recovery, sleep, strain, and heart metrics — pulled from your WHOOP history.</p>
+          <p id="historyLede">Sixty days of readiness, sleep, load, and heart metrics — pulled from Garmin Connect.</p>
         </div>
         <div class="chart-stack" id="chartStack"></div>
         <hr class="section-rule" />
@@ -1337,8 +1576,8 @@
 
       <section class="view" id="view-plan">
         <div class="hero-strip">
-          <div class="kicker">Cadence</div>
-          <h2>This week</h2>
+          <div class="kicker">Sourced programming</div>
+          <h2>Plan</h2>
           <p id="planHeadline">Weekly plan status</p>
         </div>
         <p class="banner" id="planBanner"></p>
@@ -1349,7 +1588,7 @@
         </div>
         <div class="day-rail" id="weekRail"></div>
         <div class="jump-chips" id="jumpChips"></div>
-        <p class="banner" id="dayPickHint" style="margin-top:1rem">Tap a day above to open that session on the Today tab.</p>
+        <p class="banner" id="dayPickHint" style="margin-top:1rem">Tap a day above to open that session on the Today tab. Scroll down for the full why.</p>
         <div class="week-progress" id="weekProgressBlock">
           <h3>Week progress</h3>
           <p class="wp-lede" id="weekProgressLede">Tick moves on Today — this checklist fills in from your phone.</p>
@@ -1359,6 +1598,7 @@
           <h3>Notes</h3>
           <ul id="planNotes"></ul>
         </div>
+        <div id="planBriefing" class="plan-briefing" aria-live="polite"></div>
       </section>
 
       <section class="view active" id="view-today">
@@ -1381,7 +1621,7 @@
     <section class="oauth" id="connect" aria-live="polite">
       <div class="oauth-panel">
         <img class="mark" src="assets/logo-mark.svg" alt="" />
-        <h1>WHOOP connected</h1>
+        <h1>Portal callback</h1>
         <p id="subtitle">Copy the authorization code and return to Cursor.</p>
         <label for="code">Authorization code</label>
         <textarea id="code" readonly placeholder="Waiting for redirect…"></textarea>
@@ -1455,9 +1695,43 @@
           moves: patch.moves != null ? patch.moves : (prev.moves || {}),
           updated_at: new Date().toISOString()
         };
+        if (patch.kind != null) next.kind = patch.kind;
+        else if (prev.kind) next.kind = prev.kind;
+        if (patch.makeup_for != null) next.makeup_for = patch.makeup_for;
+        else if (prev.makeup_for) next.makeup_for = prev.makeup_for;
+        if (patch.template_id != null) next.template_id = patch.template_id;
+        else if (prev.template_id) next.template_id = prev.template_id;
         all[iso] = next;
         writeSessionLog(all);
         return next;
+      }
+
+      function isScheduleDayPaid(iso, data) {
+        const dayLog = getDayLog(iso);
+        const moves = dayLog.moves || {};
+        if (Object.keys(moves).some((k) => moveStatusKey(moves[k]) === "done")) return true;
+        const planned = ((data && data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
+        if (planned && (planned.logged || planned.garmin_logged || planned.whoop_logged)) return true;
+        const all = readSessionLog();
+        for (const key of Object.keys(all)) {
+          if (all[key] && String(all[key].makeup_for || "") === String(iso)) return true;
+        }
+        return false;
+      }
+
+      function findUnpaidMakeup(plan, data, now) {
+        const today = isoDate(now);
+        const weekStart = mondayOf(now);
+        const end = new Date(weekStart);
+        end.setDate(weekStart.getDate() + 6);
+        const startIso = isoDate(weekStart);
+        const endIso = isoDate(end);
+        const unpaid = (plan.schedule || []).filter((s) => {
+          const d = String(s.date || "");
+          return d >= startIso && d <= endIso && d < today && !isScheduleDayPaid(d, data);
+        });
+        unpaid.sort((a, b) => String(a.date).localeCompare(String(b.date)));
+        return unpaid[0] || null;
       }
 
       function setMoveStatus(iso, mode, moveName, status, meta) {
@@ -1713,16 +1987,19 @@
           ((data.window && data.window.history_totals_all_time_pulled && data.window.history_totals_all_time_pulled.recovery) ||
             (hist.totals_pulled && hist.totals_pulled.recovery) ||
             "—") +
-          " recovery records pulled all-time";
+          " readiness records pulled all-time";
 
+        const coreKeys = { recovery: 1, hrv: 1, rhr: 1, sleep_hours: 1, sleep_perf: 1, strain: 1 };
         const charts = [
-          ["Recovery", "recovery", 0, ""],
+          ["Readiness", "recovery", 0, ""],
           ["HRV", "hrv", 0, "ms"],
           ["Resting HR", "rhr", 0, "bpm"],
           ["Sleep", "sleep_hours", 1, "hours asleep"],
           ["Sleep performance", "sleep_perf", 0, "%"],
-          ["Day strain", "strain", 1, "cycle"],
-        ];
+          ["Daily load", "strain", 1, "intensity min"],
+          ["Body Battery", "body_battery", 0, "max"],
+          ["Stress", "stress", 0, "avg"],
+        ].filter(([, key]) => coreKeys[key] || summaries[key]);
 
         const stack = document.getElementById("chartStack");
         stack.innerHTML = charts.map(([label, key, digits, unit], idx) => {
@@ -1765,9 +2042,9 @@
         const totals = (data.window && data.window.history_totals_all_time_pulled) || hist.totals_pulled || {};
         document.getElementById("historyFoot").innerHTML = [
           ["Workouts / 60d", counts.workouts ?? "—", "~" + (counts.workouts ? (counts.workouts / 8.5).toFixed(1) : "—") + "/week"],
-          ["Recovery days", counts.recovery ?? "—", "in window"],
+          ["Readiness days", counts.recovery ?? "—", "in window"],
           ["Sleep nights", counts.sleep_non_nap ?? "—", "non-nap"],
-          ["All-time recoveries", totals.recovery ?? "—", "pulled locally"],
+          ["All-time readiness", totals.recovery ?? "—", "pulled locally"],
         ].map(([label, value, sub]) =>
           '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + "</div></div>"
         ).join("");
@@ -1778,6 +2055,73 @@
             el.style.width = el.getAttribute("data-w") || "0%";
           });
         });
+      }
+
+      function renderPlanBriefing(data) {
+        const root = document.getElementById("planBriefing");
+        if (!root) return;
+        const b = data.plan_briefing;
+        if (!b) {
+          root.innerHTML = '<p class="empty">Plan briefing not on this dashboard snapshot yet — republish after sync.</p>';
+          return;
+        }
+        const conf = b.confidence || {};
+        const glance = b.this_week_at_a_glance || {};
+        let html = "";
+        html += '<div class="pb-hero"><h3>' + escapeHtml(b.title || "Plan briefing") + "</h3>";
+        html += "<p>" + escapeHtml(b.subtitle || "") + "</p></div>";
+
+        html += '<div class="pb-confidence"><h4>' + escapeHtml(conf.headline || "Confidence") + "</h4>";
+        html += "<p>" + escapeHtml(conf.body || "") + "</p>";
+        if ((conf.what_would_raise_confidence_further || []).length) {
+          html += "<ul>" + conf.what_would_raise_confidence_further.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+        html += "</div>";
+
+        html += '<div class="pb-glance"><div class="pb-phase">' + escapeHtml(glance.phase || "") + "</div>";
+        html += "<h4>" + escapeHtml(glance.headline || "") + "</h4>";
+        if ((glance.non_negotiables || []).length) {
+          html += "<ul>" + glance.non_negotiables.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+        html += "</div>";
+
+        (b.sections || []).forEach((sec) => {
+          html += '<article class="pb-section" id="pb-' + escapeHtml(sec.id || "") + '">';
+          html += "<h4>" + escapeHtml(sec.title || "") + "</h4>";
+          (sec.paras || []).forEach((p) => { html += "<p>" + escapeHtml(p) + "</p>"; });
+          (sec.quote_blocks || []).forEach((q) => {
+            html += '<blockquote class="pb-quote"><span class="org">' + escapeHtml(q.org || "") +
+              "</span><p>" + escapeHtml(q.text || "") + "</p></blockquote>";
+          });
+          if ((sec.moves || []).length) {
+            html += '<div class="pb-moves">' + sec.moves.map((m) =>
+              '<div class="pb-move"><div class="name">' + escapeHtml(m.name || "") +
+              '</div><div class="meta">' + escapeHtml(m.sets || "") +
+              (m.rest ? " · rest " + escapeHtml(m.rest) : "") +
+              '</div><div class="why">' + escapeHtml(m.why || "") + "</div></div>"
+            ).join("") + "</div>";
+          }
+          if (sec.desired_impact) {
+            html += '<div class="pb-impact"><span class="k">Desired impact</span><p>' +
+              escapeHtml(sec.desired_impact) + "</p></div>";
+          }
+          if ((sec.sources || []).length) {
+            html += '<div class="pb-sources">' + sec.sources.map((s) =>
+              "<span>" + escapeHtml((s.pack ? ("Pack " + s.pack + " · ") : "") + (s.org || s.idea || "")) + "</span>"
+            ).join("") + "</div>";
+          }
+          html += "</article>";
+        });
+
+        if ((b.source_index || []).length) {
+          html += '<div class="pb-section pb-index"><h4>Source index (packs 01–14)</h4><table><thead><tr><th>Pack</th><th>Topic</th><th>Org / literature</th></tr></thead><tbody>';
+          b.source_index.forEach((row) => {
+            html += "<tr><td>" + escapeHtml(row.pack || "") + "</td><td>" + escapeHtml(row.topic || "") +
+              "</td><td>" + escapeHtml(row.orgs || "") + "</td></tr>";
+          });
+          html += "</tbody></table></div>";
+        }
+        root.innerHTML = html;
       }
 
       function renderFood(data) {
@@ -2012,7 +2356,7 @@
         const body = p.body || data.body || {};
         document.getElementById("bodyMetrics").innerHTML = [
           ["Height", body.height_m != null ? fmt(body.height_m, 2) + " m" : "—", body.source || ""],
-          ["Weight", body.weight_kg != null ? fmt(body.weight_kg, 1) + " kg" : "—", body.note || "WHOOP"],
+          ["Weight", body.weight_kg != null ? fmt(body.weight_kg, 1) + " kg" : "—", body.note || "InBody / Garmin"],
           ["Max HR", body.max_heart_rate != null ? body.max_heart_rate : "—", "bpm"],
           ["InBody", (data.body && data.body.inbody) ? "on file" : "pending", "baseline soon"],
         ].map(([label, value, sub]) =>
@@ -2042,7 +2386,7 @@
           ["Bonus activity", "<ul>" + ((lifestyle.sports_bonus || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") +
             ((lifestyle.sports_optional || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("")) + "</ul>"],
           ["Avoid", "<ul>" + ((training.avoid || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") + "</ul>"],
-          ["Measurement", "<p>InBody: " + escapeHtml(measure.inbody || "—") + "</p><p>WHOOP: " + escapeHtml(measure.whoop || "—") + "</p><p>Scale: " + escapeHtml(measure.home_scale || "—") + "</p>"],
+          ["Measurement", "<p>InBody: " + escapeHtml(measure.inbody || "—") + "</p><p>Garmin: " + escapeHtml(measure.garmin || measure.whoop || "—") + "</p><p>Scale: " + escapeHtml(measure.home_scale || "—") + "</p>"],
         ].map(([title, bodyHtml]) =>
           '<div class="info-cell"><h4>' + title + "</h4>" + bodyHtml + "</div>"
         ).join("");
@@ -2070,7 +2414,7 @@
         const latest = data.today && data.today.latest_recovery;
         const stamp = (data.generated_at || "").slice(0, 16).replace("T", " ");
         document.getElementById("overviewLede").textContent = latest && latest.recovery_score != null
-          ? ("Latest recovery " + latest.recovery_score + " · 60-day averages below · updated " + stamp + " UTC")
+          ? ("Latest readiness " + latest.recovery_score + " · 60-day averages below · updated " + stamp + " UTC")
           : ("60-day averages below · updated " + stamp);
 
         document.getElementById("heroRecovery").textContent =
@@ -2079,17 +2423,17 @@
           latest && latest.created_at
             ? ("Logged " + latest.created_at.slice(0, 16).replace("T", " ") + " UTC · HRV " +
               fmt(latest.hrv_rmssd_milli, 0) + " · RHR " + fmt(latest.resting_heart_rate, 0))
-            : "No recovery reading yet";
+            : "No readiness reading yet";
 
         const m = (data.window && data.window.metrics) || {};
         const metricsEl = document.getElementById("metrics");
         const items = [
-          ["Recovery avg", fmt(m.recovery_score && m.recovery_score.avg, 0), "60 days"],
+          ["Readiness avg", fmt(m.recovery_score && m.recovery_score.avg, 0), "60 days"],
           ["HRV avg", fmt(m.hrv_rmssd_milli && m.hrv_rmssd_milli.avg, 0), "ms"],
           ["Resting HR", fmt(m.resting_heart_rate && m.resting_heart_rate.avg, 0), "bpm"],
           ["Sleep", fmt(m.sleep_duration_hours && m.sleep_duration_hours.avg, 1), "hours"],
-          ["Sleep perf", fmt(m.sleep_performance_pct && m.sleep_performance_pct.avg, 0), "%"],
-          ["Strain", fmt(m.cycle_strain && m.cycle_strain.avg, 1), "daily cycle"],
+          ["Sleep score", fmt(m.sleep_performance_pct && m.sleep_performance_pct.avg, 0), "%"],
+          ["Daily load", fmt(m.cycle_strain && m.cycle_strain.avg, 1), "intensity min"],
         ];
         metricsEl.innerHTML = items.map(([label, value, sub]) =>
           '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + "</div></div>"
@@ -2131,6 +2475,7 @@
         }
         (plan.notes || []).forEach((n) => goalBits.push("<li>" + escapeHtml(n) + "</li>"));
         document.getElementById("planNotes").innerHTML = goalBits.join("") || "<li>No plan notes.</li>";
+        renderPlanBriefing(data);
 
         const realNow = new Date();
         let selected = getPortalNow();
@@ -2204,7 +2549,7 @@
         renderWeekProgress(data, weekStart, realNow);
         const selected = window.__waltSelectedDate || getPortalNow();
         data.today = data.today || {};
-        data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, selected, (data.today.latest_recovery||{}).resting_heart_rate);
+        data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, selected, (data.today.latest_recovery||{}).resting_heart_rate, data);
         const sameDay = isoDate(selected) === isoDate(realNow);
         document.getElementById("todayTitle").textContent =
           (sameDay ? "Today" : "Session") + " · " + weekdayName(selected) + " " + selected.getDate() + " " + selected.toLocaleString("en", { month: "short" });
@@ -2212,14 +2557,14 @@
       }
 
       function dayChecklistStatus(data, iso, realNow) {
-        const workout = resolveWorkoutClient(data.plan, data.exercise_library, new Date(iso + "T12:00:00"), (data.today && data.today.latest_recovery||{}).resting_heart_rate);
+        const workout = resolveWorkoutClient(data.plan, data.exercise_library, new Date(iso + "T12:00:00"), (data.today && data.today.latest_recovery||{}).resting_heart_rate, data);
         if (!workout || workout.mode !== "session") return null;
         const dayLog = getDayLog(iso);
         const mode = dayLog.mode === "home" ? "home" : "gym";
         const moves = mode === "home" ? (workout.home || []) : (workout.gym || []);
         const sum = summarizeMoves(moves, dayLog);
         const planned = ((data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
-        const whoop = !!(planned && planned.whoop_logged);
+        const whoop = !!(planned && (planned.logged || planned.garmin_logged || planned.whoop_logged));
         const past = iso < isoDate(realNow);
         if (sum.complete) return { state: "green", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
         if (sum.started) return { state: "amber", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
@@ -2270,7 +2615,7 @@
         const badge = {
           green: "Done",
           amber: "In progress",
-          purple: "WHOOP only",
+          purple: "Garmin only",
           gray: "Up next",
           dim: "Missed"
         };
@@ -2285,7 +2630,7 @@
             return modeLabel + " · " + s.status.sum.done + "/" + s.status.sum.total + " moves checked";
           }
           if (s.status.state === "purple") {
-            return "WHOOP saw a workout — open Today and tick the list";
+            return "Garmin saw a workout — open Today and tick the list";
           }
           if (s.status.state === "dim") {
             return "No portal checklist for this day";
@@ -2321,7 +2666,7 @@
           motivate = "Not impressed. You missed planned gym day(s). Makeup Tue/Thu if you can. Backup punishment: walk the ~2 km to Virgin Active and 2 km back — then decide if you’ll actually do it.";
         } else if (whoopOnly >= 1 && weekPct < 67) {
           toneClass = "bad";
-          motivate = "Not impressed yet. WHOOP saw activity but the portal checklist isn’t done — finish ticking Today or own the miss.";
+          motivate = "Not impressed yet. Garmin saw activity but the portal checklist isn’t done — finish ticking Today or own the miss.";
         } else if (weekPct >= 67) {
           toneClass = "good";
           motivate = "Impressed so far. One more clean gym session seals the week.";
@@ -2347,7 +2692,7 @@
           '<ul class="wp-legend">' +
           '<li><i class="g"></i> Done — portal checklist complete (gym or home)</li>' +
           '<li><i class="a"></i> In progress — some moves ticked</li>' +
-          '<li><i class="p"></i> WHOOP logged activity, checklist not finished</li>' +
+          '<li><i class="p"></i> Garmin logged activity, checklist not finished</li>' +
           '<li><i class="y"></i> Planned, not started</li>' +
           '<li><i class="d"></i> Past day with no checklist</li>' +
           "</ul>" +
@@ -2476,7 +2821,7 @@
         const hi = Math.round(r + 0.70 * reserve);
         return {
           bpm_low: lo, bpm_high: hi, label: lo + "–" + hi + " bpm",
-          note: "Provisional zone-2 from your WHOOP resting HR — use talk-test if the watch disagrees.",
+          note: "Provisional zone-2 from your resting HR — use talk-test if the watch disagrees.",
           rhr_used: r
         };
       }
@@ -2495,38 +2840,21 @@
         return {};
       }
 
-      function resolveWorkoutClient(plan, library, now, rhr) {
+      function resolveWorkoutClient(plan, library, now, rhr, data) {
         if (!plan || plan.status !== "active") return null;
         const today = isoDate(now);
         const schedule = plan.schedule || [];
-        const entry = schedule.find((s) => String(s.date) === today);
         const priority = plan.attendance_priority || [
           "First prize: Gym on Monday, Wednesday, and Friday",
           "Second: Still three gym days — makeup Tuesday or Thursday if you miss a plan day",
           "Last resort: Home only if getting to Virgin Active is truly impossible for that session"
         ];
         const tips = plan.session_tips || (library && library.overall_tips) || [];
-        if (!entry) {
-          const upcoming = schedule.filter((s) => String(s.date) > today);
-          return {
-            mode: "rest",
-            title: "No lifting planned this day",
-            summary: "Rest, walk, sleep, creatine 5 g, and hit your protein target. Tap a gym day on the calendar to preview that session.",
-            date: today,
-            next_session: upcoming[0] || null,
-            habits: plan.daily_habits,
-            missed_day_rule: plan.missed_day_rule,
-            attendance_priority: priority,
-            session_tips: tips
-          };
-        }
-        const weekN = Number(entry.week || 1);
-        const modifiers = ((plan.week_modifiers || {})[String(weekN)]) || {};
-        const scale = Number(modifiers.set_scale || 1);
-        const condMin = Number(modifiers.conditioning_min || 10);
-        const tmpl = ((plan.templates || {})[entry.template]) || {};
         const hrBand = zone2Hr(rhr);
-        function buildMoves(raw) {
+        const override = window.__waltSessionOverride;
+        const useOverride = override && String(override.date || "") === today && override.template;
+
+        function buildMoves(raw, scale, condMin) {
           return (raw || []).map((mv, i) => {
             const name = mv.name || "Movement";
             let notes = mv.notes || "";
@@ -2578,46 +2906,128 @@
             return row;
           });
         }
-        const gym = buildMoves(tmpl.gym);
-        const home = buildMoves(tmpl.home);
-        normalizeGoalWeights(gym);
-        normalizeGoalWeights(home);
-        const est = gym.reduce((a, m) => a + Number(m.minutes || 0), 0) || (plan.minutes_per_session || 75);
-        const src = {};
-        gym.forEach((m) => (m.sources_cited || []).forEach((s) => { src[s] = true; }));
-        const sources = Object.keys(src).sort();
-        return {
-          mode: "session",
-          date: today,
+
+        function buildSession(entryLike) {
+          const weekN = Number(entryLike.week || 1);
+          const modifiers = ((plan.week_modifiers || {})[String(weekN)]) || {};
+          const scale = Number(modifiers.set_scale || 1);
+          let condMin = Number(modifiers.conditioning_min || 10);
+          const tmplId = entryLike.template;
+          const tmpl = ((plan.templates || {})[tmplId]) || {};
+          if (tmplId === "bonus") {
+            condMin = 5;
+          }
+          let gymRaw = (tmpl.gym || []).slice();
+          const extras = entryLike.extra_gym || [];
+          if (extras.length) {
+            const last = gymRaw[gymRaw.length - 1];
+            const lastIsCond = last && (String(last.reps) === "time" || /conditioning|finisher/i.test(String(last.name || "")));
+            gymRaw = lastIsCond
+              ? gymRaw.slice(0, -1).concat(extras, [last])
+              : gymRaw.concat(extras);
+          }
+          const gym = buildMoves(gymRaw, scale, condMin);
+          const home = buildMoves(tmpl.home, scale, condMin);
+          normalizeGoalWeights(gym);
+          normalizeGoalWeights(home);
+          const est = gym.reduce((a, m) => a + Number(m.minutes || 0), 0) || (tmplId === "bonus" ? 40 : (plan.minutes_per_session || 75));
+          const src = {};
+          gym.forEach((m) => (m.sources_cited || []).forEach((s) => { src[s] = true; }));
+          const sources = Object.keys(src).sort();
+          const kind = entryLike.kind || "session";
+          let weekLabel = modifiers.label || ("Week " + weekN);
+          let loadCue = modifiers.load_cue;
+          let rir = modifiers.reps_in_reserve || modifiers.rir;
+          if (kind === "bonus") {
+            weekLabel = "Bonus day";
+            loadCue = (plan.bonus_rules && plan.bonus_rules.one_liner) || "Skill/pump · RIR ~2–3 · prefer ≤1/week";
+            rir = "BONUS STOP RULE: keep ~2–3 clean reps left on most sets. This is not a max day.";
+          } else if (kind === "makeup") {
+            weekLabel = "Makeup · " + weekLabel;
+          }
+          return {
+            mode: "session",
+            kind: kind,
+            date: today,
+            weekday: entryLike.weekday || weekdayName(now).toLowerCase(),
+            week: weekN,
+            week_label: weekLabel,
+            reps_in_reserve: rir,
+            load_cue: loadCue,
+            effort_rule: plan.effort_rule || {},
+            title: tmpl.title || "Session",
+            focus: tmpl.focus || "",
+            summary: (kind === "bonus" ? "Bonus · " : kind === "makeup" ? "Makeup · " : "") +
+              "Week " + weekN + " · " + (weekLabel || "") + " · about " + est + " minutes total",
+            minutes: est,
+            budget_minutes: tmplId === "bonus"
+              ? 45
+              : (plan.minutes_per_session || 75),
+            gym: gym,
+            home: home,
+            habits: plan.daily_habits,
+            missed_day_rule: plan.missed_day_rule,
+            attendance_priority: priority,
+            session_tips: tips,
+            template_id: tmplId,
+            schedule_note: entryLike.note || "",
+            intensity: entryLike.intensity || (kind === "bonus" ? "easy" : ""),
+            makeup_for: entryLike.makeup_for || "",
+            bonus_rules: plan.bonus_rules || null,
+            goal_rings: (library && library.goal_rings) || [
+              { id: "shoulders", label: "Shoulders", color: "#FF6B4A" },
+              { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
+              { id: "recomp", label: "Recomp", color: "#5EB1FF" }
+            ],
+            sources_count: sources.length || 16,
+            sources_cited: sources.length ? sources : ["01", "02", "03", "04", "15", "16"],
+            session_sources_note: (library && library.session_sources_note) || "Plan C cites packs 01–16 in data/sources/."
+          };
+        }
+
+        if (useOverride) {
+          return buildSession({
+            template: override.template,
+            week: override.week || 1,
+            weekday: weekdayName(now).toLowerCase(),
+            note: override.note || "",
+            kind: override.kind || "session",
+            makeup_for: override.makeup_for || "",
+            intensity: override.intensity || "",
+            extra_gym: override.extra_gym || []
+          });
+        }
+
+        const entry = schedule.find((s) => String(s.date) === today);
+        if (!entry) {
+          const upcoming = schedule.filter((s) => String(s.date) > today);
+          const unpaid = findUnpaidMakeup(plan, data || window.__waltDashboard || {}, now);
+          const bonusRules = plan.bonus_rules || {};
+          return {
+            mode: "rest",
+            title: "No lifting planned this day",
+            summary: "Rest, walk, sleep, creatine 5 g, and hit your protein target — or use Makeup / Bonus below if you are at the gym.",
+            date: today,
+            next_session: upcoming[0] || null,
+            habits: plan.daily_habits,
+            missed_day_rule: plan.missed_day_rule,
+            attendance_priority: priority,
+            session_tips: tips,
+            unpaid_makeup: unpaid,
+            bonus_available: !!(plan.templates && plan.templates.bonus),
+            bonus_rules: bonusRules,
+            rest_rule: bonusRules.one_liner || "Makeup beats bonus. Bonus never counts as the week’s third gym day."
+          };
+        }
+        return buildSession({
+          template: entry.template,
+          week: entry.week,
           weekday: entry.weekday,
-          week: weekN,
-          week_label: modifiers.label || ("Week " + weekN),
-          reps_in_reserve: modifiers.reps_in_reserve || modifiers.rir,
-          load_cue: modifiers.load_cue,
-          effort_rule: plan.effort_rule || {},
-          title: tmpl.title || "Session",
-          focus: tmpl.focus || "",
-          summary: "Week " + weekN + " · " + (modifiers.label || "") + " · about " + est + " minutes total",
-          minutes: est,
-          budget_minutes: plan.minutes_per_session || 75,
-          gym: gym,
-          home: home,
-          habits: plan.daily_habits,
-          missed_day_rule: plan.missed_day_rule,
-          attendance_priority: priority,
-          session_tips: tips,
-          template_id: entry.template,
-          schedule_note: entry.note || "",
+          note: entry.note || "",
+          kind: "session",
           intensity: entry.intensity || "",
-          goal_rings: (library && library.goal_rings) || [
-            { id: "shoulders", label: "Shoulders", color: "#FF6B4A" },
-            { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
-            { id: "recomp", label: "Recomp", color: "#5EB1FF" }
-          ],
-          sources_count: sources.length || 7,
-          sources_cited: sources.length ? sources : ["01", "02", "03", "04", "05", "06", "07"],
-          session_sources_note: (library && library.session_sources_note) || "Plan C cites Wave-1 packs 01–07."
-        };
+          extra_gym: entry.extra_gym || []
+        });
       }
 
       function renderTodayGuide(data) {
@@ -2647,6 +3057,26 @@
         if (workout.mode === "rest") {
           lede.textContent = workout.summary || "Off day";
           const next = workout.next_session;
+          const unpaid = workout.unpaid_makeup;
+          const bonusOk = !!workout.bonus_available;
+          let actionsHtml = '<div class="rest-actions">';
+          if (unpaid) {
+            actionsHtml +=
+              '<button type="button" class="btn primary" id="startMakeupBtn">Do makeup: ' +
+              escapeHtml(String(unpaid.template || "session")) +
+              " (" + escapeHtml(String(unpaid.date || "")) + ")</button>";
+          }
+          if (bonusOk) {
+            actionsHtml +=
+              '<button type="button" class="btn ghost" id="startBonusBtn">' +
+              (unpaid ? "Start bonus instead" : "Start bonus session") +
+              "</button>";
+          }
+          actionsHtml += "</div>";
+          if (workout.rest_rule) {
+            actionsHtml +=
+              '<p class="rest-rule">' + escapeHtml(workout.rest_rule) + "</p>";
+          }
           guide.innerHTML =
             priorityHtml +
             '<div class="rest-card">' +
@@ -2657,6 +3087,7 @@
                 escapeHtml(String(next.date)) + "</strong> · " + escapeHtml(String(next.template || "")) +
                 ' · <button type="button" class="btn ghost" id="openNextGym" style="margin-top:0.5rem;padding:0.5rem 0.9rem;font-size:0.85rem">Open that session</button></p>'
               : "") +
+            actionsHtml +
             '<div class="habits-row">' + formatHabits(workout.habits) + "</div></div>" + tipsHtml;
           const btn = document.getElementById("openNextGym");
           if (btn && next) {
@@ -2670,11 +3101,47 @@
               refreshCalendarAndSession();
             });
           }
+          const makeupBtn = document.getElementById("startMakeupBtn");
+          if (makeupBtn && unpaid) {
+            makeupBtn.addEventListener("click", () => {
+              const iso = String(workout.date);
+              window.__waltSessionOverride = {
+                date: iso,
+                kind: "makeup",
+                template: unpaid.template,
+                week: unpaid.week || 1,
+                makeup_for: unpaid.date,
+                note: "Makeup for " + unpaid.date + " (" + unpaid.template + "). Makeup beats bonus.",
+                intensity: unpaid.intensity || "max"
+              };
+              upsertDayLog(iso, {
+                kind: "makeup",
+                makeup_for: unpaid.date,
+                template_id: unpaid.template
+              });
+              refreshCalendarAndSession();
+            });
+          }
+          const bonusBtn = document.getElementById("startBonusBtn");
+          if (bonusBtn) {
+            bonusBtn.addEventListener("click", () => {
+              const iso = String(workout.date);
+              window.__waltSessionOverride = {
+                date: iso,
+                kind: "bonus",
+                template: "bonus",
+                week: 1,
+                note: "Optional calisthenics bonus · ~35–45 min · RIR ~2–3 · does not count as a plan hit."
+              };
+              upsertDayLog(iso, { kind: "bonus", template_id: "bonus" });
+              refreshCalendarAndSession();
+            });
+          }
           return;
         }
 
 
-        lede.textContent = "One exercise per screen. Done → Next. Use Can’t do / Alternative when stuck.";
+        lede.textContent = "One exercise per screen. Use ← → arrows to move. How-to has tips + effort guide + video.";
         const gymMoves = workout.gym || [];
         const homeMoves = workout.home || [];
         const sessionIso = String(workout.date || isoDate(window.__waltSelectedDate || getPortalNow()));
@@ -2685,6 +3152,10 @@
           { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
           { id: "recomp", label: "Recomp", color: "#5EB1FF" }
         ];
+        const overrideExit = (workout.kind === "bonus" || workout.kind === "makeup")
+          ? '<button type="button" class="btn ghost" id="exitOverrideSession" style="margin-left:0.35rem;padding:0.45rem 0.75rem;font-size:0.8rem">Exit ' +
+            escapeHtml(workout.kind) + "</button>"
+          : "";
 
         guide.innerHTML =
           priorityHtml +
@@ -2692,7 +3163,7 @@
           '<div class="mode-toggle" role="group" aria-label="Location">' +
           '<button type="button" data-mode="gym">Gym session</button>' +
           '<button type="button" data-mode="home">Home (last resort)</button>' +
-          "</div></div>" +
+          "</div>" + overrideExit + "</div>" +
           '<p class="home-warn" id="homeWarn">Home is last resort. Prefer a makeup gym day when you can.</p>' +
           '<div class="session-meta">' +
           '<div class="chip"><div class="k">Phase</div><div class="v">' + escapeHtml(String(workout.week_label || workout.week || "—")) + "</div></div>" +
@@ -2700,7 +3171,6 @@
           '<div class="chip"><div class="k">Budget</div><div class="v">' + escapeHtml(String(workout.budget_minutes || 75)) + " min plan</div></div>" +
           '<div class="chip"><div class="k">Sources suggest</div><div class="v">' + escapeHtml(String(workout.sources_count || 7)) + " packs</div></div>" +
           "</div>" +
-          formatEffortTeaser(workout.effort_rule) +
           '<div class="session-mode" id="sessionMode"></div>' +
           '<div class="habits-row">' + formatHabits(workout.habits) + "</div>" +
           tipsHtml +
@@ -2754,6 +3224,13 @@
         if (teaserBtn) teaserBtn.addEventListener("click", openPushGuide);
         const pushBack = document.getElementById("pushGuideBack");
         if (pushBack) pushBack.addEventListener("click", closePushGuide);
+        const exitOverride = document.getElementById("exitOverrideSession");
+        if (exitOverride) {
+          exitOverride.addEventListener("click", () => {
+            window.__waltSessionOverride = null;
+            refreshCalendarAndSession();
+          });
+        }
 
         function ringSvg(pct, color) {
           const p = Math.max(0, Math.min(100, Number(pct) || 0));
@@ -2845,7 +3322,17 @@
             " sources suggest this plan</span> · this move: packs " +
             escapeHtml(srcPacks || "—") + "</div>";
 
+          const navPct = Math.round(((moveIndex + 1) / moves.length) * 100);
+          const effortRule = workout.effort_rule || {};
+          const effortHowto =
+            "<h4>How hard should you push?</h4>" +
+            "<p style='margin:0'>" + escapeHtml(effortRule.easy_answer || effortRule.one_liner ||
+              "Hard and controlled — most working sets stop with 1–2 clean reps left.") + "</p>" +
+            '<p style="margin:0.55rem 0 0"><button type="button" class="btn ghost" id="smEffortFromHowTo" style="padding:0.55rem 0.85rem;font-size:0.85rem">' +
+            "Open full effort / plan-fit guide</button></p>";
+
           const howtoBody =
+            effortHowto +
             (m.where ? "<h4>Where</h4><p style='margin:0'>" + escapeHtml(m.where) + "</p>" : "") +
             "<h4>How to</h4><p style='margin:0'>" + escapeHtml(m.how_to || m.notes || "—") + "</p>" +
             (m.avoid ? "<h4>Don’t</h4><p style='margin:0'>" + escapeHtml(m.avoid) + "</p>" : "") +
@@ -2863,9 +3350,21 @@
                 "' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen loading='lazy'></iframe></div>"
               : "<h4>Video demo</h4><p style='margin:0;color:var(--muted)'>No video linked for this move.</p>");
 
+          const finishHtml = (moveIndex >= moves.length - 1)
+            ? '<div class="sm-finish-wrap"><button type="button" id="smFinishedAll">Finished everything</button></div>'
+            : "";
+
           modeRoot.classList.remove("is-howto");
           modeRoot.innerHTML =
             '<div class="sm-workout">' +
+            '<div class="sm-nav-arrows">' +
+            '<button type="button" class="sm-arrow" id="smPrev" aria-label="Previous exercise"' +
+            (moveIndex <= 0 ? " disabled" : "") + ">&#8249;</button>" +
+            '<div class="sm-nav-mid"><div class="sm-idx">Exercise ' + (moveIndex + 1) + " / " + moves.length +
+            "</div></div>" +
+            '<button type="button" class="sm-arrow" id="smNext" aria-label="Next exercise"' +
+            (moveIndex >= moves.length - 1 ? " disabled" : "") + ">&#8250;</button>" +
+            "</div>" +
             '<div class="sm-meta">' +
             '<span class="sm-chip"><strong>' + escapeHtml(String(workout.title || "Session")) + "</strong></span>" +
             (isDemoMode() ? '<span class="sm-chip" style="border-color:var(--amber);color:var(--amber)">DEMO</span>' : "") +
@@ -2876,11 +3375,8 @@
             '<span class="sm-chip">Next gap <strong>' + escapeHtml(String((timing.rest_sec_before_next || 60) + "s")) + "</strong></span>" +
             "</div>" +
             '<div class="sm-card">' +
-            '<div class="sm-top"><div><div class="sm-idx">Exercise ' + (moveIndex + 1) + " / " + moves.length +
-            (st === "done" ? " · done" : (st === "skipped" ? " · skipped" : "")) +
-            "</div><h3>" + escapeHtml(m.name || "") + "</h3></div>" +
+            '<div class="sm-top"><div><h3>' + escapeHtml(m.name || "") + "</h3></div>" +
             '<div class="sm-dose">' + escapeHtml(isCardio ? String(m.reps || m.minutes + " min") : (m.sets + " × " + (m.reps || ""))) + "</div></div>" +
-            formatEffortStrip(workout.effort_rule) +
             '<div class="sm-diagram" id="smDiagram">' +
             '<object data="assets/diagrams/body.svg" type="image/svg+xml" style="width:100%;height:100%"></object>' +
             '<div class="sm-feel">Feel: ' + escapeHtml((m.feel_zones || []).join(", ") || "—") + "</div></div>" +
@@ -2892,29 +3388,22 @@
             romHtml +
             tipsHtml2 +
             sourcesLine +
-            '<div class="sm-progress"><div class="sp-label"><strong>Session after this move</strong> — ' +
-            completedBefore + "/" + moves.length + " checked (" + pct + "%)</div>" +
-            '<div class="sp-bar"><div class="sp-fill" style="width:' + pct + '%"></div></div></div>' +
+            '<div class="sm-progress"><div class="sp-label"><strong>Browsing</strong> — exercise ' +
+            (moveIndex + 1) + "/" + moves.length + " (" + navPct + "%)</div>" +
+            '<div class="sp-bar"><div class="sp-fill" style="width:' + navPct + '%"></div></div></div>' +
+            finishHtml +
             "</div></div>" +
             '<div class="sm-howto-screen" id="smHowToScreen">' +
             '<div class="sm-howto-top"><button type="button" id="smHowToBack">← Back</button>' +
             "<h3>" + escapeHtml(m.name || "How to") + "</h3></div>" +
             '<div class="sm-howto-body">' + howtoBody + "</div></div>" +
             '<div class="sm-dock with-howto">' +
-            '<button type="button" class="push-guide" id="smPushGuide">How hard should you push? · plan fit</button>' +
-            '<button type="button" class="howto" id="smHowTo">How to · tips · video</button>' +
+            '<button type="button" class="howto" id="smHowTo">How to · tips · video · effort</button>' +
             '<button type="button" class="danger" id="smCant">Can’t do</button>' +
             '<button type="button" id="smAlt">Alternative</button>' +
-            '<button type="button" id="smDone">' + (st === "done" ? "Undo ✓" : "Done ✓") + "</button>" +
-            '<button type="button" class="primary" id="smNext">' + (moveIndex >= moves.length - 1 ? "Finish" : "Next →") + "</button>" +
             "</div>";
 
           highlightZones(document.getElementById("smDiagram"), m.feel_zones || []);
-
-          const smPush = document.getElementById("smPushGuide");
-          if (smPush) smPush.addEventListener("click", openPushGuide);
-          const smEffort = document.getElementById("smEffortBtn");
-          if (smEffort) smEffort.addEventListener("click", openPushGuide);
 
           document.getElementById("smHowTo").addEventListener("click", () => {
             modeRoot.classList.add("is-howto");
@@ -2923,22 +3412,27 @@
           document.getElementById("smHowToBack").addEventListener("click", () => {
             modeRoot.classList.remove("is-howto");
           });
+          const effortFromHowTo = document.getElementById("smEffortFromHowTo");
+          if (effortFromHowTo) effortFromHowTo.addEventListener("click", openPushGuide);
 
+          document.getElementById("smPrev").addEventListener("click", () => {
+            if (moveIndex <= 0) return;
+            moveIndex -= 1;
+            renderStep(moves);
+          });
           document.getElementById("smNext").addEventListener("click", () => {
-            if (moveIndex >= moves.length - 1) {
-              updateWeek();
-              return;
-            }
+            if (moveIndex >= moves.length - 1) return;
             moveIndex += 1;
             renderStep(moves);
           });
-          document.getElementById("smDone").addEventListener("click", () => {
-            const cur = moveStatusKey((getDayLog(sessionIso).moves || {})[m.name]);
-            if (cur === "done") setMoveStatus(sessionIso, currentMode, m.name, null);
-            else setMoveStatus(sessionIso, currentMode, m.name, "done");
-            renderStep(moves);
-            updateWeek();
-          });
+          const finishedBtn = document.getElementById("smFinishedAll");
+          if (finishedBtn) {
+            finishedBtn.addEventListener("click", () => {
+              updateWeek();
+              finishedBtn.textContent = "Nice — session browsed";
+              finishedBtn.disabled = true;
+            });
+          }
           document.getElementById("smCant").addEventListener("click", () => {
             skipSheet.classList.add("open");
             skipSheet.setAttribute("aria-hidden", "false");
@@ -3038,7 +3532,7 @@
         if (score == null || Number.isNaN(Number(score))) {
           return {
             tone: "meh",
-            label: "No recovery reading yet",
+            label: "No readiness reading yet",
             text: "Train as written: hard working sets stop with 1–2 clean reps left. Don’t invent a max-out day."
           };
         }
@@ -3046,20 +3540,20 @@
         if (n >= 67) {
           return {
             tone: "good",
-            label: "Recovery " + Math.round(n) + " · green-ish",
+            label: "Readiness " + Math.round(n) + " · green-ish",
             text: "Push the session as written. Hard sets to 1–2 reps in reserve. You can progress load when the top of the rep range is clean."
           };
         }
         if (n >= 34) {
           return {
             tone: "meh",
-            label: "Recovery " + Math.round(n) + " · yellow",
+            label: "Readiness " + Math.round(n) + " · yellow",
             text: "Still do the full menu, but stay honest: compounds closer to 2 reps left. Skip grinding and ego jumps."
           };
         }
         return {
           tone: "bad",
-          label: "Recovery " + Math.round(n) + " · red",
+          label: "Readiness " + Math.round(n) + " · red",
           text: "Show up and finish the workout with cleaner stops (about 2–3 reps left on compounds). No PR chasing today — consistency beats one ugly session."
         };
       }
@@ -3201,7 +3695,7 @@
       }
 
       if (error) {
-        elSub.textContent = "WHOOP returned an error.";
+        elSub.textContent = "Authorization returned an error.";
         setStatus((error + (errorDesc ? ": " + errorDesc : "")), "bad");
         return;
       }
