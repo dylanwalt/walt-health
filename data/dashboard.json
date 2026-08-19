@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-19T06:53:14.536951+00:00",
+  "generated_at": "2026-08-19T07:43:10.505503+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -52,32 +52,32 @@
   "window": {
     "days": 60,
     "counts": {
-      "recovery": 57,
-      "sleep_non_nap": 57,
+      "recovery": 56,
+      "sleep_non_nap": 56,
       "cycles": 58,
       "workouts": 30
     },
     "metrics": {
       "recovery_score": {
-        "avg": 68.65,
+        "avg": 68.39,
         "min": 8.0,
         "max": 93.0,
         "trend": {
-          "days_31_60_avg": 68.68,
+          "days_31_60_avg": 68.2,
           "days_1_30_avg": 68.62
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 102.81
+        "avg": 102.78
       },
       "resting_heart_rate": {
-        "avg": 57.6
+        "avg": 57.64
       },
       "sleep_performance_pct": {
         "avg": 81.84
       },
       "sleep_duration_hours": {
-        "avg": 8.17
+        "avg": 8.18
       },
       "cycle_strain": {
         "avg": 8.38
@@ -109,12 +109,6 @@
   "history": {
     "window_days": 60,
     "points": [
-      {
-        "date": "2026-06-20",
-        "recovery": 83.0,
-        "hrv": 104.3,
-        "rhr": 55.0
-      },
       {
         "date": "2026-06-21",
         "recovery": 62.0,
@@ -626,31 +620,31 @@
     ],
     "summaries": {
       "recovery": {
-        "avg": 68.65,
+        "avg": 68.39,
         "min": 8.0,
         "max": 93.0,
-        "first": 83.0,
+        "first": 62.0,
         "last": 8.0,
-        "older_half_avg": 69.36,
-        "newer_half_avg": 67.97
+        "older_half_avg": 68.75,
+        "newer_half_avg": 68.04
       },
       "hrv": {
-        "avg": 102.81,
+        "avg": 102.78,
         "min": 48.2,
         "max": 126.8,
-        "first": 104.3,
+        "first": 104.0,
         "last": 48.2,
-        "older_half_avg": 103.76,
-        "newer_half_avg": 101.89
+        "older_half_avg": 103.6,
+        "newer_half_avg": 101.97
       },
       "rhr": {
-        "avg": 57.6,
+        "avg": 57.64,
         "min": 50.0,
         "max": 78.0,
-        "first": 55.0,
+        "first": 57.0,
         "last": 78.0,
-        "older_half_avg": 57.61,
-        "newer_half_avg": 57.59
+        "older_half_avg": 57.79,
+        "newer_half_avg": 57.5
       },
       "sleep_hours": {
         "avg": 7.47,
