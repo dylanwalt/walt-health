@@ -2398,12 +2398,22 @@
       }
 
       async function loadDashboard() {
-        let data;
+        let data = {};
+        let planPack = null;
         try {
           const res = await fetch("data/dashboard.json?t=" + Date.now(), { cache: "no-store" });
-          if (!res.ok) throw new Error("missing dashboard");
-          data = await res.json();
-        } catch {
+          if (res.ok) data = await res.json();
+        } catch (_) {}
+        try {
+          const pres = await fetch("data/plan.json?t=" + Date.now(), { cache: "no-store" });
+          if (pres.ok) planPack = await pres.json();
+        } catch (_) {}
+        if (planPack && planPack.plan && planPack.plan.templates) {
+          data.plan = planPack.plan;
+          if (planPack.exercise_library) data.exercise_library = planPack.exercise_library;
+          if (planPack.plan_briefing) data.plan_briefing = planPack.plan_briefing;
+        }
+        if (!data.plan || !data.plan.templates) {
           document.getElementById("overviewLede").textContent =
             "Dashboard snapshot not published yet. Sync from Cursor, then republish the portal.";
           return;
