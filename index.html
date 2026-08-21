@@ -1464,13 +1464,13 @@
         <div class="hero-strip">
           <div class="kicker">Private coaching portal</div>
           <h2 id="greet">Welcome back</h2>
-          <p id="overviewLede">Loading…</p>
+          <p id="overviewLede">Loading your latest Garmin snapshot…</p>
         </div>
         <div class="hero-grid">
           <div class="big-stat">
-            <div class="label">Wearable</div>
+            <div class="label">Latest readiness</div>
             <div class="value" id="heroRecovery">—</div>
-            <div class="sub" id="heroRecoverySub">Not connected</div>
+            <div class="sub" id="heroRecoverySub">Waiting on Garmin sync</div>
           </div>
           <div class="metrics" id="metrics"></div>
         </div>
@@ -1486,9 +1486,9 @@
 
       <section class="view" id="view-history">
         <div class="hero-strip">
-          <div class="kicker">History</div>
+          <div class="kicker">Garmin evidence</div>
           <h2>Historical values</h2>
-          <p id="historyLede">No wearable feed on this portal — training runs on the plan + checklist.</p>
+          <p id="historyLede">Sixty days of readiness, sleep, load, and heart metrics — pulled from Garmin Connect.</p>
         </div>
         <div class="chart-stack" id="chartStack"></div>
         <hr class="section-rule" />
@@ -1581,7 +1581,6 @@
           <p id="planHeadline">Weekly plan status</p>
         </div>
         <p class="banner" id="planBanner"></p>
-        <p class="banner" id="calendarBanner"></p>
         <div class="week-nav">
           <button type="button" id="weekPrev" aria-label="Previous week">‹</button>
           <div class="label" id="weekLabel">This week</div>
@@ -1712,7 +1711,7 @@
         const moves = dayLog.moves || {};
         if (Object.keys(moves).some((k) => moveStatusKey(moves[k]) === "done")) return true;
         const planned = ((data && data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
-        if (planned && planned.logged) return true;
+        if (planned && (planned.logged || planned.garmin_logged || planned.whoop_logged)) return true;
         const all = readSessionLog();
         for (const key of Object.keys(all)) {
           if (all[key] && String(all[key].makeup_for || "") === String(iso)) return true;
@@ -1980,17 +1979,15 @@
         const hist = data.history || {};
         const points = hist.points || [];
         const summaries = hist.summaries || {};
-        const wearableOff = true;
         document.getElementById("historyLede").textContent =
-          hist.note || "No wearable feed on this portal — training runs on the plan + checklist.";
-
-        if (wearableOff || !points.length) {
-          document.getElementById("chartStack").innerHTML =
-            '<p class="empty">No wearable series. The training plan does not need it.</p>';
-          document.getElementById("mixBars").innerHTML = '<p class="empty">No activity mix from a wearable.</p>';
-          document.getElementById("historyFoot").innerHTML = "";
-          return;
-        }
+          points.length +
+          " daily points in the last " +
+          (hist.window_days || 60) +
+          " days · " +
+          ((data.window && data.window.history_totals_all_time_pulled && data.window.history_totals_all_time_pulled.recovery) ||
+            (hist.totals_pulled && hist.totals_pulled.recovery) ||
+            "—") +
+          " readiness records pulled all-time";
 
         const coreKeys = { recovery: 1, hrv: 1, rhr: 1, sleep_hours: 1, sleep_perf: 1, strain: 1 };
         const charts = [
@@ -2359,7 +2356,7 @@
         const body = p.body || data.body || {};
         document.getElementById("bodyMetrics").innerHTML = [
           ["Height", body.height_m != null ? fmt(body.height_m, 2) + " m" : "—", body.source || ""],
-          ["Weight", body.weight_kg != null ? fmt(body.weight_kg, 1) + " kg" : "—", body.note || "InBody"],
+          ["Weight", body.weight_kg != null ? fmt(body.weight_kg, 1) + " kg" : "—", body.note || "InBody / Garmin"],
           ["Max HR", body.max_heart_rate != null ? body.max_heart_rate : "—", "bpm"],
           ["InBody", (data.body && data.body.inbody) ? "on file" : "pending", "baseline soon"],
         ].map(([label, value, sub]) =>
@@ -2389,7 +2386,7 @@
           ["Bonus activity", "<ul>" + ((lifestyle.sports_bonus || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") +
             ((lifestyle.sports_optional || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("")) + "</ul>"],
           ["Avoid", "<ul>" + ((training.avoid || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") + "</ul>"],
-          ["Measurement", "<p>InBody: " + escapeHtml(measure.inbody || "—") + "</p><p>Scale: " + escapeHtml(measure.home_scale || "—") + "</p>"],
+          ["Measurement", "<p>InBody: " + escapeHtml(measure.inbody || "—") + "</p><p>Garmin: " + escapeHtml(measure.garmin || measure.whoop || "—") + "</p><p>Scale: " + escapeHtml(measure.home_scale || "—") + "</p>"],
         ].map(([title, bodyHtml]) =>
           '<div class="info-cell"><h4>' + title + "</h4>" + bodyHtml + "</div>"
         ).join("");
@@ -2426,18 +2423,27 @@
         document.getElementById("greet").textContent = "Hey " + name;
         const latest = data.today && data.today.latest_recovery;
         const stamp = (data.generated_at || "").slice(0, 16).replace("T", " ");
-        document.getElementById("overviewLede").textContent =
-          "Plan C · checklist attendance · updated " + stamp + " UTC";
+        document.getElementById("overviewLede").textContent = latest && latest.recovery_score != null
+          ? ("Latest readiness " + latest.recovery_score + " · 60-day averages below · updated " + stamp + " UTC")
+          : ("60-day averages below · updated " + stamp);
 
-        document.getElementById("heroRecovery").textContent = "—";
-        document.getElementById("heroRecoverySub").textContent = "No wearable feed — plan does not use one";
+        document.getElementById("heroRecovery").textContent =
+          latest && latest.recovery_score != null ? String(Math.round(latest.recovery_score)) : "—";
+        document.getElementById("heroRecoverySub").textContent =
+          latest && latest.created_at
+            ? ("Logged " + latest.created_at.slice(0, 16).replace("T", " ") + " UTC · HRV " +
+              fmt(latest.hrv_rmssd_milli, 0) + " · RHR " + fmt(latest.resting_heart_rate, 0))
+            : "No readiness reading yet";
 
+        const m = (data.window && data.window.metrics) || {};
         const metricsEl = document.getElementById("metrics");
         const items = [
-          ["Plan", String((data.plan && data.plan.option) || "C"), "active"],
-          ["Gym days", String((data.plan && data.plan.target_gym_days) || 3), "per week"],
-          ["Session", String((data.plan && data.plan.minutes_per_session) || 85), "minutes"],
-          ["Calendar", "ICS", "Google subscribe"],
+          ["Readiness avg", fmt(m.recovery_score && m.recovery_score.avg, 0), "60 days"],
+          ["HRV avg", fmt(m.hrv_rmssd_milli && m.hrv_rmssd_milli.avg, 0), "ms"],
+          ["Resting HR", fmt(m.resting_heart_rate && m.resting_heart_rate.avg, 0), "bpm"],
+          ["Sleep", fmt(m.sleep_duration_hours && m.sleep_duration_hours.avg, 1), "hours"],
+          ["Sleep score", fmt(m.sleep_performance_pct && m.sleep_performance_pct.avg, 0), "%"],
+          ["Daily load", fmt(m.cycle_strain && m.cycle_strain.avg, 1), "intensity min"],
         ];
         metricsEl.innerHTML = items.map(([label, value, sub]) =>
           '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + "</div></div>"
@@ -2463,24 +2469,6 @@
           "</strong> · about <strong>" + escapeHtml(String(plan.minutes_per_session || 75)) +
           "</strong> minutes × " + escapeHtml(String(plan.target_gym_days || 3)) + " days · block starts <strong>" +
           escapeHtml(String(plan.week_of || "—")) + "</strong>";
-        const cal = plan.calendar || {};
-        const calEl = document.getElementById("calendarBanner");
-        if (calEl) {
-          if (cal.enabled) {
-            const icsUrl = new URL(cal.ics_path || "data/workouts.ics", window.location.href).href;
-            const start = escapeHtml(String(cal.default_start_local || "17:00"));
-            const mins = escapeHtml(String(cal.default_duration_min || 85));
-            const loc = escapeHtml(String(cal.location || "Virgin Active"));
-            calEl.innerHTML =
-              "<strong>Google Calendar:</strong> " +
-              "<a href=\"" + icsUrl + "\" style=\"color:var(--ice)\">Download workouts.ics</a>" +
-              " · or in Google Calendar → Other calendars → <strong>From URL</strong> → paste <code style=\"color:var(--white)\">" +
-              escapeHtml(icsUrl) + "</code>" +
-              " · default " + start + " SAST · " + mins + " min · " + loc;
-          } else {
-            calEl.textContent = "";
-          }
-        }
         const goalBits = [];
         const g3 = plan.goals_3_weeks || {};
         if (g3.visual_primary) {
@@ -2586,7 +2574,7 @@
         const moves = mode === "home" ? (workout.home || []) : (workout.gym || []);
         const sum = summarizeMoves(moves, dayLog);
         const planned = ((data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
-        const whoop = !!(planned && planned.logged);
+        const whoop = !!(planned && (planned.logged || planned.garmin_logged || planned.whoop_logged));
         const past = iso < isoDate(realNow);
         if (sum.complete) return { state: "green", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
         if (sum.started) return { state: "amber", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
@@ -2637,7 +2625,7 @@
         const badge = {
           green: "Done",
           amber: "In progress",
-          purple: "Logged",
+          purple: "Garmin only",
           gray: "Up next",
           dim: "Missed"
         };
@@ -2652,7 +2640,7 @@
             return modeLabel + " · " + s.status.sum.done + "/" + s.status.sum.total + " moves checked";
           }
           if (s.status.state === "purple") {
-            return "Marked done — open Today if you still need to tick moves";
+            return "Garmin saw a workout — open Today and tick the list";
           }
           if (s.status.state === "dim") {
             return "No portal checklist for this day";
@@ -2679,12 +2667,16 @@
           motivate = "DEMO sandbox — these ticks are for showing friends only. Exit demo to see your real week.";
         } else {
         const missedPast = weekSessions.filter((s) => s.status && s.status.state === "dim").length;
+        const whoopOnly = weekSessions.filter((s) => s.status && s.status.state === "purple").length;
         if (weekPct >= 100) {
           toneClass = "good";
           motivate = "Impressed. Week locked. Don’t coast — same standard next week.";
         } else if (missedPast >= 1 || (weekPct === 0 && weekPlanned && weekSessions.some((s) => s.status && s.status.state === "dim"))) {
           toneClass = "bad";
           motivate = "Not impressed. You missed planned gym day(s). Makeup Tue/Thu if you can. Backup punishment: walk the ~2 km to Virgin Active and 2 km back — then decide if you’ll actually do it.";
+        } else if (whoopOnly >= 1 && weekPct < 67) {
+          toneClass = "bad";
+          motivate = "Not impressed yet. Garmin saw activity but the portal checklist isn’t done — finish ticking Today or own the miss.";
         } else if (weekPct >= 67) {
           toneClass = "good";
           motivate = "Impressed so far. One more clean gym session seals the week.";
@@ -2710,6 +2702,7 @@
           '<ul class="wp-legend">' +
           '<li><i class="g"></i> Done — portal checklist complete (gym or home)</li>' +
           '<li><i class="a"></i> In progress — some moves ticked</li>' +
+          '<li><i class="p"></i> Garmin logged activity, checklist not finished</li>' +
           '<li><i class="y"></i> Planned, not started</li>' +
           '<li><i class="d"></i> Past day with no checklist</li>' +
           "</ul>" +
