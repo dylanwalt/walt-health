@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T07:55:30.724+00:00",
+  "generated_at": "2026-08-21T08:35:18.246+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -52,251 +52,35 @@
   "window": {
     "days": 60,
     "counts": {
-      "recovery": 7,
-      "sleep_non_nap": 6,
-      "cycles": 7,
-      "workouts": 9
+      "recovery": 0,
+      "sleep_non_nap": 0,
+      "cycles": 0,
+      "workouts": 0
     },
-    "metrics": {
-      "recovery_score": {
-        "avg": 74.0,
-        "min": 65.0,
-        "max": 88.0,
-        "trend": {
-          "days_31_60_avg": null,
-          "days_1_30_avg": 74.0
-        }
-      },
-      "hrv_rmssd_milli": {
-        "avg": 80.33
-      },
-      "resting_heart_rate": {
-        "avg": 54.0
-      },
-      "sleep_performance_pct": {
-        "avg": 76.0
-      },
-      "sleep_duration_hours": {
-        "avg": 8.26
-      },
-      "cycle_strain": {
-        "avg": 57.33
-      },
-      "workout_strain": {
-        "avg": 0.72
-      }
-    },
-    "workout_mix": {
-      "walking": 6,
-      "strength_training": 2,
-      "squash": 1
-    },
+    "metrics": {},
+    "workout_mix": {},
     "notes": [
-      "Wearable source is Garmin Connect (python-garminconnect), not WHOOP.",
-      "Garmin watch started Saturday 2026-08-15 — expect a short series for ~1 week. Do not compare 60-day Garmin averages to the old WHOOP window until more nights exist. Training Readiness is still onboarding (HRV baseline not established).",
-      "Average recovery over last 60 days is solid (>=67).",
-      "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~57.33 over the window.",
-      "9 workouts logged in 60 days (~1.1/week)."
+      "Garmin sync disconnected 2026-08-21 — Overview/History no longer depend on wearable pulls.",
+      "Plan C runs on schedule + checklist. Subscribe to data/workouts.ics for Google Calendar."
     ],
     "history_totals_all_time_pulled": {
-      "recovery": 7,
-      "sleep": 6,
-      "cycle": 7,
-      "workout": 9
+      "recovery": 0,
+      "sleep": 0,
+      "cycle": 0,
+      "workout": 0
     }
   },
   "history": {
     "window_days": 60,
-    "points": [
-      {
-        "date": "2026-08-15",
-        "recovery": null,
-        "hrv": null,
-        "rhr": 60.0,
-        "body_battery": 26.0,
-        "stress": 22.0,
-        "steps": 7461.0,
-        "intensity_minutes": 9.0,
-        "strain": 9.0
-      },
-      {
-        "date": "2026-08-16",
-        "recovery": null,
-        "hrv": 76.0,
-        "rhr": 55.0,
-        "body_battery": 95.0,
-        "stress": 18.0,
-        "steps": 6000.0,
-        "intensity_minutes": 2.0,
-        "sleep_hours": 6.55,
-        "sleep_perf": 57.0,
-        "strain": 2.0
-      },
-      {
-        "date": "2026-08-17",
-        "recovery": null,
-        "hrv": 88.0,
-        "rhr": 49.0,
-        "body_battery": 100.0,
-        "stress": 18.0,
-        "steps": 11424.0,
-        "intensity_minutes": 74.0,
-        "sleep_hours": 7.35,
-        "sleep_perf": 85.0,
-        "strain": 74.0
-      },
-      {
-        "date": "2026-08-18",
-        "recovery": null,
-        "hrv": 79.0,
-        "rhr": 52.0,
-        "body_battery": 99.0,
-        "stress": 21.0,
-        "steps": 8026.0,
-        "intensity_minutes": 36.0,
-        "sleep_hours": 6.62,
-        "sleep_perf": 82.0,
-        "strain": 36.0
-      },
-      {
-        "date": "2026-08-19",
-        "recovery": 88.0,
-        "hrv": 83.0,
-        "rhr": 53.0,
-        "body_battery": 100.0,
-        "stress": 31.0,
-        "steps": 13314.0,
-        "intensity_minutes": 83.0,
-        "sleep_hours": 7.57,
-        "sleep_perf": 91.0,
-        "strain": 83.0
-      },
-      {
-        "date": "2026-08-20",
-        "recovery": 65.0,
-        "hrv": 76.0,
-        "rhr": 55.0,
-        "body_battery": 83.0,
-        "stress": 30.0,
-        "steps": 14301.0,
-        "intensity_minutes": 140.0,
-        "sleep_hours": 5.67,
-        "sleep_perf": 62.0,
-        "strain": 140.0
-      },
-      {
-        "date": "2026-08-21",
-        "recovery": 69.0,
-        "hrv": 80.0,
-        "rhr": 54.0,
-        "body_battery": 89.0,
-        "stress": 15.0,
-        "steps": 15.0,
-        "intensity_minutes": null,
-        "sleep_hours": 7.22,
-        "sleep_perf": 79.0,
-        "strain": null
-      }
-    ],
-    "summaries": {
-      "recovery": {
-        "avg": 74.0,
-        "min": 65.0,
-        "max": 88.0,
-        "first": 88.0,
-        "last": 69.0,
-        "older_half_avg": 88.0,
-        "newer_half_avg": 67.0
-      },
-      "hrv": {
-        "avg": 80.33,
-        "min": 76.0,
-        "max": 88.0,
-        "first": 76.0,
-        "last": 80.0,
-        "older_half_avg": 81.0,
-        "newer_half_avg": 79.67
-      },
-      "rhr": {
-        "avg": 54.0,
-        "min": 49.0,
-        "max": 60.0,
-        "first": 60.0,
-        "last": 54.0,
-        "older_half_avg": 54.67,
-        "newer_half_avg": 53.5
-      },
-      "sleep_hours": {
-        "avg": 6.83,
-        "min": 5.67,
-        "max": 7.57,
-        "first": 6.55,
-        "last": 7.22,
-        "older_half_avg": 6.84,
-        "newer_half_avg": 6.82
-      },
-      "sleep_perf": {
-        "avg": 76.0,
-        "min": 57.0,
-        "max": 91.0,
-        "first": 57.0,
-        "last": 79.0,
-        "older_half_avg": 74.67,
-        "newer_half_avg": 77.33
-      },
-      "strain": {
-        "avg": 57.33,
-        "min": 2.0,
-        "max": 140.0,
-        "first": 9.0,
-        "last": 140.0,
-        "older_half_avg": 28.33,
-        "newer_half_avg": 86.33
-      },
-      "body_battery": {
-        "avg": 84.57,
-        "min": 26.0,
-        "max": 100.0,
-        "first": 26.0,
-        "last": 89.0,
-        "older_half_avg": 73.67,
-        "newer_half_avg": 92.75
-      },
-      "stress": {
-        "avg": 22.14,
-        "min": 15.0,
-        "max": 31.0,
-        "first": 22.0,
-        "last": 15.0,
-        "older_half_avg": 19.33,
-        "newer_half_avg": 24.25
-      },
-      "steps": {
-        "avg": 8648.71,
-        "min": 15.0,
-        "max": 14301.0,
-        "first": 7461.0,
-        "last": 15.0,
-        "older_half_avg": 8295.0,
-        "newer_half_avg": 8914.0
-      },
-      "intensity_minutes": {
-        "avg": 57.33,
-        "min": 2.0,
-        "max": 140.0,
-        "first": 9.0,
-        "last": 140.0,
-        "older_half_avg": 28.33,
-        "newer_half_avg": 86.33
-      }
-    },
+    "points": [],
+    "summaries": {},
     "totals_pulled": {
-      "recovery": 7,
-      "sleep": 6,
-      "cycle": 7,
-      "workout": 9
-    }
+      "recovery": 0,
+      "sleep": 0,
+      "cycle": 0,
+      "workout": 0
+    },
+    "note": "Wearable history cleared after Garmin disconnect (2026-08-21)."
   },
   "profile": {
     "updated_at": "2026-08-17",
@@ -456,24 +240,14 @@
     ],
     "measurement": {
       "inbody": "Baseline on file (2026-07-16); prefer ~monthly — cadence pending sourced guidance",
-      "whoop": "Retired — switched to Garmin",
-      "garmin": "Training readiness, sleep, HRV, Body Battery, HR, workouts (auto-synced)",
+      "whoop": "Retired",
+      "garmin": "Disconnected 2026-08-21 — not used for programming",
       "home_scale": "TBD usefulness after sourced retest guidance"
     }
   },
   "today": {
-    "local_hint": "Fri rest — shoulders is tomorrow (Sat). Open Today on your phone at the gym Saturday.",
-    "latest_recovery": {
-      "recovery_score": 69.0,
-      "hrv_rmssd_milli": 80.0,
-      "resting_heart_rate": 54.0,
-      "body_battery_max": 89.0,
-      "stress_avg": 15.0,
-      "steps": 15.0,
-      "source": "garmin",
-      "created_at": "2026-08-21T12:00:00+02:00",
-      "calendar_date": "2026-08-21"
-    },
+    "local_hint": "Garmin disconnected. Use Today for the session. Calendar: subscribe to workouts.ics in Google Calendar.",
+    "latest_recovery": null,
     "guided_workout": {
       "mode": "rest",
       "date": "2026-08-21",
@@ -526,6 +300,7 @@
         "friday"
       ],
       "preference_notes": [
+        "Garmin sync retired 2026-08-21 — do not treat wearable absence as a missed gym day",
         "Garmin/WHOOP missing a strength log ≠ missed gym — Dylan often trains without starting an activity (confirmed 2026-08-21)",
         "Weekdays MWF first prize; Tue/Thu makeup if missed",
         "Same stable menu as block 1 — progress load/reps (packs 04/10/11/15)",
@@ -1183,6 +958,8 @@
     ],
     "missed_day_rule": "Priority: (1) Gym on planned Mon/Wed/Fri. (2) If you miss one, makeup on Tue/Thu (or weekend only if that is the only way) using the missed template — Makeup beats Bonus. (3) Home fallback only if gym is impossible. (4) Optional bonus calisthenics on true off days — prefer ≤1/week; does not count as a plan hit (pack 16).",
     "notes": [
+      "Garmin sync retired 2026-08-21 — wearable not used for programming; attendance = Dylan + portal checklist. Disable external Garmin cloud sync job so it stops republishing.",
+      "Google Calendar: subscribe to data/workouts.ics (Pages URL) — default 17:00–18:25 SAST at Virgin Active Morningside.",
       "ATTENDANCE GROUND TRUTH (Dylan 2026-08-21): He has hit 3 gym days/week since plan start (~90% Mon/Wed/Fri, otherwise makeup). Missing Garmin/WHOOP activity does NOT mean a miss — he often skips starting a strength activity on the watch. Trust Dylan's word + portal checklist over wearable logs for gym attendance.",
       "Fri 2026-08-21 shoulders → Sat 2026-08-22 makeup (Dylan request).",
       "Block 3 locked: 2026-08-17 → 2026-09-18, same Plan C MWF menu, progressive overload + W8 deload.",
@@ -1310,6 +1087,19 @@
         "Hard sets finish with ~1–2 clean reps left (NOT absolute failure every set); last isolation set may be 0–1 left",
         "Log loads in kg — beat last session / prior block when top of range is clean (packs 11/15)"
       ]
+    },
+    "calendar": {
+      "enabled": true,
+      "provider": "ics_subscribe",
+      "ics_path": "data/workouts.ics",
+      "timezone": "Africa/Johannesburg",
+      "utc_offset_hours": 2,
+      "default_start_local": "17:00",
+      "default_duration_min": 85,
+      "location": "Virgin Active Morningside",
+      "calendar_name": "WALT HEALTH · Gym",
+      "google_subscribe_hint": "Google Calendar → Other calendars → From URL → paste the workouts.ics link from GitHub Pages",
+      "note": "Free/simple path: publish .ics from plan.schedule. No Google Calendar API required. True two-way sync can come later if needed."
     }
   },
   "plan_briefing": {
@@ -2953,7 +2743,8 @@
     "extra_garmin_days": [],
     "interpretation": "Wearable log is optional corroboration only. Dylan confirmed 2026-08-21: 3 gym days/week since plan start even when Garmin shows no strength activity (often unlogged). logged/garmin_logged=true means a wearable workout was seen that day — not required proof of attendance. Golf/walking-only days do not count as a gym hit when sport tags are present. Authoritative attendance = Dylan's report + portal Today checklist ticks.",
     "attendance_authority": "dylan_report_plus_portal_checklist",
-    "wearable_optional": true
+    "wearable_optional": true,
+    "wearable_status": "disconnected"
   },
   "food": {
     "updated": "2026-07-20",
@@ -3044,15 +2835,11 @@
     ]
   },
   "wearable": {
-    "source": "garmin",
-    "library": "garminconnect",
-    "metric_map": {
-      "recovery_score": "Garmin Training Readiness (0–100). Fallback: morning Body Battery.",
-      "hrv_rmssd_milli": "Garmin overnight HRV lastNightAvg (ms).",
-      "sleep_performance_pct": "Garmin sleep score (0–100).",
-      "cycle_strain": "Not WHOOP strain. Intensity minutes (mod+vig) or Body Battery drain.",
-      "workout_strain": "Garmin aerobic training effect when present."
-    }
+    "source": "none",
+    "status": "disconnected",
+    "retired_at": "2026-08-21",
+    "library": null,
+    "note": "Garmin Connect sync retired — data was exploratory only and not used to drive the plan. Attendance = Dylan report + portal checklist."
   },
   "coach": {
     "walk_punishment_km_each_way": 2,

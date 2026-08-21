@@ -1464,13 +1464,13 @@
         <div class="hero-strip">
           <div class="kicker">Private coaching portal</div>
           <h2 id="greet">Welcome back</h2>
-          <p id="overviewLede">Loading your latest Garmin snapshot…</p>
+          <p id="overviewLede">Loading…</p>
         </div>
         <div class="hero-grid">
           <div class="big-stat">
             <div class="label">Latest readiness</div>
             <div class="value" id="heroRecovery">—</div>
-            <div class="sub" id="heroRecoverySub">Waiting on Garmin sync</div>
+            <div class="sub" id="heroRecoverySub">Wearable optional</div>
           </div>
           <div class="metrics" id="metrics"></div>
         </div>
@@ -1581,6 +1581,7 @@
           <p id="planHeadline">Weekly plan status</p>
         </div>
         <p class="banner" id="planBanner"></p>
+        <p class="banner" id="calendarBanner"></p>
         <div class="week-nav">
           <button type="button" id="weekPrev" aria-label="Previous week">‹</button>
           <div class="label" id="weekLabel">This week</div>
@@ -1979,7 +1980,10 @@
         const hist = data.history || {};
         const points = hist.points || [];
         const summaries = hist.summaries || {};
-        document.getElementById("historyLede").textContent =
+        const wearableOff = !data.wearable || data.wearable.status === "disconnected" || data.wearable.source === "none";
+        document.getElementById("historyLede").textContent = wearableOff
+          ? (hist.note || "Wearable history cleared — Garmin sync disconnected.")
+          : (
           points.length +
           " daily points in the last " +
           (hist.window_days || 60) +
@@ -1987,7 +1991,15 @@
           ((data.window && data.window.history_totals_all_time_pulled && data.window.history_totals_all_time_pulled.recovery) ||
             (hist.totals_pulled && hist.totals_pulled.recovery) ||
             "—") +
-          " readiness records pulled all-time";
+          " readiness records pulled all-time");
+
+        if (wearableOff || !points.length) {
+          document.getElementById("chartStack").innerHTML =
+            '<p class="empty">No wearable series on this portal anymore. The training plan does not need it.</p>';
+          document.getElementById("mixBars").innerHTML = '<p class="empty">No workout mix from Garmin.</p>';
+          document.getElementById("historyFoot").innerHTML = "";
+          return;
+        }
 
         const coreKeys = { recovery: 1, hrv: 1, rhr: 1, sleep_hours: 1, sleep_perf: 1, strain: 1 };
         const charts = [
@@ -2423,28 +2435,39 @@
         document.getElementById("greet").textContent = "Hey " + name;
         const latest = data.today && data.today.latest_recovery;
         const stamp = (data.generated_at || "").slice(0, 16).replace("T", " ");
-        document.getElementById("overviewLede").textContent = latest && latest.recovery_score != null
-          ? ("Latest readiness " + latest.recovery_score + " · 60-day averages below · updated " + stamp + " UTC")
-          : ("60-day averages below · updated " + stamp);
+        const wearableOff = !data.wearable || data.wearable.status === "disconnected" || data.wearable.source === "none";
+        document.getElementById("overviewLede").textContent = wearableOff
+          ? ("Wearable sync off · plan runs on schedule + checklist · updated " + stamp + " UTC")
+          : (latest && latest.recovery_score != null
+            ? ("Latest readiness " + latest.recovery_score + " · 60-day averages below · updated " + stamp + " UTC")
+            : ("60-day averages below · updated " + stamp));
 
         document.getElementById("heroRecovery").textContent =
           latest && latest.recovery_score != null ? String(Math.round(latest.recovery_score)) : "—";
-        document.getElementById("heroRecoverySub").textContent =
-          latest && latest.created_at
+        document.getElementById("heroRecoverySub").textContent = wearableOff
+          ? "Garmin disconnected — not used for programming"
+          : (latest && latest.created_at
             ? ("Logged " + latest.created_at.slice(0, 16).replace("T", " ") + " UTC · HRV " +
               fmt(latest.hrv_rmssd_milli, 0) + " · RHR " + fmt(latest.resting_heart_rate, 0))
-            : "No readiness reading yet";
+            : "No readiness reading yet");
 
         const m = (data.window && data.window.metrics) || {};
         const metricsEl = document.getElementById("metrics");
-        const items = [
-          ["Readiness avg", fmt(m.recovery_score && m.recovery_score.avg, 0), "60 days"],
-          ["HRV avg", fmt(m.hrv_rmssd_milli && m.hrv_rmssd_milli.avg, 0), "ms"],
-          ["Resting HR", fmt(m.resting_heart_rate && m.resting_heart_rate.avg, 0), "bpm"],
-          ["Sleep", fmt(m.sleep_duration_hours && m.sleep_duration_hours.avg, 1), "hours"],
-          ["Sleep score", fmt(m.sleep_performance_pct && m.sleep_performance_pct.avg, 0), "%"],
-          ["Daily load", fmt(m.cycle_strain && m.cycle_strain.avg, 1), "intensity min"],
-        ];
+        const items = wearableOff
+          ? [
+              ["Wearable", "Off", "Garmin retired"],
+              ["Plan", String((data.plan && data.plan.option) || "C"), "active"],
+              ["Gym days", String((data.plan && data.plan.target_gym_days) || 3), "per week"],
+              ["Calendar", "ICS", "Google subscribe"],
+            ]
+          : [
+              ["Readiness avg", fmt(m.recovery_score && m.recovery_score.avg, 0), "60 days"],
+              ["HRV avg", fmt(m.hrv_rmssd_milli && m.hrv_rmssd_milli.avg, 0), "ms"],
+              ["Resting HR", fmt(m.resting_heart_rate && m.resting_heart_rate.avg, 0), "bpm"],
+              ["Sleep", fmt(m.sleep_duration_hours && m.sleep_duration_hours.avg, 1), "hours"],
+              ["Sleep score", fmt(m.sleep_performance_pct && m.sleep_performance_pct.avg, 0), "%"],
+              ["Daily load", fmt(m.cycle_strain && m.cycle_strain.avg, 1), "intensity min"],
+            ];
         metricsEl.innerHTML = items.map(([label, value, sub]) =>
           '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + "</div></div>"
         ).join("");
@@ -2469,6 +2492,24 @@
           "</strong> · about <strong>" + escapeHtml(String(plan.minutes_per_session || 75)) +
           "</strong> minutes × " + escapeHtml(String(plan.target_gym_days || 3)) + " days · block starts <strong>" +
           escapeHtml(String(plan.week_of || "—")) + "</strong>";
+        const cal = plan.calendar || {};
+        const calEl = document.getElementById("calendarBanner");
+        if (calEl) {
+          if (cal.enabled) {
+            const icsUrl = new URL(cal.ics_path || "data/workouts.ics", window.location.href).href;
+            const start = escapeHtml(String(cal.default_start_local || "17:00"));
+            const mins = escapeHtml(String(cal.default_duration_min || 85));
+            const loc = escapeHtml(String(cal.location || "Virgin Active"));
+            calEl.innerHTML =
+              "<strong>Google Calendar:</strong> " +
+              "<a href=\"" + icsUrl + "\" style=\"color:var(--ice)\">Download workouts.ics</a>" +
+              " · or in Google Calendar → Other calendars → <strong>From URL</strong> → paste <code style=\"color:var(--white)\">" +
+              escapeHtml(icsUrl) + "</code>" +
+              " · default " + start + " SAST · " + mins + " min · " + loc;
+          } else {
+            calEl.textContent = "";
+          }
+        }
         const goalBits = [];
         const g3 = plan.goals_3_weeks || {};
         if (g3.visual_primary) {

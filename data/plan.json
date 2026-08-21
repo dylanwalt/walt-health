@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T07:55:30.724+00:00",
+  "generated_at": "2026-08-21T08:35:18.246+00:00",
   "plan": {
     "status": "active",
     "option": "C",
@@ -677,6 +677,8 @@
     ],
     "missed_day_rule": "Priority: (1) Gym on planned Mon/Wed/Fri. (2) If you miss one, makeup on Tue/Thu (or weekend only if that is the only way) using the missed template — Makeup beats Bonus. (3) Home fallback only if gym is impossible. (4) Optional bonus calisthenics on true off days — prefer ≤1/week; does not count as a plan hit (pack 16).",
     "notes": [
+      "Garmin sync retired 2026-08-21 — wearable not used for programming; attendance = Dylan + portal checklist. Disable external Garmin cloud sync job so it stops republishing.",
+      "Google Calendar: subscribe to data/workouts.ics (Pages URL) — default 17:00–18:25 SAST at Virgin Active Morningside.",
       "ATTENDANCE GROUND TRUTH (Dylan 2026-08-21): He has hit 3 gym days/week since plan start (~90% Mon/Wed/Fri, otherwise makeup). Missing Garmin/WHOOP activity does NOT mean a miss — he often skips starting a strength activity on the watch. Trust Dylan's word + portal checklist over wearable logs for gym attendance.",
       "Fri 2026-08-21 shoulders → Sat 2026-08-22 makeup (Dylan request).",
       "Block 3 locked: 2026-08-17 → 2026-09-18, same Plan C MWF menu, progressive overload + W8 deload.",
@@ -809,6 +811,19 @@
       "rule": "dylan_report_plus_portal_checklist",
       "wearable_optional": true,
       "note": "Missing Garmin activity must not be treated as a missed MWF session."
+    },
+    "calendar": {
+      "enabled": true,
+      "provider": "ics_subscribe",
+      "ics_path": "data/workouts.ics",
+      "timezone": "Africa/Johannesburg",
+      "utc_offset_hours": 2,
+      "default_start_local": "17:00",
+      "default_duration_min": 85,
+      "location": "Virgin Active Morningside",
+      "calendar_name": "WALT HEALTH · Gym",
+      "google_subscribe_hint": "Google Calendar → Other calendars → From URL → paste the workouts.ics link from GitHub Pages",
+      "note": "Free/simple path: publish .ics from plan.schedule. No Google Calendar API required. True two-way sync can come later if needed."
     }
   },
   "exercise_library": {
