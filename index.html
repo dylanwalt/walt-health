@@ -1,0 +1,3736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WALT HEALTH</title>
+  <meta name="description" content="WALT HEALTH — private recovery and training portal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --panel: rgba(18, 19, 22, 0.72);
+      --ice: #95c8e2;
+      --ice-soft: #b7d9eb;
+      --ice-dim: rgba(149, 200, 226, 0.14);
+      --white: #f5f7f8;
+      --muted: #9aa3a8;
+      --line: rgba(149, 200, 226, 0.16);
+      --danger: #ff8f8f;
+      --ok: #7dcea0;
+      --amber: #e8b86d;
+      --pulse: #9b8fd9;
+      --coral: #ff6b4a;
+      --mint: #3ddc97;
+      --sky: #5eb1ff;
+      --font-display: "Syne", sans-serif;
+      --font-body: "Manrope", sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: var(--font-body);
+      color: var(--white);
+      background:
+        radial-gradient(1100px 640px at 88% -8%, rgba(149, 200, 226, 0.18), transparent 58%),
+        radial-gradient(720px 520px at -8% 72%, rgba(149, 200, 226, 0.09), transparent 55%),
+        radial-gradient(500px 380px at 48% 108%, rgba(149, 200, 226, 0.06), transparent 50%),
+        linear-gradient(168deg, #09090a 0%, #101114 46%, #0b0b0c 100%);
+    }
+    body::before {
+      content: "";
+      position: fixed; inset: 0; pointer-events: none; opacity: 0.28; z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+    .shell { position: relative; z-index: 1; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .btn {
+      appearance: none; border: 1px solid var(--ice); background: var(--ice); color: #0b0b0c;
+      font-family: var(--font-body); font-weight: 600; font-size: 0.95rem;
+      text-decoration: none; padding: 0.85rem 1.35rem; border-radius: 999px; cursor: pointer;
+      transition: transform 220ms var(--ease), box-shadow 220ms var(--ease);
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(149, 200, 226, 0.18); }
+    .btn.ghost { background: transparent; color: var(--ice-soft); }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 0.85; }
+    }
+
+    body.locked:not(.oauth-mode) .app { display: none; }
+    body:not(.locked) .gate, body.oauth-mode .gate { display: none; }
+    body.oauth-mode .app { display: none; }
+    body:not(.oauth-mode) .oauth { display: none; }
+
+    /* gate */
+    .gate { min-height: 100svh; display: grid; place-items: center; padding: 1.5rem; }
+    .gate-panel { width: min(420px, 100%); text-align: center; animation: rise 700ms var(--ease) both; }
+    .gate-panel .mark { width: 68px; margin: 0 auto 1.1rem; display: block; }
+    .gate-panel h1 {
+      margin: 0 0 0.4rem; font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2rem); letter-spacing: 0.08em;
+    }
+    .gate-panel p { margin: 0 0 1.35rem; color: var(--muted); line-height: 1.55; }
+    .gate-form { display: grid; gap: 0.75rem; }
+    .gate-form input[type="password"] {
+      width: 100%; border-radius: 999px; border: 1px solid var(--line);
+      background: rgba(18, 19, 22, 0.9); color: var(--white);
+      padding: 0.95rem 1.25rem; font: 1rem/1.2 var(--font-body); outline: none;
+    }
+    .gate-form input:focus { border-color: var(--ice); box-shadow: 0 0 0 3px rgba(149, 200, 226, 0.15); }
+    .gate-error { min-height: 1.25rem; color: var(--danger); font-size: 0.9rem; margin: 0; }
+
+    /* app shell */
+    .top {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      padding: 0.95rem clamp(1rem, 4vw, 2.25rem);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+      background: rgba(11, 11, 12, 0.55);
+      position: sticky; top: 0; z-index: 5;
+    }
+    .brand-mini { display: flex; align-items: center; gap: 0.7rem; }
+    .brand-mini img { width: 34px; height: auto; }
+    .brand-mini strong {
+      font-family: var(--font-display); letter-spacing: 0.08em; font-size: 0.92rem;
+    }
+    .nav { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    .nav button {
+      appearance: none; border: 1px solid transparent; background: transparent;
+      color: var(--muted); border-radius: 999px; padding: 0.48rem 0.85rem;
+      font: 500 0.86rem/1 var(--font-body); cursor: pointer;
+      transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+    .nav button:hover { color: var(--white); }
+    .nav button.active {
+      color: var(--white); border-color: var(--line); background: var(--ice-dim);
+    }
+
+    .view {
+      display: none;
+      padding: clamp(1.4rem, 4vw, 2.6rem);
+      max-width: 1180px;
+      margin: 0 auto;
+      animation: rise 560ms var(--ease) both;
+    }
+    .view.active { display: block; }
+
+    .hero-strip {
+      display: grid;
+      gap: 0.65rem;
+      margin-bottom: 1.6rem;
+      position: relative;
+    }
+    .hero-strip .kicker {
+      color: var(--ice);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .hero-strip h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 4.2vw, 2.75rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+    .hero-strip p { margin: 0; color: var(--muted); max-width: 56ch; line-height: 1.55; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: clamp(1.25rem, 3vw, 2.5rem);
+      align-items: end;
+      margin: 0.5rem 0 1.75rem;
+    }
+    .big-stat {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+    .big-stat .label {
+      color: var(--muted); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .big-stat .value {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 6.5rem);
+      line-height: 0.92;
+      color: var(--ice-soft);
+      margin: 0.15rem 0;
+      letter-spacing: -0.04em;
+    }
+    .big-stat .sub { color: var(--muted); font-size: 0.92rem; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem 1.1rem;
+    }
+    .metric {
+      border-top: 1px solid var(--line);
+      padding: 0.85rem 0.05rem 0.25rem;
+    }
+    .metric .label { color: var(--muted); font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .metric .value {
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 2.5vw, 1.85rem);
+      margin-top: 0.28rem;
+      color: var(--ice-soft);
+    }
+    .metric .sub { color: var(--muted); font-size: 0.8rem; margin-top: 0.18rem; }
+
+    .block { margin: 2rem 0; }
+    .block h3 {
+      margin: 0 0 0.7rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+    }
+    .block p, .block li { color: var(--muted); line-height: 1.55; }
+    .block ul { margin: 0; padding-left: 1.1rem; }
+
+    .banner {
+      border-left: 3px solid var(--ice);
+      padding: 0.95rem 1.05rem;
+      background: rgba(149, 200, 226, 0.06);
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .banner strong { color: var(--white); }
+
+    .section-rule {
+      height: 1px;
+      background: linear-gradient(90deg, var(--ice), transparent 70%);
+      opacity: 0.45;
+      margin: 2.25rem 0 1.4rem;
+      border: 0;
+    }
+
+    /* history */
+    .chart-stack { display: grid; gap: 1.35rem; }
+    .chart-row {
+      display: grid;
+      grid-template-columns: minmax(140px, 180px) 1fr;
+      gap: 1rem;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+    .chart-meta .label {
+      color: var(--muted); font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .chart-meta .value {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      color: var(--ice-soft);
+      margin: 0.15rem 0;
+    }
+    .chart-meta .delta { font-size: 0.82rem; color: var(--muted); }
+    .chart-meta .delta.up { color: #9ed9b2; }
+    .chart-meta .delta.down { color: #ffb0a8; }
+    .spark {
+      width: 100%;
+      height: 76px;
+      display: block;
+      overflow: visible;
+    }
+    .spark path.line {
+      fill: none;
+      stroke: var(--ice);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
+    .spark path.area {
+      fill: url(#sparkFill);
+      opacity: 0.9;
+    }
+    .spark .gridline {
+      stroke: rgba(149, 200, 226, 0.12);
+      stroke-width: 1;
+    }
+    .range-chip {
+      display: inline-flex; gap: 0.7rem; flex-wrap: wrap;
+      color: var(--muted); font-size: 0.84rem; margin-top: 0.35rem;
+    }
+    .range-chip span strong { color: var(--white); font-weight: 600; }
+
+    .mix-bars { display: grid; gap: 0.85rem; margin-top: 0.75rem; }
+    .mix-row { display: grid; grid-template-columns: 110px 1fr 40px; gap: 0.7rem; align-items: center; }
+    .mix-row .name { color: var(--muted); font-size: 0.88rem; text-transform: capitalize; }
+    .mix-row .track {
+      height: 6px; border-radius: 999px; background: rgba(149, 200, 226, 0.08); overflow: hidden;
+    }
+    .mix-row .fill {
+      height: 100%; width: 0; background: linear-gradient(90deg, var(--ice), var(--ice-soft));
+      border-radius: inherit;
+      transition: width 900ms var(--ease);
+    }
+    .mix-row .n { color: var(--white); font-family: var(--font-display); text-align: right; }
+
+    .history-foot {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 1.75rem;
+    }
+
+    /* you / profile */
+    .you-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+    .goal-display {
+      border-top: 1px solid var(--line);
+      padding-top: 1.1rem;
+    }
+    .goal-display h3 { margin: 0 0 0.55rem; letter-spacing: 0.05em; }
+    .goal-display .prime {
+      font-family: var(--font-display);
+      font-size: clamp(1.55rem, 3.4vw, 2.15rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+      max-width: 22ch;
+    }
+    .pill-flow { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .pill {
+      border: 1px solid var(--line);
+      color: var(--ice-soft);
+      padding: 0.4rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      background: rgba(149, 200, 226, 0.05);
+    }
+    .pill.muted { color: var(--muted); }
+
+    .time-orbit {
+      border-top: 1px solid var(--line);
+      padding: 1.1rem 0 0.25rem;
+      position: relative;
+    }
+    .time-orbit::after {
+      content: "";
+      position: absolute;
+      right: 8%;
+      top: 18%;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 1px solid rgba(149, 200, 226, 0.28);
+      box-shadow: 0 0 0 14px rgba(149, 200, 226, 0.04);
+      animation: pulse-soft 4.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .time-orbit .label { color: var(--muted); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .time-orbit .value {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      color: var(--ice-soft);
+      margin: 0.25rem 0;
+      letter-spacing: -0.03em;
+    }
+    .time-orbit .floor { color: var(--muted); font-size: 0.9rem; max-width: 28ch; }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .info-cell {
+      border-top: 1px solid var(--line);
+      padding-top: 0.75rem;
+    }
+    .info-cell h4 {
+      margin: 0 0 0.45rem;
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+      font-weight: 700;
+    }
+    .info-cell p, .info-cell li { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+    .info-cell ul { margin: 0; padding-left: 1rem; }
+
+    .timeline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.95rem;
+    }
+    .timeline li {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 0.85rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.75rem;
+    }
+    .timeline .when {
+      color: var(--ice);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .timeline .what { color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
+
+    .day-rail {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+    .day-rail .d {
+      text-align: center; padding: 0.7rem 0.2rem; border: 1px solid var(--line); border-radius: 12px;
+      color: var(--muted); font-size: 0.78rem; cursor: pointer;
+      background: transparent;
+      font-family: inherit;
+      width: 100%;
+    }
+    .day-rail .d:hover { border-color: var(--ice); color: var(--white); }
+    .day-rail .d.today { border-color: var(--ice); color: var(--white); background: rgba(149, 200, 226, 0.1); }
+    .day-rail .d.gym { color: var(--ice-soft); }
+    .day-rail .d.selected {
+      background: var(--ice); color: #0b0b0c; border-color: var(--ice);
+    }
+    .week-nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+      margin-top: 0.85rem;
+    }
+    .week-nav .label {
+      font-family: var(--font-display);
+      color: var(--ice-soft);
+      font-size: 1rem;
+      text-align: center;
+      flex: 1;
+    }
+    .week-nav button {
+      appearance: none; border: 1px solid var(--line); background: rgba(149,200,226,0.06);
+      color: var(--ice-soft); border-radius: 999px; width: 2.4rem; height: 2.4rem;
+      font-size: 1.1rem; cursor: pointer;
+    }
+    .week-nav button:hover { border-color: var(--ice); }
+    .jump-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.75rem 0 0.25rem; }
+    .jump-chips button {
+      appearance: none; border: 1px solid var(--line); background: transparent;
+      color: var(--ice); border-radius: 999px; padding: 0.45rem 0.85rem;
+      font: 600 0.82rem/1 var(--font-body); cursor: pointer;
+    }
+    .priority-box ul {
+      margin: 0.35rem 0 0;
+      padding-left: 1.1rem;
+      color: var(--muted);
+      line-height: 1.45;
+      font-size: 0.9rem;
+      list-style: disc;
+    }
+    .move .mins {
+      color: var(--ice-soft);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 0.35rem;
+    }
+    .move .sets-guide {
+      margin-top: 0.45rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      border-left: 2px solid var(--line);
+      padding-left: 0.65rem;
+    }
+    .tips-block {
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.9rem;
+    }
+    .tips-block h4 {
+      margin: 0 0 0.5rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+    }
+    .tips-block details {
+      margin: 0.45rem 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .tips-block summary { cursor: pointer; color: var(--ice); font-weight: 600; }
+
+    .plan-briefing {
+      margin-top: 2.4rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--line);
+      max-width: 42rem;
+    }
+    .plan-briefing .pb-hero h3 {
+      margin: 0 0 0.45rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 3.5vw, 1.85rem);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .plan-briefing .pb-hero p {
+      margin: 0 0 1.1rem;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .plan-briefing .pb-confidence {
+      border-left: 3px solid var(--amber);
+      padding: 0.85rem 0 0.85rem 1rem;
+      margin: 0 0 1.6rem;
+      background: rgba(232, 184, 109, 0.06);
+    }
+    .plan-briefing .pb-confidence h4 {
+      margin: 0 0 0.4rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--amber);
+    }
+    .plan-briefing .pb-confidence p,
+    .plan-briefing .pb-confidence li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .plan-briefing .pb-confidence ul {
+      margin: 0.55rem 0 0;
+      padding-left: 1.15rem;
+    }
+    .plan-briefing .pb-glance {
+      margin: 0 0 2rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .plan-briefing .pb-glance .pb-phase {
+      color: var(--ice);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0 0 0.35rem;
+    }
+    .plan-briefing .pb-glance h4 {
+      margin: 0 0 0.55rem;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+    }
+    .plan-briefing .pb-section {
+      margin: 0 0 2.15rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .plan-briefing .pb-section:last-child { border-bottom: 0; }
+    .plan-briefing .pb-section h4 {
+      margin: 0 0 0.7rem;
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 2.8vw, 1.4rem);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .plan-briefing .pb-section p {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+    .plan-briefing .pb-impact {
+      margin: 0.9rem 0 0;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(149, 200, 226, 0.05);
+    }
+    .plan-briefing .pb-impact .k {
+      display: block;
+      color: var(--ice);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .plan-briefing .pb-impact p {
+      margin: 0;
+      color: var(--ice-soft);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .plan-briefing .pb-quote {
+      margin: 0.85rem 0;
+      padding: 0.85rem 1rem;
+      border-left: 3px solid var(--ice);
+      background: rgba(149, 200, 226, 0.06);
+    }
+    .plan-briefing .pb-quote .org {
+      display: block;
+      color: var(--ice-soft);
+      font-weight: 600;
+      font-size: 0.82rem;
+      margin-bottom: 0.35rem;
+    }
+    .plan-briefing .pb-quote p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+      font-style: italic;
+    }
+    .plan-briefing .pb-moves {
+      margin: 0.85rem 0 0.4rem;
+      display: grid;
+      gap: 0.55rem;
+    }
+    .plan-briefing .pb-move {
+      padding: 0.7rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .plan-briefing .pb-move .name {
+      font-weight: 600;
+      color: var(--white);
+      font-size: 0.95rem;
+    }
+    .plan-briefing .pb-move .meta {
+      color: var(--ice-soft);
+      font-size: 0.82rem;
+      margin-top: 0.2rem;
+    }
+    .plan-briefing .pb-move .why {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.45;
+      margin-top: 0.25rem;
+    }
+    .plan-briefing .pb-sources {
+      margin: 0.75rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .plan-briefing .pb-sources span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      font-size: 0.74rem;
+      color: var(--muted);
+    }
+    .plan-briefing .pb-index {
+      margin-top: 0.5rem;
+    }
+    .plan-briefing .pb-index table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+    .plan-briefing .pb-index th,
+    .plan-briefing .pb-index td {
+      text-align: left;
+      padding: 0.55rem 0.35rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .plan-briefing .pb-index th {
+      color: var(--ice-soft);
+      font-weight: 600;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .plan-briefing .pb-index td:first-child {
+      color: var(--ice);
+      font-weight: 600;
+      white-space: nowrap;
+      width: 3.2rem;
+    }
+
+    .guide {
+      margin-top: 1rem;
+      padding: 0;
+      border-top: none;
+    }
+    .guide .empty { color: var(--muted); }
+
+    .session-toolbar {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+      margin: 0.85rem 0 1.1rem;
+    }
+    .mode-toggle {
+      display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden;
+    }
+    .mode-toggle button {
+      appearance: none; border: 0; background: transparent; color: var(--muted);
+      font: 600 0.88rem/1 var(--font-body); padding: 0.65rem 1.1rem; cursor: pointer;
+    }
+    .mode-toggle button.on {
+      background: var(--ice); color: #0b0b0c;
+    }
+    .session-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1.1rem;
+    }
+    .session-meta .chip {
+      border-top: 1px solid var(--line);
+      padding-top: 0.55rem;
+    }
+    .session-meta .chip .k {
+      color: var(--muted); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .session-meta .chip .v {
+      font-family: var(--font-display); color: var(--ice-soft); font-size: 1.05rem; margin-top: 0.2rem;
+    }
+    .move-list { display: grid; gap: 0.65rem; }
+    .move {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      background: rgba(18, 19, 22, 0.45);
+      transition: border-color 180ms ease, opacity 180ms ease;
+    }
+    .move.is-done {
+      border-color: rgba(125, 206, 160, 0.35);
+      opacity: 0.72;
+    }
+    .move.is-done .n-text { text-decoration: line-through; color: var(--muted); }
+    .move.is-skipped {
+      border-color: rgba(154, 163, 168, 0.35);
+      opacity: 0.55;
+    }
+    .move.is-skipped .n-text { color: var(--muted); }
+    .move .top {
+      display: flex; justify-content: space-between; gap: 0.75rem; align-items: flex-start;
+    }
+    .move .n {
+      display: flex; align-items: flex-start; gap: 0.35rem; min-width: 0; flex: 1;
+      font-family: var(--font-display);
+      font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .move .n-text { min-width: 0; }
+    .move .expand-btn {
+      appearance: none; border: 0; background: transparent; color: var(--ice);
+      cursor: pointer; padding: 0.1rem 0.2rem; margin: -0.1rem 0 0;
+      font-size: 1.05rem; line-height: 1; flex: none;
+      transition: transform 180ms var(--ease);
+    }
+    .move.is-open .expand-btn { transform: rotate(90deg); }
+    .move .dose {
+      flex: none;
+      color: var(--ice);
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      padding-top: 0.15rem;
+    }
+    .move .check-row {
+      display: flex; align-items: center; gap: 0.45rem; margin-top: 0.55rem; flex-wrap: wrap;
+    }
+    .move .check-btn {
+      appearance: none; width: 2.35rem; height: 2.35rem; border-radius: 10px;
+      border: 1px solid var(--line); background: rgba(18, 19, 22, 0.7);
+      color: var(--muted); font-size: 1.05rem; font-weight: 700; line-height: 1;
+      cursor: pointer; display: inline-grid; place-items: center;
+      transition: border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+    .move .check-btn[data-act="done"].on {
+      border-color: rgba(125, 206, 160, 0.55);
+      background: rgba(125, 206, 160, 0.18);
+      color: var(--ok);
+    }
+    .move .check-btn[data-act="skipped"].on {
+      border-color: rgba(154, 163, 168, 0.5);
+      background: rgba(154, 163, 168, 0.12);
+      color: var(--muted);
+    }
+    .move .hint { color: var(--muted); font-size: 0.86rem; line-height: 1.45; margin-top: 0.4rem; }
+    .move .how-panel {
+      display: none;
+      margin-top: 0.55rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.55rem;
+    }
+    .move.is-open .how-panel { display: block; }
+    .move .how {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+    .move .how strong { color: var(--white); }
+    .move .vid {
+      margin-top: 0.55rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      aspect-ratio: 16 / 9;
+      background: #000;
+    }
+    .move .vid iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    .session-progress {
+      margin: 0.85rem 0 0.25rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.75rem 0.9rem;
+      background: rgba(18, 19, 22, 0.4);
+    }
+    .session-progress .sp-top {
+      display: flex; justify-content: space-between; gap: 0.75rem; align-items: baseline;
+      font-size: 0.88rem;
+    }
+    .session-progress .sp-top strong { color: var(--ice-soft); font-family: var(--font-display); }
+    .session-progress .sp-meta { color: var(--muted); font-size: 0.82rem; }
+    .session-progress .sp-bar {
+      margin-top: 0.55rem; height: 6px; border-radius: 999px;
+      background: rgba(149, 200, 226, 0.12); overflow: hidden;
+    }
+    .session-progress .sp-fill {
+      height: 100%; width: 0%; border-radius: 999px;
+      background: linear-gradient(90deg, var(--ice), var(--ok));
+      transition: width 220ms var(--ease);
+    }
+    .session-progress.is-complete .sp-fill {
+      background: var(--ok);
+    }
+    .week-progress {
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1.1rem;
+    }
+    .week-progress h3 { margin: 0 0 0.55rem; }
+    .week-progress .wp-lede {
+      margin: 0 0 0.9rem; color: var(--muted); font-size: 0.9rem; line-height: 1.5;
+    }
+    .week-progress .wp-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1rem;
+    }
+    .week-progress .wp-stat {
+      border-top: 1px solid var(--line); padding-top: 0.5rem;
+    }
+    .week-progress .wp-stat .k {
+      color: var(--muted); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .week-progress .wp-stat .v {
+      font-family: var(--font-display); font-size: 1.65rem; color: var(--ice-soft); margin-top: 0.15rem;
+    }
+    .week-progress .wp-stat .s { color: var(--muted); font-size: 0.8rem; }
+    .week-progress .wp-bar {
+      height: 8px; border-radius: 999px; background: rgba(149, 200, 226, 0.12);
+      overflow: hidden; margin-bottom: 1rem;
+    }
+    .week-progress .wp-fill {
+      height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--ice), var(--ok));
+      transition: width 240ms var(--ease);
+    }
+    .week-checklist { display: grid; gap: 0.5rem; }
+    .week-checklist .wc-row {
+      display: flex; align-items: center; gap: 0.65rem;
+      border: 1px solid var(--line); border-radius: 12px;
+      padding: 0.65rem 0.8rem; background: rgba(18, 19, 22, 0.35);
+    }
+    .week-checklist .wc-dot {
+      width: 0.72rem; height: 0.72rem; border-radius: 50%; flex: none;
+      background: rgba(154, 163, 168, 0.45);
+    }
+    .week-checklist .wc-row.st-green .wc-dot { background: var(--ok); box-shadow: 0 0 0 3px rgba(125, 206, 160, 0.18); }
+    .week-checklist .wc-row.st-amber .wc-dot { background: var(--amber); box-shadow: 0 0 0 3px rgba(232, 184, 109, 0.18); }
+    .week-checklist .wc-row.st-purple .wc-dot { background: var(--pulse); box-shadow: 0 0 0 3px rgba(155, 143, 217, 0.2); }
+    .week-checklist .wc-row.st-gray .wc-dot { background: rgba(154, 163, 168, 0.45); }
+    .week-checklist .wc-row.st-dim { opacity: 0.55; }
+    .week-checklist .wc-row.st-dim .wc-dot { background: rgba(154, 163, 168, 0.28); }
+    .week-checklist .wc-main { flex: 1; min-width: 0; }
+    .week-checklist .wc-title { font-weight: 600; font-size: 0.92rem; }
+    .week-checklist .wc-sub { color: var(--muted); font-size: 0.78rem; margin-top: 0.12rem; }
+    .week-checklist .wc-badge {
+      flex: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .week-checklist .wc-row.st-green .wc-badge { color: var(--ok); }
+    .week-checklist .wc-row.st-amber .wc-badge { color: var(--amber); }
+    .week-checklist .wc-row.st-purple .wc-badge { color: var(--pulse); }
+    .week-progress .wp-legend {
+      margin: 0.85rem 0 0; padding: 0; list-style: none;
+      display: grid; gap: 0.35rem; color: var(--muted); font-size: 0.78rem;
+    }
+    .week-progress .wp-legend li { display: flex; align-items: center; gap: 0.45rem; }
+    .week-progress .wp-legend i {
+      width: 0.55rem; height: 0.55rem; border-radius: 50%; display: inline-block; flex: none;
+    }
+    .week-progress .wp-legend i.g { background: var(--ok); }
+    .week-progress .wp-legend i.a { background: var(--amber); }
+    .week-progress .wp-legend i.p { background: var(--pulse); }
+    .week-progress .wp-legend i.y { background: rgba(154, 163, 168, 0.45); }
+    .week-progress .wp-legend i.d { background: rgba(154, 163, 168, 0.28); }
+    .week-progress .wp-coach {
+      margin: 0.9rem 0 0; color: var(--muted); font-size: 0.86rem; line-height: 1.5;
+    }
+    .priority-box {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+      margin: 0 0 1rem;
+      background: rgba(149, 200, 226, 0.05);
+    }
+    .priority-box li { margin: 0.2rem 0; }
+    .priority-box .prize { color: var(--ice-soft); font-weight: 600; }
+    .home-warn {
+      display: none;
+      margin: 0.5rem 0 0.85rem;
+      color: #ffb0a8;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+    .home-warn.show { display: block; }
+    .mode-toggle button[data-mode="home"] {
+      opacity: 0.85;
+    }
+    .cue-box {
+      border-left: 3px solid var(--ice);
+      padding: 0.75rem 0.95rem;
+      background: rgba(149, 200, 226, 0.06);
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+    .cue-box strong { color: var(--white); }
+    .effort-box {
+      border: 1px solid rgba(255, 176, 94, 0.45);
+      background: rgba(255, 176, 94, 0.08);
+      padding: 0.85rem 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+    .effort-box .eb-kicker {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber, #ffb05e);
+      margin-bottom: 0.25rem;
+    }
+    .effort-box .eb-head {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--white);
+      margin: 0 0 0.35rem;
+    }
+    .effort-box .eb-answer {
+      color: var(--ice-soft);
+      font-weight: 600;
+      margin: 0 0 0.55rem;
+    }
+    .effort-box .eb-open {
+      appearance: none; width: 100%; margin-top: 0.55rem; cursor: pointer;
+      border-radius: 12px; border: 1px solid rgba(255, 176, 94, 0.55);
+      background: rgba(255, 176, 94, 0.16); color: #ffe0b8;
+      font: 600 0.88rem/1.2 var(--font-body); padding: 0.7rem 0.85rem;
+      text-align: left;
+    }
+    .effort-box .eb-open span {
+      display: block; color: var(--muted); font-weight: 500; font-size: 0.78rem; margin-top: 0.2rem;
+    }
+    .sm-effort {
+      appearance: none; display: block; width: 100%; text-align: left; cursor: pointer;
+      border: 1px solid rgba(255, 176, 94, 0.45);
+      background: rgba(255, 176, 94, 0.12);
+      padding: 0.7rem 0.85rem;
+      margin: 0.55rem 0 0.65rem;
+      border-radius: 12px;
+      font: 600 0.88rem/1.35 var(--font-body);
+      color: var(--ice-soft);
+    }
+    .sm-effort strong { color: #ffe0b8; display: block; font-size: 0.95rem; margin-bottom: 0.15rem; }
+    .sm-effort .sm-effort-sub { color: var(--muted); font-weight: 500; font-size: 0.78rem; }
+    .sm-dock button.push-guide {
+      border-color: rgba(255, 176, 94, 0.5); color: #ffe0b8;
+      grid-column: 1 / -1;
+    }
+    .push-guide-sheet {
+      position: fixed; inset: 0; z-index: 60;
+      background: #0b0b0c;
+      display: none; overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .push-guide-sheet.open { display: block; }
+    .push-guide-panel {
+      max-width: 520px; margin: 0 auto;
+      padding: 0.75rem 0.9rem calc(1.75rem + env(safe-area-inset-bottom, 0px));
+    }
+    .push-guide-body {
+      border: 1px solid var(--line); border-radius: 16px; padding: 0.95rem;
+      background: rgba(18,19,22,0.55); font-size: 0.9rem; line-height: 1.55; color: var(--ice-soft);
+    }
+    .push-guide-body h4 {
+      margin: 1rem 0 0.4rem; color: var(--white); font-size: 0.78rem;
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .push-guide-body h4:first-child { margin-top: 0; }
+    .push-guide-body .pg-answer {
+      font-family: var(--font-display); font-size: 1.2rem; color: var(--white);
+      line-height: 1.25; margin: 0 0 0.45rem;
+    }
+    .push-guide-body .pg-easy {
+      font-weight: 600; color: #ffe0b8; margin: 0 0 0.65rem;
+    }
+    .push-guide-body .pg-rec {
+      border-radius: 12px; padding: 0.65rem 0.75rem; margin: 0.5rem 0 0;
+      border: 1px solid var(--line); background: rgba(149,200,226,0.06);
+      font-size: 0.86rem;
+    }
+    .push-guide-body .pg-rec.good { border-color: rgba(61,220,151,0.4); background: rgba(61,220,151,0.08); }
+    .push-guide-body .pg-rec.meh { border-color: rgba(232,184,109,0.45); background: rgba(232,184,109,0.1); }
+    .push-guide-body .pg-rec.bad { border-color: rgba(255,107,74,0.45); background: rgba(255,107,74,0.1); }
+    .push-guide-body .pg-rec strong { display: block; color: var(--white); margin-bottom: 0.2rem; }
+    .push-guide-body ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+    .push-guide-body li { margin: 0.25rem 0; }
+    .push-guide-body .pg-chip-row {
+      display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.35rem 0 0.55rem;
+    }
+    .push-guide-body .pg-chip {
+      border-radius: 999px; padding: 0.28rem 0.6rem; font-size: 0.72rem;
+      border: 1px solid var(--line); color: var(--ice-soft);
+      background: rgba(149,200,226,0.08);
+    }
+    .habits-row {
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      padding-top: 0.9rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+    .rest-card {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+    }
+    .rest-card .big {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 4vw, 2.1rem);
+      color: var(--ice-soft);
+      margin: 0.2rem 0 0.6rem;
+    }
+    .rest-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+    .rest-actions .btn.primary {
+      background: var(--ice);
+      color: #041018;
+      border: none;
+      font-weight: 650;
+    }
+    .rest-rule {
+      margin-top: 0.85rem;
+      color: var(--ice-soft);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 720px) {
+      .hero-grid, .you-layout, .chart-row, .info-grid, .history-foot, .session-meta {
+        grid-template-columns: 1fr;
+      }
+      .timeline li { grid-template-columns: 1fr; gap: 0.25rem; }
+      .day-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .top { flex-wrap: wrap; }
+      .move { padding: 1.05rem 1rem; }
+      .move .n { font-size: 1.15rem; }
+      .move .dose { font-size: 1.05rem; }
+      .nav button { padding: 0.55rem 0.75rem; font-size: 0.82rem; }
+    }
+    .oauth { min-height: 100svh; display: grid; place-items: center; padding: 1.5rem; }
+    .oauth-panel {
+      width: min(560px, 100%); border: 1px solid var(--line); background: var(--panel);
+      backdrop-filter: blur(10px); border-radius: 20px; padding: 1.75rem; animation: rise 500ms var(--ease) both;
+    }
+    .oauth-panel .mark { width: 56px; margin-bottom: 0.85rem; }
+    .oauth-panel h1 { margin: 0 0 0.4rem; font-family: var(--font-display); font-size: 1.45rem; }
+    .oauth-panel p { color: var(--muted); margin: 0 0 1rem; line-height: 1.5; }
+    label { display: block; color: var(--muted); font-size: 0.85rem; margin-bottom: 0.4rem; }
+    textarea {
+      width: 100%; min-height: 5.5rem; resize: vertical; border-radius: 12px;
+      border: 1px solid var(--line); background: #0b0b0c; color: var(--white);
+      padding: 0.85rem 1rem; font: 0.92rem/1.4 ui-monospace, Consolas, monospace;
+    }
+    .oauth-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
+    .status { margin-top: 1rem; color: var(--muted); min-height: 1.25rem; }
+    .status.ok { color: var(--ice); }
+    .status.bad { color: var(--danger); }
+
+    @media (max-width: 900px) {
+      .hero-grid, .you-layout, .chart-row { grid-template-columns: 1fr; }
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .history-foot, .info-grid { grid-template-columns: 1fr 1fr; }
+      .time-orbit::after { display: none; }
+    }
+    @media (max-width: 720px) {
+      .day-rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .top { flex-direction: column; align-items: stretch; }
+      .nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.15rem;
+        scrollbar-width: none;
+      }
+      .nav::-webkit-scrollbar { display: none; }
+      .nav button { flex: 0 0 auto; }
+      .timeline li { grid-template-columns: 1fr; gap: 0.25rem; }
+      .history-foot { grid-template-columns: 1fr 1fr; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Session Mode — one exercise per viewport */
+      .session-mode {
+      display: flex; flex-direction: column;
+      min-height: calc(100svh - 4.5rem);
+      max-width: 430px; margin: 0 auto;
+      padding-bottom: calc(5.8rem + env(safe-area-inset-bottom, 0px));
+    }
+    .session-mode .sm-meta {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 0.65rem;
+    }
+    .session-mode .sm-chip {
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 0.28rem 0.65rem; font-size: 0.75rem; color: var(--ice-soft);
+      background: rgba(149, 200, 226, 0.08);
+    }
+    .session-mode .sm-chip strong { color: var(--white); font-weight: 600; }
+    .sm-card {
+      flex: 1; display: flex; flex-direction: column; gap: 0.55rem;
+      border: 1px solid var(--line); border-radius: 18px;
+      padding: 0.85rem 0.9rem 0.75rem;
+      background: rgba(18, 19, 22, 0.55);
+      min-height: 0;
+    }
+    .sm-card .sm-top {
+      display: flex; justify-content: space-between; align-items: center; gap: 0.45rem;
+    }
+    .sm-nav-arrows {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 0.5rem; margin: 0 0 0.55rem;
+    }
+    .sm-arrow {
+      appearance: none; flex: 0 0 auto;
+      width: 2.55rem; height: 2.55rem; border-radius: 999px;
+      border: 1px solid var(--ice);
+      background: rgba(149, 200, 226, 0.12);
+      color: var(--ice); font-size: 1.45rem; line-height: 1;
+      display: grid; place-items: center; cursor: pointer;
+      padding: 0;
+    }
+    .sm-arrow:disabled {
+      opacity: 0.28; cursor: default; border-color: var(--line); color: var(--muted);
+    }
+    .sm-nav-mid {
+      flex: 1; text-align: center; min-width: 0;
+    }
+    .sm-nav-mid .sm-idx {
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sm-finish-wrap {
+      margin-top: 0.55rem;
+    }
+    .sm-finish-wrap button {
+      appearance: none; width: 100%; border-radius: 12px;
+      border: 1px solid var(--mint); background: rgba(61, 220, 151, 0.12);
+      color: var(--mint); font: 650 0.9rem/1.2 var(--font-body);
+      padding: 0.75rem 0.85rem; cursor: pointer;
+    }
+    .sm-card .sm-idx {
+      font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .sm-card h3 {
+      margin: 0.15rem 0 0; font-family: var(--font-display);
+      font-size: clamp(1.15rem, 4.2vw, 1.45rem); line-height: 1.15;
+    }
+    .sm-dose {
+      font-weight: 700; color: var(--ice); font-size: 0.95rem; white-space: nowrap;
+    }
+    .sm-diagram {
+      position: relative; height: 132px; border-radius: 14px;
+      background: rgba(0,0,0,0.35); overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .sm-diagram object, .sm-diagram svg { width: 100%; height: 100%; }
+    .sm-diagram .sm-feel {
+      position: absolute; left: 0.55rem; bottom: 0.4rem;
+      font-size: 0.7rem; color: var(--coral); font-weight: 600;
+    }
+    .sm-rings {
+      display: flex; justify-content: space-around; gap: 0.35rem; padding: 0.15rem 0;
+    }
+    .sm-ring {
+      display: grid; place-items: center; text-align: center; width: 72px;
+    }
+    .sm-ring svg { width: 64px; height: 64px; }
+    .sm-ring .rl {
+      font-size: 0.65rem; color: var(--muted); margin-top: -0.15rem; line-height: 1.2;
+    }
+    .sm-ring .rv { font-weight: 700; font-size: 0.8rem; }
+    .sm-importance {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.78rem;
+    }
+    .sm-importance span {
+      border-radius: 8px; padding: 0.35rem 0.55rem;
+      background: rgba(255, 107, 74, 0.14); color: #ffb3a1; border: 1px solid rgba(255,107,74,0.35);
+    }
+    .sm-importance span.keep {
+      background: rgba(61, 220, 151, 0.12); color: var(--mint); border-color: rgba(61,220,151,0.35);
+    }
+    .sm-load {
+      display: grid; gap: 0.25rem; font-size: 0.86rem; line-height: 1.35;
+    }
+    .sm-load .ll {
+      padding: 0.35rem 0.5rem; border-radius: 8px;
+      background: rgba(149, 200, 226, 0.07); border-left: 3px solid var(--ice);
+    }
+    .sm-load.cardio .ll { border-left-color: var(--sky); }
+    .sm-timing {
+      display: flex; gap: 0.45rem; flex-wrap: wrap; font-size: 0.75rem; color: var(--muted);
+    }
+    .sm-timing b { color: var(--white); font-weight: 600; }
+    .sm-rom {
+      font-size: 0.82rem; line-height: 1.4; color: var(--ice-soft);
+      padding: 0.45rem 0.55rem; border-radius: 10px;
+      background: rgba(94, 177, 255, 0.08); border: 1px solid rgba(94,177,255,0.22);
+    }
+    .sm-rom strong { color: var(--sky); }
+    .sm-tips { margin: 0; padding-left: 1.05rem; font-size: 0.8rem; color: var(--muted); }
+    .sm-tips li { margin: 0.15rem 0; }
+    .sm-tips li .w {
+      display: inline-block; min-width: 1.6rem; color: var(--amber); font-weight: 700; font-size: 0.72rem;
+    }
+    .sm-sources { font-size: 0.72rem; color: var(--muted); }
+    .sm-progress {
+      margin-top: 0.35rem; padding: 0.45rem 0.55rem; border-radius: 10px;
+      background: rgba(18,19,22,0.5); border: 1px solid var(--line);
+    }
+    .sm-progress .sp-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.25rem; }
+    .sm-progress .sp-label strong { color: var(--ice-soft); }
+    .sm-progress .sp-bar {
+      height: 6px; border-radius: 999px; background: rgba(149,200,226,0.12); overflow: hidden;
+    }
+    .sm-progress .sp-fill {
+      height: 100%; width: 0; background: linear-gradient(90deg, var(--ice), var(--mint));
+      transition: width 280ms var(--ease);
+    }
+    .sm-dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      padding: 0.55rem 0.75rem calc(0.55rem + env(safe-area-inset-bottom, 0px));
+      background: rgba(11,11,12,0.92); backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.35rem;
+      max-width: 430px; margin: 0 auto;
+    }
+    .sm-dock button {
+      appearance: none; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(149,200,226,0.08); color: var(--white);
+      font: 600 0.78rem/1.1 var(--font-body); padding: 0.75rem 0.35rem; cursor: pointer;
+    }
+    .sm-dock button.primary {
+      background: var(--ice); color: #0b0b0c; border-color: var(--ice);
+    }
+    .sm-dock button.danger {
+      border-color: rgba(255,107,74,0.45); color: #ffb3a1;
+    }
+    .sm-dock button.howto {
+      border-color: rgba(94,177,255,0.45); color: var(--sky);
+      grid-column: 1 / -1;
+    }
+    .sm-dock.with-howto {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+    }
+    .sm-dock.with-howto button.howto { grid-column: 1 / -1; }
+    .sm-howto-screen {
+      display: none; flex-direction: column; gap: 0.65rem;
+      min-height: calc(100svh - 4.5rem);
+      padding-bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
+    }
+    .session-mode.is-howto .sm-workout { display: none; }
+    .session-mode.is-howto .sm-howto-screen { display: flex; }
+    .session-mode.is-howto .sm-dock { display: none; }
+    .sm-howto-top {
+      display: flex; align-items: center; gap: 0.55rem;
+      position: sticky; top: 0; z-index: 5;
+      padding: 0.35rem 0 0.55rem;
+      background: linear-gradient(180deg, rgba(11,11,12,0.96), rgba(11,11,12,0.88) 70%, transparent);
+    }
+    .sm-howto-top button {
+      appearance: none; border: 1px solid var(--ice); background: transparent;
+      color: var(--ice); font: 600 0.88rem var(--font-body);
+      border-radius: 999px; padding: 0.55rem 0.95rem; cursor: pointer;
+    }
+    .sm-howto-top h3 {
+      margin: 0; font-family: var(--font-display); font-size: 1.05rem; line-height: 1.2;
+    }
+    .sm-howto-body {
+      border: 1px solid var(--line); border-radius: 16px; padding: 0.85rem;
+      background: rgba(18,19,22,0.55); font-size: 0.88rem; line-height: 1.5; color: var(--ice-soft);
+    }
+    .sm-howto-body h4 {
+      margin: 0.85rem 0 0.35rem; color: var(--white); font-size: 0.82rem;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .sm-howto-body h4:first-child { margin-top: 0; }
+    .sm-howto-body .vid {
+      margin: 0.5rem 0 0; border-radius: 12px; overflow: hidden; background: #000;
+      aspect-ratio: 16 / 9;
+    }
+    .sm-howto-body .vid iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .sm-howto-body ul { margin: 0.25rem 0 0; padding-left: 1.1rem; }
+    .demo-banner {
+      background: linear-gradient(90deg, rgba(255,107,74,0.22), rgba(232,184,109,0.18));
+      border-bottom: 1px solid rgba(255,107,74,0.35);
+      color: #ffd0c4; font-size: 0.82rem; line-height: 1.35;
+      padding: 0.55rem 0.9rem; display: flex; gap: 0.65rem; align-items: center;
+      justify-content: space-between; flex-wrap: wrap;
+    }
+    .demo-banner[hidden] { display: none !important; }
+    .demo-banner button {
+      appearance: none; border: 1px solid rgba(255,107,74,0.55); background: transparent;
+      color: #ffb3a1; border-radius: 999px; padding: 0.35rem 0.7rem;
+      font: 600 0.78rem var(--font-body); cursor: pointer;
+    }
+    .nav .demo-btn {
+      border: 1px solid rgba(232,184,109,0.45) !important;
+      color: var(--amber) !important;
+    }
+    .nav .demo-btn.on {
+      background: rgba(232,184,109,0.2) !important;
+      color: #0b0b0c !important;
+      border-color: var(--amber) !important;
+      background: var(--amber) !important;
+    }
+    body.demo-mode .top { border-bottom-color: rgba(255,107,74,0.35); }
+    .sm-sources-pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      border-radius: 999px; padding: 0.28rem 0.65rem; font-size: 0.72rem; font-weight: 600;
+      background: rgba(61,220,151,0.12); color: var(--mint); border: 1px solid rgba(61,220,151,0.35);
+    }
+    .sm-sheet {
+      position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,0.55);
+      display: none; place-items: end center;
+    }
+    .sm-sheet.open { display: grid; }
+    .sm-sheet .panel {
+      width: min(430px, 100%); background: #121316; border-radius: 18px 18px 0 0;
+      border: 1px solid var(--line); padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom, 0px));
+      max-height: 70svh; overflow: auto;
+    }
+    .sm-sheet h4 { margin: 0 0 0.65rem; font-family: var(--font-display); }
+    .sm-sheet .reason, .sm-sheet .alt {
+      display: block; width: 100%; text-align: left; margin: 0.35rem 0;
+      padding: 0.7rem 0.8rem; border-radius: 12px; border: 1px solid var(--line);
+      background: rgba(149,200,226,0.06); color: var(--white);
+      font: 500 0.9rem/1.3 var(--font-body); cursor: pointer;
+    }
+    .sm-sheet .alt .meta { display: block; color: var(--muted); font-size: 0.78rem; margin-top: 0.2rem; }
+    .coach-tone.bad { color: var(--coral); }
+    .coach-tone.good { color: var(--mint); }
+    .coach-tone.meh { color: var(--amber); }
+
+    /* Food */
+    .food-grid { display: grid; gap: 0.75rem; }
+    .food-card {
+      border: 1px solid var(--line); border-radius: 14px; padding: 0.85rem 0.95rem;
+      background: rgba(18,19,22,0.45);
+    }
+    .food-card h4 { margin: 0 0 0.25rem; font-size: 1rem; }
+    .food-card .meta { color: var(--muted); font-size: 0.82rem; margin: 0 0 0.35rem; }
+    .food-card .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .food-card .tag {
+      font-size: 0.72rem; padding: 0.2rem 0.5rem; border-radius: 999px;
+      background: rgba(61,220,151,0.12); color: var(--mint); border: 1px solid rgba(61,220,151,0.25);
+    }
+    .voice-box {
+      border: 1px dashed rgba(149,200,226,0.35); border-radius: 14px;
+      padding: 1rem; margin-top: 1rem;
+    }
+    .voice-box .vb-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.65rem 0; }
+    .voice-box button {
+      appearance: none; border-radius: 999px; border: 1px solid var(--ice);
+      background: var(--ice); color: #0b0b0c; font: 600 0.88rem var(--font-body);
+      padding: 0.65rem 1rem; cursor: pointer;
+    }
+    .voice-box button.ghost { background: transparent; color: var(--ice-soft); }
+    .voice-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+    .voice-list li {
+      display: flex; justify-content: space-between; gap: 0.5rem; align-items: center;
+      font-size: 0.82rem; padding: 0.5rem 0.65rem; border-radius: 10px;
+      background: rgba(149,200,226,0.06); border: 1px solid var(--line);
+    }
+    .voice-list li button {
+      border: 0; background: transparent; color: var(--coral); font-size: 0.75rem; cursor: pointer;
+    }
+    @media (min-width: 900px) {
+      .session-mode { max-width: 520px; }
+      .sm-dock { max-width: 520px; left: 50%; transform: translateX(-50%); width: 100%; }
+      .sm-diagram { height: 160px; }
+    }
+    @media (max-width: 700px) {
+      #view-today.active .hero-strip,
+      #view-today.active .week-nav,
+      #view-today.active .day-rail,
+      #view-today.active .jump-chips,
+      #todayGuide .priority-box,
+      #todayGuide .tips-block,
+      #todayGuide .habits-row,
+      #todayGuide .cue-box,
+      #todayGuide .session-meta {
+        display: none !important;
+      }
+      #todayGuide .session-toolbar { margin-bottom: 0.35rem; }
+      .session-mode { min-height: calc(100svh - 3.5rem); padding-bottom: calc(7.2rem + env(safe-area-inset-bottom, 0px)); }
+      .sm-diagram { height: 110px; }
+      .sm-ring { width: 64px; }
+      .sm-ring svg { width: 56px; height: 56px; }
+      .sm-card { padding: 0.65rem 0.75rem; gap: 0.4rem; }
+      .sm-card h3 { font-size: 1.1rem; }
+      .top { padding: 0.55rem 0.75rem; }
+    }
+  </style>
+</head>
+<body class="locked">
+  <div class="shell">
+    <section class="gate" id="gate" aria-label="Private access">
+      <div class="gate-panel">
+        <img class="mark" src="assets/logo-mark.svg" alt="" />
+        <h1>WALT HEALTH</h1>
+        <p>Private portal. Unlock stays valid for 24 hours on this device.</p>
+        <form class="gate-form" id="gateForm">
+          <label class="sr-only" for="gatePassword">Password</label>
+          <input id="gatePassword" type="password" autocomplete="current-password" required autofocus />
+          <button class="btn" type="submit">Unlock</button>
+        </form>
+        <p class="gate-error" id="gateError" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <div class="app" id="app">
+      <header class="top">
+        <div class="brand-mini">
+          <img src="assets/logo-mark.svg" alt="" />
+          <strong>WALT HEALTH</strong>
+        </div>
+        <nav class="nav" aria-label="Sections">
+          <button type="button" data-view="today" class="active">Today</button>
+          <button type="button" data-view="plan">Plan</button>
+          <button type="button" data-view="food">Food</button>
+          <button type="button" data-view="overview">Overview</button>
+          <button type="button" data-view="history">History</button>
+          <button type="button" data-view="you">You</button>
+          <button type="button" id="demoToggle" class="demo-btn" aria-pressed="false" title="Show friends without touching your real plan">Demo</button>
+        </nav>
+      </header>
+      <div id="demoBanner" class="demo-banner" hidden role="status">
+        DEMO MODE — ticks, skips, and progress stay in a sandbox. Your real plan is untouched.
+        <button type="button" id="demoExit">Exit demo</button>
+      </div>
+
+      <section class="view" id="view-overview">
+        <div class="hero-strip">
+          <div class="kicker">Private coaching portal</div>
+          <h2 id="greet">Welcome back</h2>
+          <p id="overviewLede">Loading…</p>
+        </div>
+        <div class="hero-grid">
+          <div class="big-stat">
+            <div class="label">Wearable</div>
+            <div class="value" id="heroRecovery">—</div>
+            <div class="sub" id="heroRecoverySub">Not connected</div>
+          </div>
+          <div class="metrics" id="metrics"></div>
+        </div>
+        <div class="block">
+          <h3>Trust barrier</h3>
+          <p id="trustMsg" class="banner"></p>
+        </div>
+        <div class="block">
+          <h3>Signals</h3>
+          <ul id="notesList"></ul>
+        </div>
+      </section>
+
+      <section class="view" id="view-history">
+        <div class="hero-strip">
+          <div class="kicker">History</div>
+          <h2>Historical values</h2>
+          <p id="historyLede">No wearable feed on this portal — training runs on the plan + checklist.</p>
+        </div>
+        <div class="chart-stack" id="chartStack"></div>
+        <hr class="section-rule" />
+        <div class="block">
+          <h3>Activity mix (60 days)</h3>
+          <div class="mix-bars" id="mixBars"></div>
+        </div>
+        <div class="history-foot metrics" id="historyFoot"></div>
+      </section>
+
+      <section class="view" id="view-you">
+        <div class="hero-strip">
+          <div class="kicker">Athlete profile</div>
+          <h2>You</h2>
+          <p>Goals, constraints, training budget, gym, nutrition, and timeline — the baseline coaches build against.</p>
+        </div>
+        <div class="you-layout">
+          <div>
+            <div class="goal-display">
+              <h3>Primary goal</h3>
+              <p class="prime" id="goalPrime">—</p>
+              <div class="pill-flow" id="goalPills"></div>
+            </div>
+            <div class="info-grid" id="youGrid"></div>
+            <div class="block">
+              <h3>Journey timeline</h3>
+              <ul class="timeline" id="youTimeline"></ul>
+            </div>
+          </div>
+          <div class="you-aside">
+            <div class="time-orbit">
+              <div class="label">Efficiency budget</div>
+              <div class="value" id="timeTarget">—</div>
+              <p class="floor" id="timeFloor"></p>
+            </div>
+            <div class="block">
+              <h3>Body snapshot</h3>
+              <div class="metrics" id="bodyMetrics"></div>
+            </div>
+            <div class="block">
+              <h3>Health flags</h3>
+              <p id="healthFlags" class="banner"></p>
+            </div>
+            <div class="block">
+              <h3>Philosophy</h3>
+              <ul id="philosophyList"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="view" id="view-food">
+        <div class="hero-strip">
+          <div class="kicker">Nutrition tools</div>
+          <h2>Food</h2>
+          <p>South Africa–friendly protein bars and shakes with a kosher-leaning preference. Check the hechsher on every pack.</p>
+        </div>
+        <div class="block">
+          <h3>Practical rules</h3>
+          <ul id="foodRules"></ul>
+        </div>
+        <div class="block">
+          <h3>Protein shakes</h3>
+          <div class="food-grid" id="foodShakes"></div>
+        </div>
+        <div class="block">
+          <h3>Protein bars</h3>
+          <div class="food-grid" id="foodBars"></div>
+        </div>
+        <div class="voice-box" id="voiceBox">
+          <h3 style="margin:0 0 0.35rem;font-family:var(--font-display)">Voice memo</h3>
+          <p style="margin:0;color:var(--muted);font-size:0.88rem;line-height:1.45">
+            Record what you ate. Then <strong style="color:var(--ice-soft)">Export for Cursor</strong> and save the files into
+            <code style="color:var(--ice)">HEALTH_APP/data/context/food_voice_inbox/</code> (OneDrive). The coach processes them on the next chat and deletes the inbox copies.
+          </p>
+          <div class="vb-actions">
+            <button type="button" id="voiceStart">Record</button>
+            <button type="button" class="ghost" id="voiceStop" disabled>Stop</button>
+            <button type="button" class="ghost" id="voiceExport">Export for Cursor</button>
+          </div>
+          <p id="voiceStatus" style="margin:0;font-size:0.82rem;color:var(--muted)"></p>
+          <ul class="voice-list" id="voiceList"></ul>
+        </div>
+      </section>
+
+      <section class="view" id="view-plan">
+        <div class="hero-strip">
+          <div class="kicker">Sourced programming</div>
+          <h2>Plan</h2>
+          <p id="planHeadline">Weekly plan status</p>
+        </div>
+        <p class="banner" id="planBanner"></p>
+        <p class="banner" id="calendarBanner"></p>
+        <div class="week-nav">
+          <button type="button" id="weekPrev" aria-label="Previous week">‹</button>
+          <div class="label" id="weekLabel">This week</div>
+          <button type="button" id="weekNext" aria-label="Next week">›</button>
+        </div>
+        <div class="day-rail" id="weekRail"></div>
+        <div class="jump-chips" id="jumpChips"></div>
+        <p class="banner" id="dayPickHint" style="margin-top:1rem">Tap a day above to open that session on the Today tab. Scroll down for the full why.</p>
+        <div class="week-progress" id="weekProgressBlock">
+          <h3>Week progress</h3>
+          <p class="wp-lede" id="weekProgressLede">Tick moves on Today — this checklist fills in from your phone.</p>
+          <div id="weekProgress"></div>
+        </div>
+        <div class="block">
+          <h3>Notes</h3>
+          <ul id="planNotes"></ul>
+        </div>
+        <div id="planBriefing" class="plan-briefing" aria-live="polite"></div>
+      </section>
+
+      <section class="view active" id="view-today">
+        <div class="hero-strip">
+          <div class="kicker">Session guide</div>
+          <h2 id="todayTitle">Today</h2>
+          <p id="todayLede">Open this on your phone in the gym. Tap a calendar day to preview any session.</p>
+        </div>
+        <div class="week-nav">
+          <button type="button" id="weekPrevToday" aria-label="Previous week">‹</button>
+          <div class="label" id="weekLabelToday">This week</div>
+          <button type="button" id="weekNextToday" aria-label="Next week">›</button>
+        </div>
+        <div class="day-rail" id="weekRailToday"></div>
+        <div class="jump-chips" id="jumpChipsToday"></div>
+        <div class="guide" id="todayGuide"></div>
+      </section>
+    </div>
+
+    <section class="oauth" id="connect" aria-live="polite">
+      <div class="oauth-panel">
+        <img class="mark" src="assets/logo-mark.svg" alt="" />
+        <h1>Portal callback</h1>
+        <p id="subtitle">Copy the authorization code and return to Cursor.</p>
+        <label for="code">Authorization code</label>
+        <textarea id="code" readonly placeholder="Waiting for redirect…"></textarea>
+        <div class="oauth-actions">
+          <button class="btn" id="copyCode" type="button" disabled>Copy code</button>
+          <button class="btn ghost" id="copyUrl" type="button" disabled>Copy full URL</button>
+        </div>
+        <div class="status" id="status"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      const PASS_HASH = "1a02f982c9e3e518df34f2e70fc99d6903abf0ac960b7eeb7ae9e811f5cee342";
+      const AUTH_KEY = "walt_health_auth_v2";
+      const SESSION_LOG_KEY = "walt_session_log_v1";
+      const SESSION_LOG_DEMO_KEY = "walt_session_log_demo_v1";
+      const DEMO_FLAG_KEY = "walt_demo_mode_v1";
+      const TTL_MS = 24 * 60 * 60 * 1000;
+
+      function isDemoMode() {
+        try { return sessionStorage.getItem(DEMO_FLAG_KEY) === "1"; } catch { return false; }
+      }
+
+      function setDemoMode(on) {
+        try {
+          if (on) sessionStorage.setItem(DEMO_FLAG_KEY, "1");
+          else sessionStorage.removeItem(DEMO_FLAG_KEY);
+        } catch { /* ignore */ }
+        document.body.classList.toggle("demo-mode", !!on);
+        const banner = document.getElementById("demoBanner");
+        if (banner) banner.hidden = !on;
+        const btn = document.getElementById("demoToggle");
+        if (btn) {
+          btn.textContent = on ? "Exit demo" : "Demo";
+          btn.classList.toggle("on", !!on);
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+        }
+      }
+
+      function activeLogKey() {
+        return isDemoMode() ? SESSION_LOG_DEMO_KEY : SESSION_LOG_KEY;
+      }
+
+      function readSessionLog() {
+        try {
+          const raw = localStorage.getItem(activeLogKey());
+          if (!raw) return {};
+          const parsed = JSON.parse(raw);
+          return parsed && typeof parsed === "object" ? parsed : {};
+        } catch {
+          return {};
+        }
+      }
+
+      function writeSessionLog(log) {
+        localStorage.setItem(activeLogKey(), JSON.stringify(log));
+      }
+
+      function getDayLog(iso) {
+        const log = readSessionLog();
+        return log[iso] || { mode: "gym", moves: {}, updated_at: null };
+      }
+
+      function upsertDayLog(iso, patch) {
+        const all = readSessionLog();
+        const prev = all[iso] || { mode: "gym", moves: {} };
+        const next = {
+          mode: patch.mode != null ? patch.mode : (prev.mode || "gym"),
+          moves: patch.moves != null ? patch.moves : (prev.moves || {}),
+          updated_at: new Date().toISOString()
+        };
+        if (patch.kind != null) next.kind = patch.kind;
+        else if (prev.kind) next.kind = prev.kind;
+        if (patch.makeup_for != null) next.makeup_for = patch.makeup_for;
+        else if (prev.makeup_for) next.makeup_for = prev.makeup_for;
+        if (patch.template_id != null) next.template_id = patch.template_id;
+        else if (prev.template_id) next.template_id = prev.template_id;
+        all[iso] = next;
+        writeSessionLog(all);
+        return next;
+      }
+
+      function isScheduleDayPaid(iso, data) {
+        const dayLog = getDayLog(iso);
+        const moves = dayLog.moves || {};
+        if (Object.keys(moves).some((k) => moveStatusKey(moves[k]) === "done")) return true;
+        const planned = ((data && data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
+        if (planned && planned.logged) return true;
+        const all = readSessionLog();
+        for (const key of Object.keys(all)) {
+          if (all[key] && String(all[key].makeup_for || "") === String(iso)) return true;
+        }
+        return false;
+      }
+
+      function findUnpaidMakeup(plan, data, now) {
+        const today = isoDate(now);
+        const weekStart = mondayOf(now);
+        const end = new Date(weekStart);
+        end.setDate(weekStart.getDate() + 6);
+        const startIso = isoDate(weekStart);
+        const endIso = isoDate(end);
+        const unpaid = (plan.schedule || []).filter((s) => {
+          const d = String(s.date || "");
+          return d >= startIso && d <= endIso && d < today && !isScheduleDayPaid(d, data);
+        });
+        unpaid.sort((a, b) => String(a.date).localeCompare(String(b.date)));
+        return unpaid[0] || null;
+      }
+
+      function setMoveStatus(iso, mode, moveName, status, meta) {
+        const day = getDayLog(iso);
+        const moves = Object.assign({}, day.moves || {});
+        if (!status) delete moves[moveName];
+        else if (meta && typeof meta === "object") {
+          moves[moveName] = Object.assign({ status: status }, meta);
+        } else {
+          moves[moveName] = status;
+        }
+        return upsertDayLog(iso, { mode: mode || day.mode || "gym", moves: moves });
+      }
+
+      function moveStatusKey(st) {
+        if (!st) return null;
+        if (typeof st === "string") return st;
+        return st.status || null;
+      }
+
+      function summarizeMoves(moves, dayLog) {
+        const map = (dayLog && dayLog.moves) || {};
+        let done = 0;
+        let skipped = 0;
+        let unset = 0;
+        (moves || []).forEach((m) => {
+          const st = moveStatusKey(map[m.name]);
+          if (st === "done") done += 1;
+          else if (st === "skipped") skipped += 1;
+          else unset += 1;
+        });
+        const total = (moves || []).length;
+        const complete = total > 0 && unset === 0 && done > 0;
+        const started = done + skipped > 0;
+        const pct = total ? Math.round(((done + skipped) / total) * 100) : 0;
+        return { done: done, skipped: skipped, unset: unset, total: total, complete: complete, started: started, pct: pct };
+      }
+
+      async function sha256Hex(text) {
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+        return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
+      }
+
+      function readAuth() {
+        try {
+          const raw = localStorage.getItem(AUTH_KEY);
+          if (!raw) return null;
+          return JSON.parse(raw);
+        } catch {
+          return null;
+        }
+      }
+
+      function isUnlocked() {
+        const auth = readAuth();
+        if (!auth || auth.hash !== PASS_HASH) return false;
+        if (Date.now() - Number(auth.at || 0) > TTL_MS) {
+          localStorage.removeItem(AUTH_KEY);
+          return false;
+        }
+        return true;
+      }
+
+      function unlock() {
+        localStorage.setItem(AUTH_KEY, JSON.stringify({ hash: PASS_HASH, at: Date.now() }));
+        document.body.classList.remove("locked");
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+      const error = params.get("error");
+      const errorDesc = params.get("error_description");
+      const isOauth = Boolean(code || error);
+
+      const isLocalPreview =
+        location.hostname === "127.0.0.1" ||
+        location.hostname === "localhost" ||
+        location.protocol === "file:";
+
+      if (isOauth) {
+        document.body.classList.add("oauth-mode");
+        document.body.classList.remove("locked");
+      } else if (isUnlocked() || isLocalPreview) {
+        unlock();
+      }
+
+      const form = document.getElementById("gateForm");
+      const input = document.getElementById("gatePassword");
+      const gateError = document.getElementById("gateError");
+      if (form) {
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          gateError.textContent = "";
+          const attempt = await sha256Hex(input.value || "");
+          if (attempt === PASS_HASH) {
+            unlock();
+            input.value = "";
+            loadDashboard();
+          } else {
+            gateError.textContent = "Incorrect password.";
+            input.select();
+          }
+        });
+      }
+
+      document.querySelectorAll(".nav button[data-view]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".nav button[data-view]").forEach((b) => b.classList.remove("active"));
+          document.querySelectorAll(".view").forEach((v) => v.classList.remove("active"));
+          btn.classList.add("active");
+          document.getElementById("view-" + btn.dataset.view).classList.add("active");
+          if (btn.dataset.view === "history") {
+            requestAnimationFrame(() => {
+              document.querySelectorAll(".mix-row .fill").forEach((el) => {
+                el.style.width = el.dataset.w || "0%";
+              });
+            });
+          }
+        });
+      });
+
+      function refreshAfterDemoToggle() {
+        const data = window.__waltDashboard;
+        if (!data) return;
+        renderWeekProgress(data, viewedWeekStart(), new Date());
+        renderTodayGuide(data);
+        const start = document.getElementById("voiceStart");
+        const status = document.getElementById("voiceStatus");
+        if (start) start.disabled = isDemoMode();
+        if (status && isDemoMode()) status.textContent = "Voice memos disabled in demo — your real food log stays clean.";
+        else if (status && status.textContent.indexOf("disabled in demo") !== -1) status.textContent = "";
+      }
+
+      (function wireDemoMode() {
+        const toggle = document.getElementById("demoToggle");
+        const exitBtn = document.getElementById("demoExit");
+        setDemoMode(isDemoMode());
+        function flipClean() {
+          if (!isDemoMode()) {
+            const ok = window.confirm("Demo mode sandboxes ticks for friends. Your real week checklist will not change. Continue?");
+            if (!ok) return;
+            setDemoMode(true);
+          } else {
+            setDemoMode(false);
+          }
+          refreshAfterDemoToggle();
+        }
+        if (toggle) toggle.addEventListener("click", flipClean);
+        if (exitBtn) exitBtn.addEventListener("click", () => { setDemoMode(false); refreshAfterDemoToggle(); });
+      })();
+
+      function fmt(n, digits) {
+        if (n === null || n === undefined || Number.isNaN(n)) return "—";
+        return Number(n).toFixed(digits);
+      }
+
+      function escapeHtml(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function getPortalNow() {
+        const preview = new URLSearchParams(window.location.search).get("preview_date");
+        if (preview && /^\d{4}-\d{2}-\d{2}$/.test(preview)) {
+          return new Date(preview + "T12:00:00");
+        }
+        return new Date();
+      }
+
+      function weekdayName(d) {
+        return ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getDay()];
+      }
+
+      function sparkSvg(values, width, height) {
+        const nums = values.filter((v) => v != null && !Number.isNaN(Number(v))).map(Number);
+        if (nums.length < 2) {
+          return '<svg class="spark" viewBox="0 0 ' + width + " " + height + '" preserveAspectRatio="none"><text x="12" y="40" fill="#9aa3a8" font-size="12">Not enough points</text></svg>';
+        }
+        const min = Math.min(...nums);
+        const max = Math.max(...nums);
+        const span = max - min || 1;
+        const padY = 8;
+        const pts = nums.map((v, i) => {
+          const x = (i / (nums.length - 1)) * width;
+          const y = padY + (1 - (v - min) / span) * (height - padY * 2);
+          return [x, y];
+        });
+        const line = pts.map((p, i) => (i === 0 ? "M" : "L") + p[0].toFixed(2) + "," + p[1].toFixed(2)).join(" ");
+        const area = line + " L" + width + "," + height + " L0," + height + " Z";
+        const midY = height / 2;
+        return (
+          '<svg class="spark" viewBox="0 0 ' + width + " " + height + '" preserveAspectRatio="none" role="img">' +
+          '<defs><linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">' +
+          '<stop offset="0%" stop-color="rgba(149,200,226,0.28)"/>' +
+          '<stop offset="100%" stop-color="rgba(149,200,226,0)"/>' +
+          "</linearGradient></defs>" +
+          '<line class="gridline" x1="0" y1="' + midY + '" x2="' + width + '" y2="' + midY + '" />' +
+          '<path class="area" d="' + area + '" />' +
+          '<path class="line spark-line" d="' + line + '" />' +
+          "</svg>"
+        );
+      }
+
+      function animateSparklines(root) {
+        const paths = (root || document).querySelectorAll("path.spark-line");
+        paths.forEach((path) => {
+          try {
+            const len = path.getTotalLength();
+            if (!len || !isFinite(len)) return;
+            path.style.transition = "none";
+            path.style.strokeDasharray = String(len);
+            path.style.strokeDashoffset = String(len);
+          } catch (_) { /* ignore */ }
+        });
+        // Second frame: draw the full path to the last data point (no early stop).
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            paths.forEach((path) => {
+              path.style.transition = "stroke-dashoffset 1.25s cubic-bezier(0.22, 1, 0.36, 1)";
+              path.style.strokeDashoffset = "0";
+            });
+          });
+        });
+      }
+
+      function deltaLabel(summary) {
+        if (!summary || summary.older_half_avg == null || summary.newer_half_avg == null) {
+          return { text: "Trend n/a", cls: "" };
+        }
+        const diff = summary.newer_half_avg - summary.older_half_avg;
+        const abs = Math.abs(diff);
+        if (abs < 0.05) return { text: "Flat vs prior half", cls: "" };
+        const dir = diff > 0 ? "up" : "down";
+        return {
+          text: (diff > 0 ? "+" : "") + fmt(diff, 1) + " vs older half",
+          cls: dir,
+        };
+      }
+
+      function renderHistory(data) {
+        const hist = data.history || {};
+        const points = hist.points || [];
+        const summaries = hist.summaries || {};
+        const wearableOff = true;
+        document.getElementById("historyLede").textContent =
+          hist.note || "No wearable feed on this portal — training runs on the plan + checklist.";
+
+        if (wearableOff || !points.length) {
+          document.getElementById("chartStack").innerHTML =
+            '<p class="empty">No wearable series. The training plan does not need it.</p>';
+          document.getElementById("mixBars").innerHTML = '<p class="empty">No activity mix from a wearable.</p>';
+          document.getElementById("historyFoot").innerHTML = "";
+          return;
+        }
+
+        const coreKeys = { recovery: 1, hrv: 1, rhr: 1, sleep_hours: 1, sleep_perf: 1, strain: 1 };
+        const charts = [
+          ["Readiness", "recovery", 0, ""],
+          ["HRV", "hrv", 0, "ms"],
+          ["Resting HR", "rhr", 0, "bpm"],
+          ["Sleep", "sleep_hours", 1, "hours asleep"],
+          ["Sleep performance", "sleep_perf", 0, "%"],
+          ["Daily load", "strain", 1, "intensity min"],
+          ["Body Battery", "body_battery", 0, "max"],
+          ["Stress", "stress", 0, "avg"],
+        ].filter(([, key]) => coreKeys[key] || summaries[key]);
+
+        const stack = document.getElementById("chartStack");
+        stack.innerHTML = charts.map(([label, key, digits, unit], idx) => {
+          const summary = summaries[key];
+          const vals = points.map((p) => p[key]);
+          const delta = deltaLabel(summary);
+          const delay = (idx * 80) + "ms";
+          return (
+            '<div class="chart-row" style="animation: rise 600ms var(--ease) both; animation-delay:' + delay + '">' +
+            '<div class="chart-meta">' +
+            '<div class="label">' + label + "</div>" +
+            '<div class="value">' + fmt(summary && summary.avg, digits) + "</div>" +
+            '<div class="delta ' + delta.cls + '">' + delta.text + "</div>" +
+            '<div class="range-chip"><span>min <strong>' + fmt(summary && summary.min, digits) +
+            "</strong></span><span>max <strong>" + fmt(summary && summary.max, digits) +
+            "</strong></span><span>last <strong>" + fmt(summary && summary.last, digits) +
+            "</strong> " + unit + "</span></div>" +
+            "</div>" +
+            sparkSvg(vals, 640, 76) +
+            "</div>"
+          );
+        }).join("");
+
+        const mix = (data.window && data.window.workout_mix) || {};
+        const mixEntries = Object.entries(mix).sort((a, b) => b[1] - a[1]);
+        const maxMix = mixEntries.reduce((m, [, v]) => Math.max(m, v), 1);
+        const bars = document.getElementById("mixBars");
+        bars.innerHTML = mixEntries.length
+          ? mixEntries.map(([k, v]) => {
+              const pct = Math.round((v / maxMix) * 100);
+              return (
+                '<div class="mix-row"><div class="name">' + escapeHtml(k) +
+                '</div><div class="track"><div class="fill" data-w="' + pct +
+                '%"></div></div><div class="n">' + v + "</div></div>"
+              );
+            }).join("")
+          : '<p class="empty">No workouts tagged in this window.</p>';
+
+        const counts = (data.window && data.window.counts) || {};
+        const totals = (data.window && data.window.history_totals_all_time_pulled) || hist.totals_pulled || {};
+        document.getElementById("historyFoot").innerHTML = [
+          ["Workouts / 60d", counts.workouts ?? "—", "~" + (counts.workouts ? (counts.workouts / 8.5).toFixed(1) : "—") + "/week"],
+          ["Readiness days", counts.recovery ?? "—", "in window"],
+          ["Sleep nights", counts.sleep_non_nap ?? "—", "non-nap"],
+          ["All-time readiness", totals.recovery ?? "—", "pulled locally"],
+        ].map(([label, value, sub]) =>
+          '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + "</div></div>"
+        ).join("");
+
+        requestAnimationFrame(() => animateSparklines(stack));
+        requestAnimationFrame(() => {
+          bars.querySelectorAll(".fill").forEach((el) => {
+            el.style.width = el.getAttribute("data-w") || "0%";
+          });
+        });
+      }
+
+      function renderPlanBriefing(data) {
+        const root = document.getElementById("planBriefing");
+        if (!root) return;
+        const b = data.plan_briefing;
+        if (!b) {
+          root.innerHTML = '<p class="empty">Plan briefing not on this dashboard snapshot yet — republish after sync.</p>';
+          return;
+        }
+        const conf = b.confidence || {};
+        const glance = b.this_week_at_a_glance || {};
+        let html = "";
+        html += '<div class="pb-hero"><h3>' + escapeHtml(b.title || "Plan briefing") + "</h3>";
+        html += "<p>" + escapeHtml(b.subtitle || "") + "</p></div>";
+
+        html += '<div class="pb-confidence"><h4>' + escapeHtml(conf.headline || "Confidence") + "</h4>";
+        html += "<p>" + escapeHtml(conf.body || "") + "</p>";
+        if ((conf.what_would_raise_confidence_further || []).length) {
+          html += "<ul>" + conf.what_would_raise_confidence_further.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+        html += "</div>";
+
+        html += '<div class="pb-glance"><div class="pb-phase">' + escapeHtml(glance.phase || "") + "</div>";
+        html += "<h4>" + escapeHtml(glance.headline || "") + "</h4>";
+        if ((glance.non_negotiables || []).length) {
+          html += "<ul>" + glance.non_negotiables.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+        html += "</div>";
+
+        (b.sections || []).forEach((sec) => {
+          html += '<article class="pb-section" id="pb-' + escapeHtml(sec.id || "") + '">';
+          html += "<h4>" + escapeHtml(sec.title || "") + "</h4>";
+          (sec.paras || []).forEach((p) => { html += "<p>" + escapeHtml(p) + "</p>"; });
+          (sec.quote_blocks || []).forEach((q) => {
+            html += '<blockquote class="pb-quote"><span class="org">' + escapeHtml(q.org || "") +
+              "</span><p>" + escapeHtml(q.text || "") + "</p></blockquote>";
+          });
+          if ((sec.moves || []).length) {
+            html += '<div class="pb-moves">' + sec.moves.map((m) =>
+              '<div class="pb-move"><div class="name">' + escapeHtml(m.name || "") +
+              '</div><div class="meta">' + escapeHtml(m.sets || "") +
+              (m.rest ? " · rest " + escapeHtml(m.rest) : "") +
+              '</div><div class="why">' + escapeHtml(m.why || "") + "</div></div>"
+            ).join("") + "</div>";
+          }
+          if (sec.desired_impact) {
+            html += '<div class="pb-impact"><span class="k">Desired impact</span><p>' +
+              escapeHtml(sec.desired_impact) + "</p></div>";
+          }
+          if ((sec.sources || []).length) {
+            html += '<div class="pb-sources">' + sec.sources.map((s) =>
+              "<span>" + escapeHtml((s.pack ? ("Pack " + s.pack + " · ") : "") + (s.org || s.idea || "")) + "</span>"
+            ).join("") + "</div>";
+          }
+          html += "</article>";
+        });
+
+        if ((b.source_index || []).length) {
+          html += '<div class="pb-section pb-index"><h4>Source index (packs 01–14)</h4><table><thead><tr><th>Pack</th><th>Topic</th><th>Org / literature</th></tr></thead><tbody>';
+          b.source_index.forEach((row) => {
+            html += "<tr><td>" + escapeHtml(row.pack || "") + "</td><td>" + escapeHtml(row.topic || "") +
+              "</td><td>" + escapeHtml(row.orgs || "") + "</td></tr>";
+          });
+          html += "</tbody></table></div>";
+        }
+        root.innerHTML = html;
+      }
+
+      function renderFood(data) {
+        const food = data.food || {};
+        const rules = document.getElementById("foodRules");
+        const shakes = document.getElementById("foodShakes");
+        const bars = document.getElementById("foodBars");
+        if (!rules || !shakes || !bars) return;
+        rules.innerHTML = ((food.practical_rules || []).map((r) => "<li>" + escapeHtml(r) + "</li>").join("")) ||
+          "<li>Hit 115–130 g protein most days.</li>";
+        function card(item) {
+          const prot = item.protein_g_approx != null ? item.protein_g_approx : item.protein_g_per_scoop_approx;
+          return (
+            '<div class="food-card"><h4>' + escapeHtml(item.brand || "") + "</h4>" +
+            '<p class="meta">' + escapeHtml(item.where || "") +
+            (prot != null ? " · ~" + escapeHtml(String(prot)) + " g protein" : "") + "</p>" +
+            '<div class="tags"><span class="tag">' + escapeHtml(item.kosher_note || "Check hechsher") + "</span></div>" +
+            (item.notes ? '<p class="meta" style="margin-top:0.45rem">' + escapeHtml(item.notes) + "</p>" : "") +
+            "</div>"
+          );
+        }
+        shakes.innerHTML = ((food.shakes || []).map(card).join("")) || '<p class="empty">No shake list yet.</p>';
+        bars.innerHTML = ((food.bars || []).map(card).join("")) || '<p class="empty">No bar list yet.</p>';
+      }
+
+      const VOICE_DB = "walt_food_voice_v1";
+      let voiceRecorder = null;
+      let voiceChunks = [];
+
+      function openVoiceDb() {
+        return new Promise((resolve, reject) => {
+          const req = indexedDB.open(VOICE_DB, 1);
+          req.onupgradeneeded = () => {
+            const db = req.result;
+            if (!db.objectStoreNames.contains("memos")) {
+              db.createObjectStore("memos", { keyPath: "id" });
+            }
+          };
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => reject(req.error);
+        });
+      }
+
+      async function listVoiceMemos() {
+        const db = await openVoiceDb();
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction("memos", "readonly");
+          const req = tx.objectStore("memos").getAll();
+          req.onsuccess = () => resolve(req.result || []);
+          req.onerror = () => reject(req.error);
+        });
+      }
+
+      async function saveVoiceMemo(blob, iso) {
+        const db = await openVoiceDb();
+        const id = iso + "_" + Date.now();
+        const item = { id: id, date: iso, created_at: new Date().toISOString(), blob: blob, pending: true };
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction("memos", "readwrite");
+          tx.objectStore("memos").put(item);
+          tx.oncomplete = () => resolve(item);
+          tx.onerror = () => reject(tx.error);
+        });
+      }
+
+      async function deleteVoiceMemo(id) {
+        const db = await openVoiceDb();
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction("memos", "readwrite");
+          tx.objectStore("memos").delete(id);
+          tx.oncomplete = () => resolve();
+          tx.onerror = () => reject(tx.error);
+        });
+      }
+
+      async function refreshVoiceList() {
+        const list = document.getElementById("voiceList");
+        const status = document.getElementById("voiceStatus");
+        if (!list) return;
+        try {
+          const items = (await listVoiceMemos()).sort((a, b) => String(b.created_at).localeCompare(String(a.created_at)));
+          list.innerHTML = items.map((it) =>
+            "<li><span>" + escapeHtml(it.date) + " · " + escapeHtml(String(it.created_at || "").slice(11, 16)) +
+            (it.pending ? " · pending coach" : "") +
+            '</span><button type="button" data-del="' + escapeHtml(it.id) + '">Delete</button></li>'
+          ).join("") || '<li style="justify-content:center;color:var(--muted)">No memos yet</li>';
+          list.querySelectorAll("[data-del]").forEach((btn) => {
+            btn.addEventListener("click", async () => {
+              await deleteVoiceMemo(btn.getAttribute("data-del"));
+              refreshVoiceList();
+            });
+          });
+          if (status && !status.dataset.recording) status.textContent = items.length ? (items.length + " memo(s) on this phone") : "";
+        } catch (e) {
+          if (status) status.textContent = "Voice storage unavailable in this browser.";
+        }
+      }
+
+      async function clearAllVoiceMemos() {
+        const items = await listVoiceMemos();
+        for (const it of items) {
+          await deleteVoiceMemo(it.id);
+        }
+      }
+
+      function downloadBlob(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 2500);
+      }
+
+      function safeVoiceFilename(dateIso, createdAt, id) {
+        const t = String(createdAt || "").replace(/[-:]/g, "").replace("T", "_").slice(0, 15);
+        const stamp = t || String(Date.now());
+        const shortId = String(id || "memo").replace(/[^\w.-]/g, "_").slice(-8);
+        return dateIso + "_" + stamp + "_" + shortId + ".webm";
+      }
+
+      async function exportVoiceMemosForCursor() {
+        const status = document.getElementById("voiceStatus");
+        if (isDemoMode()) {
+          if (status) status.textContent = "Export disabled in demo.";
+          return;
+        }
+        const items = await listVoiceMemos();
+        if (!items.length) {
+          if (status) status.textContent = "No memos to export.";
+          return;
+        }
+        const manifest = {
+          exported_at: new Date().toISOString(),
+          inbox_hint: "Save into HEALTH_APP/data/context/food_voice_inbox/",
+          memos: []
+        };
+        for (const it of items) {
+          if (!it.blob) continue;
+          const fname = safeVoiceFilename(it.date, it.created_at, it.id);
+          const type = (it.blob.type && it.blob.type.indexOf("audio") === 0) ? it.blob.type : "audio/webm";
+          const blob = it.blob instanceof Blob ? it.blob : new Blob([it.blob], { type: type });
+          downloadBlob(blob, fname);
+          manifest.memos.push({
+            file: fname,
+            date: it.date,
+            created_at: it.created_at,
+            id: it.id
+          });
+          await new Promise((r) => setTimeout(r, 350));
+        }
+        downloadBlob(
+          new Blob([JSON.stringify(manifest, null, 2)], { type: "application/json" }),
+          "manifest_" + isoDate(getPortalNow()) + ".json"
+        );
+        if (status) {
+          status.textContent = "Downloaded " + manifest.memos.length +
+            " file(s). Save them into data/context/food_voice_inbox/ then open Cursor.";
+        }
+        const wipe = window.confirm(
+          "Exports downloaded. Clear these memos from this phone now? (Only after you’ve saved them into the inbox folder.)"
+        );
+        if (wipe) {
+          await clearAllVoiceMemos();
+          refreshVoiceList();
+          if (status) status.textContent = "Phone memos cleared. Coach will process the inbox folder next chat.";
+        }
+      }
+
+      function initVoiceMemos() {
+        const start = document.getElementById("voiceStart");
+        const stop = document.getElementById("voiceStop");
+        const exportBtn = document.getElementById("voiceExport");
+        const status = document.getElementById("voiceStatus");
+        if (!start || start.dataset.bound) return;
+        start.dataset.bound = "1";
+        refreshVoiceList();
+        start.addEventListener("click", async () => {
+          if (isDemoMode()) {
+            if (status) status.textContent = "Voice memos disabled in demo — your real food log stays clean.";
+            return;
+          }
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            voiceChunks = [];
+            voiceRecorder = new MediaRecorder(stream);
+            voiceRecorder.ondataavailable = (ev) => { if (ev.data && ev.data.size) voiceChunks.push(ev.data); };
+            voiceRecorder.onstop = async () => {
+              stream.getTracks().forEach((t) => t.stop());
+              const blob = new Blob(voiceChunks, { type: voiceRecorder.mimeType || "audio/webm" });
+              const iso = isoDate(getPortalNow());
+              await saveVoiceMemo(blob, iso);
+              if (status) { status.dataset.recording = ""; status.textContent = "Saved for " + iso + " — export when ready for Cursor."; }
+              refreshVoiceList();
+            };
+            voiceRecorder.start();
+            start.disabled = true;
+            stop.disabled = false;
+            if (status) { status.dataset.recording = "1"; status.textContent = "Recording… tap Stop when done."; }
+          } catch (e) {
+            if (status) status.textContent = "Mic permission denied or unavailable.";
+          }
+        });
+        stop.addEventListener("click", () => {
+          if (voiceRecorder && voiceRecorder.state !== "inactive") voiceRecorder.stop();
+          start.disabled = false;
+          stop.disabled = true;
+        });
+        if (exportBtn) exportBtn.addEventListener("click", () => { exportVoiceMemosForCursor(); });
+      }
+
+      function renderYou(data) {
+        const p = data.profile || {};
+        const goals = p.goals || {};
+        const training = p.training || {};
+        const op = training.operating_target || {};
+        const floor = training.floor || {};
+
+        document.getElementById("goalPrime").textContent = goals.primary || "—";
+        const pills = [];
+        (goals.priorities || []).forEach((x) => pills.push('<span class="pill">' + escapeHtml(x) + "</span>"));
+        (goals.lower_priority || []).forEach((x) => pills.push('<span class="pill muted">' + escapeHtml(x) + "</span>"));
+        document.getElementById("goalPills").innerHTML = pills.join("") || '<span class="pill muted">No priorities listed</span>';
+
+        document.getElementById("timeTarget").textContent = op.label || "—";
+        document.getElementById("timeFloor").textContent =
+          (floor.label ? "Floor: " + floor.label + ". " : "") +
+          (op.status === "provisional_non_sourced" ? "Provisional until sources + InBody lock the plan." : "");
+
+        const body = p.body || data.body || {};
+        document.getElementById("bodyMetrics").innerHTML = [
+          ["Height", body.height_m != null ? fmt(body.height_m, 2) + " m" : "—", body.source || ""],
+          ["Weight", body.weight_kg != null ? fmt(body.weight_kg, 1) + " kg" : "—", body.note || "InBody"],
+          ["Max HR", body.max_heart_rate != null ? body.max_heart_rate : "—", "bpm"],
+          ["InBody", (data.body && data.body.inbody) ? "on file" : "pending", "baseline soon"],
+        ].map(([label, value, sub]) =>
+          '<div class="metric"><div class="label">' + label + '</div><div class="value" style="font-size:1.35rem">' + value + '</div><div class="sub">' + escapeHtml(sub) + "</div></div>"
+        ).join("");
+
+        const flags = p.health_flags || {};
+        document.getElementById("healthFlags").innerHTML =
+          "<strong>Clear.</strong> Injuries: " + escapeHtml(flags.injuries || "—") +
+          " · Pain: " + escapeHtml(flags.pain || "—") +
+          " · Limits: " + escapeHtml(flags.limits || "—");
+
+        document.getElementById("philosophyList").innerHTML =
+          ((training.philosophy || []).map((n) => "<li>" + escapeHtml(n) + "</li>").join("")) ||
+          "<li>No philosophy captured.</li>";
+
+        const gym = p.gym || {};
+        const nutrition = p.nutrition || {};
+        const lifestyle = p.lifestyle || {};
+        const measure = p.measurement || {};
+        document.getElementById("youGrid").innerHTML = [
+          ["Gym", "<p><strong style='color:var(--white)'>" + escapeHtml(gym.membership || "—") + "</strong></p><p>" + escapeHtml(gym.equipment || "") + "</p>"],
+          ["Home fallbacks", "<ul>" + ((gym.home_gear || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") + "</ul>"],
+          ["Nutrition", "<p>" + escapeHtml(nutrition.self_assessment || "—") + "</p><p>Breakfast: " + escapeHtml(nutrition.typical_breakfast || "—") + "</p><p>Creatine: " + escapeHtml(nutrition.creatine || "—") + "</p>"],
+          ["Suspects", "<ul>" + ((nutrition.suspects || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>None noted</li>") + "</ul>"],
+          ["Schedule pressure", "<ul>" + ((lifestyle.schedule_pressure || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") + "</ul>"],
+          ["Bonus activity", "<ul>" + ((lifestyle.sports_bonus || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") +
+            ((lifestyle.sports_optional || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("")) + "</ul>"],
+          ["Avoid", "<ul>" + ((training.avoid || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") + "</ul>"],
+          ["Measurement", "<p>InBody: " + escapeHtml(measure.inbody || "—") + "</p><p>Scale: " + escapeHtml(measure.home_scale || "—") + "</p>"],
+        ].map(([title, bodyHtml]) =>
+          '<div class="info-cell"><h4>' + title + "</h4>" + bodyHtml + "</div>"
+        ).join("");
+
+        document.getElementById("youTimeline").innerHTML =
+          ((p.history_timeline || []).map((row) =>
+            '<li><div class="when">' + escapeHtml(row.period) + '</div><div class="what">' + escapeHtml(row.note) + "</div></li>"
+          ).join("")) || "<li><div class='what'>No timeline yet.</div></li>";
+      }
+
+      async function loadDashboard() {
+        let data = {};
+        let planPack = null;
+        try {
+          const res = await fetch("data/dashboard.json?t=" + Date.now(), { cache: "no-store" });
+          if (res.ok) data = await res.json();
+        } catch (_) {}
+        try {
+          const pres = await fetch("data/plan.json?t=" + Date.now(), { cache: "no-store" });
+          if (pres.ok) planPack = await pres.json();
+        } catch (_) {}
+        if (planPack && planPack.plan && planPack.plan.templates) {
+          data.plan = planPack.plan;
+          if (planPack.exercise_library) data.exercise_library = planPack.exercise_library;
+          if (planPack.plan_briefing) data.plan_briefing = planPack.plan_briefing;
+        }
+        if (!data.plan || !data.plan.templates) {
+          document.getElementById("overviewLede").textContent =
+            "Dashboard snapshot not published yet. Sync from Cursor, then republish the portal.";
+          return;
+        }
+
+        const name = (data.athlete && data.athlete.first_name) || "Athlete";
+        document.getElementById("greet").textContent = "Hey " + name;
+        const latest = data.today && data.today.latest_recovery;
+        const stamp = (data.generated_at || "").slice(0, 16).replace("T", " ");
+        document.getElementById("overviewLede").textContent =
+          "Plan C · checklist attendance · updated " + stamp + " UTC";
+
+        document.getElementById("heroRecovery").textContent = "—";
+        document.getElementById("heroRecoverySub").textContent = "No wearable feed — plan does not use one";
+
+        const metricsEl = document.getElementById("metrics");
+        const items = [
+          ["Plan", String((data.plan && data.plan.option) || "C"), "active"],
+          ["Gym days", String((data.plan && data.plan.target_gym_days) || 3), "per week"],
+          ["Session", String((data.plan && data.plan.minutes_per_session) || 85), "minutes"],
+          ["Calendar", "ICS", "Google subscribe"],
+        ];
+        metricsEl.innerHTML = items.map(([label, value, sub]) =>
+          '<div class="metric"><div class="label">' + label + '</div><div class="value">' + value + '</div><div class="sub">' + sub + "</div></div>"
+        ).join("");
+
+        document.getElementById("trustMsg").innerHTML =
+          "<strong>Source-gated.</strong> " + ((data.trust && data.trust.message) || "");
+
+        const notes = (data.window && data.window.notes) || [];
+        document.getElementById("notesList").innerHTML = notes.map((n) => "<li>" + escapeHtml(n) + "</li>").join("") || "<li>No notes yet.</li>";
+
+        renderHistory(data);
+        renderYou(data);
+        renderFood(data);
+        initVoiceMemos();
+
+        const plan = data.plan || {};
+        window.__waltDashboard = data;
+        document.getElementById("planHeadline").textContent = plan.headline || "Weekly plan";
+        document.getElementById("planBanner").innerHTML =
+          "<strong>Status:</strong> " + escapeHtml(plan.status || "unknown") +
+          " · option <strong>" + escapeHtml(String(plan.option || "—")) +
+          "</strong> · about <strong>" + escapeHtml(String(plan.minutes_per_session || 75)) +
+          "</strong> minutes × " + escapeHtml(String(plan.target_gym_days || 3)) + " days · block starts <strong>" +
+          escapeHtml(String(plan.week_of || "—")) + "</strong>";
+        const cal = plan.calendar || {};
+        const calEl = document.getElementById("calendarBanner");
+        if (calEl) {
+          if (cal.enabled) {
+            const icsUrl = new URL(cal.ics_path || "data/workouts.ics", window.location.href).href;
+            const start = escapeHtml(String(cal.default_start_local || "17:00"));
+            const mins = escapeHtml(String(cal.default_duration_min || 85));
+            const loc = escapeHtml(String(cal.location || "Virgin Active"));
+            calEl.innerHTML =
+              "<strong>Google Calendar:</strong> " +
+              "<a href=\"" + icsUrl + "\" style=\"color:var(--ice)\">Download workouts.ics</a>" +
+              " · or in Google Calendar → Other calendars → <strong>From URL</strong> → paste <code style=\"color:var(--white)\">" +
+              escapeHtml(icsUrl) + "</code>" +
+              " · default " + start + " SAST · " + mins + " min · " + loc;
+          } else {
+            calEl.textContent = "";
+          }
+        }
+        const goalBits = [];
+        const g3 = plan.goals_3_weeks || {};
+        if (g3.visual_primary) {
+          goalBits.push("<li><strong style='color:var(--white)'>Visual:</strong> " + escapeHtml((g3.visual_primary || []).join(" · ")) + "</li>");
+        }
+        if (g3.conservative) {
+          goalBits.push("<li><strong style='color:var(--white)'>Conservative:</strong> " + escapeHtml(g3.conservative.note || "") +
+            " · sessions " + escapeHtml(String(g3.conservative.sessions_completed || "")) +
+            " · body fat % " + escapeHtml(String(g3.conservative.percent_body_fat || "")) + "</li>");
+        }
+        if (g3.optimistic) {
+          goalBits.push("<li><strong style='color:var(--white)'>Optimistic:</strong> " + escapeHtml(g3.optimistic.note || "") +
+            " · muscle mass " + escapeHtml(String(g3.optimistic.smm_kg || "")) + "</li>");
+        }
+        (plan.notes || []).forEach((n) => goalBits.push("<li>" + escapeHtml(n) + "</li>"));
+        document.getElementById("planNotes").innerHTML = goalBits.join("") || "<li>No plan notes.</li>";
+        renderPlanBriefing(data);
+
+        const realNow = new Date();
+        let selected = getPortalNow();
+        const dateParam = new URLSearchParams(window.location.search).get("date");
+        if (dateParam && /^\d{4}-\d{2}-\d{2}$/.test(dateParam)) {
+          selected = new Date(dateParam + "T12:00:00");
+        }
+        window.__waltSelectedDate = selected;
+        const selMon = mondayOf(selected);
+        const nowMon = mondayOf(realNow);
+        window.__waltWeekOffset = Math.round((selMon - nowMon) / (7 * 24 * 3600 * 1000));
+
+        wireWeekNav();
+        refreshCalendarAndSession();
+      }
+
+      function mondayOf(d) {
+        const x = new Date(d);
+        const off = (x.getDay() + 6) % 7;
+        x.setHours(12, 0, 0, 0);
+        x.setDate(x.getDate() - off);
+        return x;
+      }
+
+      function viewedWeekStart() {
+        const realNow = new Date();
+        const offset = window.__waltWeekOffset || 0;
+        const weekStart = mondayOf(realNow);
+        weekStart.setDate(weekStart.getDate() + offset * 7);
+        return weekStart;
+      }
+
+      function isoDate(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, "0");
+        const day = String(d.getDate()).padStart(2, "0");
+        return y + "-" + m + "-" + day;
+      }
+
+      function wireWeekNav() {
+        const bind = (id, delta) => {
+          const el = document.getElementById(id);
+          if (!el || el.__waltBound) return;
+          el.__waltBound = true;
+          el.addEventListener("click", () => {
+            window.__waltWeekOffset = (window.__waltWeekOffset || 0) + delta;
+            refreshCalendarAndSession();
+          });
+        };
+        bind("weekPrev", -1);
+        bind("weekNext", 1);
+        bind("weekPrevToday", -1);
+        bind("weekNextToday", 1);
+      }
+
+      function refreshCalendarAndSession() {
+        const data = window.__waltDashboard;
+        if (!data) return;
+        const realNow = new Date();
+        const weekStart = viewedWeekStart();
+        const weekEnd = new Date(weekStart);
+        weekEnd.setDate(weekStart.getDate() + 6);
+        const label = weekdayName(weekStart) + " " + weekStart.getDate() + " – " + weekdayName(weekEnd) + " " + weekEnd.getDate() + " " + weekEnd.toLocaleString("en", { month: "short" });
+        ["weekLabel", "weekLabelToday"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = label;
+        });
+        fillRail("weekRail", data, weekStart, realNow);
+        fillRail("weekRailToday", data, weekStart, realNow);
+        fillJumpChips(data, realNow);
+        renderWeekProgress(data, weekStart, realNow);
+        const selected = window.__waltSelectedDate || getPortalNow();
+        data.today = data.today || {};
+        data.today.guided_workout = resolveWorkoutClient(data.plan, data.exercise_library, selected, (data.today.latest_recovery||{}).resting_heart_rate, data);
+        const sameDay = isoDate(selected) === isoDate(realNow);
+        document.getElementById("todayTitle").textContent =
+          (sameDay ? "Today" : "Session") + " · " + weekdayName(selected) + " " + selected.getDate() + " " + selected.toLocaleString("en", { month: "short" });
+        renderTodayGuide(data);
+      }
+
+      function dayChecklistStatus(data, iso, realNow) {
+        const workout = resolveWorkoutClient(data.plan, data.exercise_library, new Date(iso + "T12:00:00"), (data.today && data.today.latest_recovery||{}).resting_heart_rate, data);
+        if (!workout || workout.mode !== "session") return null;
+        const dayLog = getDayLog(iso);
+        const mode = dayLog.mode === "home" ? "home" : "gym";
+        const moves = mode === "home" ? (workout.home || []) : (workout.gym || []);
+        const sum = summarizeMoves(moves, dayLog);
+        const planned = ((data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
+        const whoop = !!(planned && planned.logged);
+        const past = iso < isoDate(realNow);
+        if (sum.complete) return { state: "green", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+        if (sum.started) return { state: "amber", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+        if (whoop) return { state: "purple", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+        if (past) return { state: "dim", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+        return { state: "gray", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
+      }
+
+      function renderWeekProgress(data, weekStart, realNow) {
+        const root = document.getElementById("weekProgress");
+        if (!root) return;
+        const plan = data.plan || {};
+        const schedule = plan.schedule || [];
+        if (plan.status !== "active" || !schedule.length) {
+          root.innerHTML = '<p class="empty">No active plan block to track yet.</p>';
+          return;
+        }
+
+        const weekSessions = [];
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(weekStart);
+          d.setDate(weekStart.getDate() + i);
+          const iso = isoDate(d);
+          const entry = schedule.find((s) => String(s.date) === iso);
+          if (!entry) continue;
+          const st = dayChecklistStatus(data, iso, realNow);
+          weekSessions.push({
+            iso: iso,
+            weekday: weekdayName(d),
+            dayNum: d.getDate(),
+            template: entry.template,
+            week: entry.week,
+            status: st
+          });
+        }
+
+        const weekDone = weekSessions.filter((s) => s.status && s.status.state === "green").length;
+        const weekPlanned = weekSessions.length;
+        const weekPct = weekPlanned ? Math.round((weekDone / weekPlanned) * 100) : 0;
+
+        const blockDone = schedule.filter((s) => {
+          const st = dayChecklistStatus(data, String(s.date), realNow);
+          return st && st.state === "green";
+        }).length;
+        const blockPlanned = schedule.length;
+        const blockPct = blockPlanned ? Math.round((blockDone / blockPlanned) * 100) : 0;
+
+        const badge = {
+          green: "Done",
+          amber: "In progress",
+          purple: "Logged",
+          gray: "Up next",
+          dim: "Missed"
+        };
+        const subLine = function (s) {
+          if (!s.status) return "";
+          const modeLabel = s.status.mode === "home" ? "home" : "gym";
+          if (s.status.state === "green") {
+            return "Logged as " + modeLabel + " · " + s.status.sum.done + " done" +
+              (s.status.sum.skipped ? " · " + s.status.sum.skipped + " skipped" : "");
+          }
+          if (s.status.state === "amber") {
+            return modeLabel + " · " + s.status.sum.done + "/" + s.status.sum.total + " moves checked";
+          }
+          if (s.status.state === "purple") {
+            return "Marked done — open Today if you still need to tick moves";
+          }
+          if (s.status.state === "dim") {
+            return "No portal checklist for this day";
+          }
+          return "Not started yet";
+        };
+
+        const rows = weekSessions.map((s) => {
+          const st = (s.status && s.status.state) || "gray";
+          return (
+            '<div class="wc-row st-' + st + '">' +
+            '<span class="wc-dot" aria-hidden="true"></span>' +
+            '<div class="wc-main"><div class="wc-title">' +
+            escapeHtml(s.weekday + " " + s.dayNum) + " · " + escapeHtml(String(s.template || "session")) +
+            '</div><div class="wc-sub">' + escapeHtml(subLine(s)) + "</div></div>" +
+            '<div class="wc-badge">' + escapeHtml(badge[st] || "") + "</div></div>"
+          );
+        }).join("");
+
+        let toneClass = "meh";
+        let motivate = "Neutral. First prize is still Mon / Wed / Fri. Tick moves as you train.";
+        if (isDemoMode()) {
+          toneClass = "meh";
+          motivate = "DEMO sandbox — these ticks are for showing friends only. Exit demo to see your real week.";
+        } else {
+        const missedPast = weekSessions.filter((s) => s.status && s.status.state === "dim").length;
+        if (weekPct >= 100) {
+          toneClass = "good";
+          motivate = "Impressed. Week locked. Don’t coast — same standard next week.";
+        } else if (missedPast >= 1 || (weekPct === 0 && weekPlanned && weekSessions.some((s) => s.status && s.status.state === "dim"))) {
+          toneClass = "bad";
+          motivate = "Not impressed. You missed planned gym day(s). Makeup Tue/Thu if you can. Backup punishment: walk the ~2 km to Virgin Active and 2 km back — then decide if you’ll actually do it.";
+        } else if (weekPct >= 67) {
+          toneClass = "good";
+          motivate = "Impressed so far. One more clean gym session seals the week.";
+        } else if (weekPct > 0) {
+          toneClass = "meh";
+          motivate = "On the board, not done. Finish remaining planned days — makeup Tue/Thu is fine. If you flake, expect the 2 km walk each way suggestion.";
+        } else if (weekPlanned) {
+          toneClass = "meh";
+          motivate = "Empty board. Open Today on your next gym day. Showing up beats perfect.";
+        }
+        }
+
+        root.innerHTML =
+          '<div class="wp-stats">' +
+          '<div class="wp-stat"><div class="k">This week</div><div class="v">' + weekPct + "%</div>" +
+          '<div class="s">' + weekDone + " / " + weekPlanned + " sessions</div></div>" +
+          '<div class="wp-stat"><div class="k">Full block</div><div class="v">' + blockPct + "%</div>" +
+          '<div class="s">' + blockDone + " / " + blockPlanned + " planned</div></div></div>" +
+          '<div class="wp-bar" aria-hidden="true"><div class="wp-fill" style="width:' + weekPct + '%"></div></div>' +
+          (rows
+            ? '<div class="week-checklist">' + rows + "</div>"
+            : '<p class="empty">No planned gym days in this week view.</p>') +
+          '<ul class="wp-legend">' +
+          '<li><i class="g"></i> Done — portal checklist complete (gym or home)</li>' +
+          '<li><i class="a"></i> In progress — some moves ticked</li>' +
+          '<li><i class="y"></i> Planned, not started</li>' +
+          '<li><i class="d"></i> Past day with no checklist</li>' +
+          "</ul>" +
+          '<p class="wp-coach coach-tone ' + toneClass + '">' + escapeHtml(motivate) + "</p>";
+      }
+
+      function fillRail(railId, data, weekStart, realNow) {
+        const rail = document.getElementById(railId);
+        if (!rail) return;
+        const plan = data.plan || {};
+        const selectedIso = isoDate(window.__waltSelectedDate || realNow);
+        rail.innerHTML = "";
+        for (let i = 0; i < 7; i++) {
+          const d = new Date(weekStart);
+          d.setDate(weekStart.getDate() + i);
+          const iso = isoDate(d);
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "d";
+          if (iso === isoDate(realNow)) btn.classList.add("today");
+          if (iso === selectedIso) btn.classList.add("selected");
+          const entry = (plan.schedule || []).find((s) => String(s.date) === iso);
+          if (entry) btn.classList.add("gym");
+          const label = entry ? String(entry.template || "Gym") : "Rest";
+          btn.innerHTML = "<div>" + weekdayName(d) + "</div><div>" + d.getDate() + "</div>" +
+            "<div style='font-size:0.62rem;margin-top:0.15rem;opacity:0.9'>" + escapeHtml(label) + "</div>";
+          btn.addEventListener("click", () => {
+            window.__waltSelectedDate = d;
+            const url = new URL(window.location.href);
+            url.searchParams.set("date", iso);
+            url.searchParams.delete("preview_date");
+            history.replaceState({}, "", url.toString());
+            const nowMon = mondayOf(realNow);
+            const selMon = mondayOf(d);
+            window.__waltWeekOffset = Math.round((selMon - nowMon) / (7 * 24 * 3600 * 1000));
+            document.querySelectorAll(".nav button").forEach((b) => b.classList.toggle("active", b.getAttribute("data-view") === "today"));
+            document.querySelectorAll(".view").forEach((v) => v.classList.toggle("active", v.id === "view-today"));
+            refreshCalendarAndSession();
+          });
+          rail.appendChild(btn);
+        }
+      }
+
+      function fillJumpChips(data, realNow) {
+        const plan = data.plan || {};
+        const tomorrow = new Date(realNow);
+        tomorrow.setDate(realNow.getDate() + 1);
+        const tIso = isoDate(tomorrow);
+        const entry = (plan.schedule || []).find((s) => String(s.date) === tIso);
+        const html = [];
+        html.push('<button type="button" data-jump="today">Jump to today</button>');
+        if (entry) {
+          html.push('<button type="button" data-jump="tomorrow">See tomorrow · ' + escapeHtml(String(entry.template)) + "</button>");
+        } else {
+          html.push('<button type="button" data-jump="tomorrow">See tomorrow · rest day</button>');
+        }
+        const upcoming = (plan.schedule || []).find((s) => String(s.date) > isoDate(realNow));
+        if (upcoming && upcoming.date !== tIso) {
+          html.push('<button type="button" data-jump="' + escapeHtml(upcoming.date) + '">Next gym · ' + escapeHtml(upcoming.date) + "</button>");
+        }
+        ["jumpChips", "jumpChipsToday"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          el.innerHTML = html.join("");
+          el.querySelectorAll("button").forEach((b) => {
+            b.addEventListener("click", () => {
+              const j = b.getAttribute("data-jump");
+              let target = realNow;
+              if (j === "tomorrow") target = tomorrow;
+              else if (j !== "today") target = new Date(j + "T12:00:00");
+              window.__waltSelectedDate = target;
+              const url = new URL(window.location.href);
+              url.searchParams.set("date", isoDate(target));
+              history.replaceState({}, "", url.toString());
+              const nowMon = mondayOf(realNow);
+              const selMon = mondayOf(target);
+              window.__waltWeekOffset = Math.round((selMon - nowMon) / (7 * 24 * 3600 * 1000));
+              document.querySelectorAll(".nav button").forEach((x) => x.classList.toggle("active", x.getAttribute("data-view") === "today"));
+              document.querySelectorAll(".view").forEach((v) => v.classList.toggle("active", v.id === "view-today"));
+              refreshCalendarAndSession();
+            });
+          });
+        });
+      }
+
+
+      function scaleSets(base, scale) {
+        return Math.max(1, Math.round(Number(base || 2) * Number(scale || 1)));
+      }
+
+      function moveMinutes(sets, timing, condMin, isCond) {
+        if (isCond) return Number(condMin || 8);
+        const work = Number((timing && timing.work_sec_per_set) || 45);
+        const rest = Number((timing && timing.rest_sec_between_sets) || 75);
+        const transition = Number((timing && timing.rest_sec_before_next) || 60);
+        const setup = Number((timing && timing.setup_sec) || 240);
+        const secs = setup + sets * work + Math.max(0, sets - 1) * rest + transition;
+        return Math.max(4, Math.round(secs / 60));
+      }
+
+      function normalizeGoalWeights(moves) {
+        const totals = { shoulders: 0, chest_upper: 0, recomp: 0 };
+        let sessionTotal = 0;
+        (moves || []).forEach((m) => {
+          const gw = m.goal_weights || {};
+          ["shoulders", "chest_upper", "recomp"].forEach((k) => { totals[k] += Number(gw[k] || 0); });
+          sessionTotal += Number(gw.shoulders || 0) + Number(gw.chest_upper || 0) + Number(gw.recomp || 0);
+        });
+        if (!sessionTotal) sessionTotal = 1;
+        (moves || []).forEach((m) => {
+          const gw = m.goal_weights || { shoulders: 0, chest_upper: 0, recomp: 0 };
+          const raw = Number(gw.shoulders || 0) + Number(gw.chest_upper || 0) + Number(gw.recomp || 0);
+          m.session_importance_pct = Math.round(100 * raw / sessionTotal);
+          m.goal_ring_pct = {};
+          ["shoulders", "chest_upper", "recomp"].forEach((k) => {
+            m.goal_ring_pct[k] = totals[k] ? Math.round(100 * Number(gw[k] || 0) / totals[k]) : 0;
+          });
+        });
+      }
+
+      function zone2Hr(rhr) {
+        const r = Number(rhr != null ? rhr : 57);
+        const maxHr = 188;
+        const reserve = Math.max(40, maxHr - r);
+        const lo = Math.round(r + 0.60 * reserve);
+        const hi = Math.round(r + 0.70 * reserve);
+        return {
+          bpm_low: lo, bpm_high: hi, label: lo + "–" + hi + " bpm",
+          note: "Provisional zone-2 from your resting HR — use talk-test if the watch disagrees.",
+          rhr_used: r
+        };
+      }
+
+      function lookupExercise(name, library) {
+        const exercises = (library && library.exercises) || {};
+        const needle = String(name || "").trim().toLowerCase();
+        for (const meta of Object.values(exercises)) {
+          const aliases = (meta.aliases || []).map((a) => String(a).trim().toLowerCase());
+          if (aliases.includes(needle)) return meta;
+          if (String(meta.display_name || "").toLowerCase() === needle) return meta;
+          for (const a of aliases) {
+            if (a && (needle.indexOf(a) !== -1 || a.indexOf(needle) !== -1)) return meta;
+          }
+        }
+        return {};
+      }
+
+      function resolveWorkoutClient(plan, library, now, rhr, data) {
+        if (!plan || plan.status !== "active") return null;
+        const today = isoDate(now);
+        const schedule = plan.schedule || [];
+        const priority = plan.attendance_priority || [
+          "First prize: Gym on Monday, Wednesday, and Friday",
+          "Second: Still three gym days — makeup Tuesday or Thursday if you miss a plan day",
+          "Last resort: Home only if getting to Virgin Active is truly impossible for that session"
+        ];
+        const tips = plan.session_tips || (library && library.overall_tips) || [];
+        const hrBand = zone2Hr(rhr);
+        const override = window.__waltSessionOverride;
+        const useOverride = override && String(override.date || "") === today && override.template;
+
+        function buildMoves(raw, scale, condMin) {
+          return (raw || []).map((mv, i) => {
+            const name = mv.name || "Movement";
+            let notes = mv.notes || "";
+            const isCond = String(mv.reps) === "time" || /conditioning|finisher/i.test(name);
+            if (isCond) notes = condMin + " minutes · " + notes;
+            const meta = lookupExercise(name, library);
+            const sets = scaleSets(mv.sets_base, scale);
+            const loadType = meta.load_type || (isCond ? "cardio" : "kg");
+            const timing = meta.timing || { work_sec_per_set: 45, rest_sec_between_sets: 75, rest_sec_before_next: 60 };
+            const minutes = moveMinutes(sets, timing, condMin, isCond || loadType === "cardio");
+            const lines = (meta.set_plan_lines || []).slice(0, loadType === "cardio" ? 3 : sets);
+            const tipsRanked = (meta.tips_ranked || (meta.tips || []).map((t, idx) => ({
+              text: String(t).replace(/^Remember:\s*/i, ""),
+              weight: 90 - idx * 15
+            }))).slice().sort((a, b) => Number(b.weight || 0) - Number(a.weight || 0));
+            const row = {
+              order: i + 1,
+              name: meta.display_name || name,
+              sets: loadType === "cardio" ? 1 : sets,
+              reps: loadType === "cardio" ? (condMin + " min") : (mv.reps || "8–12"),
+              notes: notes,
+              minutes: minutes,
+              where: meta.where || "",
+              how_to: meta.how_to || notes,
+              avoid: meta.avoid || "",
+              load_type: loadType,
+              set_plan_lines: lines,
+              set_plan: lines.join(" | "),
+              timing: timing,
+              rom_cues: meta.rom_cues || {},
+              tips: tipsRanked.map((t) => t.text),
+              tips_ranked: tipsRanked,
+              research_note: meta.research_note || "",
+              sources_cited: meta.sources_cited || [],
+              goal_weights: meta.goal_weights || { shoulders: 0, chest_upper: 0, recomp: 0 },
+              keep_recommended_pct: Number(meta.keep_recommended_pct || 70),
+              alternatives: meta.alternatives || [],
+              feel_zones: meta.feel_zones || [],
+              diagram_id: meta.diagram_id || "press_chest",
+              pin_guidance: meta.pin_guidance || [],
+              video_id: meta.video_id || "",
+              video_label: meta.video_label || "Demo video"
+            };
+            if (loadType === "cardio") {
+              row.stairmaster_level = meta.stairmaster_level || "4–6";
+              row.stairmaster_note = meta.stairmaster_note || "";
+              row.target_hr = hrBand;
+            }
+            return row;
+          });
+        }
+
+        function buildSession(entryLike) {
+          const weekN = Number(entryLike.week || 1);
+          const modifiers = ((plan.week_modifiers || {})[String(weekN)]) || {};
+          const scale = Number(modifiers.set_scale || 1);
+          let condMin = Number(modifiers.conditioning_min || 10);
+          const tmplId = entryLike.template;
+          const tmpl = ((plan.templates || {})[tmplId]) || {};
+          if (tmplId === "bonus") {
+            condMin = 5;
+          }
+          let gymRaw = (tmpl.gym || []).slice();
+          const extras = entryLike.extra_gym || [];
+          if (extras.length) {
+            const last = gymRaw[gymRaw.length - 1];
+            const lastIsCond = last && (String(last.reps) === "time" || /conditioning|finisher/i.test(String(last.name || "")));
+            gymRaw = lastIsCond
+              ? gymRaw.slice(0, -1).concat(extras, [last])
+              : gymRaw.concat(extras);
+          }
+          const gym = buildMoves(gymRaw, scale, condMin);
+          const home = buildMoves(tmpl.home, scale, condMin);
+          normalizeGoalWeights(gym);
+          normalizeGoalWeights(home);
+          const est = gym.reduce((a, m) => a + Number(m.minutes || 0), 0) || (tmplId === "bonus" ? 40 : (plan.minutes_per_session || 75));
+          const src = {};
+          gym.forEach((m) => (m.sources_cited || []).forEach((s) => { src[s] = true; }));
+          const sources = Object.keys(src).sort();
+          const kind = entryLike.kind || "session";
+          let weekLabel = modifiers.label || ("Week " + weekN);
+          let loadCue = modifiers.load_cue;
+          let rir = modifiers.reps_in_reserve || modifiers.rir;
+          if (kind === "bonus") {
+            weekLabel = "Bonus day";
+            loadCue = (plan.bonus_rules && plan.bonus_rules.one_liner) || "Skill/pump · RIR ~2–3 · prefer ≤1/week";
+            rir = "BONUS STOP RULE: keep ~2–3 clean reps left on most sets. This is not a max day.";
+          } else if (kind === "makeup") {
+            weekLabel = "Makeup · " + weekLabel;
+          }
+          return {
+            mode: "session",
+            kind: kind,
+            date: today,
+            weekday: entryLike.weekday || weekdayName(now).toLowerCase(),
+            week: weekN,
+            week_label: weekLabel,
+            reps_in_reserve: rir,
+            load_cue: loadCue,
+            effort_rule: plan.effort_rule || {},
+            title: tmpl.title || "Session",
+            focus: tmpl.focus || "",
+            summary: (kind === "bonus" ? "Bonus · " : kind === "makeup" ? "Makeup · " : "") +
+              "Week " + weekN + " · " + (weekLabel || "") + " · about " + est + " minutes total",
+            minutes: est,
+            budget_minutes: tmplId === "bonus"
+              ? 45
+              : (plan.minutes_per_session || 75),
+            gym: gym,
+            home: home,
+            habits: plan.daily_habits,
+            missed_day_rule: plan.missed_day_rule,
+            attendance_priority: priority,
+            session_tips: tips,
+            template_id: tmplId,
+            schedule_note: entryLike.note || "",
+            intensity: entryLike.intensity || (kind === "bonus" ? "easy" : ""),
+            makeup_for: entryLike.makeup_for || "",
+            bonus_rules: plan.bonus_rules || null,
+            goal_rings: (library && library.goal_rings) || [
+              { id: "shoulders", label: "Shoulders", color: "#FF6B4A" },
+              { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
+              { id: "recomp", label: "Recomp", color: "#5EB1FF" }
+            ],
+            sources_count: sources.length || 16,
+            sources_cited: sources.length ? sources : ["01", "02", "03", "04", "15", "16"],
+            session_sources_note: (library && library.session_sources_note) || "Plan C cites packs 01–16 in data/sources/."
+          };
+        }
+
+        if (useOverride) {
+          return buildSession({
+            template: override.template,
+            week: override.week || 1,
+            weekday: weekdayName(now).toLowerCase(),
+            note: override.note || "",
+            kind: override.kind || "session",
+            makeup_for: override.makeup_for || "",
+            intensity: override.intensity || "",
+            extra_gym: override.extra_gym || []
+          });
+        }
+
+        const entry = schedule.find((s) => String(s.date) === today);
+        if (!entry) {
+          const upcoming = schedule.filter((s) => String(s.date) > today);
+          const unpaid = findUnpaidMakeup(plan, data || window.__waltDashboard || {}, now);
+          const bonusRules = plan.bonus_rules || {};
+          return {
+            mode: "rest",
+            title: "No lifting planned this day",
+            summary: "Rest, walk, sleep, creatine 5 g, and hit your protein target — or use Makeup / Bonus below if you are at the gym.",
+            date: today,
+            next_session: upcoming[0] || null,
+            habits: plan.daily_habits,
+            missed_day_rule: plan.missed_day_rule,
+            attendance_priority: priority,
+            session_tips: tips,
+            unpaid_makeup: unpaid,
+            bonus_available: !!(plan.templates && plan.templates.bonus),
+            bonus_rules: bonusRules,
+            rest_rule: bonusRules.one_liner || "Makeup beats bonus. Bonus never counts as the week’s third gym day."
+          };
+        }
+        return buildSession({
+          template: entry.template,
+          week: entry.week,
+          weekday: entry.weekday,
+          note: entry.note || "",
+          kind: "session",
+          intensity: entry.intensity || "",
+          extra_gym: entry.extra_gym || []
+        });
+      }
+
+      function renderTodayGuide(data) {
+        const guide = document.getElementById("todayGuide");
+        const lede = document.getElementById("todayLede");
+        const workout = data.today && data.today.guided_workout;
+        if (!workout) {
+          lede.textContent = "No active session on file — sync after unlocking a plan.";
+          guide.innerHTML = '<p class="empty">No guided workout yet.</p>';
+          return;
+        }
+
+        const priorityHtml =
+          '<div class="priority-box"><div class="prize">Show-up order (read once)</div><ul>' +
+          (workout.attendance_priority || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") +
+          "</ul></div>";
+
+        const tipsHtml = (workout.session_tips || []).length
+          ? '<div class="tips-block"><h4>Overall tips (research-honest)</h4>' +
+            (workout.session_tips || []).map((t) =>
+              "<details><summary>" + escapeHtml(t.title || "Tip") + "</summary><div style='margin-top:0.35rem'>" +
+              escapeHtml(t.body || "") + "</div></details>"
+            ).join("") +
+            "</div>"
+          : "";
+
+        if (workout.mode === "rest") {
+          lede.textContent = workout.summary || "Off day";
+          const next = workout.next_session;
+          const unpaid = workout.unpaid_makeup;
+          const bonusOk = !!workout.bonus_available;
+          let actionsHtml = '<div class="rest-actions">';
+          if (unpaid) {
+            actionsHtml +=
+              '<button type="button" class="btn primary" id="startMakeupBtn">Do makeup: ' +
+              escapeHtml(String(unpaid.template || "session")) +
+              " (" + escapeHtml(String(unpaid.date || "")) + ")</button>";
+          }
+          if (bonusOk) {
+            actionsHtml +=
+              '<button type="button" class="btn ghost" id="startBonusBtn">' +
+              (unpaid ? "Start bonus instead" : "Start bonus session") +
+              "</button>";
+          }
+          actionsHtml += "</div>";
+          if (workout.rest_rule) {
+            actionsHtml +=
+              '<p class="rest-rule">' + escapeHtml(workout.rest_rule) + "</p>";
+          }
+          guide.innerHTML =
+            priorityHtml +
+            '<div class="rest-card">' +
+            '<div class="big">' + escapeHtml(workout.title || "Rest") + "</div>" +
+            "<p style='color:var(--muted);line-height:1.55'>" + escapeHtml(workout.summary || "") + "</p>" +
+            (next
+              ? "<p style='color:var(--ice-soft);margin-top:0.75rem'>Next gym target: <strong>" +
+                escapeHtml(String(next.date)) + "</strong> · " + escapeHtml(String(next.template || "")) +
+                ' · <button type="button" class="btn ghost" id="openNextGym" style="margin-top:0.5rem;padding:0.5rem 0.9rem;font-size:0.85rem">Open that session</button></p>'
+              : "") +
+            actionsHtml +
+            '<div class="habits-row">' + formatHabits(workout.habits) + "</div></div>" + tipsHtml;
+          const btn = document.getElementById("openNextGym");
+          if (btn && next) {
+            btn.addEventListener("click", () => {
+              window.__waltSelectedDate = new Date(String(next.date) + "T12:00:00");
+              const url = new URL(window.location.href);
+              url.searchParams.set("date", String(next.date));
+              history.replaceState({}, "", url.toString());
+              const realNow = new Date();
+              window.__waltWeekOffset = Math.round((mondayOf(window.__waltSelectedDate) - mondayOf(realNow)) / (7 * 24 * 3600 * 1000));
+              refreshCalendarAndSession();
+            });
+          }
+          const makeupBtn = document.getElementById("startMakeupBtn");
+          if (makeupBtn && unpaid) {
+            makeupBtn.addEventListener("click", () => {
+              const iso = String(workout.date);
+              window.__waltSessionOverride = {
+                date: iso,
+                kind: "makeup",
+                template: unpaid.template,
+                week: unpaid.week || 1,
+                makeup_for: unpaid.date,
+                note: "Makeup for " + unpaid.date + " (" + unpaid.template + "). Makeup beats bonus.",
+                intensity: unpaid.intensity || "max"
+              };
+              upsertDayLog(iso, {
+                kind: "makeup",
+                makeup_for: unpaid.date,
+                template_id: unpaid.template
+              });
+              refreshCalendarAndSession();
+            });
+          }
+          const bonusBtn = document.getElementById("startBonusBtn");
+          if (bonusBtn) {
+            bonusBtn.addEventListener("click", () => {
+              const iso = String(workout.date);
+              window.__waltSessionOverride = {
+                date: iso,
+                kind: "bonus",
+                template: "bonus",
+                week: 1,
+                note: "Optional calisthenics bonus · ~35–45 min · RIR ~2–3 · does not count as a plan hit."
+              };
+              upsertDayLog(iso, { kind: "bonus", template_id: "bonus" });
+              refreshCalendarAndSession();
+            });
+          }
+          return;
+        }
+
+
+        lede.textContent = "One exercise per screen. Use ← → arrows to move. How-to has tips + effort guide + video.";
+        const gymMoves = workout.gym || [];
+        const homeMoves = workout.home || [];
+        const sessionIso = String(workout.date || isoDate(window.__waltSelectedDate || getPortalNow()));
+        const dayLog = getDayLog(sessionIso);
+        const startMode = dayLog.mode === "home" ? "home" : "gym";
+        const ringsMeta = workout.goal_rings || [
+          { id: "shoulders", label: "Shoulders", color: "#FF6B4A" },
+          { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
+          { id: "recomp", label: "Recomp", color: "#5EB1FF" }
+        ];
+        const overrideExit = (workout.kind === "bonus" || workout.kind === "makeup")
+          ? '<button type="button" class="btn ghost" id="exitOverrideSession" style="margin-left:0.35rem;padding:0.45rem 0.75rem;font-size:0.8rem">Exit ' +
+            escapeHtml(workout.kind) + "</button>"
+          : "";
+
+        guide.innerHTML =
+          priorityHtml +
+          '<div class="session-toolbar">' +
+          '<div class="mode-toggle" role="group" aria-label="Location">' +
+          '<button type="button" data-mode="gym">Gym session</button>' +
+          '<button type="button" data-mode="home">Home (last resort)</button>' +
+          "</div>" + overrideExit + "</div>" +
+          '<p class="home-warn" id="homeWarn">Home is last resort. Prefer a makeup gym day when you can.</p>' +
+          '<div class="session-meta">' +
+          '<div class="chip"><div class="k">Phase</div><div class="v">' + escapeHtml(String(workout.week_label || workout.week || "—")) + "</div></div>" +
+          '<div class="chip"><div class="k">Est. time</div><div class="v">about ' + escapeHtml(String(workout.minutes || 75)) + " min</div></div>" +
+          '<div class="chip"><div class="k">Budget</div><div class="v">' + escapeHtml(String(workout.budget_minutes || 75)) + " min plan</div></div>" +
+          '<div class="chip"><div class="k">Sources suggest</div><div class="v">' + escapeHtml(String(workout.sources_count || 7)) + " packs</div></div>" +
+          "</div>" +
+          '<div class="session-mode" id="sessionMode"></div>' +
+          '<div class="habits-row">' + formatHabits(workout.habits) + "</div>" +
+          tipsHtml +
+          '<div class="sm-sheet" id="skipSheet" aria-hidden="true"><div class="panel">' +
+          "<h4>Why can’t you do this?</h4>" +
+          '<button type="button" class="reason" data-reason="no_machine">No machine / equipment</button>' +
+          '<button type="button" class="reason" data-reason="in_use">Machine is being used</button>' +
+          '<button type="button" class="reason" data-reason="no_time">No time</button>' +
+          '<button type="button" class="reason" data-reason="dont_feel">Don’t feel like it</button>' +
+          '<button type="button" class="reason" data-reason="hate">Hate this exercise</button>' +
+          '<button type="button" class="reason" data-reason="cancel" style="opacity:0.7">Cancel</button>' +
+          "</div></div>" +
+          '<div class="sm-sheet" id="altSheet" aria-hidden="true"><div class="panel" id="altPanel"></div></div>' +
+          '<div class="push-guide-sheet" id="pushGuideSheet" aria-hidden="true">' +
+          '<div class="push-guide-panel">' +
+          '<div class="sm-howto-top"><button type="button" id="pushGuideBack">← Back</button>' +
+          "<h3>How hard should you push?</h3></div>" +
+          '<div class="push-guide-body" id="pushGuideBody"></div></div></div>';
+
+        const homeWarn = document.getElementById("homeWarn");
+        const modeRoot = document.getElementById("sessionMode");
+        const buttons = guide.querySelectorAll(".mode-toggle button");
+        const skipSheet = document.getElementById("skipSheet");
+        const altSheet = document.getElementById("altSheet");
+        const pushSheet = document.getElementById("pushGuideSheet");
+        const pushBody = document.getElementById("pushGuideBody");
+        let currentMode = startMode;
+        let moveIndex = 0;
+
+        function openPushGuide() {
+          if (pushBody) {
+            pushBody.innerHTML = buildPushGuideHtml(
+              workout,
+              data.plan || {},
+              (data.today && data.today.latest_recovery) || {}
+            );
+          }
+          if (pushSheet) {
+            pushSheet.classList.add("open");
+            pushSheet.setAttribute("aria-hidden", "false");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }
+        function closePushGuide() {
+          if (pushSheet) {
+            pushSheet.classList.remove("open");
+            pushSheet.setAttribute("aria-hidden", "true");
+          }
+        }
+        const teaserBtn = document.getElementById("effortOpenBtn");
+        if (teaserBtn) teaserBtn.addEventListener("click", openPushGuide);
+        const pushBack = document.getElementById("pushGuideBack");
+        if (pushBack) pushBack.addEventListener("click", closePushGuide);
+        const exitOverride = document.getElementById("exitOverrideSession");
+        if (exitOverride) {
+          exitOverride.addEventListener("click", () => {
+            window.__waltSessionOverride = null;
+            refreshCalendarAndSession();
+          });
+        }
+
+        function ringSvg(pct, color) {
+          const p = Math.max(0, Math.min(100, Number(pct) || 0));
+          const r = 26;
+          const c = 2 * Math.PI * r;
+          const dash = (p / 100) * c;
+          return (
+            '<svg viewBox="0 0 64 64" aria-hidden="true">' +
+            '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="6"/>' +
+            '<circle cx="32" cy="32" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="6" ' +
+            'stroke-linecap="round" stroke-dasharray="' + dash + " " + c + '" transform="rotate(-90 32 32)"/>' +
+            '<text x="32" y="36" text-anchor="middle" fill="#f5f7f8" font-size="12" font-weight="700">' + p + "%</text></svg>"
+          );
+        }
+
+        function highlightZones(container, zones) {
+          const obj = container.querySelector("object");
+          if (!obj) return;
+          const apply = () => {
+            try {
+              const doc = obj.contentDocument;
+              if (!doc) return;
+              doc.querySelectorAll(".zone").forEach((el) => el.classList.remove("on"));
+              (zones || []).forEach((z) => {
+                doc.querySelectorAll('.zone[data-zone="' + z + '"]').forEach((el) => el.classList.add("on"));
+              });
+            } catch (e) { /* ignore */ }
+          };
+          obj.addEventListener("load", apply);
+          apply();
+        }
+
+        function renderStep(moves) {
+          if (!moves.length) {
+            modeRoot.innerHTML = '<p class="empty">No movements listed.</p>';
+            return;
+          }
+          if (moveIndex >= moves.length) moveIndex = moves.length - 1;
+          if (moveIndex < 0) moveIndex = 0;
+          const m = moves[moveIndex];
+          const log = getDayLog(sessionIso);
+          const st = moveStatusKey((log.moves || {})[m.name]);
+          const afterDone = moves.slice(0, moveIndex + (st === "done" || st === "skipped" ? 1 : 0));
+          // Progress = completed moves up through current if checked, else previous
+          let completedBefore = 0;
+          moves.forEach((mv, i) => {
+            const s = moveStatusKey((log.moves || {})[mv.name]);
+            if (i < moveIndex && (s === "done" || s === "skipped")) completedBefore += 1;
+            if (i === moveIndex && (s === "done" || s === "skipped")) completedBefore += 1;
+          });
+          const pct = Math.round((completedBefore / moves.length) * 100);
+          const timing = m.timing || {};
+          const isCardio = m.load_type === "cardio";
+          const loadLines = isCardio
+            ? [
+                "StairMaster level: " + (m.stairmaster_level || "4–6") + " (Technogym provisional)",
+                "Target HR: " + ((m.target_hr && m.target_hr.label) || "zone 2"),
+                m.stairmaster_note || "Talk-test: short sentences OK"
+              ]
+            : (m.set_plan_lines || []).concat(m.pin_guidance || []);
+          const loadHtml = loadLines.length
+            ? '<div class="sm-load' + (isCardio ? " cardio" : "") + '">' +
+              loadLines.map((ln) => '<div class="ll">' + escapeHtml(ln) + "</div>").join("") +
+              "</div>"
+            : "";
+          const rom = m.rom_cues || {};
+          const romHtml = rom.question
+            ? '<div class="sm-rom"><strong>' + escapeHtml(rom.question) + "</strong><br/>" +
+              escapeHtml(rom.answer || "") +
+              (rom.why ? '<br/><span style="color:var(--muted)">' + escapeHtml(rom.why) + "</span>" : "") +
+              "</div>"
+            : "";
+          const tips = (m.tips_ranked || []).slice(0, 2);
+          const tipsHtml2 = tips.length
+            ? "<ul class='sm-tips'>" + tips.map((t) =>
+                "<li><span class='w'>" + escapeHtml(String(t.weight || "")) + "</span> " + escapeHtml(t.text || "") + "</li>"
+              ).join("") + "</ul>"
+            : "";
+          const ringsHtml = '<div class="sm-rings">' + ringsMeta.map((r) => {
+            const p = (m.goal_ring_pct && m.goal_ring_pct[r.id]) || 0;
+            return '<div class="sm-ring">' + ringSvg(p, r.color) +
+              '<div class="rv" style="color:' + r.color + '">' + escapeHtml(r.label) + "</div>" +
+              '<div class="rl">of this ring</div></div>';
+          }).join("") + "</div>";
+          const srcPacks = (m.sources_cited || []).map((s) => String(s)).join(", ");
+          const sourcesLine =
+            '<div class="sm-sources">' +
+            '<span class="sm-sources-pill">' + escapeHtml(String(workout.sources_count || 7)) +
+            " sources suggest this plan</span> · this move: packs " +
+            escapeHtml(srcPacks || "—") + "</div>";
+
+          const navPct = Math.round(((moveIndex + 1) / moves.length) * 100);
+          const effortRule = workout.effort_rule || {};
+          const effortHowto =
+            "<h4>How hard should you push?</h4>" +
+            "<p style='margin:0'>" + escapeHtml(effortRule.easy_answer || effortRule.one_liner ||
+              "Hard and controlled — most working sets stop with 1–2 clean reps left.") + "</p>" +
+            '<p style="margin:0.55rem 0 0"><button type="button" class="btn ghost" id="smEffortFromHowTo" style="padding:0.55rem 0.85rem;font-size:0.85rem">' +
+            "Open full effort / plan-fit guide</button></p>";
+
+          const howtoBody =
+            effortHowto +
+            (m.where ? "<h4>Where</h4><p style='margin:0'>" + escapeHtml(m.where) + "</p>" : "") +
+            "<h4>How to</h4><p style='margin:0'>" + escapeHtml(m.how_to || m.notes || "—") + "</p>" +
+            (m.avoid ? "<h4>Don’t</h4><p style='margin:0'>" + escapeHtml(m.avoid) + "</p>" : "") +
+            ((m.tips_ranked || m.tips || []).length
+              ? "<h4>Do / remember</h4><ul>" +
+                (m.tips_ranked || (m.tips || []).map((t) => ({ text: t }))).map((t) =>
+                  "<li>" + escapeHtml(t.text || t) + "</li>"
+                ).join("") + "</ul>"
+              : "") +
+            (m.research_note ? "<h4>Why / research</h4><p style='margin:0'>" + escapeHtml(m.research_note) + "</p>" : "") +
+            (m.video_id
+              ? "<h4>Video demo</h4><div class='vid'><iframe src='https://www.youtube-nocookie.com/embed/" +
+                encodeURIComponent(m.video_id) +
+                "?rel=0' title='" + escapeHtml(m.video_label || "Demo") +
+                "' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen loading='lazy'></iframe></div>"
+              : "<h4>Video demo</h4><p style='margin:0;color:var(--muted)'>No video linked for this move.</p>");
+
+          const finishHtml = (moveIndex >= moves.length - 1)
+            ? '<div class="sm-finish-wrap"><button type="button" id="smFinishedAll">Finished everything</button></div>'
+            : "";
+
+          modeRoot.classList.remove("is-howto");
+          modeRoot.innerHTML =
+            '<div class="sm-workout">' +
+            '<div class="sm-nav-arrows">' +
+            '<button type="button" class="sm-arrow" id="smPrev" aria-label="Previous exercise"' +
+            (moveIndex <= 0 ? " disabled" : "") + ">&#8249;</button>" +
+            '<div class="sm-nav-mid"><div class="sm-idx">Exercise ' + (moveIndex + 1) + " / " + moves.length +
+            "</div></div>" +
+            '<button type="button" class="sm-arrow" id="smNext" aria-label="Next exercise"' +
+            (moveIndex >= moves.length - 1 ? " disabled" : "") + ">&#8250;</button>" +
+            "</div>" +
+            '<div class="sm-meta">' +
+            '<span class="sm-chip"><strong>' + escapeHtml(String(workout.title || "Session")) + "</strong></span>" +
+            (isDemoMode() ? '<span class="sm-chip" style="border-color:var(--amber);color:var(--amber)">DEMO</span>' : "") +
+            '<span class="sm-chip">Work <strong>' + escapeHtml(String(isCardio ? (m.reps || "") : ((timing.work_sec_per_set || 45) + "s"))) +
+            "</strong></span>" +
+            '<span class="sm-chip">Rest <strong>' + escapeHtml(String(isCardio ? "—" : ((timing.rest_sec_between_sets || 75) + "s"))) +
+            "</strong></span>" +
+            '<span class="sm-chip">Next gap <strong>' + escapeHtml(String((timing.rest_sec_before_next || 60) + "s")) + "</strong></span>" +
+            "</div>" +
+            '<div class="sm-card">' +
+            '<div class="sm-top"><div><h3>' + escapeHtml(m.name || "") + "</h3></div>" +
+            '<div class="sm-dose">' + escapeHtml(isCardio ? String(m.reps || m.minutes + " min") : (m.sets + " × " + (m.reps || ""))) + "</div></div>" +
+            '<div class="sm-diagram" id="smDiagram">' +
+            '<object data="assets/diagrams/body.svg" type="image/svg+xml" style="width:100%;height:100%"></object>' +
+            '<div class="sm-feel">Feel: ' + escapeHtml((m.feel_zones || []).join(", ") || "—") + "</div></div>" +
+            ringsHtml +
+            '<div class="sm-importance"><span>Session value <strong>' + escapeHtml(String(m.session_importance_pct || 0)) +
+            "%</strong></span><span class='keep'>Keep prescribed <strong>" +
+            escapeHtml(String(m.keep_recommended_pct || 70)) + "%</strong></span></div>" +
+            loadHtml +
+            romHtml +
+            tipsHtml2 +
+            sourcesLine +
+            '<div class="sm-progress"><div class="sp-label"><strong>Browsing</strong> — exercise ' +
+            (moveIndex + 1) + "/" + moves.length + " (" + navPct + "%)</div>" +
+            '<div class="sp-bar"><div class="sp-fill" style="width:' + navPct + '%"></div></div></div>' +
+            finishHtml +
+            "</div></div>" +
+            '<div class="sm-howto-screen" id="smHowToScreen">' +
+            '<div class="sm-howto-top"><button type="button" id="smHowToBack">← Back</button>' +
+            "<h3>" + escapeHtml(m.name || "How to") + "</h3></div>" +
+            '<div class="sm-howto-body">' + howtoBody + "</div></div>" +
+            '<div class="sm-dock with-howto">' +
+            '<button type="button" class="howto" id="smHowTo">How to · tips · video · effort</button>' +
+            '<button type="button" class="danger" id="smCant">Can’t do</button>' +
+            '<button type="button" id="smAlt">Alternative</button>' +
+            "</div>";
+
+          highlightZones(document.getElementById("smDiagram"), m.feel_zones || []);
+
+          document.getElementById("smHowTo").addEventListener("click", () => {
+            modeRoot.classList.add("is-howto");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+          document.getElementById("smHowToBack").addEventListener("click", () => {
+            modeRoot.classList.remove("is-howto");
+          });
+          const effortFromHowTo = document.getElementById("smEffortFromHowTo");
+          if (effortFromHowTo) effortFromHowTo.addEventListener("click", openPushGuide);
+
+          document.getElementById("smPrev").addEventListener("click", () => {
+            if (moveIndex <= 0) return;
+            moveIndex -= 1;
+            renderStep(moves);
+          });
+          document.getElementById("smNext").addEventListener("click", () => {
+            if (moveIndex >= moves.length - 1) return;
+            moveIndex += 1;
+            renderStep(moves);
+          });
+          const finishedBtn = document.getElementById("smFinishedAll");
+          if (finishedBtn) {
+            finishedBtn.addEventListener("click", () => {
+              updateWeek();
+              finishedBtn.textContent = "Nice — session browsed";
+              finishedBtn.disabled = true;
+            });
+          }
+          document.getElementById("smCant").addEventListener("click", () => {
+            skipSheet.classList.add("open");
+            skipSheet.setAttribute("aria-hidden", "false");
+          });
+          document.getElementById("smAlt").addEventListener("click", () => {
+            const alts = m.alternatives || [];
+            document.getElementById("altPanel").innerHTML =
+              "<h4>Alternatives</h4>" +
+              '<p style="color:var(--mint);font-size:0.88rem;margin:0 0 0.5rem">Recommended to keep original: <strong>' +
+              escapeHtml(String(m.keep_recommended_pct || 70)) + "%</strong></p>" +
+              (alts.length ? alts.map((a) =>
+                '<button type="button" class="alt" data-alt="' + escapeHtml(a.name || "") + '">' +
+                escapeHtml(a.name || "") +
+                '<span class="meta">' + escapeHtml(a.when || "") +
+                " · keep original " + escapeHtml(String(a.keep_original_pct || "")) + "%</span></button>"
+              ).join("") : '<p class="empty">No listed swaps — pick closest machine and note it.</p>') +
+              '<button type="button" class="reason" data-alt-cancel="1">Close</button>';
+            altSheet.classList.add("open");
+            altSheet.setAttribute("aria-hidden", "false");
+            altSheet.querySelectorAll("[data-alt]").forEach((btn) => {
+              btn.addEventListener("click", () => {
+                setMoveStatus(sessionIso, currentMode, m.name, "skipped", {
+                  reason: "alternative",
+                  alternative: btn.getAttribute("data-alt")
+                });
+                altSheet.classList.remove("open");
+                moveIndex = Math.min(moveIndex + 1, moves.length - 1);
+                renderStep(moves);
+                updateWeek();
+              });
+            });
+            const close = altSheet.querySelector("[data-alt-cancel]");
+            if (close) close.addEventListener("click", () => altSheet.classList.remove("open"));
+          });
+        }
+
+        function updateWeek() {
+          renderWeekProgress(window.__waltDashboard, viewedWeekStart(), new Date());
+        }
+
+        skipSheet.querySelectorAll(".reason").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const reason = btn.getAttribute("data-reason");
+            skipSheet.classList.remove("open");
+            skipSheet.setAttribute("aria-hidden", "true");
+            if (!reason || reason === "cancel") return;
+            const moves = currentMode === "home" ? homeMoves : gymMoves;
+            const m = moves[moveIndex];
+            if (!m) return;
+            setMoveStatus(sessionIso, currentMode, m.name, "skipped", { reason: reason });
+            moveIndex = Math.min(moveIndex + 1, moves.length - 1);
+            renderStep(moves);
+            updateWeek();
+          });
+        });
+
+        function paint(mode) {
+          currentMode = mode;
+          buttons.forEach((b) => b.classList.toggle("on", b.getAttribute("data-mode") === mode));
+          if (homeWarn) homeWarn.classList.toggle("show", mode === "home");
+          const moves = mode === "home" ? homeMoves : gymMoves;
+          upsertDayLog(sessionIso, { mode: mode, moves: getDayLog(sessionIso).moves || {} });
+          // start at first unchecked
+          moveIndex = 0;
+          for (let i = 0; i < moves.length; i++) {
+            const s = moveStatusKey((getDayLog(sessionIso).moves || {})[moves[i].name]);
+            if (s !== "done" && s !== "skipped") { moveIndex = i; break; }
+            moveIndex = i;
+          }
+          renderStep(moves);
+        }
+
+        buttons.forEach((b) => b.addEventListener("click", () => {
+          const mode = b.getAttribute("data-mode");
+          if (mode === "home") {
+            const ok = window.confirm("Home is last resort. Can you still make Virgin Active today or tomorrow instead?");
+            if (!ok) { paint("gym"); return; }
+          }
+          paint(mode);
+          updateWeek();
+        }));
+        paint(startMode);
+      }
+
+
+      function formatHabits(habits) {
+        if (!habits) return "";
+        return (
+          "<strong style='color:var(--white)'>Today's habits:</strong> creatine " +
+          escapeHtml(String(habits.creatine_monohydrate_g || 5)) + " g · protein " +
+          escapeHtml(String(habits.protein_g_day || "115–130")) + " g · " +
+          escapeHtml(String(habits.eating_frame || ""))
+        );
+      }
+
+      function recoveryPushAdvice(score) {
+        if (score == null || Number.isNaN(Number(score))) {
+          return {
+            tone: "meh",
+            label: "No readiness reading yet",
+            text: "Train as written: hard working sets stop with 1–2 clean reps left. Don’t invent a max-out day."
+          };
+        }
+        const n = Number(score);
+        if (n >= 67) {
+          return {
+            tone: "good",
+            label: "Readiness " + Math.round(n) + " · green-ish",
+            text: "Push the session as written. Hard sets to 1–2 reps in reserve. You can progress load when the top of the rep range is clean."
+          };
+        }
+        if (n >= 34) {
+          return {
+            tone: "meh",
+            label: "Readiness " + Math.round(n) + " · yellow",
+            text: "Still do the full menu, but stay honest: compounds closer to 2 reps left. Skip grinding and ego jumps."
+          };
+        }
+        return {
+          tone: "bad",
+          label: "Readiness " + Math.round(n) + " · red",
+          text: "Show up and finish the workout with cleaner stops (about 2–3 reps left on compounds). No PR chasing today — consistency beats one ugly session."
+        };
+      }
+
+      function formatEffortTeaser(rule) {
+        rule = rule || {};
+        const q = rule.question || "How hard should you push?";
+        const easy = rule.easy_answer || rule.one_liner ||
+          "Hard and controlled — most working sets stop with 1–2 clean reps left.";
+        return (
+          '<div class="effort-box">' +
+          '<div class="eb-kicker">Effort · before you lift</div>' +
+          '<div class="eb-head">' + escapeHtml(q) + "</div>" +
+          '<p class="eb-answer">' + escapeHtml(easy) + "</p>" +
+          '<button type="button" class="eb-open" id="effortOpenBtn">' +
+          "Open full guide — why this hard, how it fits your plan" +
+          "<span>Recovery tweak · do / don’t · this session’s job · load picking</span></button>" +
+          "</div>"
+        );
+      }
+
+      function formatEffortStrip(rule) {
+        rule = rule || {};
+        const q = rule.question || "How hard should you push?";
+        const line = rule.one_liner || rule.easy_answer ||
+          "Hard sets = 1–2 reps left. Absolute failure = only optional on the last isolation set.";
+        return (
+          '<button type="button" class="sm-effort" id="smEffortBtn">' +
+          "<strong>" + escapeHtml(q) + "</strong>" +
+          escapeHtml(line) +
+          '<div class="sm-effort-sub">Tap for full guide · plan fit · recovery</div></button>'
+        );
+      }
+
+      function buildPushGuideHtml(workout, plan, recovery) {
+        const rule = (workout && workout.effort_rule) || (plan && plan.effort_rule) || {};
+        const q = rule.question || "How hard should you push?";
+        const easy = rule.easy_answer || "Hard and controlled — most working sets stop with 1–2 clean reps left.";
+        const head = rule.headline || "Do NOT take every set to absolute failure";
+        const doList = (rule.do && rule.do.length) ? rule.do
+          : ["Hard working sets: stop with about 1–2 clean reps left."];
+        const dontList = (rule.dont && rule.dont.length) ? rule.dont
+          : ["Do not grind compounds to a stuck rep."];
+        const feels = (rule.feel_checks && rule.feel_checks.length) ? rule.feel_checks : [];
+        const roles = rule.session_roles || {};
+        const tid = String((workout && workout.template_id) || "").toLowerCase();
+        const roleText = roles[tid] || (workout && workout.focus) || "";
+        const rec = recoveryPushAdvice(recovery && recovery.recovery_score);
+        const block = (plan && plan.block) || {};
+        const goals = (plan && plan.goals_3_weeks) || {};
+        const visuals = goals.visual_primary || [];
+        const process = goals.process_non_negotiable || [];
+        const inbody = block.inbody_reeval_target || "2026-08-08";
+        const planFitIntro = rule.plan_fit_intro ||
+          ((plan && plan.headline) || "Plan C") + " — upper hypertrophy experiment with full weekly volume.";
+
+        let html = "";
+        html += "<h4>" + escapeHtml(q) + "</h4>";
+        html += '<p class="pg-answer">' + escapeHtml(easy) + "</p>";
+        html += "<p style='margin:0 0 0.35rem;color:var(--muted)'>" + escapeHtml(head) + " — " +
+          escapeHtml(rule.answer || "") + "</p>";
+        html += '<div class="pg-rec ' + escapeHtml(rec.tone) + '"><strong>' + escapeHtml(rec.label) +
+          "</strong>" + escapeHtml(rec.text) + "</div>";
+
+        html += "<h4>What to do</h4><ul>" +
+          doList.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        html += "<h4>What not to do</h4><ul>" +
+          dontList.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+
+        if (feels.length) {
+          html += "<h4>How it should feel</h4><ul>" +
+            feels.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+
+        if (workout && workout.load_cue) {
+          html += "<h4>How to pick the weight</h4><p style='margin:0'>" +
+            escapeHtml(workout.load_cue) + "</p>";
+        }
+        if (workout && workout.reps_in_reserve) {
+          html += "<p style='margin:0.55rem 0 0;color:var(--muted);font-size:0.84rem'>" +
+            escapeHtml(String(workout.reps_in_reserve)) + "</p>";
+        }
+
+        html += "<h4>How this workout fits your plan</h4>";
+        html += '<div class="pg-chip-row">' +
+          '<span class="pg-chip">' + escapeHtml((plan && plan.headline) || "Plan C") + "</span>" +
+          '<span class="pg-chip">Week ' + escapeHtml(String((workout && workout.week) || "—")) +
+          " · " + escapeHtml(String((workout && workout.week_label) || "")) + "</span>" +
+          '<span class="pg-chip">' + escapeHtml(String((workout && workout.title) || "Session")) + "</span>" +
+          ((workout && workout.intensity)
+            ? '<span class="pg-chip">Intensity · ' + escapeHtml(String(workout.intensity)) + "</span>"
+            : "") +
+          '<span class="pg-chip">InBody ' + escapeHtml(String(inbody)) + "</span>" +
+          "</div>";
+        html += "<p style='margin:0 0 0.55rem'>" + escapeHtml(planFitIntro) + "</p>";
+        if (roleText) {
+          html += "<p style='margin:0 0 0.55rem'><strong style='color:var(--white)'>This session’s job:</strong> " +
+            escapeHtml(roleText) + "</p>";
+        }
+        if (workout && workout.focus) {
+          html += "<p style='margin:0 0 0.55rem;color:var(--muted)'>Focus: " +
+            escapeHtml(workout.focus) + "</p>";
+        }
+        if (workout && workout.schedule_note) {
+          html += "<p style='margin:0 0 0.55rem'><strong style='color:var(--white)'>Today’s note:</strong> " +
+            escapeHtml(workout.schedule_note) + "</p>";
+        }
+        if (visuals.length) {
+          html += "<p style='margin:0 0 0.25rem'><strong style='color:var(--white)'>Block visual goals</strong></p><ul>" +
+            visuals.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+        if (process.length) {
+          html += "<h4>Non-negotiables this block</h4><ul>" +
+            process.map((x) => "<li>" + escapeHtml(x) + "</li>").join("") + "</ul>";
+        }
+        if (rule.source || (workout && workout.session_sources_note)) {
+          html += "<h4>Sources</h4><p style='margin:0;color:var(--muted);font-size:0.82rem'>" +
+            escapeHtml(String(rule.source || "")) +
+            (workout && workout.session_sources_note
+              ? " · " + escapeHtml(workout.session_sources_note)
+              : "") +
+            "</p>";
+        }
+        return html;
+      }
+
+      if (!document.body.classList.contains("locked") && !isOauth) {
+        loadDashboard();
+      }
+
+      const elCode = document.getElementById("code");
+      const elStatus = document.getElementById("status");
+      const elSub = document.getElementById("subtitle");
+      const btnCode = document.getElementById("copyCode");
+      const btnUrl = document.getElementById("copyUrl");
+      function setStatus(text, cls) {
+        elStatus.textContent = text;
+        elStatus.className = "status" + (cls ? " " + cls : "");
+      }
+
+      if (error) {
+        elSub.textContent = "Authorization returned an error.";
+        setStatus((error + (errorDesc ? ": " + errorDesc : "")), "bad");
+        return;
+      }
+      if (!code) return;
+      elCode.value = code;
+      elSub.textContent = "Success — copy the code and paste it into Cursor.";
+      setStatus("State: " + (state || "(none)"), "ok");
+      btnCode.disabled = false;
+      btnUrl.disabled = false;
+      btnCode.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(code);
+        setStatus("Code copied.", "ok");
+      });
+      btnUrl.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(window.location.href);
+        setStatus("Full URL copied.", "ok");
+      });
+    })();
+  </script>
+</body>
+</html>
