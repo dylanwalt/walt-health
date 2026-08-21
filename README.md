@@ -16,13 +16,12 @@ Also hosts the WHOOP OAuth callback when `?code=` is present (same URL — do no
 
 | View | Contents |
 |------|----------|
-| Overview | Latest recovery hero + 60-day averages |
-| History | WHOOP daily series sparklines + activity mix |
-| You | Goals, efficiency budget, gym, nutrition, timeline (`athlete_profile.json`) |
-| This week / Today | Plan status + guided session (unlock after InBody/sources) |
+| Overview | Plan status snapshot |
+| History | Reserved (no wearable feed) |
+| You | Goals, efficiency budget, gym, nutrition, timeline |
+| This week / Today | Plan status + guided session |
 
-Dashboard payload lives in `data/dashboard.json`.  
-Garmin Connect sync was retired 2026-08-21 (not used for programming).
+Dashboard payload lives in `data/dashboard.json` (InBody kept; wearable series removed).
 
 ## Google Calendar
 

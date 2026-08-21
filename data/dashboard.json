@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T08:35:18.246+00:00",
+  "generated_at": "2026-08-21T08:56:34.394+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -51,36 +51,20 @@
   },
   "window": {
     "days": 60,
-    "counts": {
-      "recovery": 0,
-      "sleep_non_nap": 0,
-      "cycles": 0,
-      "workouts": 0
-    },
+    "counts": {},
     "metrics": {},
     "workout_mix": {},
     "notes": [
-      "Garmin sync disconnected 2026-08-21 — Overview/History no longer depend on wearable pulls.",
-      "Plan C runs on schedule + checklist. Subscribe to data/workouts.ics for Google Calendar."
-    ],
-    "history_totals_all_time_pulled": {
-      "recovery": 0,
-      "sleep": 0,
-      "cycle": 0,
-      "workout": 0
-    }
+      "Portal focuses on Plan C + checklist. No wearable feed.",
+      "Subscribe to data/workouts.ics for Google Calendar."
+    ]
   },
   "history": {
     "window_days": 60,
     "points": [],
     "summaries": {},
-    "totals_pulled": {
-      "recovery": 0,
-      "sleep": 0,
-      "cycle": 0,
-      "workout": 0
-    },
-    "note": "Wearable history cleared after Garmin disconnect (2026-08-21)."
+    "totals_pulled": {},
+    "note": "No wearable history on this portal."
   },
   "profile": {
     "updated_at": "2026-08-17",
@@ -240,14 +224,11 @@
     ],
     "measurement": {
       "inbody": "Baseline on file (2026-07-16); prefer ~monthly — cadence pending sourced guidance",
-      "whoop": "Retired",
-      "garmin": "Disconnected 2026-08-21 — not used for programming",
       "home_scale": "TBD usefulness after sourced retest guidance"
     }
   },
   "today": {
-    "local_hint": "Garmin disconnected. Use Today for the session. Calendar: subscribe to workouts.ics in Google Calendar.",
-    "latest_recovery": null,
+    "local_hint": "Use Today for the session. Calendar: subscribe to workouts.ics in Google Calendar.",
     "guided_workout": {
       "mode": "rest",
       "date": "2026-08-21",
@@ -300,8 +281,6 @@
         "friday"
       ],
       "preference_notes": [
-        "Garmin sync retired 2026-08-21 — do not treat wearable absence as a missed gym day",
-        "Garmin/WHOOP missing a strength log ≠ missed gym — Dylan often trains without starting an activity (confirmed 2026-08-21)",
         "Weekdays MWF first prize; Tue/Thu makeup if missed",
         "Same stable menu as block 1 — progress load/reps (packs 04/10/11/15)",
         "Upper-body visual priority: shoulders, chest, arms, less belly",
@@ -958,9 +937,8 @@
     ],
     "missed_day_rule": "Priority: (1) Gym on planned Mon/Wed/Fri. (2) If you miss one, makeup on Tue/Thu (or weekend only if that is the only way) using the missed template — Makeup beats Bonus. (3) Home fallback only if gym is impossible. (4) Optional bonus calisthenics on true off days — prefer ≤1/week; does not count as a plan hit (pack 16).",
     "notes": [
-      "Garmin sync retired 2026-08-21 — wearable not used for programming; attendance = Dylan + portal checklist. Disable external Garmin cloud sync job so it stops republishing.",
+      "ATTENDANCE GROUND TRUTH (Dylan 2026-08-21): 3 gym days/week since plan start (~90% Mon/Wed/Fri, otherwise makeup). Authoritative attendance = Dylan's word + portal checklist ticks.",
       "Google Calendar: subscribe to data/workouts.ics (Pages URL) — default 17:00–18:25 SAST at Virgin Active Morningside.",
-      "ATTENDANCE GROUND TRUTH (Dylan 2026-08-21): He has hit 3 gym days/week since plan start (~90% Mon/Wed/Fri, otherwise makeup). Missing Garmin/WHOOP activity does NOT mean a miss — he often skips starting a strength activity on the watch. Trust Dylan's word + portal checklist over wearable logs for gym attendance.",
       "Fri 2026-08-21 shoulders → Sat 2026-08-22 makeup (Dylan request).",
       "Block 3 locked: 2026-08-17 → 2026-09-18, same Plan C MWF menu, progressive overload + W8 deload.",
       "Overall week count: week 5 starts today Mon 17 Aug (after blocks 1–2).",
@@ -1100,6 +1078,10 @@
       "calendar_name": "WALT HEALTH · Gym",
       "google_subscribe_hint": "Google Calendar → Other calendars → From URL → paste the workouts.ics link from GitHub Pages",
       "note": "Free/simple path: publish .ics from plan.schedule. No Google Calendar API required. True two-way sync can come later if needed."
+    },
+    "attendance_authority": {
+      "rule": "dylan_report_plus_portal_checklist",
+      "note": "Portal checklist ticks + Dylan's report are authoritative for gym attendance."
     }
   },
   "plan_briefing": {
@@ -2568,7 +2550,6 @@
     "block_start": "2026-08-17",
     "block_end": "2026-09-18",
     "scheduled_sessions": 15,
-    "sessions_with_whoop_log": 0,
     "sessions_with_log": 0,
     "adherence_pct_logged": 0.0,
     "planned": [
@@ -2577,22 +2558,14 @@
         "template": "push",
         "week": 5,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-08-19",
         "template": "pull",
         "week": 5,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-08-22",
@@ -2600,10 +2573,6 @@
         "week": 5,
         "planned": true,
         "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": [],
         "note": "Moved from Fri 21 → Sat 22 makeup"
       },
       {
@@ -2611,140 +2580,88 @@
         "template": "push",
         "week": 6,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-08-26",
         "template": "pull",
         "week": 6,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-08-28",
         "template": "shoulders",
         "week": 6,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-08-31",
         "template": "push",
         "week": 7,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-09-02",
         "template": "pull",
         "week": 7,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-09-04",
         "template": "shoulders",
         "week": 7,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-09-07",
         "template": "push",
         "week": 8,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-09-09",
         "template": "pull",
         "week": 8,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-09-11",
         "template": "shoulders",
         "week": 8,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-09-14",
         "template": "push",
         "week": 9,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-09-16",
         "template": "pull",
         "week": 9,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       },
       {
         "date": "2026-09-18",
         "template": "shoulders",
         "week": 9,
         "planned": true,
-        "logged": false,
-        "garmin_logged": false,
-        "whoop_logged": false,
-        "whoop_activities": [],
-        "garmin_activities": []
+        "logged": false
       }
     ],
-    "extra_whoop_days": [],
-    "extra_garmin_days": [],
-    "interpretation": "Wearable log is optional corroboration only. Dylan confirmed 2026-08-21: 3 gym days/week since plan start even when Garmin shows no strength activity (often unlogged). logged/garmin_logged=true means a wearable workout was seen that day — not required proof of attendance. Golf/walking-only days do not count as a gym hit when sport tags are present. Authoritative attendance = Dylan's report + portal Today checklist ticks.",
-    "attendance_authority": "dylan_report_plus_portal_checklist",
-    "wearable_optional": true,
-    "wearable_status": "disconnected"
+    "interpretation": "Authoritative attendance = Dylan's report + portal Today checklist ticks. logged=true only if the portal checklist was completed for that day.",
+    "attendance_authority": "dylan_report_plus_portal_checklist"
   },
   "food": {
     "updated": "2026-07-20",
@@ -2833,13 +2750,6 @@
       "If a pack has no hechsher and you keep kosher strictly, skip it — do not guess.",
       "Creatine 5 g daily stays separate from protein shakes (can mix in the same drink)."
     ]
-  },
-  "wearable": {
-    "source": "none",
-    "status": "disconnected",
-    "retired_at": "2026-08-21",
-    "library": null,
-    "note": "Garmin Connect sync retired — data was exploratory only and not used to drive the plan. Attendance = Dylan report + portal checklist."
   },
   "coach": {
     "walk_punishment_km_each_way": 2,
