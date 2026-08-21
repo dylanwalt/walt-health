@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-21T07:41:54.041+00:00",
+  "generated_at": "2026-08-21T07:55:30.724+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -526,6 +526,7 @@
         "friday"
       ],
       "preference_notes": [
+        "Garmin/WHOOP missing a strength log ≠ missed gym — Dylan often trains without starting an activity (confirmed 2026-08-21)",
         "Weekdays MWF first prize; Tue/Thu makeup if missed",
         "Same stable menu as block 1 — progress load/reps (packs 04/10/11/15)",
         "Upper-body visual priority: shoulders, chest, arms, less belly",
@@ -1182,6 +1183,7 @@
     ],
     "missed_day_rule": "Priority: (1) Gym on planned Mon/Wed/Fri. (2) If you miss one, makeup on Tue/Thu (or weekend only if that is the only way) using the missed template — Makeup beats Bonus. (3) Home fallback only if gym is impossible. (4) Optional bonus calisthenics on true off days — prefer ≤1/week; does not count as a plan hit (pack 16).",
     "notes": [
+      "ATTENDANCE GROUND TRUTH (Dylan 2026-08-21): He has hit 3 gym days/week since plan start (~90% Mon/Wed/Fri, otherwise makeup). Missing Garmin/WHOOP activity does NOT mean a miss — he often skips starting a strength activity on the watch. Trust Dylan's word + portal checklist over wearable logs for gym attendance.",
       "Fri 2026-08-21 shoulders → Sat 2026-08-22 makeup (Dylan request).",
       "Block 3 locked: 2026-08-17 → 2026-09-18, same Plan C MWF menu, progressive overload + W8 deload.",
       "Overall week count: week 5 starts today Mon 17 Aug (after blocks 1–2).",
@@ -2949,7 +2951,9 @@
     ],
     "extra_whoop_days": [],
     "extra_garmin_days": [],
-    "interpretation": "logged=true means a wearable workout exists that calendar day (Garmin activity, or WHOOP history fallback) — not proof the exact lifts were done. Golf/walking-only days do not count as a gym hit when sport tags are present."
+    "interpretation": "Wearable log is optional corroboration only. Dylan confirmed 2026-08-21: 3 gym days/week since plan start even when Garmin shows no strength activity (often unlogged). logged/garmin_logged=true means a wearable workout was seen that day — not required proof of attendance. Golf/walking-only days do not count as a gym hit when sport tags are present. Authoritative attendance = Dylan's report + portal Today checklist ticks.",
+    "attendance_authority": "dylan_report_plus_portal_checklist",
+    "wearable_optional": true
   },
   "food": {
     "updated": "2026-07-20",
