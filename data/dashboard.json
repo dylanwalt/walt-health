@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T02:01:57.732791+00:00",
+  "generated_at": "2026-08-24T04:11:26.679911+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -71,7 +71,7 @@
         "avg": 77.88
       },
       "resting_heart_rate": {
-        "avg": 54.0
+        "avg": 53.9
       },
       "sleep_performance_pct": {
         "avg": 73.5
@@ -228,8 +228,8 @@
         "date": "2026-08-24",
         "recovery": null,
         "hrv": null,
-        "rhr": 54.0,
-        "body_battery": 69.0,
+        "rhr": 53.0,
+        "body_battery": 97.0,
         "stress": 9.0,
         "steps": null,
         "intensity_minutes": null,
@@ -256,13 +256,13 @@
         "newer_half_avg": 74.25
       },
       "rhr": {
-        "avg": 54.0,
+        "avg": 53.9,
         "min": 49.0,
         "max": 60.0,
         "first": 60.0,
-        "last": 54.0,
+        "last": 53.0,
         "older_half_avg": 53.8,
-        "newer_half_avg": 54.2
+        "newer_half_avg": 54.0
       },
       "sleep_hours": {
         "avg": 6.56,
@@ -292,13 +292,13 @@
         "newer_half_avg": 64.8
       },
       "body_battery": {
-        "avg": 80.8,
+        "avg": 83.6,
         "min": 26.0,
         "max": 100.0,
         "first": 26.0,
-        "last": 69.0,
+        "last": 97.0,
         "older_half_avg": 84.0,
-        "newer_half_avg": 77.6
+        "newer_half_avg": 83.2
       },
       "stress": {
         "avg": 23.2,
@@ -503,8 +503,8 @@
     "latest_recovery": {
       "recovery_score": null,
       "hrv_rmssd_milli": null,
-      "resting_heart_rate": 54.0,
-      "body_battery_max": 69.0,
+      "resting_heart_rate": 53.0,
+      "body_battery_max": 97.0,
       "stress_avg": 9.0,
       "steps": null,
       "source": "garmin",
