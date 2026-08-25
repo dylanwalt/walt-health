@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T01:57:05.494598+00:00",
+  "generated_at": "2026-08-25T04:05:16.859346+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -242,7 +242,7 @@
         "recovery": null,
         "hrv": null,
         "rhr": 52.0,
-        "body_battery": null,
+        "body_battery": 98.0,
         "stress": 7.0,
         "steps": 9.0,
         "intensity_minutes": null,
@@ -305,13 +305,13 @@
         "newer_half_avg": 49.0
       },
       "body_battery": {
-        "avg": 83.9,
+        "avg": 85.18,
         "min": 26.0,
         "max": 100.0,
         "first": 26.0,
-        "last": 100.0,
+        "last": 98.0,
         "older_half_avg": 84.0,
-        "newer_half_avg": 83.8
+        "newer_half_avg": 86.17
       },
       "stress": {
         "avg": 22.64,
@@ -517,7 +517,7 @@
       "recovery_score": null,
       "hrv_rmssd_milli": null,
       "resting_heart_rate": 52.0,
-      "body_battery_max": null,
+      "body_battery_max": 98.0,
       "stress_avg": 7.0,
       "steps": 9.0,
       "source": "garmin",
