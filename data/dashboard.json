@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T05:47:35.698194+00:00",
+  "generated_at": "2026-08-31T14:07:04.082150+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -53,41 +53,41 @@
     "days": 60,
     "counts": {
       "recovery": 17,
-      "sleep_non_nap": 15,
+      "sleep_non_nap": 16,
       "cycles": 17,
-      "workouts": 19
+      "workouts": 20
     },
     "metrics": {
       "recovery_score": {
-        "avg": 77.08,
+        "avg": 78.62,
         "min": 39.0,
-        "max": 96.0,
+        "max": 97.0,
         "trend": {
           "days_31_60_avg": null,
-          "days_1_30_avg": 77.08
+          "days_1_30_avg": 78.62
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 79.47
+        "avg": 79.69
       },
       "resting_heart_rate": {
         "avg": 53.12
       },
       "sleep_performance_pct": {
-        "avg": 76.0
+        "avg": 76.94
       },
       "sleep_duration_hours": {
-        "avg": 8.33
+        "avg": 8.3
       },
       "cycle_strain": {
-        "avg": 44.81
+        "avg": 45.76
       },
       "workout_strain": {
-        "avg": 0.66
+        "avg": 0.65
       }
     },
     "workout_mix": {
-      "walking": 13,
+      "walking": 14,
       "strength_training": 5,
       "squash": 1
     },
@@ -96,14 +96,14 @@
       "Garmin watch started Saturday 2026-08-15 \u2014 expect a short series for ~1 week. Do not compare 60-day Garmin averages to the old WHOOP window until more nights exist. Training Readiness is still onboarding (HRV baseline not established).",
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~44.81 over the window.",
-      "19 workouts logged in 60 days (~2.2/week)."
+      "Average daily cycle strain ~45.76 over the window.",
+      "20 workouts logged in 60 days (~2.4/week)."
     ],
     "history_totals_all_time_pulled": {
       "recovery": 17,
-      "sleep": 15,
+      "sleep": 16,
       "cycle": 17,
-      "workout": 19
+      "workout": 20
     }
   },
   "history": {
@@ -317,34 +317,36 @@
       },
       {
         "date": "2026-08-31",
-        "recovery": null,
-        "hrv": null,
+        "recovery": 97.0,
+        "hrv": 83.0,
         "rhr": 49.0,
-        "body_battery": 79.0,
-        "stress": 7.0,
-        "steps": null,
-        "intensity_minutes": null,
-        "strain": null
+        "body_battery": 100.0,
+        "stress": 17.0,
+        "steps": 7084.0,
+        "intensity_minutes": 61.0,
+        "sleep_hours": 7.67,
+        "sleep_perf": 91.0,
+        "strain": 61.0
       }
     ],
     "summaries": {
       "recovery": {
-        "avg": 77.08,
+        "avg": 78.62,
         "min": 39.0,
-        "max": 96.0,
+        "max": 97.0,
         "first": 88.0,
-        "last": 79.0,
+        "last": 97.0,
         "older_half_avg": 67.5,
-        "newer_half_avg": 86.67
+        "newer_half_avg": 88.14
       },
       "hrv": {
-        "avg": 79.47,
+        "avg": 79.69,
         "min": 62.0,
         "max": 89.0,
         "first": 76.0,
-        "last": 75.0,
-        "older_half_avg": 80.14,
-        "newer_half_avg": 78.88
+        "last": 83.0,
+        "older_half_avg": 77.88,
+        "newer_half_avg": 81.5
       },
       "rhr": {
         "avg": 53.12,
@@ -356,74 +358,74 @@
         "newer_half_avg": 52.44
       },
       "sleep_hours": {
-        "avg": 7.02,
+        "avg": 7.06,
         "min": 4.07,
         "max": 8.63,
         "first": 6.55,
-        "last": 6.9,
-        "older_half_avg": 6.92,
-        "newer_half_avg": 7.1
+        "last": 7.67,
+        "older_half_avg": 6.56,
+        "newer_half_avg": 7.55
       },
       "sleep_perf": {
-        "avg": 76.0,
+        "avg": 76.94,
         "min": 46.0,
         "max": 97.0,
         "first": 57.0,
-        "last": 71.0,
-        "older_half_avg": 77.43,
-        "newer_half_avg": 74.75
+        "last": 91.0,
+        "older_half_avg": 73.5,
+        "newer_half_avg": 80.38
       },
       "strain": {
-        "avg": 44.81,
+        "avg": 45.76,
         "min": 2.0,
         "max": 140.0,
         "first": 9.0,
-        "last": 6.0,
+        "last": 61.0,
         "older_half_avg": 54.38,
-        "newer_half_avg": 35.25
+        "newer_half_avg": 38.11
       },
       "body_battery": {
-        "avg": 87.88,
+        "avg": 89.12,
         "min": 26.0,
         "max": 100.0,
         "first": 26.0,
-        "last": 79.0,
+        "last": 100.0,
         "older_half_avg": 85.88,
-        "newer_half_avg": 89.67
+        "newer_half_avg": 92.0
       },
       "stress": {
-        "avg": 23.24,
-        "min": 7.0,
+        "avg": 23.82,
+        "min": 17.0,
         "max": 32.0,
         "first": 22.0,
-        "last": 7.0,
+        "last": 17.0,
         "older_half_avg": 24.75,
-        "newer_half_avg": 21.89
+        "newer_half_avg": 23.0
       },
       "steps": {
-        "avg": 9196.56,
+        "avg": 9072.29,
         "min": 5683.0,
         "max": 14301.0,
         "first": 7461.0,
-        "last": 5683.0,
+        "last": 7084.0,
         "older_half_avg": 9970.75,
-        "newer_half_avg": 8422.38
+        "newer_half_avg": 8273.67
       },
       "intensity_minutes": {
-        "avg": 44.81,
+        "avg": 45.76,
         "min": 2.0,
         "max": 140.0,
         "first": 9.0,
-        "last": 6.0,
+        "last": 61.0,
         "older_half_avg": 54.38,
-        "newer_half_avg": 35.25
+        "newer_half_avg": 38.11
       }
     },
     "totals_pulled": {
       "recovery": 17,
-      "sleep": 15,
+      "sleep": 16,
       "cycle": 17,
-      "workout": 19
+      "workout": 20
     }
   },
   "profile": {
@@ -592,12 +594,12 @@
   "today": {
     "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
-      "recovery_score": null,
-      "hrv_rmssd_milli": null,
+      "recovery_score": 97.0,
+      "hrv_rmssd_milli": 83.0,
       "resting_heart_rate": 49.0,
-      "body_battery_max": 79.0,
-      "stress_avg": 7.0,
-      "steps": null,
+      "body_battery_max": 100.0,
+      "stress_avg": 17.0,
+      "steps": 7084.0,
       "source": "garmin",
       "created_at": "2026-08-31T12:00:00+02:00",
       "calendar_date": "2026-08-31"
