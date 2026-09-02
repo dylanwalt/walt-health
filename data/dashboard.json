@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T23:24:07.205651+00:00",
+  "generated_at": "2026-09-02T04:46:44.482111+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -52,9 +52,9 @@
   "window": {
     "days": 60,
     "counts": {
-      "recovery": 18,
+      "recovery": 19,
       "sleep_non_nap": 17,
-      "cycles": 18,
+      "cycles": 19,
       "workouts": 22
     },
     "metrics": {
@@ -71,7 +71,7 @@
         "avg": 79.59
       },
       "resting_heart_rate": {
-        "avg": 53.33
+        "avg": 53.32
       },
       "sleep_performance_pct": {
         "avg": 75.65
@@ -101,9 +101,9 @@
       "22 workouts logged in 60 days (~2.6/week)."
     ],
     "history_totals_all_time_pulled": {
-      "recovery": 18,
+      "recovery": 19,
       "sleep": 17,
-      "cycle": 18,
+      "cycle": 19,
       "workout": 22
     }
   },
@@ -333,14 +333,25 @@
         "date": "2026-09-01",
         "recovery": 67.0,
         "hrv": 78.0,
-        "rhr": 57.0,
+        "rhr": 56.0,
         "body_battery": 78.0,
-        "stress": 30.0,
-        "steps": 7996.0,
+        "stress": 28.0,
+        "steps": 8005.0,
         "intensity_minutes": 21.0,
         "sleep_hours": 6.57,
         "sleep_perf": 55.0,
         "strain": 21.0
+      },
+      {
+        "date": "2026-09-02",
+        "recovery": null,
+        "hrv": null,
+        "rhr": 54.0,
+        "body_battery": 64.0,
+        "stress": 12.0,
+        "steps": null,
+        "intensity_minutes": null,
+        "strain": null
       }
     ],
     "summaries": {
@@ -363,13 +374,13 @@
         "newer_half_avg": 81.11
       },
       "rhr": {
-        "avg": 53.33,
+        "avg": 53.32,
         "min": 49.0,
         "max": 60.0,
         "first": 60.0,
-        "last": 57.0,
+        "last": 54.0,
         "older_half_avg": 54.0,
-        "newer_half_avg": 52.67
+        "newer_half_avg": 52.7
       },
       "sleep_hours": {
         "avg": 7.03,
@@ -399,31 +410,31 @@
         "newer_half_avg": 42.56
       },
       "body_battery": {
-        "avg": 88.5,
+        "avg": 87.21,
         "min": 26.0,
         "max": 100.0,
         "first": 26.0,
-        "last": 78.0,
+        "last": 64.0,
         "older_half_avg": 82.11,
-        "newer_half_avg": 94.89
+        "newer_half_avg": 91.8
       },
       "stress": {
-        "avg": 24.61,
-        "min": 18.0,
+        "avg": 23.84,
+        "min": 12.0,
         "max": 32.0,
         "first": 22.0,
-        "last": 30.0,
+        "last": 12.0,
         "older_half_avg": 24.78,
-        "newer_half_avg": 24.44
+        "newer_half_avg": 23.0
       },
       "steps": {
-        "avg": 9163.89,
+        "avg": 9164.39,
         "min": 5683.0,
         "max": 14301.0,
         "first": 7461.0,
-        "last": 7996.0,
+        "last": 8005.0,
         "older_half_avg": 9524.11,
-        "newer_half_avg": 8803.67
+        "newer_half_avg": 8804.67
       },
       "intensity_minutes": {
         "avg": 46.0,
@@ -436,9 +447,9 @@
       }
     },
     "totals_pulled": {
-      "recovery": 18,
+      "recovery": 19,
       "sleep": 17,
-      "cycle": 18,
+      "cycle": 19,
       "workout": 22
     }
   },
@@ -608,15 +619,15 @@
   "today": {
     "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
-      "recovery_score": 67.0,
-      "hrv_rmssd_milli": 78.0,
-      "resting_heart_rate": 57.0,
-      "body_battery_max": 78.0,
-      "stress_avg": 30.0,
-      "steps": 7996.0,
+      "recovery_score": null,
+      "hrv_rmssd_milli": null,
+      "resting_heart_rate": 54.0,
+      "body_battery_max": 64.0,
+      "stress_avg": 12.0,
+      "steps": null,
       "source": "garmin",
-      "created_at": "2026-09-01T12:00:00+02:00",
-      "calendar_date": "2026-09-01"
+      "created_at": "2026-09-02T12:00:00+02:00",
+      "calendar_date": "2026-09-02"
     },
     "guided_workout": {
       "mode": "session",
