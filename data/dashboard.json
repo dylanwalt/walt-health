@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-16T17:08:25.344857+00:00",
+  "generated_at": "2026-09-16T21:26:16.892203+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -80,7 +80,7 @@
         "avg": 8.16
       },
       "cycle_strain": {
-        "avg": 41.3
+        "avg": 41.33
       },
       "workout_strain": {
         "avg": 0.58
@@ -97,7 +97,7 @@
       "Garmin watch started Saturday 2026-08-15 \u2014 expect a short series for ~1 week. Do not compare 60-day Garmin averages to the old WHOOP window until more nights exist. Training Readiness is still onboarding (HRV baseline not established).",
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~41.3 over the window.",
+      "Average daily cycle strain ~41.33 over the window.",
       "32 workouts logged in 60 days (~3.8/week)."
     ],
     "history_totals_all_time_pulled": {
@@ -530,12 +530,12 @@
         "hrv": 87.0,
         "rhr": 48.0,
         "body_battery": 100.0,
-        "stress": 12.0,
-        "steps": 2039.0,
-        "intensity_minutes": 5.0,
+        "stress": 18.0,
+        "steps": 3577.0,
+        "intensity_minutes": 6.0,
         "sleep_hours": 8.48,
         "sleep_perf": 91.0,
-        "strain": 5.0
+        "strain": 6.0
       }
     ],
     "summaries": {
@@ -585,13 +585,13 @@
         "newer_half_avg": 76.94
       },
       "strain": {
-        "avg": 41.3,
+        "avg": 41.33,
         "min": 2.0,
         "max": 140.0,
         "first": 9.0,
-        "last": 5.0,
+        "last": 6.0,
         "older_half_avg": 44.81,
-        "newer_half_avg": 38.0
+        "newer_half_avg": 38.06
       },
       "body_battery": {
         "avg": 86.27,
@@ -603,31 +603,31 @@
         "newer_half_avg": 84.24
       },
       "stress": {
-        "avg": 26.88,
-        "min": 12.0,
+        "avg": 27.06,
+        "min": 18.0,
         "max": 42.0,
         "first": 22.0,
-        "last": 12.0,
+        "last": 18.0,
         "older_half_avg": 24.25,
-        "newer_half_avg": 29.35
+        "newer_half_avg": 29.71
       },
       "steps": {
-        "avg": 9070.52,
-        "min": 2039.0,
+        "avg": 9117.12,
+        "min": 3577.0,
         "max": 14301.0,
         "first": 7461.0,
-        "last": 2039.0,
+        "last": 3577.0,
         "older_half_avg": 9196.56,
-        "newer_half_avg": 8951.88
+        "newer_half_avg": 9042.35
       },
       "intensity_minutes": {
-        "avg": 41.3,
+        "avg": 41.33,
         "min": 2.0,
         "max": 140.0,
         "first": 9.0,
-        "last": 5.0,
+        "last": 6.0,
         "older_half_avg": 44.81,
-        "newer_half_avg": 38.0
+        "newer_half_avg": 38.06
       }
     },
     "totals_pulled": {
@@ -807,8 +807,8 @@
       "hrv_rmssd_milli": 87.0,
       "resting_heart_rate": 48.0,
       "body_battery_max": 100.0,
-      "stress_avg": 12.0,
-      "steps": 2039.0,
+      "stress_avg": 18.0,
+      "steps": 3577.0,
       "source": "garmin",
       "created_at": "2026-09-16T12:00:00+02:00",
       "calendar_date": "2026-09-16"
