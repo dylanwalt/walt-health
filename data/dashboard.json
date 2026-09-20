@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-20T20:56:08.334541+00:00",
+  "generated_at": "2026-09-20T23:19:08.736061+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -870,7 +870,7 @@
       "mode": "rest",
       "title": "Recovery / off day",
       "summary": "No lifting prescribed today (MWF plan). Walk, sleep, hit protein + creatine \u2014 or use Makeup / Bonus on the portal if you are at the gym.",
-      "date": "2026-09-20",
+      "date": "2026-09-21",
       "next_session": null,
       "habits": {
         "creatine_monohydrate_g": 5,
@@ -932,14 +932,7 @@
           "body": "Write every working weight. Next session: same reps + more kg, or same kg + more reps."
         }
       ],
-      "unpaid_makeup": {
-        "date": "2026-09-14",
-        "weekday": "monday",
-        "week": 9,
-        "template": "push",
-        "intensity": "max",
-        "note": "Block 3 week 9 Push \u2014 Ramp back after deload. Modest load increases only."
-      },
+      "unpaid_makeup": null,
       "bonus_available": true,
       "bonus_rules": {
         "minutes_target": "35\u201345",
