@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T05:06:47.170758+00:00",
+  "generated_at": "2026-09-25T11:59:58.849717+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -63,12 +63,12 @@
         "min": 31.0,
         "max": 100.0,
         "trend": {
-          "days_31_60_avg": 70.29,
-          "days_1_30_avg": 81.33
+          "days_31_60_avg": 72.38,
+          "days_1_30_avg": 81.14
         }
       },
       "hrv_rmssd_milli": {
-        "avg": 78.17
+        "avg": 78.05
       },
       "resting_heart_rate": {
         "avg": 52.5
@@ -646,11 +646,11 @@
       {
         "date": "2026-09-25",
         "recovery": null,
-        "hrv": null,
+        "hrv": 73.0,
         "rhr": 55.0,
-        "body_battery": 5.0,
-        "stress": 77.0,
-        "steps": 948.0,
+        "body_battery": 24.0,
+        "stress": 50.0,
+        "steps": 991.0,
         "intensity_minutes": 7.0,
         "strain": 7.0
       }
@@ -666,13 +666,13 @@
         "newer_half_avg": 82.0
       },
       "hrv": {
-        "avg": 78.17,
+        "avg": 78.05,
         "min": 40.0,
         "max": 93.0,
         "first": 76.0,
-        "last": 83.0,
+        "last": 73.0,
         "older_half_avg": 78.4,
-        "newer_half_avg": 77.95
+        "newer_half_avg": 77.71
       },
       "rhr": {
         "avg": 52.5,
@@ -711,31 +711,31 @@
         "newer_half_avg": 35.19
       },
       "body_battery": {
-        "avg": 83.57,
-        "min": 5.0,
+        "avg": 84.02,
+        "min": 23.0,
         "max": 100.0,
         "first": 26.0,
-        "last": 5.0,
+        "last": 24.0,
         "older_half_avg": 86.43,
-        "newer_half_avg": 80.71
+        "newer_half_avg": 81.62
       },
       "stress": {
-        "avg": 29.14,
+        "avg": 28.5,
         "min": 18.0,
-        "max": 77.0,
+        "max": 50.0,
         "first": 22.0,
-        "last": 77.0,
+        "last": 50.0,
         "older_half_avg": 25.76,
-        "newer_half_avg": 32.52
+        "newer_half_avg": 31.24
       },
       "steps": {
-        "avg": 9025.5,
-        "min": 948.0,
+        "avg": 9026.52,
+        "min": 991.0,
         "max": 15429.0,
         "first": 7461.0,
-        "last": 948.0,
+        "last": 991.0,
         "older_half_avg": 9262.29,
-        "newer_half_avg": 8788.71
+        "newer_half_avg": 8790.76
       },
       "intensity_minutes": {
         "avg": 40.19,
@@ -921,11 +921,11 @@
     "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
       "recovery_score": null,
-      "hrv_rmssd_milli": null,
+      "hrv_rmssd_milli": 73.0,
       "resting_heart_rate": 55.0,
-      "body_battery_max": 5.0,
-      "stress_avg": 77.0,
-      "steps": 948.0,
+      "body_battery_max": 24.0,
+      "stress_avg": 50.0,
+      "steps": 991.0,
       "source": "garmin",
       "created_at": "2026-09-25T12:00:00+02:00",
       "calendar_date": "2026-09-25"
