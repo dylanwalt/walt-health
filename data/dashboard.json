@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T21:18:10.506775+00:00",
+  "generated_at": "2026-09-26T23:41:45.226396+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -52,9 +52,9 @@
   "window": {
     "days": 60,
     "counts": {
-      "recovery": 43,
+      "recovery": 44,
       "sleep_non_nap": 41,
-      "cycles": 43,
+      "cycles": 44,
       "workouts": 35
     },
     "metrics": {
@@ -71,7 +71,7 @@
         "avg": 78.14
       },
       "resting_heart_rate": {
-        "avg": 52.4
+        "avg": 52.45
       },
       "sleep_performance_pct": {
         "avg": 77.02
@@ -103,9 +103,9 @@
       "35 workouts logged in 60 days (~4.1/week)."
     ],
     "history_totals_all_time_pulled": {
-      "recovery": 43,
+      "recovery": 44,
       "sleep": 41,
-      "cycle": 43,
+      "cycle": 44,
       "workout": 35
     }
   },
@@ -660,12 +660,23 @@
         "hrv": 82.0,
         "rhr": 50.0,
         "body_battery": 95.0,
-        "stress": 22.0,
-        "steps": 4676.0,
+        "stress": 23.0,
+        "steps": 6519.0,
         "intensity_minutes": 10.0,
         "sleep_hours": 9.2,
         "sleep_perf": 84.0,
         "strain": 10.0
+      },
+      {
+        "date": "2026-09-27",
+        "recovery": null,
+        "hrv": null,
+        "rhr": 55.0,
+        "body_battery": 38.0,
+        "stress": 16.0,
+        "steps": null,
+        "intensity_minutes": null,
+        "strain": null
       }
     ],
     "summaries": {
@@ -688,13 +699,13 @@
         "newer_half_avg": 77.67
       },
       "rhr": {
-        "avg": 52.4,
+        "avg": 52.45,
         "min": 48.0,
         "max": 60.0,
         "first": 60.0,
-        "last": 50.0,
-        "older_half_avg": 53.14,
-        "newer_half_avg": 51.68
+        "last": 55.0,
+        "older_half_avg": 53.09,
+        "newer_half_avg": 51.82
       },
       "sleep_hours": {
         "avg": 7.29,
@@ -724,31 +735,31 @@
         "newer_half_avg": 34.27
       },
       "body_battery": {
-        "avg": 84.28,
+        "avg": 83.23,
         "min": 23.0,
         "max": 100.0,
         "first": 26.0,
-        "last": 95.0,
-        "older_half_avg": 86.43,
-        "newer_half_avg": 82.23
+        "last": 38.0,
+        "older_half_avg": 86.82,
+        "newer_half_avg": 79.64
       },
       "stress": {
-        "avg": 28.16,
-        "min": 18.0,
+        "avg": 27.91,
+        "min": 16.0,
         "max": 50.0,
         "first": 22.0,
-        "last": 22.0,
-        "older_half_avg": 25.76,
-        "newer_half_avg": 30.45
+        "last": 16.0,
+        "older_half_avg": 26.23,
+        "newer_half_avg": 29.59
       },
       "steps": {
-        "avg": 9034.98,
+        "avg": 9077.84,
         "min": 4303.0,
         "max": 15429.0,
         "first": 7461.0,
-        "last": 4676.0,
+        "last": 6519.0,
         "older_half_avg": 9262.29,
-        "newer_half_avg": 8818.0
+        "newer_half_avg": 8901.77
       },
       "intensity_minutes": {
         "avg": 39.6,
@@ -761,9 +772,9 @@
       }
     },
     "totals_pulled": {
-      "recovery": 43,
+      "recovery": 44,
       "sleep": 41,
-      "cycle": 43,
+      "cycle": 44,
       "workout": 35
     }
   },
@@ -933,21 +944,21 @@
   "today": {
     "local_hint": "Open Today on your phone at the gym. Gym first. Home only if gym is impossible.",
     "latest_recovery": {
-      "recovery_score": 81.0,
-      "hrv_rmssd_milli": 82.0,
-      "resting_heart_rate": 50.0,
-      "body_battery_max": 95.0,
-      "stress_avg": 22.0,
-      "steps": 4676.0,
+      "recovery_score": null,
+      "hrv_rmssd_milli": null,
+      "resting_heart_rate": 55.0,
+      "body_battery_max": 38.0,
+      "stress_avg": 16.0,
+      "steps": null,
       "source": "garmin",
-      "created_at": "2026-09-26T12:00:00+02:00",
-      "calendar_date": "2026-09-26"
+      "created_at": "2026-09-27T12:00:00+02:00",
+      "calendar_date": "2026-09-27"
     },
     "guided_workout": {
       "mode": "rest",
       "title": "Recovery / off day",
       "summary": "No lifting prescribed today (MWF plan). Walk, sleep, hit protein + creatine \u2014 or use Makeup / Bonus on the portal if you are at the gym.",
-      "date": "2026-09-26",
+      "date": "2026-09-27",
       "next_session": null,
       "habits": {
         "creatine_monohydrate_g": 5,
