@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T18:09:02.013644+00:00",
+  "generated_at": "2026-09-29T22:24:49.918712+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -80,7 +80,7 @@
         "avg": 8.23
       },
       "cycle_strain": {
-        "avg": 38.15
+        "avg": 38.17
       },
       "workout_strain": {
         "avg": 0.59
@@ -99,7 +99,7 @@
       "Garmin watch started Saturday 2026-08-15 \u2014 expect a short series for ~1 week. Do not compare 60-day Garmin averages to the old WHOOP window until more nights exist. Training Readiness is still onboarding (HRV baseline not established).",
       "Average recovery over last 60 days is solid (>=67).",
       "Average sleep duration supports progressive overload.",
-      "Average daily cycle strain ~38.15 over the window.",
+      "Average daily cycle strain ~38.17 over the window.",
       "35 workouts logged in 60 days (~4.1/week)."
     ],
     "history_totals_all_time_pulled": {
@@ -699,12 +699,12 @@
         "hrv": 75.0,
         "rhr": 49.0,
         "body_battery": 99.0,
-        "stress": 18.0,
-        "steps": 3400.0,
-        "intensity_minutes": 4.0,
+        "stress": 24.0,
+        "steps": 5857.0,
+        "intensity_minutes": 5.0,
         "sleep_hours": 8.37,
         "sleep_perf": 88.0,
-        "strain": 4.0
+        "strain": 5.0
       }
     ],
     "summaries": {
@@ -754,13 +754,13 @@
         "newer_half_avg": 78.36
       },
       "strain": {
-        "avg": 38.15,
+        "avg": 38.17,
         "min": 2.0,
         "max": 140.0,
         "first": 9.0,
-        "last": 4.0,
+        "last": 5.0,
         "older_half_avg": 45.22,
-        "newer_half_avg": 31.09
+        "newer_half_avg": 31.13
       },
       "body_battery": {
         "avg": 85.26,
@@ -772,31 +772,31 @@
         "newer_half_avg": 83.13
       },
       "stress": {
-        "avg": 27.76,
+        "avg": 27.89,
         "min": 18.0,
         "max": 50.0,
         "first": 22.0,
-        "last": 18.0,
+        "last": 24.0,
         "older_half_avg": 26.0,
-        "newer_half_avg": 29.52
+        "newer_half_avg": 29.78
       },
       "steps": {
-        "avg": 8959.8,
-        "min": 3400.0,
+        "avg": 9013.22,
+        "min": 4303.0,
         "max": 15429.0,
         "first": 7461.0,
-        "last": 3400.0,
+        "last": 5857.0,
         "older_half_avg": 9278.0,
-        "newer_half_avg": 8641.61
+        "newer_half_avg": 8748.43
       },
       "intensity_minutes": {
-        "avg": 38.15,
+        "avg": 38.17,
         "min": 2.0,
         "max": 140.0,
         "first": 9.0,
-        "last": 4.0,
+        "last": 5.0,
         "older_half_avg": 45.22,
-        "newer_half_avg": 31.09
+        "newer_half_avg": 31.13
       }
     },
     "totals_pulled": {
@@ -976,8 +976,8 @@
       "hrv_rmssd_milli": 75.0,
       "resting_heart_rate": 49.0,
       "body_battery_max": 99.0,
-      "stress_avg": 18.0,
-      "steps": 3400.0,
+      "stress_avg": 24.0,
+      "steps": 5857.0,
       "source": "garmin",
       "created_at": "2026-09-29T12:00:00+02:00",
       "calendar_date": "2026-09-29"
@@ -986,7 +986,7 @@
       "mode": "rest",
       "title": "Recovery / off day",
       "summary": "No lifting prescribed today (MWF plan). Walk, sleep, hit protein + creatine \u2014 or use Makeup / Bonus on the portal if you are at the gym.",
-      "date": "2026-09-29",
+      "date": "2026-09-30",
       "next_session": null,
       "habits": {
         "creatine_monohydrate_g": 5,
