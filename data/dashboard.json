@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T13:06:33.927947+00:00",
+  "generated_at": "2026-10-11T19:36:51.225649+00:00",
   "athlete": {
     "first_name": "Dylan"
   },
@@ -855,8 +855,8 @@
         "hrv": 77.0,
         "rhr": 53.0,
         "body_battery": 75.0,
-        "stress": 22.0,
-        "steps": 3492.0,
+        "stress": 26.0,
+        "steps": 6154.0,
         "intensity_minutes": 5.0,
         "sleep_hours": 5.83,
         "sleep_perf": 58.0,
@@ -928,22 +928,22 @@
         "newer_half_avg": 87.0
       },
       "stress": {
-        "avg": 27.45,
+        "avg": 27.52,
         "min": 18.0,
         "max": 50.0,
         "first": 22.0,
-        "last": 22.0,
+        "last": 26.0,
         "older_half_avg": 27.34,
-        "newer_half_avg": 27.55
+        "newer_half_avg": 27.69
       },
       "steps": {
-        "avg": 8833.47,
-        "min": 3492.0,
+        "avg": 8879.36,
+        "min": 4303.0,
         "max": 15429.0,
         "first": 7461.0,
-        "last": 3492.0,
+        "last": 6154.0,
         "older_half_avg": 9344.0,
-        "newer_half_avg": 8322.93
+        "newer_half_avg": 8414.72
       },
       "intensity_minutes": {
         "avg": 33.83,
@@ -1132,8 +1132,8 @@
       "hrv_rmssd_milli": 77.0,
       "resting_heart_rate": 53.0,
       "body_battery_max": 75.0,
-      "stress_avg": 22.0,
-      "steps": 3492.0,
+      "stress_avg": 26.0,
+      "steps": 6154.0,
       "source": "garmin",
       "created_at": "2026-10-11T12:00:00+02:00",
       "calendar_date": "2026-10-11"
