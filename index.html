@@ -4,28 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WALT HEALTH</title>
-  <meta name="description" content="WALT HEALTH — private recovery and training portal." />
+  <meta name="description" content="WALT HEALTH — your simple, private workout portal." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
   <link rel="icon" href="assets/logo-mark.svg" type="image/svg+xml" />
   <style>
     :root {
-      --bg: #0b0b0c;
-      --panel: rgba(18, 19, 22, 0.72);
-      --ice: #95c8e2;
-      --ice-soft: #b7d9eb;
-      --ice-dim: rgba(149, 200, 226, 0.14);
-      --white: #f5f7f8;
-      --muted: #9aa3a8;
-      --line: rgba(149, 200, 226, 0.16);
-      --danger: #ff8f8f;
-      --ok: #7dcea0;
-      --amber: #e8b86d;
-      --pulse: #9b8fd9;
-      --coral: #ff6b4a;
-      --mint: #3ddc97;
-      --sky: #5eb1ff;
+      --bg: #f5f5f0;
+      --panel: #ffffff;
+      --ice: #28675e;
+      --ice-soft: #204c45;
+      --ice-dim: rgba(40, 103, 94, 0.09);
+      --white: #172724;
+      --muted: #6d7a75;
+      --line: rgba(30, 67, 59, 0.15);
+      --danger: #b84b42;
+      --ok: #2d8062;
+      --amber: #a66c24;
+      --pulse: #7767b0;
+      --coral: #d86a43;
+      --mint: #31836b;
+      --sky: #347a9e;
       --font-display: "Syne", sans-serif;
       --font-body: "Manrope", sans-serif;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -36,13 +36,12 @@
       font-family: var(--font-body);
       color: var(--white);
       background:
-        radial-gradient(1100px 640px at 88% -8%, rgba(149, 200, 226, 0.18), transparent 58%),
-        radial-gradient(720px 520px at -8% 72%, rgba(149, 200, 226, 0.09), transparent 55%),
-        radial-gradient(500px 380px at 48% 108%, rgba(149, 200, 226, 0.06), transparent 50%),
-        linear-gradient(168deg, #09090a 0%, #101114 46%, #0b0b0c 100%);
+        radial-gradient(900px 540px at 100% 0%, rgba(170, 204, 185, 0.22), transparent 60%),
+        linear-gradient(160deg, #fafaf7 0%, #f2f4ef 100%);
     }
     body::before {
       content: "";
+      display: none;
       position: fixed; inset: 0; pointer-events: none; opacity: 0.28; z-index: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
       mix-blend-mode: soft-light;
@@ -1421,6 +1420,93 @@
       .sm-card h3 { font-size: 1.1rem; }
       .top { padding: 0.55rem 0.75rem; }
     }
+    /* Workout-first light interface */
+    body { color: var(--white); }
+    .top {
+      background: rgba(250, 250, 247, 0.88); border-color: var(--line);
+      backdrop-filter: blur(16px); min-height: 72px;
+    }
+    .brand-mini strong { color: #1e4039; }
+    .brand-mini img { filter: saturate(0.72); }
+    .gate-panel p, .hero-strip p { color: var(--muted); }
+    .gate-form input[type="password"] { background: #fff; color: var(--white); border-color: var(--line); }
+    .gate-panel .mark { filter: saturate(0.72); }
+    .btn { background: var(--ice); border-color: var(--ice); color: #fff; }
+    .btn.ghost { color: var(--ice); border-color: var(--line); }
+    .view { max-width: 1080px; padding: clamp(1.25rem, 5vw, 4.5rem); }
+    #view-home.active { min-height: calc(100svh - 72px); display: flex; flex-direction: column; justify-content: center; }
+    .home-intro { margin: 0 auto 2rem; width: min(100%, 820px); }
+    .home-intro .kicker { color: var(--ice); font-size: .76rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
+    .home-intro h1 { margin: .45rem 0 .55rem; font: 700 clamp(2.1rem, 6vw, 4rem)/1.05 var(--font-display); letter-spacing: -.045em; color: #18352f; }
+    .home-intro p { margin: 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.15rem); }
+    .workout-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: min(100%, 820px); margin: 0 auto; }
+    .workout-choice {
+      position: relative; min-height: 190px; padding: 1.35rem 1.45rem; border: 1px solid var(--line); border-radius: 22px;
+      color: #17342e; text-align: left; cursor: pointer; display: flex; flex-direction: column; align-items: flex-start;
+      box-shadow: 0 10px 24px rgba(32, 58, 50, .045); transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      font-family: var(--font-body);
+    }
+    .workout-choice:hover { transform: translateY(-3px); border-color: rgba(40,103,94,.42); box-shadow: 0 16px 36px rgba(32,58,50,.11); }
+    .push-choice { background: #e5eee6; }
+    .pull-choice { background: #e8edf2; }
+    .shoulder-choice { background: #f0e9df; }
+    .bonus-choice { background: #e9e7f1; }
+    .choice-number { color: #667a72; font-size: .72rem; font-weight: 700; letter-spacing: .12em; }
+    .choice-title { margin-top: 1rem; font: 700 clamp(1.6rem, 3vw, 2.2rem)/1 var(--font-display); letter-spacing: -.03em; }
+    .choice-detail { margin-top: .65rem; color: #61716b; font-size: .9rem; }
+    .choice-arrow { position: absolute; top: 1.2rem; right: 1.3rem; font-size: 1.2rem; color: #55736a; }
+    .home-return { appearance:none; border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--ice); padding:.62rem 1rem; font:600 .88rem var(--font-body); cursor:pointer; }
+    .home-return:hover { background:#eef3ef; }
+    #view-home.active ~ .view { display:none !important; }
+    #view-today.active .hero-strip, #view-today.active .week-nav, #view-today.active .day-rail, #view-today.active .jump-chips,
+    .session-meta, .habits-row, .tips-block, .priority-box,
+    .sm-meta, .sm-diagram, .sm-rings, .sm-importance, .sm-sources { display:none !important; }
+    #view-today { max-width:760px; padding-top:clamp(1rem,3vw,2rem); }
+    #todayGuide .session-toolbar { margin: 0 auto .85rem; max-width: 430px; }
+    #todayGuide .mode-toggle, #todayGuide .home-warn { display:none !important; }
+    .session-mode { color:var(--white); max-width:520px; }
+    .sm-card, .sm-howto-body { background:#fff; color:#253a34; border-color:var(--line); box-shadow:0 12px 34px rgba(32,58,50,.07); }
+    .sm-card h3, .sm-howto-body h4, .sm-chip strong { color:#193a33 !important; }
+    .sm-chip { color:#55736a !important; background:#f0f4f1 !important; }
+    .sm-dose { color:var(--ice) !important; }
+    .sm-diagram { background:#edf1ed; border-color:var(--line); }
+    .sm-feel { color:#bd6344 !important; }
+    .sm-importance span { background:#f8ece7; color:#9d5038; border-color:#ead3c8; }
+    .sm-importance span.keep { background:#e8f2eb; color:#2d735d; border-color:#c8dfd0; }
+    .sm-load .ll { background:#eff4f1; border-left-color:var(--ice); }
+    .sm-rom { color:#425c54; }
+    .sm-progress { background:#f2f5f2; }
+    .sm-progress .sp-label strong { color:var(--ice-soft); }
+    .sm-dock { background:rgba(250,250,247,.94); border-color:var(--line); }
+    .sm-dock button { background:#fff; color:#29483f; border-color:var(--line); }
+    .sm-dock button.primary { color:#fff; background:var(--ice); border-color:var(--ice); }
+    .sm-dock button.howto { color:var(--sky); }
+    .sm-howto-top { background:linear-gradient(180deg,rgba(245,245,240,.98),rgba(245,245,240,.88) 70%,transparent); }
+    .sm-howto-top h3 { color:#193a33; }
+    .sm-howto-top button { color:var(--ice); border-color:var(--line); }
+    .sm-arrow { color:var(--ice); border-color:var(--line); background:#fff; }
+    .sm-ring svg text { fill:#243a34 !important; }
+    .sm-ring .rl { color:var(--muted); }
+    .altSheet .panel, .sm-sheet .panel { background:#fff; color:#233a34; border:1px solid var(--line); }
+    .altSheet .panel h4 { color:#193a33; }
+    .altSheet .alt, .sm-sheet .reason { background:#f5f7f4; color:#29483f; border-color:var(--line); }
+    .oauth-panel { background:#fff; color:var(--white); }
+    textarea { background:#f4f6f3; color:var(--white); }
+    .oauth-panel h1 { color:#18352f; }
+    .gate-panel h1 { color:#18352f; }
+    .gate-panel .mark, .oauth-panel .mark { filter: saturate(.72); }
+    body:not(.oauth-mode) .app .view:not(#view-home):not(#view-today) { display:none !important; }
+    body:not(.oauth-mode) .app #view-home:not(.active) { display:none !important; }
+    @media(max-width:620px) {
+      .top { min-height:64px; padding:.7rem 1rem; flex-direction:row; align-items:center; }
+      #view-home.active { min-height:calc(100svh - 64px); }
+      .workout-grid { grid-template-columns:1fr; gap:.7rem; }
+      .workout-choice { min-height:98px; padding:.9rem 1.05rem; border-radius:18px; }
+      .choice-title { margin-top:.38rem; }
+      .choice-detail { margin-top:.28rem; }
+      .choice-arrow { top:1rem; right:1.1rem; }
+      .home-intro { margin-bottom:1.35rem; }
+    }
   </style>
 </head>
 <body class="locked">
@@ -1445,20 +1531,38 @@
           <img src="assets/logo-mark.svg" alt="" />
           <strong>WALT HEALTH</strong>
         </div>
-        <nav class="nav" aria-label="Sections">
-          <button type="button" data-view="today" class="active">Today</button>
-          <button type="button" data-view="plan">Plan</button>
-          <button type="button" data-view="food">Food</button>
-          <button type="button" data-view="overview">Overview</button>
-          <button type="button" data-view="history">History</button>
-          <button type="button" data-view="you">You</button>
-          <button type="button" id="demoToggle" class="demo-btn" aria-pressed="false" title="Show friends without touching your real plan">Demo</button>
-        </nav>
+        <button type="button" class="home-return" id="workoutBack" hidden>← Workouts</button>
       </header>
       <div id="demoBanner" class="demo-banner" hidden role="status">
         DEMO MODE — ticks, skips, and progress stay in a sandbox. Your real plan is untouched.
         <button type="button" id="demoExit">Exit demo</button>
       </div>
+
+      <section class="view active" id="view-home" aria-labelledby="homeTitle">
+        <div class="home-intro">
+          <div class="kicker">Your training</div>
+          <h1 id="homeTitle">What are we training?</h1>
+          <p>Pick a session and get straight to it.</p>
+        </div>
+        <div class="workout-grid" role="group" aria-label="Choose a workout">
+          <button class="workout-choice push-choice" type="button" data-workout="push">
+            <span class="choice-number">01</span><span class="choice-title">Push</span>
+            <span class="choice-detail">Chest · shoulders · triceps</span><span class="choice-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="workout-choice pull-choice" type="button" data-workout="pull">
+            <span class="choice-number">02</span><span class="choice-title">Pull</span>
+            <span class="choice-detail">Back · rear delts · biceps</span><span class="choice-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="workout-choice shoulder-choice" type="button" data-workout="shoulders">
+            <span class="choice-number">03</span><span class="choice-title">Shoulders</span>
+            <span class="choice-detail">Delts · arms · core</span><span class="choice-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="workout-choice bonus-choice" type="button" data-workout="bonus">
+            <span class="choice-number">04</span><span class="choice-title">Bonus</span>
+            <span class="choice-detail">Biceps · extra arm work</span><span class="choice-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </section>
 
       <section class="view" id="view-overview">
         <div class="hero-strip">
@@ -1601,7 +1705,7 @@
         <div id="planBriefing" class="plan-briefing" aria-live="polite"></div>
       </section>
 
-      <section class="view active" id="view-today">
+      <section class="view" id="view-today">
         <div class="hero-strip">
           <div class="kicker">Session guide</div>
           <h2 id="todayTitle">Today</h2>
@@ -1852,6 +1956,40 @@
             });
           }
         });
+      });
+
+      function showAppView(viewId) {
+        document.querySelectorAll(".view").forEach((view) => view.classList.toggle("active", view.id === viewId));
+        const back = document.getElementById("workoutBack");
+        if (back) back.hidden = viewId === "view-home";
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+
+      document.querySelectorAll("[data-workout]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const data = window.__waltDashboard;
+          const template = button.getAttribute("data-workout");
+          if (!data || !data.plan || !data.plan.templates || !data.plan.templates[template]) return;
+          const today = getPortalNow();
+          const iso = isoDate(today);
+          window.__waltSelectedDate = today;
+          window.__waltWeekOffset = 0;
+          window.__waltSessionOverride = {
+            date: iso,
+            template: template,
+            week: 1,
+            kind: template === "bonus" ? "bonus" : "session",
+            note: ""
+          };
+          refreshCalendarAndSession();
+          showAppView("view-today");
+        });
+      });
+
+      const workoutBack = document.getElementById("workoutBack");
+      if (workoutBack) workoutBack.addEventListener("click", () => {
+        window.__waltSessionOverride = null;
+        showAppView("view-home");
       });
 
       function refreshAfterDemoToggle() {
@@ -2870,7 +3008,30 @@
             let notes = mv.notes || "";
             const isCond = String(mv.reps) === "time" || /conditioning|finisher/i.test(name);
             if (isCond) notes = condMin + " minutes · " + notes;
-            const meta = lookupExercise(name, library);
+            const baseMeta = lookupExercise(name, library);
+            const bonusAlternatives = /preacher curl/i.test(name)
+              ? [
+                  { name: "Cable curl", when: "No preacher bench", keep_original_pct: 95 },
+                  { name: "Incline dumbbell curl", when: "Dumbbells available", keep_original_pct: 90 }
+                ]
+              : /hammer curl/i.test(name)
+                ? [
+                    { name: "Rope hammer curl", when: "Cable station available", keep_original_pct: 95 },
+                    { name: "Cross-body dumbbell hammer curl", when: "Dumbbells available", keep_original_pct: 95 }
+                  ]
+                : /ez-bar curl/i.test(name)
+                  ? [
+                      { name: "Dumbbell curl", when: "No EZ bar", keep_original_pct: 95 },
+                      { name: "Cable curl", when: "Cable station available", keep_original_pct: 90 }
+                    ]
+                  : /cable curl|alternating dumbbell curl/i.test(name)
+                    ? [
+                        { name: "Dumbbell curl", when: "No cable station", keep_original_pct: 95 },
+                        { name: "EZ-bar curl", when: "Bar available", keep_original_pct: 90 }
+                      ]
+                    : null;
+            const meta = Object.assign({}, baseMeta);
+            if (bonusAlternatives && !meta.alternatives) meta.alternatives = bonusAlternatives;
             const sets = scaleSets(mv.sets_base, scale);
             const loadType = meta.load_type || (isCond ? "cardio" : "kg");
             const timing = meta.timing || { work_sec_per_set: 45, rest_sec_between_sets: 75, rest_sec_before_next: 60 };
@@ -3141,7 +3302,7 @@
                 kind: "bonus",
                 template: "bonus",
                 week: 1,
-                note: "Optional calisthenics bonus · ~35–45 min · RIR ~2–3 · does not count as a plan hit."
+                note: "Optional biceps pump · keep 2–3 clean reps in reserve · does not count as a plan hit."
               };
               upsertDayLog(iso, { kind: "bonus", template_id: "bonus" });
               refreshCalendarAndSession();
@@ -3156,24 +3317,19 @@
         const homeMoves = workout.home || [];
         const sessionIso = String(workout.date || isoDate(window.__waltSelectedDate || getPortalNow()));
         const dayLog = getDayLog(sessionIso);
-        const startMode = dayLog.mode === "home" ? "home" : "gym";
+        const startMode = "gym";
         const ringsMeta = workout.goal_rings || [
           { id: "shoulders", label: "Shoulders", color: "#FF6B4A" },
           { id: "chest_upper", label: "Chest / upper", color: "#3DDC97" },
           { id: "recomp", label: "Recomp", color: "#5EB1FF" }
         ];
-        const overrideExit = (workout.kind === "bonus" || workout.kind === "makeup")
-          ? '<button type="button" class="btn ghost" id="exitOverrideSession" style="margin-left:0.35rem;padding:0.45rem 0.75rem;font-size:0.8rem">Exit ' +
-            escapeHtml(workout.kind) + "</button>"
-          : "";
-
         guide.innerHTML =
           priorityHtml +
           '<div class="session-toolbar">' +
           '<div class="mode-toggle" role="group" aria-label="Location">' +
           '<button type="button" data-mode="gym">Gym session</button>' +
           '<button type="button" data-mode="home">Home (last resort)</button>' +
-          "</div>" + overrideExit + "</div>" +
+          "</div></div>" +
           '<p class="home-warn" id="homeWarn">Home is last resort. Prefer a makeup gym day when you can.</p>' +
           '<div class="session-meta">' +
           '<div class="chip"><div class="k">Phase</div><div class="v">' + escapeHtml(String(workout.week_label || workout.week || "—")) + "</div></div>" +
@@ -3234,14 +3390,6 @@
         if (teaserBtn) teaserBtn.addEventListener("click", openPushGuide);
         const pushBack = document.getElementById("pushGuideBack");
         if (pushBack) pushBack.addEventListener("click", closePushGuide);
-        const exitOverride = document.getElementById("exitOverrideSession");
-        if (exitOverride) {
-          exitOverride.addEventListener("click", () => {
-            window.__waltSessionOverride = null;
-            refreshCalendarAndSession();
-          });
-        }
-
         function ringSvg(pct, color) {
           const p = Math.max(0, Math.min(100, Number(pct) || 0));
           const r = 26;
