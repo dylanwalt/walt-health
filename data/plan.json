@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T15:59:23.627740+00:00",
+  "generated_at": "2026-10-18T20:54:27.653981+00:00",
   "plan": {
     "status": "active",
     "option": "C",
@@ -24,7 +24,7 @@
         "Same stable menu as block 1 \u2014 progress load/reps (packs 04/10/11/15)",
         "Upper-body visual priority: shoulders, chest, arms, less belly",
         "Legs maintenance only (WHO floor \u2014 not zero)",
-        "Optional bonus day: short biceps pump after the main sessions",
+        "Optional bonus day: short calisthenics skill/pump \u2014 makeup beats bonus (pack 16)",
         "Energy: maintenance or small surplus on training days \u2014 no hard cut (pack 08)",
         "InBody postponed until Dylan can book",
         "Rest: compounds ~2 min; isolation 60\u201390s (pack 12)"
@@ -436,70 +436,84 @@
       },
       "bonus": {
         "id": "bonus",
-        "title": "Bonus \u00b7 biceps",
-        "focus": "Optional arm pump \u00b7 biceps focus \u00b7 keep 2\u20133 clean reps in reserve",
+        "title": "Bonus \u00b7 calisthenics skill + pump",
+        "focus": "Optional off-day skill work \u00b7 NOT a 4th max hypertrophy day",
         "gym": [
           {
-            "name": "EZ-bar curl",
+            "name": "Pull-up or chin-up (or assisted / slow negatives)",
             "sets_base": 3,
-            "reps": "8\u201312",
-            "notes": "Keep elbows close and lower under control. Stop with 2\u20133 clean reps left. Rest 60\u201390 seconds.",
+            "reps": "Max clean or 5\u20138 slow negatives",
+            "notes": "Skill focus. Leave ~2\u20133 clean reps if doing full reps. Rest ~90\u2013120s. (packs 15/16)",
+            "minutes": 8,
+            "rest_seconds": "90\u2013120"
+          },
+          {
+            "name": "Push-up progression (incline \u2192 standard \u2192 feet-elevated)",
+            "sets_base": 3,
+            "reps": "8\u201315",
+            "notes": "Pick a variation you can finish with ~2\u20133 reps left. Controlled tempo. Rest ~60\u201390s. (pack 16 / Kikuchi)",
             "minutes": 8,
             "rest_seconds": "60\u201390"
           },
           {
-            "name": "Preacher curl machine or EZ-bar preacher curl",
+            "name": "Pike push-up or box pike (shoulder skill)",
             "sets_base": 3,
-            "reps": "10\u201312",
-            "notes": "Keep the upper arm supported and use a pain-free range. No bouncing at the bottom. Rest 60\u201390 seconds.",
-            "minutes": 8,
+            "reps": "6\u201312",
+            "notes": "Hips high; quality over volume. RIR ~2\u20133. Rest ~60\u201390s.",
+            "minutes": 7,
             "rest_seconds": "60\u201390"
           },
           {
-            "name": "Dumbbell hammer curl",
-            "sets_base": 3,
-            "reps": "10\u201312",
-            "notes": "Neutral grip, steady torso, controlled lowering. Stop with 2\u20133 clean reps left. Rest 60\u201390 seconds.",
-            "minutes": 8,
-            "rest_seconds": "60\u201390"
-          },
-          {
-            "name": "Cable curl or alternating dumbbell curl",
+            "name": "Captain\u2019s chair / hanging knee raise or hollow hold",
             "sets_base": 2,
-            "reps": "12\u201315",
-            "notes": "Smooth reps and a full squeeze. Choose the variation that feels best on your elbows. Rest 60 seconds.",
-            "minutes": 6,
+            "reps": "8\u201312 or 20\u201340s",
+            "notes": "Optional bonus core. Controlled. Does not spot-reduce belly fat (pack 13). Rest ~60s.",
+            "minutes": 5,
             "rest_seconds": "60"
+          },
+          {
+            "name": "Easy conditioning finisher",
+            "sets_base": 1,
+            "reps": "time",
+            "notes": "Optional ~5 min easy incline walk / rope \u00b7 zone-2. Skip if short on time. (pack 09)",
+            "minutes": 5
           }
         ],
         "home": [
           {
-            "name": "Backpack or dumbbell curl",
+            "name": "Pull-up or slow negatives (bar)",
             "sets_base": 3,
-            "reps": "10\u201315",
-            "notes": "Keep elbows close and lower slowly. Stop with 2\u20133 clean reps left.",
+            "reps": "Max / 5\u20138 slow negatives",
+            "notes": "Skill focus \u00b7 RIR ~2\u20133 on full reps.",
             "minutes": 8
           },
           {
-            "name": "Hammer curl with dumbbells or loaded bottles",
+            "name": "Push-up (hands elevated or standard)",
             "sets_base": 3,
-            "reps": "10\u201315",
-            "notes": "Neutral grip, steady torso, controlled lowering.",
+            "reps": "8\u201315",
+            "notes": "Progress variation when top of range is clean.",
             "minutes": 8
           },
           {
-            "name": "Concentration curl with dumbbell or backpack",
+            "name": "Pike push-up (shoulder focus)",
             "sets_base": 3,
-            "reps": "10\u201315",
-            "notes": "Support your upper arm on your thigh and move slowly.",
-            "minutes": 8
+            "reps": "6\u201312",
+            "notes": "Quality reps \u00b7 RIR ~2\u20133.",
+            "minutes": 7
           },
           {
-            "name": "Alternating curl",
+            "name": "Hanging knee raise or crunch",
             "sets_base": 2,
-            "reps": "12\u201315 each side",
-            "notes": "Finish with smooth reps; stop before form breaks.",
-            "minutes": 6
+            "reps": "8\u201315",
+            "notes": "Controlled.",
+            "minutes": 5
+          },
+          {
+            "name": "Easy conditioning finisher",
+            "sets_base": 1,
+            "reps": "time",
+            "notes": "~5 min easy rope or brisk walk \u00b7 optional.",
+            "minutes": 5
           }
         ]
       }
@@ -663,7 +677,7 @@
       "Block 3 locked: 2026-08-17 \u2192 2026-09-18, same Plan C MWF menu, progressive overload + W8 deload.",
       "Overall week count: week 5 starts today Mon 17 Aug (after blocks 1\u20132).",
       "InBody postponed until Dylan can book \u2014 target after week 9.",
-      "Training-pro review (2026-08-17): approved MWF split + stable menu; mandated W8 deload after 7 hard weeks; kept the main weekly menu stable; bonus biceps work is available separately.",
+      "Training-pro review (2026-08-17): approved MWF split + stable menu; mandated W8 deload after 7 hard weeks; deferred forearm/bicep additions to keep menu stable per Dylan request.",
       "Mon 2026-08-17: walk to/from gym today only \u2014 skip conditioning finisher.",
       "Rest-day portal: Makeup-first button if a planned day is unpaid; else/also Start bonus session.",
       "Citations: data/sources/01\u201316.",
@@ -674,7 +688,7 @@
     "attendance_priority": [
       "First prize: Gym on Monday, Wednesday, and Friday",
       "Second: Still three gym days \u2014 makeup Tuesday or Thursday if you miss a plan day (Makeup beats Bonus)",
-      "Optional: Short biceps bonus on a true off day (prefer \u22641/week) \u2014 does not replace a missed MWF",
+      "Optional: Short calisthenics bonus on a true off day (prefer \u22641/week) \u2014 does not replace a missed MWF",
       "Last resort: Home only if getting to Virgin Active is truly impossible for that session"
     ],
     "session_tips": [
@@ -684,7 +698,7 @@
       },
       {
         "title": "Makeup beats bonus",
-        "body": "If you missed a planned MWF, do that template on your next gym visit before the biceps bonus. Bonus never counts as the week\u2019s third plan hit (pack 16)."
+        "body": "If you missed a planned MWF, do that template on your next gym visit before any calisthenics bonus. Bonus never counts as the week\u2019s third plan hit (pack 16)."
       },
       {
         "title": "Why keep the same lifts",
@@ -745,12 +759,12 @@
         "If you had 4+ easy reps left, go heavier next set.",
         "If a rep gets stuck or form breaks, the set is over \u2014 drop load next time."
       ],
-      "plan_fit_intro": "Plan C block 3 (weeks 5\u20139): same upper-hypertrophy MWF menu, beat prior logs, week 8 deload at ~85% sets, optional biceps bonus on true off days.",
+      "plan_fit_intro": "Plan C block 3 (weeks 5\u20139): same upper-hypertrophy MWF menu, beat prior logs, week 8 deload at ~85% sets, optional calisthenics bonus on true off days.",
       "session_roles": {
         "push": "Main chest + front/side-delt builder. This day drives the upper-body look the block is chasing.",
         "pull": "Balances pressing, builds the V-taper (lats), rounds rear delts for 3D shoulders, and feeds arm size \u2014 without becoming a leg specialty day.",
         "shoulders": "Priority side-delt volume day. Rounder shoulders are the #1 visual goal of this experiment.",
-        "bonus": "Optional biceps pump. Keep 2–3 reps in reserve; never replace a missed session."
+        "bonus": "Optional skill/pump day. Lighter RIR. Never replaces a missed MWF."
       },
       "source": "data/sources/04_overload_stable_menu.md"
     },
