@@ -436,84 +436,70 @@
       },
       "bonus": {
         "id": "bonus",
-        "title": "Bonus \u00b7 calisthenics skill + pump",
-        "focus": "Optional off-day skill work \u00b7 NOT a 4th max hypertrophy day",
+        "title": "Bonus \u00b7 biceps",
+        "focus": "Optional arm pump \u00b7 biceps focus \u00b7 keep 2\u20133 clean reps in reserve",
         "gym": [
           {
-            "name": "Pull-up or chin-up (or assisted / slow negatives)",
+            "name": "EZ-bar curl",
             "sets_base": 3,
-            "reps": "Max clean or 5\u20138 slow negatives",
-            "notes": "Skill focus. Leave ~2\u20133 clean reps if doing full reps. Rest ~90\u2013120s. (packs 15/16)",
-            "minutes": 8,
-            "rest_seconds": "90\u2013120"
-          },
-          {
-            "name": "Push-up progression (incline \u2192 standard \u2192 feet-elevated)",
-            "sets_base": 3,
-            "reps": "8\u201315",
-            "notes": "Pick a variation you can finish with ~2\u20133 reps left. Controlled tempo. Rest ~60\u201390s. (pack 16 / Kikuchi)",
+            "reps": "8\u201312",
+            "notes": "Keep elbows close and lower under control. Stop with 2\u20133 clean reps left. Rest 60\u201390 seconds.",
             "minutes": 8,
             "rest_seconds": "60\u201390"
           },
           {
-            "name": "Pike push-up or box pike (shoulder skill)",
+            "name": "Preacher curl machine or EZ-bar preacher curl",
             "sets_base": 3,
-            "reps": "6\u201312",
-            "notes": "Hips high; quality over volume. RIR ~2\u20133. Rest ~60\u201390s.",
-            "minutes": 7,
+            "reps": "10\u201312",
+            "notes": "Keep the upper arm supported and use a pain-free range. No bouncing at the bottom. Rest 60\u201390 seconds.",
+            "minutes": 8,
             "rest_seconds": "60\u201390"
           },
           {
-            "name": "Captain\u2019s chair / hanging knee raise or hollow hold",
+            "name": "Dumbbell hammer curl",
+            "sets_base": 3,
+            "reps": "10\u201312",
+            "notes": "Neutral grip, steady torso, controlled lowering. Stop with 2\u20133 clean reps left. Rest 60\u201390 seconds.",
+            "minutes": 8,
+            "rest_seconds": "60\u201390"
+          },
+          {
+            "name": "Cable curl or alternating dumbbell curl",
             "sets_base": 2,
-            "reps": "8\u201312 or 20\u201340s",
-            "notes": "Optional bonus core. Controlled. Does not spot-reduce belly fat (pack 13). Rest ~60s.",
-            "minutes": 5,
+            "reps": "12\u201315",
+            "notes": "Smooth reps and a full squeeze. Choose the variation that feels best on your elbows. Rest 60 seconds.",
+            "minutes": 6,
             "rest_seconds": "60"
-          },
-          {
-            "name": "Easy conditioning finisher",
-            "sets_base": 1,
-            "reps": "time",
-            "notes": "Optional ~5 min easy incline walk / rope \u00b7 zone-2. Skip if short on time. (pack 09)",
-            "minutes": 5
           }
         ],
         "home": [
           {
-            "name": "Pull-up or slow negatives (bar)",
+            "name": "Backpack or dumbbell curl",
             "sets_base": 3,
-            "reps": "Max / 5\u20138 slow negatives",
-            "notes": "Skill focus \u00b7 RIR ~2\u20133 on full reps.",
+            "reps": "10\u201315",
+            "notes": "Keep elbows close and lower slowly. Stop with 2\u20133 clean reps left.",
             "minutes": 8
           },
           {
-            "name": "Push-up (hands elevated or standard)",
+            "name": "Hammer curl with dumbbells or loaded bottles",
             "sets_base": 3,
-            "reps": "8\u201315",
-            "notes": "Progress variation when top of range is clean.",
+            "reps": "10\u201315",
+            "notes": "Neutral grip, steady torso, controlled lowering.",
             "minutes": 8
           },
           {
-            "name": "Pike push-up (shoulder focus)",
+            "name": "Concentration curl with dumbbell or backpack",
             "sets_base": 3,
-            "reps": "6\u201312",
-            "notes": "Quality reps \u00b7 RIR ~2\u20133.",
-            "minutes": 7
+            "reps": "10\u201315",
+            "notes": "Support your upper arm on your thigh and move slowly.",
+            "minutes": 8
           },
           {
-            "name": "Hanging knee raise or crunch",
+            "name": "Alternating curl",
             "sets_base": 2,
-            "reps": "8\u201315",
-            "notes": "Controlled.",
-            "minutes": 5
-          },
-          {
-            "name": "Easy conditioning finisher",
-            "sets_base": 1,
-            "reps": "time",
-            "notes": "~5 min easy rope or brisk walk \u00b7 optional.",
-            "minutes": 5
+            "reps": "12\u201315 each side",
+            "notes": "Finish with smooth reps; stop before form breaks.",
+            "minutes": 6
           }
         ]
       }
