@@ -1568,13 +1568,13 @@
         <div class="hero-strip">
           <div class="kicker">Private coaching portal</div>
           <h2 id="greet">Welcome back</h2>
-          <p id="overviewLede">Loading your latest Garmin snapshot…</p>
+          <p id="overviewLede">Loading your training plan…</p>
         </div>
         <div class="hero-grid">
           <div class="big-stat">
             <div class="label">Latest readiness</div>
             <div class="value" id="heroRecovery">—</div>
-            <div class="sub" id="heroRecoverySub">Waiting on Garmin sync</div>
+            <div class="sub" id="heroRecoverySub">Training plan ready</div>
           </div>
           <div class="metrics" id="metrics"></div>
         </div>
@@ -1590,9 +1590,9 @@
 
       <section class="view" id="view-history">
         <div class="hero-strip">
-          <div class="kicker">Garmin evidence</div>
+          <div class="kicker">Training history</div>
           <h2>Historical values</h2>
-          <p id="historyLede">Sixty days of readiness, sleep, load, and heart metrics — pulled from Garmin Connect.</p>
+          <p id="historyLede">Workout history and session progress.</p>
         </div>
         <div class="chart-stack" id="chartStack"></div>
         <hr class="section-rule" />
@@ -1815,7 +1815,7 @@
         const moves = dayLog.moves || {};
         if (Object.keys(moves).some((k) => moveStatusKey(moves[k]) === "done")) return true;
         const planned = ((data && data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
-        if (planned && (planned.logged || planned.garmin_logged || planned.whoop_logged)) return true;
+        if (planned && (planned.logged || planned.whoop_logged)) return true;
         const all = readSessionLog();
         for (const key of Object.keys(all)) {
           if (all[key] && String(all[key].makeup_for || "") === String(iso)) return true;
@@ -2494,7 +2494,7 @@
         const body = p.body || data.body || {};
         document.getElementById("bodyMetrics").innerHTML = [
           ["Height", body.height_m != null ? fmt(body.height_m, 2) + " m" : "—", body.source || ""],
-          ["Weight", body.weight_kg != null ? fmt(body.weight_kg, 1) + " kg" : "—", body.note || "InBody / Garmin"],
+          ["Weight", body.weight_kg != null ? fmt(body.weight_kg, 1) + " kg" : "—", body.note || "InBody / profile"],
           ["Max HR", body.max_heart_rate != null ? body.max_heart_rate : "—", "bpm"],
           ["InBody", (data.body && data.body.inbody) ? "on file" : "pending", "baseline soon"],
         ].map(([label, value, sub]) =>
@@ -2524,7 +2524,7 @@
           ["Bonus activity", "<ul>" + ((lifestyle.sports_bonus || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") +
             ((lifestyle.sports_optional || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("")) + "</ul>"],
           ["Avoid", "<ul>" + ((training.avoid || []).map((x) => "<li>" + escapeHtml(x) + "</li>").join("") || "<li>—</li>") + "</ul>"],
-          ["Measurement", "<p>InBody: " + escapeHtml(measure.inbody || "—") + "</p><p>Garmin: " + escapeHtml(measure.garmin || measure.whoop || "—") + "</p><p>Scale: " + escapeHtml(measure.home_scale || "—") + "</p>"],
+          ["Measurement", "<p>InBody: " + escapeHtml(measure.inbody || "—") + "</p><p>Wearable: " + escapeHtml(measure.whoop || "—") + "</p><p>Scale: " + escapeHtml(measure.home_scale || "—") + "</p>"],
         ].map(([title, bodyHtml]) =>
           '<div class="info-cell"><h4>' + title + "</h4>" + bodyHtml + "</div>"
         ).join("");
@@ -2712,7 +2712,7 @@
         const moves = mode === "home" ? (workout.home || []) : (workout.gym || []);
         const sum = summarizeMoves(moves, dayLog);
         const planned = ((data.plan_adherence && data.plan_adherence.planned) || []).find((p) => String(p.date) === iso);
-        const whoop = !!(planned && (planned.logged || planned.garmin_logged || planned.whoop_logged));
+        const whoop = !!(planned && (planned.logged || planned.whoop_logged));
         const past = iso < isoDate(realNow);
         if (sum.complete) return { state: "green", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
         if (sum.started) return { state: "amber", mode: mode, sum: sum, whoop: whoop, template: workout.template_id };
@@ -2763,7 +2763,7 @@
         const badge = {
           green: "Done",
           amber: "In progress",
-          purple: "Garmin only",
+          purple: "Wearable logged",
           gray: "Up next",
           dim: "Missed"
         };
@@ -2778,7 +2778,7 @@
             return modeLabel + " · " + s.status.sum.done + "/" + s.status.sum.total + " moves checked";
           }
           if (s.status.state === "purple") {
-            return "Garmin saw a workout — open Today and tick the list";
+            return "A wearable logged a workout — open Today and tick the list";
           }
           if (s.status.state === "dim") {
             return "No portal checklist for this day";
@@ -2814,7 +2814,7 @@
           motivate = "Not impressed. You missed planned gym day(s). Makeup Tue/Thu if you can. Backup punishment: walk the ~2 km to Virgin Active and 2 km back — then decide if you’ll actually do it.";
         } else if (whoopOnly >= 1 && weekPct < 67) {
           toneClass = "bad";
-          motivate = "Not impressed yet. Garmin saw activity but the portal checklist isn’t done — finish ticking Today or own the miss.";
+          motivate = "Not impressed yet. A wearable logged activity but the portal checklist isn’t done — finish ticking Today or own the miss.";
         } else if (weekPct >= 67) {
           toneClass = "good";
           motivate = "Impressed so far. One more clean gym session seals the week.";
@@ -2840,7 +2840,7 @@
           '<ul class="wp-legend">' +
           '<li><i class="g"></i> Done — portal checklist complete (gym or home)</li>' +
           '<li><i class="a"></i> In progress — some moves ticked</li>' +
-          '<li><i class="p"></i> Garmin logged activity, checklist not finished</li>' +
+          '<li><i class="p"></i> Wearable logged activity, checklist not finished</li>' +
           '<li><i class="y"></i> Planned, not started</li>' +
           '<li><i class="d"></i> Past day with no checklist</li>' +
           "</ul>" +
